@@ -10,9 +10,8 @@ class ProductValue extends Model
     protected $fillable = [
         'product_id',
         'value_id',
-        'quantity'
-    ];
 
+    ];
     public function product()
     {
         return $this->belongsTo(Product::class);
@@ -22,7 +21,6 @@ class ProductValue extends Model
     {
         return $this->belongsTo(Value::class);
     }
-
 
 
 

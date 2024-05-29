@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\v1\CategoryController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\api\v1\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/addParentCategory', [CategoryController::class, 'addParentCategory']);
+Route::post('/add-category', [CategoryController::class, 'addParentCategory']);

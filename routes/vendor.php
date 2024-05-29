@@ -1,11 +1,7 @@
 <?php
 
-use App\Http\Controllers\AttributeController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\v1\CategoryController;
-use App\Http\Controllers\v1\VendorApiController;
-use App\Models\Attribute;
-
+use App\Http\Controllers\api\v1\CategoryController;
+use App\Http\Controllers\api\v1\VendorApiController;
 
 
 Route::get('/categories/parent', [CategoryController::class, 'getParentCategories']);
@@ -18,8 +14,7 @@ Route::get('/attributes', [\App\Http\Controllers\AttributeController::class, 'in
 
 
 
-Route::get('/products', [ProductController::class, 'index']);
+Route::resource('/products', VendorApiController::class);
 
-Route::post('/product-create', [VendorApiController::class, 'store']);
 
 

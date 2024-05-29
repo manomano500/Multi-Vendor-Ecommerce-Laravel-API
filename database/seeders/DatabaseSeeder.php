@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AttributeSeeder::class,
             ValueSeeder::class,
-            AttributeValueSeeder::class,
+
         ]);
 
 

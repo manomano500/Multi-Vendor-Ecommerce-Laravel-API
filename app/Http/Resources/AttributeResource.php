@@ -14,7 +14,6 @@ class AttributeResource extends JsonResource
 
             'id' => $this->id,
             'name' => $this->name,
-            'values' =>  ValueResource::collection($this->values),
         ];
     }
 }

@@ -12,17 +12,18 @@ return new class extends Migration {
             $table->string('name');
             $table->string('slug');
             $table->text('thumb_image');
-            $table->integer('store_id');
-            $table->integer('category_id');
-
+            $table->integer('quantity')->default(0);
+            $table->foreignId('category_id');
+$table->foreignId('store_id');
 
             $table->double('price');
 
             $table->boolean('status');
 
-
             $table->softDeletes();
             $table->timestamps();
+            $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

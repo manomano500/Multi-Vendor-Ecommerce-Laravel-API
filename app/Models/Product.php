@@ -15,13 +15,14 @@ class Product extends Model
         'slug',
         'thumb_image',
         'store_id',
+        'quantity', // 'quantity' is added to the fillable array
         'category_id',
         'price',
         'status',
     ];
-    public function attributes()
+    public function attributeValues()
     {
-        return $this->hasMany(ProductValue::class);
+        return $this->belongsToMany(Value::class, 'product_values', 'product_id', 'value_id');
     }
 
     public function category()
@@ -34,10 +35,9 @@ class Product extends Model
         return $this->belongsTo(Store::class);
     }
 
-
-
-    public function values()
+    public function userStore()
     {
-return $this->belongsToMany(Value::class, 'product_values', 'product_id', 'value_id')->withPivot('quantity');
+        return Store::find($this->store_id)->user_id;
     }
+
 }

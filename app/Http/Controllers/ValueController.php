@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Resources\ValueResource;
 use App\Models\Value;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ValueController extends Controller
 {
     public function index()
     {
-        return ValueResource::collection(Value::all());
+       $values = Value::with('attribute')->get();
+       Log::info($values);
+        return $values;
     }
 
     public function store(Request $request)

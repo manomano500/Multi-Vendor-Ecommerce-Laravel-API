@@ -10,12 +10,11 @@ return new class extends Migration {
         Schema::create('product_values', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id');
-            $table->unsignedBigInteger('attribute_value_id');
-            $table->integer('quantity')->default(0);
+            $table->unsignedBigInteger('value_id');
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->foreign('attribute_value_id')->references('id')->on('attribute_values')->onDelete('cascade');
+            $table->foreign('value_id')->references('id')->on('values')->onDelete('cascade');
         });
     }
 

@@ -19,6 +19,11 @@ class Attribute extends Model
 
     public function values()
     {
-        return $this->belongsToMany(Value::class, 'attribute_values');
+        return $this->hasMany(Value::class);
+    }
+
+    public function valuesNames()
+    {
+        return $this->hasMany(Value::class)->select('name')->where('attribute_id', $this->id)->get();
     }
 }

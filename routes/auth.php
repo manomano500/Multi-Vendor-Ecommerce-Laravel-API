@@ -38,7 +38,7 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 
 Route::post('/become-vendor', [RegisteredUserController::class, 'becomeVendor'])
-                ->middleware(['auth','auth:sanctum'])
+                ->middleware(['auth','auth:sanctum','role:customer'])
                 ->name('become-vendor');
 
 

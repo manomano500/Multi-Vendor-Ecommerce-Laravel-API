@@ -6,23 +6,19 @@ use App\Http\Requests\AttributeRequest;
 use App\Http\Resources\AttributeResource;
 use App\Models\Attribute;
 use App\Models\AttributeValue;
+use Illuminate\Support\Facades\Log;
 
 class AttributeController extends Controller
 {
     public function index()
     {
         $attributes = Attribute::with('values')->get();
-        return response()->json($attributes);
+        Log::info($attributes);
+        return AttributeResource::collection($attributes);
     }
 
 
 
-    public function update(AttributeRequest $request, Attribute $attribute)
-    {
-        $attribute->update($request->validated());
-
-        return new AttributeResource($attribute);
-    }
 
     public function destroy(Attribute $attribute)
     {

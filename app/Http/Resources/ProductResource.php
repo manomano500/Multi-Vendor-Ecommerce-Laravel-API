@@ -16,19 +16,24 @@ class ProductResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'price' => $this->price,
+            'quantity' => $this->quantity, // 'quantity' is added to the fillable array
             'thumb_image' => $this->thumb_image,
             'category_id' => $this->category_id,
             'status' => $this->status,
             'store_id' => $this->store_id,
-            'attribute_values' => $this->productattributeValues->map(function (ProductValue $attributeValue) {
-                return [
-                    'id' => $attributeValue->id,
-                    'attribute' => $this->attributeValues,
-//                    'value' => $attributeValue->value->name,
-                ];
-            }),
+            'attributes' => $this->whenLoaded('attributeValues', function () {
+                return $this->attributeValues->groupBy('attribute.id')->map(function ($values, $attributeId) {
+                    return [
+                        'id' => $attributeId,
+                        'name' => $values->first()->attribute->name,
+                        'values' => ValueResource::collection($values),
+                    ];
+                })->values();
 
 
-        ];
+
+
+    })
+            ];
     }
 }

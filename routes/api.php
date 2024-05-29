@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\v1\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,24 +20,17 @@ Route::middleware(['auth:sanctum'])->group(function () {
         return $request->user();
     });
 
-
-
-
-
 });
 
 
 
 
 
-Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
-    Route::apiResource('/users', \App\Http\Controllers\api\admin\UserController::class);
-//    Route::apiResource('stores', AdminStoreController::class);
-    Route::apiResource('stores', \App\Http\Controllers\api\admin\stores\StoreController::class);
-
-//    Route::apiResource('products', AdminProductController::class);
-    // Other admin routes
-});
 
 
-Route::get('/categories', 'App\Http\Controllers\api\admin\CategoryController@index');
+
+Route::get('/categories/parent', [CategoryController::class, 'getParentCategories']);
+
+
+//Route::resource('/products', \App\Http\Controllers\api\v1\ProductController::class);
+//Route::get('/products', [App\Http\Controllers\v1\ProductController::class, 'show']);
