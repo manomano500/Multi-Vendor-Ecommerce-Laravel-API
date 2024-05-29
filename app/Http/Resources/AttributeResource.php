@@ -5,15 +5,16 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-/** @mixin \App\Models\ProductAttribute */
-class ProductAttributeResource extends JsonResource
+/** @mixin \App\Models\Attribute */
+class AttributeResource extends JsonResource
 {
     public function toArray(Request $request): array
     {
         return [
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+
             'id' => $this->id,
+            'name' => $this->name,
+            'values' =>  ValueResource::collection($this->values),
         ];
     }
 }

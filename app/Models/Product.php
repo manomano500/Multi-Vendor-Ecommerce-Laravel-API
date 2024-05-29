@@ -21,6 +21,23 @@ class Product extends Model
     ];
     public function attributes()
     {
-        return $this->hasMany(ProductAttribute::class);
+        return $this->hasMany(ProductValue::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
+    }
+
+
+
+    public function values()
+    {
+return $this->belongsToMany(Value::class, 'product_values', 'product_id', 'value_id')->withPivot('quantity');
     }
 }

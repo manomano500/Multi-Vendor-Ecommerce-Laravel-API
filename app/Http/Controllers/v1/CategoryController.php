@@ -28,6 +28,10 @@ class CategoryController extends Controller
    }
 
 
+   public function getChildrenCategories(Category $category){
+         return CategoryResource::collection($category->children);
+   }
+
 
 
 

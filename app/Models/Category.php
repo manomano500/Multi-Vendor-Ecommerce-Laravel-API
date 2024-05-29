@@ -9,6 +9,11 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
+
     public function children(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Category::Class,'category_id')->with('children');

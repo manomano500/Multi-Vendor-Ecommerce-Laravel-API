@@ -15,11 +15,11 @@ class UserResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'email_verified_at' => $this->email_verified_at,
-            'password' => $this->password,
+
             'phone' => $this->phone,
             'remember_token' => $this->remember_token,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+
+
             'notifications_count' => $this->notifications_count,
             'read_notifications_count' => $this->read_notifications_count,
             'tokens_count' => $this->tokens_count,

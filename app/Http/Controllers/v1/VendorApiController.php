@@ -2,123 +2,78 @@
 
 namespace App\Http\Controllers\v1;
 
+
 use App\Http\Controllers\Controller;
-
-
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
+use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use App\Models\Attribute;
-use App\Models\Value;
-use App\Models\ProductAttribute;
-use App\Models\ProductAttributeValue;
+use App\Models\AttributeValue;
+use App\Models\ProductValue;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class VendorApiController extends Controller
 {
-    function storeProduct(Request $request)
+    public function store(Request $request)
     {
-       $validated= Validator::make($request->all(),[
-            'name' => 'required|string|max:255',
-            'slug' => 'required|string|max:255',
-            'thumb_image' => 'required|string',
-            'store_id' => 'required|integer',
-            'category_id' => 'required|integer',
+     $productRequest = ProductRequest::createFrom($request);
+     $validate =Validator::make($productRequest->all(), $productRequest->rules());
+     if ($validate->fails()) {
+            return response()->json(['message' => $validate->errors()], 400);
+}
 
-            'price' => 'required|numeric',
-            'status' => 'required|boolean',
-            'attrs' => 'required|array',
-            'attrs.*.name' => 'required|string|max:255',
-            'attrs.*.values' => 'required|array',
-            'attrs.*.values.*.name' => 'required|string|max:255',
-            'attrs.*.values.*.quantity' => 'required|integer',
-        ]);
-       if($validated->fails()) {
-           return response()->json(['message' => 'Validation failed', 'errors' => $validated->errors()], 422);
-       }
+
+
         try {
             DB::beginTransaction();
 
-            // Create the product
-            $product = Product::create($request->only([
-                'name',
-                'slug',
-                'thumb_image',
-                'store_id',
-                'category_id',
+            $product =new Product($productRequest->only(
+                [
+                    'name',
+                    'slug',
+                    'thumb_image',
+                    'category_id',
+                    'price',
+                    'status'
+                ]));
 
-                'price',
-                'status'
-            ]));
+          $product->store_id = Auth::user()->storeId();
+            $product->save();
 
             // Handle attributes and values
-            foreach ($request->attrs as $attr) {
-                Log::info($attr);
+            foreach ($productRequest->variants as $variant){
 
-                // Find or create attribute
-                $attribute = Attribute::firstOrCreate(['name' => $attr['name']]);
+                foreach ($variant['values'] as $value){
+                    $variant = AttributeValue::where('attribute_id', $variant['attribute'])
+                        ->where('value_id', $value['value'])
+                        ->first();
 
-                // Create product attribute relationship
-                $productAttribute = ProductAttribute::create([
-                    'product_id' => $product->id,
-                    'attribute_id' => $attribute->id,
-                ]);
+                    if (!$variant) {
+                        return response()->json(['message' => 'Attribute value not found'], 404);
+                    }
 
-                // Store values and quantities for each attribute
-                foreach ($attr['values'] as $value) {
-// Find or create value
-                    $valueModel = Value::firstOrCreate(['name' => $value['name']]);
 
-                    // Create product attribute value relationship
-                    ProductAttributeValue::create([
-                        'product_attribute_id' => $productAttribute->id,
-                        'value_id' => $valueModel->id,
-                        'quantity' => $value['quantity'],
+                    ProductValue::create([
+                        'product_id' => $product->id,
+                        'attribute_value_id' => $variant->id,
+                        'quantity' => $value['quantity']
                     ]);
                 }
+
             }
 
             DB::commit();
 
-            return response()->json(['message' => 'Product created successfully', 'product' => $product], 201);
+            return response()->json(['message' => 'Product created successfully', 'product' =>new ProductResource($product)], 201);
         } catch (\Exception $e) {
             DB::rollBack();
 
             return response()->json(['message' => 'Failed to create product', 'error' => $e->getMessage()], 500);
         }
     }
-
-
-
-    /**
-     * Fetch all attributes from the database.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function fetchAttributes()
-    {
-        try {
-            $attributes = Attribute::all();
-            return response()->json($attributes);
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Failed to fetch attributes', 'error' => $e->getMessage()], 500);
-        }
-    }
-
-    /**
-     * Fetch all values from the database.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function fetchValues()
-    {
-        try {
-            $values = Value::all();
-            return response()->json($values);
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Failed to fetch values', 'error' => $e->getMessage()], 500);
-        }
-    }
-
 }

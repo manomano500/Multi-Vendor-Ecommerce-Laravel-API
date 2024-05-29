@@ -6,7 +6,7 @@ use App\Models\AttributeValue;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
-class ValuesFactory extends Factory
+class AttributeValueFactory extends Factory
 {
     protected $model = AttributeValue::class;
 
@@ -15,7 +15,6 @@ class ValuesFactory extends Factory
         return [
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'name' => $this->faker->name(),
         ];
     }
 }
