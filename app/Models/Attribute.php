@@ -4,16 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Attribute extends Model
 {
-    use SoftDeletes, HasFactory;
+    use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'name',
+    ];
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
 
-    public function productAttributes()
+
+
+    public function variations()
     {
-        return $this->hasMany(ProductAttribute::class);
+        return $this->hasMany(Variation::class);
     }
+
 }

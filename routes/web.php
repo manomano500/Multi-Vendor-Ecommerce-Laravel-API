@@ -18,6 +18,10 @@ Route::get('/', function () {
 });
 
 // routes/web.php
-Route::get('/send-test-email', [App\Http\Controllers\MailController::class, 'sendTestEmail']);
+
+
+
+//Route::get('/products', [\App\Http\Controllers\api\v1\ProductController::class, 'index']);
+
 
 require __DIR__.'/auth.php';

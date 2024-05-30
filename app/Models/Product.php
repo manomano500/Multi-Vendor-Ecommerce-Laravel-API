@@ -15,12 +15,30 @@ class Product extends Model
         'slug',
         'thumb_image',
         'store_id',
+        'quantity', // 'quantity' is added to the fillable array
         'category_id',
         'price',
         'status',
     ];
-    public function attributes()
+    public function attributeValues()
     {
-        return $this->hasMany(ProductAttribute::class);
+        return $this->belongsToMany(Variation::class, 'product_variations', 'product_id', 'value_id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
+    }
+
+
+
+    public function variations()
+    {
+        return $this->belongsToMany(Variation::class, 'product_variations');
     }
 }

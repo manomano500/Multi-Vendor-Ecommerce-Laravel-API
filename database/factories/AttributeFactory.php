@@ -2,19 +2,20 @@
 
 namespace Database\Factories;
 
-use App\Models\ProductVariation;
+use App\Models\Attribute;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
-class ProductAttributeValueFactory extends Factory
+class AttributeFactory extends Factory
 {
-    protected $model = ProductVariation::class;
+    protected $model = Attribute::class;
 
     public function definition(): array
     {
         return [
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
+            'name' => $this->faker->name(),
         ];
     }
 }

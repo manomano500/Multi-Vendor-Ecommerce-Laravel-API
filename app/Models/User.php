@@ -49,16 +49,22 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsTo(Role::class);
     }
-public function sendPasswordResetNotification($token): void
-{
-    $url = 'http://localhost:8080/reset-password?token='.$token;
-    $this->notify(new ResetPasswordNotification($url));
-}
+
+    public function sendPasswordResetNotification($token): void
+    {
+        $url = 'http://localhost:8080/reset-password?token=' . $token;
+        $this->notify(new ResetPasswordNotification($url));
+    }
 
 
-public function store()
-{
-    return $this->hasOne(Store::class);
-}
+    public function store()
+    {
+        return $this->hasOne(Store::class);
+    }
 
+    public function storeId()
+    {
+        return Store::where('user_id', $this->id)->first()->id;
+
+    }
 }

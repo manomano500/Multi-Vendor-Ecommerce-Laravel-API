@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Value;
+use App\Models\AttributeValue;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
 class ValuesFactory extends Factory
 {
-    protected $model = Value::class;
+    protected $model = AttributeValue::class;
 
     public function definition(): array
     {

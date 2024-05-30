@@ -28,5 +28,8 @@ class Store extends Model
 
     // New function to get category name
 
-
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }
