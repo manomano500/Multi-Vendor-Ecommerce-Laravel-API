@@ -33,22 +33,10 @@ class VariationController extends Controller
         return new VariationResource(Variation::create($data));
     }
 
-    public function show($id)
+    public function show($value)
     {
-        try {
-            $product = Product::findOrFail($id);
-
-            if ($product->store_id != Auth::user()->storeId()) {
-                return response()->json(['message' => 'Product not found'], 404);
-            }
-
-            // Eager load variations with their attributes
-            $product = Product::with('variations.attribute')->findOrFail($id);
-
-            return response()->json(['product' => ProductVendorSingleResource::make($product)], 200);
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Product not found', 'error' => $e->getMessage()], 404);
-        }
+        $variation = Variation::find($value);
+        return new VariationResource($variation);
     }
 
     public function update(Request $request, Variation $value)
@@ -68,4 +56,11 @@ class VariationController extends Controller
 
         return response()->json();
     }
+
+
+    public function showAttributeValues($attribute_name)
+    {
+return new AttributeValueCollection(AttributeValuesView::where('attribute_name',$attribute_name)->get());
+    }
+
 }

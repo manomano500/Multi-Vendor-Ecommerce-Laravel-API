@@ -12,7 +12,9 @@ class VariationResource extends JsonResource
     {
         return [
             'id'=> $this->id,
-            'name'=> $this->name,
+            'attribute_id'=> $this->attribute_id,
+            'attribute_name'=> $this->attribute->name, // 'attribute_name' is added to the array
+            'value'=> $this->value,
 
 
 

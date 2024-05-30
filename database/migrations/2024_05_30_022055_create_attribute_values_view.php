@@ -13,7 +13,7 @@ return new class extends Migration
     {
         DB::statement("
             CREATE VIEW attribute_values_view AS
-            SELECT v.id as variation_id ,a.name as attribute_name, v.value
+            SELECT v.id as variation_id ,a.id as attribute_id ,a.name as attribute_name, v.value
             FROM attributes a
             JOIN variations v ON a.id = v.attribute_id
         ");
