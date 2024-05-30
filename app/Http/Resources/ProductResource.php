@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources;
 
-use App\Models\ProductValue;
+use App\Models\ProductVariation;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -26,7 +26,7 @@ class ProductResource extends JsonResource
                     return [
                         'id' => $attributeId,
                         'name' => $values->first()->attribute->name,
-                        'values' => ValueResource::collection($values),
+                        'values' => VariationResource::collection($values),
                     ];
                 })->values();
 

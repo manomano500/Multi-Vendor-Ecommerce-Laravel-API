@@ -22,7 +22,7 @@ class Product extends Model
     ];
     public function attributeValues()
     {
-        return $this->belongsToMany(Value::class, 'product_values', 'product_id', 'value_id');
+        return $this->belongsToMany(Variation::class, 'product_values', 'product_id', 'value_id');
     }
 
     public function category()
@@ -35,9 +35,10 @@ class Product extends Model
         return $this->belongsTo(Store::class);
     }
 
-    public function userStore()
-    {
-        return Store::find($this->store_id)->user_id;
-    }
 
+
+    public function variations()
+    {
+        return $this->belongsToMany(Variation::class, 'product_variations');
+    }
 }

@@ -30,4 +30,10 @@ class Category extends Model
             ->whereNull('category_id')
             ->get();
     }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }
+

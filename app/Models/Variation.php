@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Value extends Model
+class Variation extends Model
 {
     protected $fillable = [
         'name',
@@ -17,9 +17,15 @@ class Value extends Model
         'updated_at',
     ];
 
+
+
     public function attribute()
     {
         return $this->belongsTo(Attribute::class);
     }
 
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'product_variations');
+    }
 }

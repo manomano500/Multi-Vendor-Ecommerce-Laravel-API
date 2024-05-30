@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\ValueResource;
-use App\Models\Value;
+use App\Http\Resources\VariationResource;
+use App\Models\Variation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -11,7 +11,7 @@ class ValueController extends Controller
 {
     public function index()
     {
-       $values = Value::with('attribute')->get();
+       $values = Variation::with('attribute')->get();
        Log::info($values);
         return $values;
     }
@@ -22,15 +22,15 @@ class ValueController extends Controller
 
         ]);
 
-        return new ValueResource(Value::create($data));
+        return new VariationResource(Variation::create($data));
     }
 
-    public function show(Value $value)
+    public function show(Variation $value)
     {
-        return new ValueResource($value);
+        return new VariationResource($value);
     }
 
-    public function update(Request $request, Value $value)
+    public function update(Request $request, Variation $value)
     {
         $data = $request->validate([
 
@@ -38,10 +38,10 @@ class ValueController extends Controller
 
         $value->update($data);
 
-        return new ValueResource($value);
+        return new VariationResource($value);
     }
 
-    public function destroy(Value $value)
+    public function destroy(Variation $value)
     {
         $value->delete();
 

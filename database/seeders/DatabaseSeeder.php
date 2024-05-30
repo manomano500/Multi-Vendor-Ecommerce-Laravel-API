@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\AttributeValue;
 use App\Models\Category;
 use App\Models\Role;
 use App\Models\Store;
@@ -45,7 +44,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             AttributeSeeder::class,
-            ValueSeeder::class,
+            VariationSeeder::class,
 
         ]);
 

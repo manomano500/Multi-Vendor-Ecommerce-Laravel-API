@@ -7,18 +7,19 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('values', function (Blueprint $table) {
+        Schema::create('variations', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('attribute_id');
-            $table->string('name');
+            $table->foreignId('attribute_id')->constrained()->onDelete('cascade');
+
+            $table->string('value');
             $table->timestamps();
 
-            $table->foreign('attribute_id')->references('id')->on('attributes')->onDelete('cascade');
+//            $table->foreign('attribute_id')->references('id')->on('attributes')->onDelete('cascade');
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('values');
+        Schema::dropIfExists('variations');
     }
 };

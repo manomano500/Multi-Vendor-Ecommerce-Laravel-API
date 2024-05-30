@@ -9,8 +9,8 @@ use App\Http\Resources\Product\ProductVendorAllCollection;
 use App\Http\Resources\Product\ProductVendorSingleResource;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
-use App\Models\ProductValue;
-use App\Models\Value;
+use App\Models\ProductVariation;
+use App\Models\Variation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -54,17 +54,17 @@ class VendorApiController extends Controller
                 // Handle attributes and values
                 foreach ($productRequest->variants as $variant) {
                     foreach ($variant['values'] as $value) {
-                        $valueModel = Value::where('attribute_id', $variant['attribute'])
-                            ->where('name', $value)
+                        $valueModel = Variation::where('attribute_id', $variant['attribute'])
+                            ->where('value', $value)
                             ->first();
 
                         if (!$valueModel) {
                             return response()->json(['message' => 'Attribute value not found'], 404);
                         }
 
-                        ProductValue::create([
+                        ProductVariation::create([
                             'product_id' => $product->id,
-                            'value_id' => $valueModel->id,
+                            'variation_id' => $valueModel->id,
                         ]);
                     }
                 }
@@ -124,7 +124,7 @@ class VendorApiController extends Controller
 
             foreach ($productRequest->variants as $variant) {
                 foreach ($variant['values'] as $value) {
-                    $valueModel = Value::where('attribute_id', $variant['attribute'])
+                    $valueModel = Variation::where('attribute_id', $variant['attribute'])
                         ->where('name', $value['value'])
                         ->first();
 ;
@@ -132,7 +132,7 @@ class VendorApiController extends Controller
                         return response()->json(['message' => 'Attribute value not found'], 404);
                     }
 
-                    ProductValue::create([
+                    ProductVariation::create([
                         'product_id' => $product->id,
                         'value_id' => $valueModel->id,
                         'quantity' => $value['quantity'] ?? null // Update quantity if provided

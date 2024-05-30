@@ -12,7 +12,7 @@ class AttributeController extends Controller
 {
     public function index()
     {
-        $attributes = Attribute::with('values')->get();
+        $attributes = Attribute::with('variations')->get();
         Log::info($attributes);
         return AttributeResource::collection($attributes);
     }

@@ -17,13 +17,11 @@ class Attribute extends Model
         'updated_at',
     ];
 
-    public function values()
+
+
+    public function variations()
     {
-        return $this->hasMany(Value::class);
+        return $this->hasMany(Variation::class);
     }
 
-    public function valuesNames()
-    {
-        return $this->hasMany(Value::class)->select('name')->where('attribute_id', $this->id)->get();
-    }
 }

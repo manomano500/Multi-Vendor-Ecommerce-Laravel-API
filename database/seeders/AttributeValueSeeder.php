@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Attribute;
 use App\Models\AttributeValue;
-use App\Models\Value;
+use App\Models\Variation;
 use Illuminate\Database\Seeder;
 
 class AttributeValueSeeder extends Seeder
@@ -19,76 +19,76 @@ class AttributeValueSeeder extends Seeder
 
         ];
         $colorValues = [
-            Value::where('name', 'Red')->first(),
-            Value::where('name', 'Blue')->first(),
-            Value::where('name', 'Green')->first(),
-            Value::where('name', 'Yellow')->first(),
-            Value::where('name', 'Black')->first(),
-            Value::where('name', 'White')->first(),
-            Value::where('name', 'Pink')->first(),
-            Value::where('name', 'Purple')->first(),
-            Value::where('name', 'Orange')->first(),
-            Value::where('name', 'Grey')->first(),
+            Variation::where('name', 'Red')->first(),
+            Variation::where('name', 'Blue')->first(),
+            Variation::where('name', 'Green')->first(),
+            Variation::where('name', 'Yellow')->first(),
+            Variation::where('name', 'Black')->first(),
+            Variation::where('name', 'White')->first(),
+            Variation::where('name', 'Pink')->first(),
+            Variation::where('name', 'Purple')->first(),
+            Variation::where('name', 'Orange')->first(),
+            Variation::where('name', 'Grey')->first(),
 
 
         ];
 
         $sizeValues = [
-            Value::where('name', 's')->first(),
-            Value::where('name', 'm')->first(),
-            Value::where('name', 'l')->first(),
-            Value::where('name', 'xl')->first(),
-            Value::where('name', 'xxl')->first(),
-            Value::where('name', 'xxxl')->first(),
-            Value::where('name', 'xxxxl')->first(),
-            Value::where('name', 'xxxxxl')->first(),
-            Value::where('name', 'xxxxxx')->first(),
-            Value::where('name', '10cm')->first(),
-            Value::where('name', '20cm')->first(),
-            Value::where('name', '30cm')->first(),
-            Value::where('name', '120cm')->first(),
-            Value::where('name', '130cm')->first(),
-            Value::where('name', '140cm')->first(),
-            Value::where('name', '150cm')->first(),
-            Value::where('name', '160cm')->first(),
-            Value::where('name', '170cm')->first(),
+            Variation::where('name', 's')->first(),
+            Variation::where('name', 'm')->first(),
+            Variation::where('name', 'l')->first(),
+            Variation::where('name', 'xl')->first(),
+            Variation::where('name', 'xxl')->first(),
+            Variation::where('name', 'xxxl')->first(),
+            Variation::where('name', 'xxxxl')->first(),
+            Variation::where('name', 'xxxxxl')->first(),
+            Variation::where('name', 'xxxxxx')->first(),
+            Variation::where('name', '10cm')->first(),
+            Variation::where('name', '20cm')->first(),
+            Variation::where('name', '30cm')->first(),
+            Variation::where('name', '120cm')->first(),
+            Variation::where('name', '130cm')->first(),
+            Variation::where('name', '140cm')->first(),
+            Variation::where('name', '150cm')->first(),
+            Variation::where('name', '160cm')->first(),
+            Variation::where('name', '170cm')->first(),
 
         ];
 
         $weightValues = [
-            Value::where('name', '10kg')->first(),
-            Value::where('name', '20kg')->first(),
-            Value::where('name', '30kg')->first(),
-            Value::where('name', '40kg')->first(),
-            Value::where('name', '50kg')->first(),
-            Value::where('name', '60kg')->first(),
-            Value::where('name', '70kg')->first(),
-            Value::where('name', '80kg')->first(),
-            Value::where('name', '90kg')->first(),
-            Value::where('name', '100kg')->first(),
-            Value::where('name', '110kg')->first(),
-            Value::where('name', '120kg')->first(),
-            Value::where('name', '130kg')->first(),
-            Value::where('name', '140kg')->first(),
-            Value::where('name', '150kg')->first(),
-            Value::where('name', '160kg')->first(),
+            Variation::where('name', '10kg')->first(),
+            Variation::where('name', '20kg')->first(),
+            Variation::where('name', '30kg')->first(),
+            Variation::where('name', '40kg')->first(),
+            Variation::where('name', '50kg')->first(),
+            Variation::where('name', '60kg')->first(),
+            Variation::where('name', '70kg')->first(),
+            Variation::where('name', '80kg')->first(),
+            Variation::where('name', '90kg')->first(),
+            Variation::where('name', '100kg')->first(),
+            Variation::where('name', '110kg')->first(),
+            Variation::where('name', '120kg')->first(),
+            Variation::where('name', '130kg')->first(),
+            Variation::where('name', '140kg')->first(),
+            Variation::where('name', '150kg')->first(),
+            Variation::where('name', '160kg')->first(),
 
         ];
         $brandValues = [
-            Value::where('name', 'adidas')->first(),
-            Value::where('name', 'nike')->first(),
-            Value::where('name', 'puma')->first(),
-            Value::where('name', 'reebok')->first(),
-            Value::where('name', 'new balance')->first(),
-            Value::where('name', 'asics')->first(),
-            Value::where('name', 'fila')->first(),
-            Value::where('name', 'under armour')->first(),
-            Value::where('name', 'vans')->first(),
-            Value::where('name', 'converse')->first(),
-            Value::where('name', 'jordan')->first(),
-            Value::where('name', 'gucci')->first(),
-            Value::where('name', 'balenciaga')->first(),
-            Value::where('name', 'louis vuitton')->first(),
+            Variation::where('name', 'adidas')->first(),
+            Variation::where('name', 'nike')->first(),
+            Variation::where('name', 'puma')->first(),
+            Variation::where('name', 'reebok')->first(),
+            Variation::where('name', 'new balance')->first(),
+            Variation::where('name', 'asics')->first(),
+            Variation::where('name', 'fila')->first(),
+            Variation::where('name', 'under armour')->first(),
+            Variation::where('name', 'vans')->first(),
+            Variation::where('name', 'converse')->first(),
+            Variation::where('name', 'jordan')->first(),
+            Variation::where('name', 'gucci')->first(),
+            Variation::where('name', 'balenciaga')->first(),
+            Variation::where('name', 'louis vuitton')->first(),
         ];
 
         foreach ($colorValues as $colorValue) {
