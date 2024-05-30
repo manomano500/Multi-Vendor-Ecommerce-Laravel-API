@@ -4,17 +4,22 @@ namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
-use App\Http\Resources\CategoryParentResource;
+use App\Http\Resources\Categories\CategoryCollection;
+use App\Http\Resources\Categories\CategoryParentChildrenResource;
+use App\Http\Resources\Categories\CategoryParentResource;
 use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        return CategoryResource::collection(Category::all());
+        $categories = Category::with('children')->get();
+        Log::info($categories);
+        return  CategoryParentChildrenResource::collection($categories);
     }
 
    public function addParentCategory(Request $request)
@@ -33,7 +38,7 @@ class CategoryController extends Controller
               foreach ($request->children as $child){
                   $category->children()->create($child);
               }
-              return new CategoryParentResource($category);
+              return new CategoryParentChildrenResource($category);
        } catch (\Exception $e) {
            return response()->json(['message' => $e->getMessage()], 400);
        }
@@ -42,7 +47,7 @@ class CategoryController extends Controller
 
 
    public function getChildrenCategories(Category $category){
-         return CategoryResource::collection($category->children);
+         return CategoryParentChildrenResource::collection($category->children);
    }
 
 
@@ -50,6 +55,11 @@ class CategoryController extends Controller
 
     public function getParentCategories()
     {
-        return Category::parents();
+        $categories = Category::get(['id','name']);
+        return CategoryParentResource::collection($categories);
+
+
     }
+
+
 }

@@ -22,7 +22,7 @@ class Product extends Model
     ];
     public function attributeValues()
     {
-        return $this->belongsToMany(Variation::class, 'product_values', 'product_id', 'value_id');
+        return $this->belongsToMany(Variation::class, 'product_variations', 'product_id', 'value_id');
     }
 
     public function category()

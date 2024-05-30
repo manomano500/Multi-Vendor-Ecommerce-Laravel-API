@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Categories;
 
+use App\Http\Resources\CategoryResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /** @mixin \App\Models\Category */
-class CategoryParentResource extends JsonResource
+class CategoryParentChildrenResource extends JsonResource
 {
     public function toArray(Request $request): array
     {

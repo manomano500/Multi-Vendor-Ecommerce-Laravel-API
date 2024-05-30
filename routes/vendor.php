@@ -17,4 +17,4 @@ Route::get('/attributes', [\App\Http\Controllers\AttributeController::class, 'in
 Route::resource('/products', VendorApiController::class);
 
 
-
+Route::get('/variations', [\App\Http\Controllers\api\v1\VariationController::class, 'index']);

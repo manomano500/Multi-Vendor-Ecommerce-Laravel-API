@@ -27,10 +27,15 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 
 
-
-
+//get parent categories when user become a vendor
 Route::get('/categories/parent', [CategoryController::class, 'getParentCategories']);
 
 
+
+//get categories with their children
+Route::get('/categories',[ CategoryController::class,'index']);
+
+
+Route::get('/variations', [\App\Http\Controllers\api\v1\VariationController::class, 'index']);
 //Route::resource('/products', \App\Http\Controllers\api\v1\ProductController::class);
 //Route::get('/products', [App\Http\Controllers\v1\ProductController::class, 'show']);

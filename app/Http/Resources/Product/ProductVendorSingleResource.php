@@ -20,12 +20,11 @@ class ProductVendorSingleResource extends JsonResource
             'category_id' => CategoryResource::make($this->category),
             'price' => $this->price,
             'status' => $this->status,
-            "attributes"=> $this->attributeValues->map(function ($attributeValue){
+            "attributes"=> $this->variations->map(function ($variations){
                 return [
-                    'attribute_id' => $attributeValue->attribute->id,
-                    'attribute_name' => $attributeValue->attribute->name,
-                    'value_id' => $attributeValue->id,
-                    'value_name' => $attributeValue->name,
+                    'attribute_id' => $variations->attribute->id,
+                    'attribute_name' => $variations->attribute->name,
+                    'variation_id' => $variations->name,
                 ];
             }),
         ];

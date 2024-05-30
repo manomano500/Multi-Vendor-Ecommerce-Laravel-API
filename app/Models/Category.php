@@ -24,16 +24,19 @@ class Category extends Model
         return $this->hasMany(Category::Class,'category_id')->with('children');
     }
 
-    public static function parents()
+    public function parent()
     {
-        return Category::select('id', 'name')
-            ->whereNull('category_id')
-            ->get();
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function products()
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function getParents()
+    {
+        return $this->where('category_id',null);
     }
 }
 

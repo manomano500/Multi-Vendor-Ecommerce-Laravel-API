@@ -71,7 +71,7 @@ class VendorApiController extends Controller
 
                 DB::commit();
 
-                return response()->json(['message' => 'Product created successfully', 'product' =>new ProductResource($product->load('attributeValues.attribute'))], 201);
+                return response()->json(['message' => 'Product created successfully', 'product' =>new ProductResource($product->load('variations.attribute'))], 201);
             } catch (\Exception $e) {
                 DB::rollBack();
 
@@ -87,7 +87,7 @@ class VendorApiController extends Controller
             if($product->store_id != Auth::user()->storeId()){
                 return response()->json(['message' => 'Product not found'], 404);
             }
-            $product = Product::with('attributeValues.attribute')->findOrFail($id);
+            $product = Product::with('variations.attribute')->findOrFail($id);
             Log::info( "oifes");
             return response()->json(['product' =>ProductVendorSingleResource::make($product)], 200);
         } catch (\Exception $e) {
@@ -142,7 +142,7 @@ class VendorApiController extends Controller
 
             DB::commit();
 
-            return response()->json(['message' => 'Product updated successfully', 'product' => new ProductResource($product->load('attributeValues.attribute'))], 200);
+            return response()->json(['message' => 'Product updated successfully', 'product' => new ProductResource($product->load('variations.attribute'))], 200);
         } catch (\Exception $e) {
             DB::rollBack();
 
