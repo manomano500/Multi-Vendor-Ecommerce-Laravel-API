@@ -14,7 +14,12 @@ class VariationResource extends JsonResource
             'id'=> $this->id,
             'attribute_id'=> $this->attribute_id,
             'attribute_name'=> $this->attribute->name, // 'attribute_name' is added to the array
-            'value'=> $this->value,
+            'value'=> $this->attribute->variations->groupBy('value')->map(function ($group, $key) {
+                return [
+                    'variation_id' => $group->first()->id,
+                    'value' => $key,
+                ];
+            })->values()->all(),
 
 
 
@@ -23,3 +28,4 @@ class VariationResource extends JsonResource
         ];
     }
 }
+// Compare this snippet from app/Http/Resources/VariationResource.php:

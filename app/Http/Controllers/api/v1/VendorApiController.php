@@ -62,10 +62,9 @@ class VendorApiController extends Controller
                             return response()->json(['message' => 'Attribute value not found'], 404);
                         }
 
-                        ProductVariation::create([
-                            'product_id' => $product->id,
-                            'variation_id' => $valueModel->id,
-                        ]);
+                        $product->variations()->attach($valueModel->id);
+
+
                     }
                 }
 
@@ -123,22 +122,29 @@ class VendorApiController extends Controller
 //            $product->attributeValues()->delete(); // Remove existing attribute values
 
             foreach ($productRequest->variants as $variant) {
-                foreach ($variant['values'] as $value) {
+
                     $valueModel = Variation::where('attribute_id', $variant['attribute'])
-                        ->where('name', $value['value'])
+                        ->where('value', $variant['value'])
                         ->first();
-;
+Log::info($valueModel);
                     if (!$valueModel) {
                         return response()->json(['message' => 'Attribute value not found'], 404);
                     }
+Log::info(['product_id' => $product->id,
+    'variation_id' => $valueModel->id,]);
 
-                    ProductVariation::create([
+                    ProductVariation::updateOrCreate([
                         'product_id' => $product->id,
-                        'value_id' => $valueModel->id,
-                        'quantity' => $value['quantity'] ?? null // Update quantity if provided
+                        'variation_id' => $valueModel->id,
                     ]);
+//                    ProductVariation::create([
+//                        'product_id' => $product->id,
+////                        'attribute_id' => $valueModel->attribute, // 'attribute_id' is added to the array
+//                        'variation_id' => $valueModel->id,
+//                        // Update quantity if provided
+//                    ]);
                 }
-            }
+
 
             DB::commit();
 

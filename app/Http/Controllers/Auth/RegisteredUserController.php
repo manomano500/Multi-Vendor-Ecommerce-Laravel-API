@@ -52,7 +52,7 @@ class RegisteredUserController extends Controller
                 'token' => $token
             ], 200);
         } catch (\Exception $e) {
-            return response()->json(['error' => $validator->errors()], 500);
+            return response()->json(['error' => $e->getMessage()], 504);
         }
 
 

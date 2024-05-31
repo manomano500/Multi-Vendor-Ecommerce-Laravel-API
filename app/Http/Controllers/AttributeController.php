@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AttributeRequest;
 use App\Http\Resources\AttributeResource;
 use App\Models\Attribute;
-use App\Models\AttributeValue;
 use Illuminate\Support\Facades\Log;
 
 class AttributeController extends Controller

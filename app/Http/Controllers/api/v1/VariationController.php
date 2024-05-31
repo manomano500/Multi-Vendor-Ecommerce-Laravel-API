@@ -58,9 +58,10 @@ class VariationController extends Controller
     }
 
 
-    public function showAttributeValues($attribute_name)
+    public function showWithAttribute($attribute)
     {
-return new AttributeValueCollection(AttributeValuesView::where('attribute_name',$attribute_name)->get());
+        $variation = AttributeValuesView::where('attribute_name', $attribute)->get();
+        return new AttributeValueCollection($variation);
     }
 
 }

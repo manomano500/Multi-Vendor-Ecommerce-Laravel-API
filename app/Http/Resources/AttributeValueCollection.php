@@ -12,6 +12,7 @@ class AttributeValueCollection extends ResourceCollection
     {
         return $this->collection->groupBy('attribute_name')->map(function ($group, $key) {
             return [
+                'attribute_id' => $group->first()->attribute_id, // 'attribute_id' is added to the array
                 'attribute_name' => $key,
                 'variations' => $group->map(function ($item) {
                     return [
