@@ -21,7 +21,8 @@ class VendorApiController extends Controller
 {
     public function index(){
 //        $products = Product::with('attributeValues.attribute')->where('store_id', Auth::user()->storeId())->get();
-        $products = Product::where('store_id', Auth::user()->storeId())->get();
+//        $products = Product::where('store_id', Auth::user()->store->id)->get();
+$products =Auth::user()->products;
         return response()->json(['products' => new ProductVendorAllCollection($products)], 200);
     }
         public function store(Request $request)
@@ -40,7 +41,7 @@ class VendorApiController extends Controller
                 $product =new Product($productRequest->only(
                     [
                         'name',
-                        'slug',
+                        'description',
                         'quantity',
                         'thumb_image',
                         'category_id',
@@ -48,7 +49,7 @@ class VendorApiController extends Controller
                         'status'
                     ]));
 
-              $product->store_id = Auth::user()->storeId();
+              $product->store_id = Auth::user()->store->id;
                 $product->save();
 
                 // Handle attributes and values
@@ -62,9 +63,9 @@ class VendorApiController extends Controller
                             return response()->json(['message' => 'Attribute value not found'], 404);
                         }
 
-                        $product->variations()->attach($valueModel->id);
 
 
+                        $product->variations()->attach($valueModel);
                     }
                 }
 
@@ -83,11 +84,11 @@ class VendorApiController extends Controller
         try {
 
             $product = Product::findOrFail($id);
-            if($product->store_id != Auth::user()->storeId()){
+            if($product->store_id != Auth::user()->store->id){
                 return response()->json(['message' => 'Product not found'], 404);
             }
-            $product = Product::with('variations.attribute')->findOrFail($id);
-            Log::info( "oifes");
+//            $product = Product::with('variations.attribute')->findOrFail($id);
+$product->load('variations.attribute');
             return response()->json(['product' =>ProductVendorSingleResource::make($product)], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Product not found', 'error' => $e->getMessage()], 404);
@@ -110,7 +111,7 @@ class VendorApiController extends Controller
             // Update basic product information
             $product->update($productRequest->only([
                 'name',
-                'slug',
+                'description',
                 'quantity',
                 'thumb_image',
                 'category_id',
@@ -161,7 +162,7 @@ Log::info(['product_id' => $product->id,
     {
         try {
             $product = Product::findOrFail($id);
-            if($product->store_id != Auth::user()->storeId()){
+            if($product->store_id != Auth::user()->store->id){
                 return response()->json(['message' => 'Product not found'], 404);
             }
             $product->delete();

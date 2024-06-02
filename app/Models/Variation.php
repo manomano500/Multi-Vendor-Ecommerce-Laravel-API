@@ -18,7 +18,6 @@ class Variation extends Model
     ];
 
 
-
     public function attribute()
     {
         return $this->belongsTo(Attribute::class);
@@ -28,4 +27,6 @@ class Variation extends Model
     {
         return $this->belongsToMany(Product::class, 'product_variations');
     }
+
+
 }

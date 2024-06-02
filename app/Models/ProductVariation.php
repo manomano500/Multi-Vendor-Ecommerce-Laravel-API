@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class ProductVariation extends Model
+class ProductVariation extends Pivot
 {
 
     protected $table = 'product_variations';

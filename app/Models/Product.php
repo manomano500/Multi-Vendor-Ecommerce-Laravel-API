@@ -12,7 +12,7 @@ class Product extends Model
 
     protected $fillable = [
         'name',
-        'slug',
+        'description',
         'thumb_image',
         'store_id',
         'quantity', // 'quantity' is added to the fillable array
@@ -36,9 +36,13 @@ class Product extends Model
     }
 
 
-
     public function variations()
     {
         return $this->belongsToMany(Variation::class, 'product_variations');
+    }
+
+    public function user()
+    {
+        return $this->hasOneThrough(User::class, Store::class);
     }
 }

@@ -14,7 +14,7 @@ class ProductVendorSingleResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'slug' => $this->slug,
+            'description' => $this->description,
             'thumb_image' => $this->thumb_image,
 //            'store_id' => $this->store_id,
             'category_id' => CategoryResource::make($this->category),

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\api\v1\CategoryController;
+use App\Http\Controllers\api\v1\public\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -44,7 +44,7 @@ Route::get('/variations/{variationid}', [\App\Http\Controllers\api\v1\VariationC
 
 
 
-Route::get('/products', [\App\Http\Controllers\api\v1\ProductController::class, 'index']);
+Route::get('/products', [\App\Http\Controllers\api\v1\public\ProductController::class, 'index']);
 //Route::get('/variations/{attribute}', [\App\Http\Controllers\api\v1\VariationController::class, 'showWithAttribute']);
 //Route::resource('/products', \App\Http\Controllers\api\v1\ProductController::class);
 //Route::get('/products', [App\Http\Controllers\v1\ProductController::class, 'show']);

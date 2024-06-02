@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\api\v1;
+namespace App\Http\Controllers\api\v1\public;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Http\Resources\Categories\CategoryCollection;
 use App\Http\Resources\Categories\CategoryParentChildrenResource;
 use App\Http\Resources\Categories\CategoryParentResource;
-use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;

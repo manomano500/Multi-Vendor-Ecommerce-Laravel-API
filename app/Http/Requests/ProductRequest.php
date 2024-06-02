@@ -10,7 +10,7 @@ class ProductRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'slug' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
             'thumb_image' => 'required|string',
 //            'store_id' => 'required|integer',
             'category_id' => 'required|integer|exists:categories,id',
