@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\api\v1\public\CategoryController;
 use App\Http\Controllers\api\v1\VendorApiController;
+use App\Models\Product;
+use App\Models\User;
 use App\Models\Variation;
 
 
@@ -19,6 +21,8 @@ Route::resource('/products', VendorApiController::class);
 
 
 Route::get('test', function () {
-    $variation= Variation::find(1);
-return $variation->products;
+
+    $user =User::find(2);
+//   Log::info($user->products);
+    return response()->json(['$user'=>$user->products->groupBy('category_id')])    ;
 });

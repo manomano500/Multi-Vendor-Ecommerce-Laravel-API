@@ -10,13 +10,8 @@ class ProductVariation extends Pivot
 
     protected $table = 'product_variations';
 
-    protected $fillable = ['product_id', 'variation_id'];
+//    protected $fillable = ['product_id', 'variation_id'];
 
-
-    public function value()
-    {
-        return $this->belongsTo(Variation::class);
-    }
 
 
     public function product()
@@ -29,5 +24,13 @@ class ProductVariation extends Pivot
         return $this->belongsTo(Variation::class);
     }
 
+//    public static function boot()
+//    {
+//        parent::boot();
+//
+//        static::creating(function ($productVariation) {
+//            $productVariation->quantity = 0;
+//        });
+//    }
 
 }

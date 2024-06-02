@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\hasOneThrough;
 
 class Product extends Model
 {
@@ -20,9 +21,14 @@ class Product extends Model
         'price',
         'status',
     ];
-    public function attributeValues()
+//    public function attributeValues()
+//    {
+//        return $this->belongsToMany(Variation::class, 'product_variations', 'product_id', 'value_id');
+//    }
+
+    public function store()
     {
-        return $this->belongsToMany(Variation::class, 'product_variations', 'product_id', 'value_id');
+        return $this->belongsTo(Store::class);
     }
 
     public function category()
@@ -30,19 +36,19 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function store()
-    {
-        return $this->belongsTo(Store::class);
-    }
-
 
     public function variations()
     {
-        return $this->belongsToMany(Variation::class, 'product_variations');
+        return $this->belongsToMany(Variation::class, 'product_variations','product_id',);
     }
+
 
     public function user()
     {
-        return $this->hasOneThrough(User::class, Store::class);
+        return $this->hasOneThrough(User::class, Store::class, 'id', 'id', 'store_id', 'user_id');
     }
+
+
+
+
 }

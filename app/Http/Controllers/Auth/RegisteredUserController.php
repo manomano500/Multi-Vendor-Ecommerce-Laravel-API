@@ -62,30 +62,40 @@ class RegisteredUserController extends Controller
     public function becomeVendor(Request $request )
     {
         $user = Auth::user();
-        if (Auth::user()->role_id == 2 ) {
 
-            return response()->json(['error' => 'You are already a vendor'], 403);
-        }
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
             'category' => ['required', 'string','exists:categories,id'],
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
         ]);
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 422);
         }
         try {
             DB::transaction(function () use ($request, $user) {
+
+                $new_store =new Store(
+                    [
+                        'user_id' => $user->id,
+                        'name' => $request->name,
+                        'description' => $request->description,
+                        'category_id' => $request->category,
+
+                    ]
+                );
+
+                if ($request->hasFile('image')) {
+                    $image = $request->file('image');
+                    $path = $image->store('images', 'public');
+                    $new_store->image = $path;
+                }
+                    $new_store->save();
                 $user->role_id = 2;
                 $user->save();
-                Store::create([
-                    'user_id' => $user->id,
-                    'name' => $request->name,
-                    'description' => $request->description,
-                    'category_id' => $request->category,
-                ]);
-                return response()->json(['message' => 'You are now a vendor'], 200);
+
             });
+            return response()->json(['message' => 'You are now a vendor'], 200);
         }catch (\Exception $e) {
             return response()->json(['error' => $validator->errors()], 500);
         }

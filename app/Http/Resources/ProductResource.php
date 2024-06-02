@@ -21,8 +21,8 @@ class ProductResource extends JsonResource
             'category_id' => $this->category_id,
             'status' => $this->status,
             'store_id' => $this->store_id,
-            'attributes' => $this->whenLoaded('attributeValues', function () {
-                return $this->attributeValues->groupBy('attribute.id')->map(function ($values, $attributeId) {
+            'attributes' => $this->whenLoaded('variations', function () {
+                return $this->variations->groupBy('attribute.id')->map(function ($values, $attributeId) {
                     return [
                         'id' => $attributeId,
                         'name' => $values->first()->attribute->name,
