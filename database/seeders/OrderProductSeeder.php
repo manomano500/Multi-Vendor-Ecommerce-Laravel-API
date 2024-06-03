@@ -10,6 +10,6 @@ class OrderProductSeeder extends Seeder
     public function run(): void
     {
 
-        OrderProduct::factory(10)->create();
+        OrderProduct::factory(5)->create();
     }
 }

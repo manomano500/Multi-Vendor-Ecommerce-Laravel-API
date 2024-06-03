@@ -45,6 +45,7 @@ class RegisteredUserController extends Controller
             ]);
             event(new Registered($user));
             Auth::login($user);
+
             $token = $user->createToken('api-token')->plainTextToken;
             return response()->json([
                 'message' => 'Registration successful',

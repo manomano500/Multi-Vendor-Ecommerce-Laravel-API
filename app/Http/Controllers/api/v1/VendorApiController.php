@@ -27,6 +27,7 @@ $products =Auth::user()->products;
     }
         public function store(Request $request)
         {
+
          $productRequest = ProductRequest::createFrom($request);
          $validate =Validator::make($productRequest->all(), $productRequest->rules());
          if ($validate->fails()) {
@@ -48,8 +49,9 @@ $products =Auth::user()->products;
 
                     ]));
 
-              $product->store_id = Auth::user()->store->id;
-              $product->status = 2;
+                Log::info(Auth::user()->store);
+                $product->store_id = Auth::user()->store->id;
+                $product->status = 2;
                 $product->save();
 
 //                if ($request->hasFile('images')) {
@@ -77,7 +79,7 @@ $products =Auth::user()->products;
 
                 DB::commit();
 
-                return response()->json(['message' => 'Product created successfully', 'data' =>new ProductResource($product->load('variations.attribute'))], 201);
+                return response()->json(['message' => 'Product created successfully', 'data' =>$product ], 201);
             } catch (\Exception $e) {
                 DB::rollBack();
 

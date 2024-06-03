@@ -12,7 +12,7 @@ class StoreSeeder extends Seeder
             'name' => 'John Doe',
             'description' => 'ewr',
             'category_id' => 1,
-            'user_id' => 3,
+            'user_id' => 2,
             'image' => 'ewr',
             'status' => 'active',
             'is_active' => 1,

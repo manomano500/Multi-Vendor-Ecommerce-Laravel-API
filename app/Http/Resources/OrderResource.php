@@ -11,9 +11,11 @@ class OrderResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'id' => $this->id,
+            'order_total' => $this->order_total,
+            'order_status' => $this->status,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'id' => $this->id,
         ];
     }
 }
