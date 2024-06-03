@@ -14,7 +14,6 @@ class ProductVendorSingleResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'thumb_image' => $this->thumb_image,
             'quantity' => $this->quantity,
             'category_id' => $this->category_id,
             'store_id' => $this->store_id,

@@ -87,7 +87,7 @@ class RegisteredUserController extends Controller
 
                 if ($request->hasFile('image')) {
                     $image = $request->file('image');
-                    $path = $image->store('images', 'public');
+                    $path = $image->store('images/stores', 'public');
                     $new_store->image = $path;
                 }
                     $new_store->save();

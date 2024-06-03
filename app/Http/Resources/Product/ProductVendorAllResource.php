@@ -15,9 +15,8 @@ class ProductVendorAllResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'thumb_image' => $this->thumb_image,
             'store_id' => $this->store_id,
-            'category' => CategoryResource::make($this->category),
+            'category' => $this->category->id,
             'price' => $this->price,
             'status' => $this->status,
 

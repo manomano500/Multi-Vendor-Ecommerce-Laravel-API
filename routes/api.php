@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\api\v1\public\CategoryController;
 use App\Http\Controllers\api\v1\public\StoreController;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -51,3 +52,9 @@ Route::get('/products', [\App\Http\Controllers\api\v1\public\ProductController::
 //Route::get('/products', [App\Http\Controllers\v1\ProductController::class, 'show']);
 
 Route::get('/stores',[StoreController::class,'index']);
+
+Route::get('/test', function () {
+
+    $order =Order::find(1);
+    return response()->json(['$order'=>$order->products])    ;
+});

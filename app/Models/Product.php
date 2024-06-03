@@ -14,7 +14,6 @@ class Product extends Model
     protected $fillable = [
         'name',
         'description',
-        'thumb_image',
         'store_id',
         'quantity', // 'quantity' is added to the fillable array
         'category_id',
@@ -49,6 +48,17 @@ class Product extends Model
     }
 
 
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class)
+            ->using(OrderProduct::class)
+            ->withPivot('quantity', 'price');
+    }
 
 
 }

@@ -16,14 +16,13 @@ class ProductFactory extends Factory
             'name' => $this->faker->name,
             'description' => $this->faker->text,
             'price' => $this->faker->randomFloat(2, 1, 100),
-            'qty' => $this->faker->numberBetween(1, 100),
             'status' => $this->faker->boolean,
+            'quantity' => $this->faker->numberBetween(1, 100),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'store_id' => 1,
             'category_id' => 1,
 
-            'thumb_image' => 'https://via.placeholder.com/150',
 
 
         ];

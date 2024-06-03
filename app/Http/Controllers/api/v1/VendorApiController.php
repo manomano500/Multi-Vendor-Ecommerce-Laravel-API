@@ -23,7 +23,7 @@ class VendorApiController extends Controller
 //        $products = Product::with('attributeValues.attribute')->where('store_id', Auth::user()->storeId())->get();
 //        $products = Product::where('store_id', Auth::user()->store->id)->get();
 $products =Auth::user()->products;
-        return response()->json(['products' => new ProductVendorAllCollection($products)], 200);
+        return response()->json(['data' => new ProductVendorAllCollection($products)], 200);
     }
         public function store(Request $request)
         {
@@ -43,16 +43,22 @@ $products =Auth::user()->products;
                         'name',
                         'description',
                         'quantity',
-                        'thumb_image',
                         'category_id',
                         'price',
-                        'status'
+
                     ]));
 
               $product->store_id = Auth::user()->store->id;
+              $product->status = 2;
                 $product->save();
 
-                // Handle attributes and values
+//                if ($request->hasFile('images')) {
+//                    foreach ($request->file('images') as $image) {
+//                        $path = $image->store('images/products', 'public');
+//                        $product->images()->create(['path' => $path]);
+//                    }
+//                }
+//                // Handle attributes and values
                 foreach ($productRequest->variants as $variant) {
                     foreach ($variant['values'] as $value) {
                         $valueModel = Variation::where('attribute_id', $variant['attribute'])
@@ -71,7 +77,7 @@ $products =Auth::user()->products;
 
                 DB::commit();
 
-                return response()->json(['message' => 'Product created successfully', 'product' =>new ProductResource($product->load('variations.attribute'))], 201);
+                return response()->json(['message' => 'Product created successfully', 'data' =>new ProductResource($product->load('variations.attribute'))], 201);
             } catch (\Exception $e) {
                 DB::rollBack();
 
@@ -113,7 +119,6 @@ $product->load('variations.attribute');
                 'name',
                 'description',
                 'quantity',
-                'thumb_image',
                 'category_id',
                 'price',
                 'status'

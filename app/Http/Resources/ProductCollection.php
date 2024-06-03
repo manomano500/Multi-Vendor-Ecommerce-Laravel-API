@@ -16,7 +16,6 @@ class ProductCollection extends ResourceCollection
                     'id' => $product->id,
                     'name' => $product->name,
                     'description' => $product->description,
-                    'thumb_image' => $product->thumb_image,
                     'category' => $product->category->name,
                     'quantity' => $product->quantity,
                     'price' => $product->price,

@@ -17,7 +17,6 @@ class ProductResource extends JsonResource
             'name' => $this->name,
             'price' => $this->price,
             'quantity' => $this->quantity, // 'quantity' is added to the fillable array
-            'thumb_image' => $this->thumb_image,
             'category_id' => $this->category_id,
             'status' => $this->status,
             'store_id' => $this->store_id,
