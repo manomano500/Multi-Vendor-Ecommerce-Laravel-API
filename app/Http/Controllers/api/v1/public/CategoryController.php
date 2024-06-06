@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\api\v1\public;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CategoryRequest;
-use App\Http\Resources\Categories\CategoryCollection;
+
 use App\Http\Resources\Categories\CategoryParentChildrenResource;
 use App\Http\Resources\Categories\CategoryParentResource;
 use App\Models\Category;
@@ -16,10 +15,27 @@ class CategoryController extends Controller
 {
     public function index()
     {
+        $categories = Category::whereNull('category_id')->get(['id','name']);
+        Log::info($categories);
+        return  $categories;
+
+
+    }
+
+    public function indexWhitChildren()
+    {
         $categories = Category::with('children')->get();
         Log::info($categories);
         return  CategoryParentChildrenResource::collection($categories);
+
     }
+
+public function show($id){
+        $categories = Category::findOrFail($id,['id','name'])->load('products');
+        return response()->json($categories);
+
+}
+
 
    public function addParentCategory(Request $request)
    {
@@ -45,20 +61,11 @@ class CategoryController extends Controller
    }
 
 
-   public function getChildrenCategories(Category $category){
-         return CategoryParentChildrenResource::collection($category->children);
-   }
 
 
 
 
-    public function getParentCategories()
-    {
-        $categories = Category::get(['id','name']);
-        return CategoryParentResource::collection($categories);
 
-
-    }
 
 
 }

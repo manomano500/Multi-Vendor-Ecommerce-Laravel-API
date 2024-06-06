@@ -7,8 +7,6 @@ use App\Models\User;
 use App\Models\Variation;
 
 
-Route::get('/categories/parent', [CategoryController::class, 'getParentCategories']);
-Route::get('/categories/{category}/children', [CategoryController::class, 'getChildrenCategories']);
 
 
 

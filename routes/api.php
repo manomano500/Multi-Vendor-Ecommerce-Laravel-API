@@ -3,8 +3,8 @@
 use App\Http\Controllers\api\v1\public\CategoryController;
 use App\Http\Controllers\api\v1\public\StoreController;
 use App\Models\Order;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,8 +35,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 //get categories with their children
 Route::get('/categories',[ CategoryController::class,'index']);
-Route::get('/categories/parent', [CategoryController::class, 'getParentCategories']);
-
+Route::get('/categories/with-children', [CategoryController::class, 'indexWhitChildren']);
+//get the category with the prducts
+Route::get('/categories/{id}', [CategoryController::class, 'show']);
 
 
 Route::get('/variations', [\App\Http\Controllers\api\v1\VariationController::class, 'index']);
@@ -47,9 +48,6 @@ Route::get('/variations/{variationid}', [\App\Http\Controllers\api\v1\VariationC
 
 
 Route::get('/products', [\App\Http\Controllers\api\v1\public\ProductController::class, 'index']);
-//Route::get('/variations/{attribute}', [\App\Http\Controllers\api\v1\VariationController::class, 'showWithAttribute']);
-//Route::resource('/products', \App\Http\Controllers\api\v1\ProductController::class);
-//Route::get('/products', [App\Http\Controllers\v1\ProductController::class, 'show']);
 
 Route::get('/stores',[StoreController::class,'index']);
 
