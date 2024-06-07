@@ -89,18 +89,18 @@ $products =Auth::user()->products;
 
     public function show($id)
     {
-        try {
+        $storeId = Auth::user()->store->id;
 
-            $product = Product::findOrFail($id);
-            if($product->store_id != Auth::user()->store->id){
-                return response()->json(['message' => 'Product not found'], 404);
-            }
-//            $product = Product::with('variations.attribute')->findOrFail($id);
-$product->load('variations.attribute');
-            return response()->json(['product' =>ProductVendorSingleResource::make($product)], 200);
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Product not found', 'error' => $e->getMessage()], 404);
+        $product = Product::where('id', $id)
+            ->where('store_id', $storeId)
+            ->with('') // Eager load related data if needed
+            ->first();
+        if(!$product){
+            return response()->json(['message' => 'Product not found '], 404);
+
         }
+        return $product;
+
     }
 
     public function update(Request $request, $id)

@@ -16,7 +16,7 @@ class ProductVendorAllResource extends JsonResource
             'name' => $this->name,
             'description' => $this->description,
             'store_id' => $this->store_id,
-            'category' => $this->category->id,
+            'category' => $this->category_id,
             'price' => $this->price,
             'status' => $this->status,
 

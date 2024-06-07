@@ -3,6 +3,8 @@
 use App\Http\Controllers\api\v1\public\CategoryController;
 use App\Http\Controllers\api\v1\public\StoreController;
 use App\Models\Order;
+use Illuminate\Http\Request;
+
 
 
 
@@ -19,8 +21,8 @@ use App\Models\Order;
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/user', function (Request $request) {
-        return $request->user();
-    });
+        return response()->json($request->user());    });
+
 
 });
 
@@ -35,6 +37,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 //get categories with their children
 Route::get('/categories',[ CategoryController::class,'index']);
+
 Route::get('/categories/with-children', [CategoryController::class, 'indexWhitChildren']);
 //get the category with the prducts
 Route::get('/categories/{id}/products', [CategoryController::class, 'show']);

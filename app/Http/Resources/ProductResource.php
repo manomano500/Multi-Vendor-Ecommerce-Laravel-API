@@ -13,26 +13,26 @@ class ProductResource extends JsonResource
     {
         return [
 
-            'id' => $this->id,
+//            'id' => $this->id,
             'name' => $this->name,
             'price' => $this->price,
             'quantity' => $this->quantity, // 'quantity' is added to the fillable array
             'category_id' => $this->category_id,
             'status' => $this->status,
             'store_id' => $this->store_id,
-            'attributes' => $this->whenLoaded('variations', function () {
-                return $this->variations->groupBy('attribute.id')->map(function ($values, $attributeId) {
-                    return [
-                        'id' => $attributeId,
-                        'name' => $values->first()->attribute->name,
-                        'values' => VariationResource::collection($values),
-                    ];
-                })->values();
-
-
-
-
-    })
+//            'attributes' => $this->whenLoaded('variations', function () {
+//                return $this->variations->groupBy('attribute.id')->map(function ($values, $attributeId) {
+//                    return [
+//                        'id' => $attributeId,
+//                        'name' => $values->first()->attribute->name,
+//                        'values' => VariationResource::collection($values),
+//                    ];
+//                })->values();
+//
+//
+//
+//
+//    })
             ];
     }
 }
