@@ -23,8 +23,11 @@ class VendorApiController extends Controller
     {
 //        $products = Product::with('attributeValues.attribute')->where('store_id', Auth::user()->storeId())->get();
 //        $products = Product::where('store_id', Auth::user()->store->id)->get();
-$products =Auth::user()->products;
-        return response()->json(['data' => new ProductVendorAllCollection($products)], 200);
+$products =Auth::user()->products()->with('category')
+
+    ->get();
+
+        return ProductVendorAllCollection::make($products)->response();
     }
         public function store(Request $request)
         {

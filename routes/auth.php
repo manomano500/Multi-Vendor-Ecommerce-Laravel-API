@@ -36,9 +36,3 @@ Route::post('/email/verification-notification', [EmailVerificationNotificationCo
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->middleware('auth:sanctum')
                 ->name('logout');
-//
-//Route::post('/become-vendor', [RegisteredUserController::class, 'becomeVendor'])
-//                ->middleware(['auth','auth:sanctum','role:customer'])
-//                ->name('become-vendor');
-//
-//

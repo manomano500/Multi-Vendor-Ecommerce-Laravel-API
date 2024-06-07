@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\StoreResource;
 use App\Models\Store;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,12 @@ class StoreController extends Controller
     public function index(Request $request)
     {
 
-        $store= Store::where('user_id',auth()->user()->id)->get();
-        return response()->json(['data'=>$store]);
+        $store = $request->user()->store; // Assuming 'store' is a relationship method in the User model
+
+        if (!$store) {
+            return response()->json(['message' => 'No store found for this user'], 404);
+        }
+        return new StoreResource($store);
 
     }
 
