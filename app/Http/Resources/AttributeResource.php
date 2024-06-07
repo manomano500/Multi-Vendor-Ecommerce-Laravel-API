@@ -14,6 +14,12 @@ class AttributeResource extends JsonResource
 
             'id' => $this->id,
             'name' => $this->name,
+//            'variations' => $this->variations->map(function ($variation) {
+//                return [
+//                    'id' => $variation->id,
+//                    'value' => $variation->value,
+//                ];
+//            }),
         ];
     }
 }

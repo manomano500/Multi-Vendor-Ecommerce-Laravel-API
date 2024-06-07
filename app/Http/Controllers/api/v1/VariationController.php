@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\AttributeValueCollection;
+use App\Http\Resources\AttributeResource;
 use App\Http\Resources\ProductVendorSingleResource;
 use App\Http\Resources\VariationResource;
-use App\Models\AttributeValuesView;
+use App\Models\Attribute;
 use App\Models\Product;
 use App\Models\Variation;
 use Illuminate\Http\Request;
@@ -18,8 +18,7 @@ class VariationController extends Controller
     {
 
 
-        $attributeValues = AttributeValuesView::all();
-        return new AttributeValueCollection($attributeValues);
+        return Attribute::with('variations')->get();
 
 
     }
@@ -58,10 +57,6 @@ class VariationController extends Controller
     }
 
 
-    public function showWithAttribute($attribute)
-    {
-        $variation = AttributeValuesView::where('attribute_name', $attribute)->get();
-        return new AttributeValueCollection($variation);
-    }
+
 
 }

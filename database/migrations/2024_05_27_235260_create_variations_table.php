@@ -15,6 +15,8 @@ return new class extends Migration {
             $table->timestamps();
 
 //            $table->foreign('attribute_id')->references('id')->on('attributes')->onDelete('cascade');
+
+      $table->unique(['attribute_id', 'value']);
         });
     }
 
