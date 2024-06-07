@@ -31,7 +31,7 @@ class CategoryController extends Controller
     }
 
 public function show($id){
-        $categories = Category::findOrFail($id,['id','name'])->load('products');
+       $categories = Category::with('products')->find($id,['id','name']);
         return response()->json($categories);
 
 }

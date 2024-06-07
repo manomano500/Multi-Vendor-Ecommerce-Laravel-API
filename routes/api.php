@@ -37,7 +37,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 Route::get('/categories',[ CategoryController::class,'index']);
 Route::get('/categories/with-children', [CategoryController::class, 'indexWhitChildren']);
 //get the category with the prducts
-Route::get('/categories/{id}', [CategoryController::class, 'show']);
+Route::get('/categories/{id}/products', [CategoryController::class, 'show']);
 
 
 Route::get('/variations', [\App\Http\Controllers\api\v1\VariationController::class, 'index']);

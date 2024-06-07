@@ -22,7 +22,12 @@ class ProductController extends Controller
             $query->where($key, $value);
         }
 
+        // Eager load the category relationship to avoid N+1 problem
+        $query->with('category');
+
+        // Execute the query and get the products
         $products = $query->get();
+
 
         // If no products are found, return an empty response
         if ($products->isEmpty()) {
