@@ -11,15 +11,9 @@ class VariationResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id'=> $this->id,
-            'attribute_id'=> $this->attribute_id,
-            'attribute_name'=> $this->attribute->name, // 'attribute_name' is added to the array
-            'value'=> $this->attribute->variations->groupBy('value')->map(function ($group, $key) {
-                return [
-                    'variation_id' => $group->first()->id,
-                    'value' => $key,
-                ];
-            })->values()->all(),
+            'id' => $this->id,
+            'value' => $this->value,
+            'attribute' => new AttributeResource($this->attribute)
 
 
 

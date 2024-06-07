@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Models\Variation;
 
 
-
+Route::get('/stores', [\App\Http\Controllers\StoreController::class, 'index']);
 
 
 Route::get('/attributes', [\App\Http\Controllers\AttributeController::class, 'index']);

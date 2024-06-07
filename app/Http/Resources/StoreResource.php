@@ -19,7 +19,8 @@ class StoreResource extends JsonResource
             'description' => $this->description,
             'image' => $this->image,
             'category' => $this->category->name,
-//            'status' => $this->status,
+            'status' => $this->status,
+            'user' => User::find($this->user_id)->name,
 
         ];
     }

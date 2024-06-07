@@ -20,10 +20,7 @@ class Product extends Model
         'price',
         'status',
     ];
-//    public function attributeValues()
-//    {
-//        return $this->belongsToMany(Variation::class, 'product_variations', 'product_id', 'value_id');
-//    }
+
 
     public function store()
     {
@@ -41,16 +38,24 @@ class Product extends Model
         return $this->belongsToMany(Variation::class, 'product_variations','product_id',);
     }
 
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public function attributes()
+    {
+        return $this->hasManyThrough(Attribute::class, Variation::class, 'product_id', 'id', 'id', 'attribute_id');
+    }
+
 
     public function user()
     {
         return $this->hasOneThrough(User::class, Store::class, 'id', 'id', 'store_id', 'user_id');
-    }
-
-
-    public function images()
-    {
-        return $this->hasMany(ProductImage::class);
     }
 
     public function orders()

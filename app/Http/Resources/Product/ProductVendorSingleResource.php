@@ -19,13 +19,8 @@ class ProductVendorSingleResource extends JsonResource
             'category_id' => CategoryResource::make($this->category),
             'price' => $this->price,
             'status' => $this->status,
-            "attributes"=> $this->variations->map(function ($variations){
-                return [
-                    'attribute_id' => $variations->attribute->id,
-                    'attribute_name' => $variations->attribute->name,
-                    'variation_id' => $variations->name,
-                ];
-            }),
+            "attributes"=> $this->variations->groupBy('attribute_id')
+
         ];
     }
 }

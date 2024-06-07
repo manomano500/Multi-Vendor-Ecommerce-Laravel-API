@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Validator;
 
 class VendorApiController extends Controller
 {
-    public function index(){
+    public function index(): \Illuminate\Http\JsonResponse
+    {
 //        $products = Product::with('attributeValues.attribute')->where('store_id', Auth::user()->storeId())->get();
 //        $products = Product::where('store_id', Auth::user()->store->id)->get();
 $products =Auth::user()->products;
@@ -36,6 +37,8 @@ $products =Auth::user()->products;
 
 
 
+
+
             try {
                 DB::beginTransaction();
 
@@ -49,7 +52,6 @@ $products =Auth::user()->products;
 
                     ]));
 
-                Log::info(Auth::user()->store);
                 $product->store_id = Auth::user()->store->id;
                 $product->status = 2;
                 $product->save();
@@ -93,13 +95,14 @@ $products =Auth::user()->products;
 
         $product = Product::where('id', $id)
             ->where('store_id', $storeId)
-            ->with('') // Eager load related data if needed
+            ->with('variations.attribute','category')
+            // Eager load related data if needed
             ->first();
         if(!$product){
             return response()->json(['message' => 'Product not found '], 404);
 
         }
-        return $product;
+        return  new ProductResource($product);
 
     }
 

@@ -23,8 +23,13 @@ $table->foreignId('store_id');
             $table->timestamps();
             $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+
         });
+
+
+
     }
+
 
     public function down(): void
     {
