@@ -17,7 +17,7 @@ $table->foreignId('store_id');
 
             $table->double('price');
 
-            $table->boolean('status');
+            $table->enum('status', ['active', 'inactive', 'out_of_stock'])->default('active');
 
             $table->softDeletes();
             $table->timestamps();
