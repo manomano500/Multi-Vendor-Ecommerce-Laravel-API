@@ -1,16 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\api\v1;
+namespace App\Http\Controllers\api\v1\public;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\AttributeResource;
-use App\Http\Resources\ProductVendorSingleResource;
 use App\Http\Resources\VariationResource;
 use App\Models\Attribute;
-use App\Models\Product;
 use App\Models\Variation;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class VariationController extends Controller
 {

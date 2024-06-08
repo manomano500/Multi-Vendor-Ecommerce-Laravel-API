@@ -1,21 +1,17 @@
 <?php
 
-use App\Http\Controllers\api\v1\public\CategoryController;
-use App\Http\Controllers\api\v1\VendorApiController;
-use App\Models\Product;
+use App\Http\Controllers\api\v1\ProductController;
 use App\Models\User;
-use App\Models\Variation;
 
 
 Route::get('/stores', [\App\Http\Controllers\StoreController::class, 'index']);
 
 
-Route::get('/attributes', [\App\Http\Controllers\AttributeController::class, 'index']);
 
 
 
 
-Route::resource('/products', VendorApiController::class);
+Route::resource('/products', ProductController::class);
 
 
 Route::get('test', function () {

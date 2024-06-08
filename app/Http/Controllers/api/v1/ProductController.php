@@ -17,8 +17,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
-class VendorApiController extends Controller
+class ProductController extends Controller
 {
+
+    //////////////for the vendor
     public function index(): \Illuminate\Http\JsonResponse
     {
 //        $products = Product::with('attributeValues.attribute')->where('store_id', Auth::user()->storeId())->get();

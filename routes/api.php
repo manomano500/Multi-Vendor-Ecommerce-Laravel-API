@@ -2,10 +2,9 @@
 
 use App\Http\Controllers\api\v1\public\CategoryController;
 use App\Http\Controllers\api\v1\public\StoreController;
+use App\Http\Controllers\api\v1\public\VariationController;
 use App\Models\Order;
 use Illuminate\Http\Request;
-
-
 
 
 /*
@@ -43,19 +42,19 @@ Route::get('/categories/with-children', [CategoryController::class, 'indexWhitCh
 Route::get('/categories/{id}/products', [CategoryController::class, 'show']);
 
 
-Route::get('/variations', [\App\Http\Controllers\api\v1\VariationController::class, 'index']);
+Route::get('/variations', [VariationController::class, 'index']);
 
-Route::get('/variations/{variationid}', [\App\Http\Controllers\api\v1\VariationController::class, 'show']);
-
-
+//Route::get('/variations/{variationid}', [VariationController::class, 'show']);
 
 
-Route::get('/products', [\App\Http\Controllers\api\v1\public\ProductController::class, 'index']);
+
+
+Route::resource('/products', \App\Http\Controllers\api\v1\public\ProductController::class);
 
 Route::get('/stores',[StoreController::class,'index']);
 
-Route::get('/test', function () {
-
-    $order =Order::find(1);
-    return response()->json(['$order'=>$order->products])    ;
-});
+//Route::get('/test', function () {
+//
+//    $order =Order::find(1);
+//    return response()->json(['$order'=>$order->products])    ;
+//});

@@ -13,7 +13,7 @@ class OrderProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'order_id' => $this->faker->numberBetween(1, 3),
+            'order_id' => $this->faker->numberBetween(1, 2),
             'product_id' => $this->faker->numberBetween(1, 20),
             'quantity' => 2,
             'price' => 20,

@@ -16,6 +16,8 @@ class OrderFactory extends Factory
             'user_id' => 3,
             'order_total' => 40,
             'status' => 'pending',
+            'city' => $this->faker->city,
+            'shipping_address' => $this->faker->address,
 
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
