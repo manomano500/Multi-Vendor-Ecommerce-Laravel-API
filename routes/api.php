@@ -53,8 +53,8 @@ Route::resource('/products', \App\Http\Controllers\api\v1\public\ProductControll
 
 Route::get('/stores',[StoreController::class,'index']);
 
-//Route::get('/test', function () {
-//
-//    $order =Order::find(1);
-//    return response()->json(['$order'=>$order->products])    ;
-//});
+Route::get('/test', function () {
+
+   $products = \App\Models\Product::find(1)->with('variations')->get();
+      ;
+});

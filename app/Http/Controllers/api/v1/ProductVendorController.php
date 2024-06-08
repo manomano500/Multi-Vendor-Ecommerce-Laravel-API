@@ -56,7 +56,7 @@ try {
 
     $product->save();
     $product->variations()->attach($request->input('variations'));
-    return response()->json(['message' => 'Product created successfully', 'product' => new ProductVendorSingleResource($product)], 201);
+    return response()->json(['message' => 'Product created successfully', 'data' => new ProductResource($product),], 201);
 }
 catch (\Exception $e) {}
          return response()->json(['message' => 'Failed to create product', 'error' => $e->getMessage()], 500);
@@ -77,7 +77,9 @@ catch (\Exception $e) {}
             return response()->json(['message' => 'Product not found '], 404);
 
         }
-        return  new ProductResource($product);
+        return  Response()->json(['message'=>'Product found',
+            'data'=>new ProductResource($product)]
+            ,200);
 
     }
 
@@ -105,7 +107,7 @@ catch (\Exception $e) {}
             // Sync variations
             $product->variations()->sync($request->input('variations'));
 
-            return response()->json(['message' => 'Product updated successfully', 'product' => new ProductResource( $product)], 200);
+            return response()->json(['message' => 'Product updated successfully', 'data' => new ProductResource( $product)], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Failed to update product', 'error' => $e->getMessage()], 500);
         }

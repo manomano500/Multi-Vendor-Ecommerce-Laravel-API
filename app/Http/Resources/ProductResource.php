@@ -19,7 +19,8 @@ class ProductResource extends JsonResource
             'category_id' => CategoryParentResource::make($this->category),
             'price' => $this->price,
             'status' => $this->status,
-            'variations' => VariationResource::collection($this->variations)
+            'quantity' => $this->quantity,
+            'variations' => VariationResource::collection($this->variations),
 
         ];
     }
