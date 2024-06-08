@@ -17,7 +17,7 @@ class ProductRequest extends FormRequest
             'price' => 'required|numeric',
             'variations' => 'required|array',
             'variations.*' => 'required|integer|distinct|exists:variations,id|' ,
-            'status' => 'required|enum:active,inactive,out_of_stock',
+            'status' => 'required|in:active,inactive,out_of_stock',
 
         ];
 
