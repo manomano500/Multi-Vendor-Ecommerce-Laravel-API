@@ -31,8 +31,8 @@ class CategoryController extends Controller
     }
 
 public function show($id){
-       $categories = Category::with('products')->find($id,['id','name']);
-        return response()->json($categories);
+       $categories = Category::with('products')->find($id);
+        return new CategoryParentResource($categories);
 
 }
 

@@ -99,6 +99,7 @@ catch (\Exception $e) {}
                 'quantity',
                 'category_id',
                 'price',
+                'status'
             ]);
 
             // Update only the fields that the user has edited
