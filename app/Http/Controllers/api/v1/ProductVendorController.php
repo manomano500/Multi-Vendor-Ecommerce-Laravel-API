@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
-class ProductController extends Controller
+class ProductVendorController extends Controller
 {
 
     //////////////for the vendor
@@ -48,11 +48,12 @@ try {
             'quantity',
             'category_id',
             'price',
+            'status',
 
         ]));
 
     $product->store_id = Auth::user()->store->id;
-    $product->status = 2;
+
     $product->save();
     $product->variations()->attach($request->input('variations'));
     return response()->json(['message' => 'Product created successfully', 'product' => new ProductVendorSingleResource($product)], 201);
@@ -104,7 +105,7 @@ catch (\Exception $e) {}
             // Sync variations
             $product->variations()->sync($request->input('variations'));
 
-            return response()->json(['message' => 'Product updated successfully', 'product' => new ProductVendorSingleResource($product)], 200);
+            return response()->json(['message' => 'Product updated successfully', 'product' => new ProductResource( $product)], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Failed to update product', 'error' => $e->getMessage()], 500);
         }
