@@ -12,11 +12,11 @@ class OrderResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'user' => $this->user,
+
             'order_total' => $this->order_total,
             'order_status' => $this->status,
             'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'products' => ProductResource::collection($this->whenLoaded('products')),
         ];
     }
 }

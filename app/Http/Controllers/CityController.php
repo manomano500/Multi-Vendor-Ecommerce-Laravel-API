@@ -13,6 +13,7 @@ class CityController extends Controller
      */
     public function index()
     {
+        return City::all();
         //
     }
 

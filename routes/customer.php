@@ -1,14 +1,14 @@
 <?php
 
 
-use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\api\v1\OrderController;
+use App\Http\Controllers\Auth\StoreController;
 use App\Models\Order;
 
 
 //Route::get('/stores',)
 
-Route::post('/become-vendor', [\App\Http\Controllers\Auth\StoreController::class, 'becomeVendor']);
+Route::post('/become-vendor', [StoreController::class, 'becomeVendor']);
 
 
 Route::get('/test',function (){
@@ -23,3 +23,5 @@ Route::get('/test',function (){
 
 
 Route::get('/orders', [OrderController::class, 'index']);
+Route::post('/orders', [OrderController::class, 'store']);
+Route::get('/orders/{id}', [OrderController::class, 'show']);

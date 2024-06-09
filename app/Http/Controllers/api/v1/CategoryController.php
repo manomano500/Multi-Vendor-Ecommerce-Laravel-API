@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\api\v1\public;
+namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
-
 use App\Http\Resources\Categories\CategoryParentChildrenResource;
-use App\Http\Resources\Categories\CategoryParentResource;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -13,6 +11,10 @@ use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
+
+    /**
+* public
+     */
     public function index()
     {
         $categories = Category::whereNull('category_id')->get(['id','name']);
@@ -22,6 +24,10 @@ class CategoryController extends Controller
 
     }
 
+    /**
+     *public
+     */
+
     public function indexWhitChildren()
     {
         $categories = Category::with('children')->get();
@@ -30,6 +36,9 @@ class CategoryController extends Controller
 
     }
 
+    /**
+     * admin
+     */
 
    public function addParentCategory(Request $request)
    {

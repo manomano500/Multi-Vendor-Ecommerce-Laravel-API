@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\api\v1\public;
+namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProductRequest;
 use App\Http\Resources\Product\ProductVendorAllCollection;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {

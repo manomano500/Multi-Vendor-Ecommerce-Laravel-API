@@ -9,13 +9,14 @@ class OrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'city' => 'required',
-            'shipping_address' => 'required',
-
-//            'products' => 'required|array',
-//            'products.*.product_id' => 'required|exists:products,id',
-//            'products.*.quantity' => 'required|integer|min:1',
-
+            'city' => 'required|string|max:255',
+            'shipping_address' => 'required|string|max:255',
+            'products' => 'required|array',
+            'products.*.product_id' => 'required|exists:products,id',
+            'products.*.quantity' => 'required|integer|min:1',
+            'products.*.variations' => 'required|array',
+            'products.*.variations.*.attribute_id' => 'required|exists:attributes,id',
+            'products.*.variations.*.variation_id' => 'required|exists:variations,id',
         ];
     }
 

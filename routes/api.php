@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\api\v1\public\CategoryController;
-use App\Http\Controllers\api\v1\public\StoreController;
-use App\Http\Controllers\api\v1\public\VariationController;
-use App\Models\Order;
+use App\Http\Controllers\api\v1\CategoryController;
+use App\Http\Controllers\api\v1\StoreController;
+use App\Http\Controllers\api\v1\VariationController;
 use Illuminate\Http\Request;
 
 
@@ -45,7 +44,7 @@ Route::get('/variations', [VariationController::class, 'index']);
 
 
 
-Route::resource('/products', \App\Http\Controllers\api\v1\public\ProductController::class);
+Route::resource('/products', \App\Http\Controllers\api\v1\ProductController::class);
 
 
 Route::get('/stores',[StoreController::class,'index']);
