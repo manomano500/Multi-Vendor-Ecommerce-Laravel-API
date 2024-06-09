@@ -16,11 +16,11 @@ class ProductResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'category_id' => CategoryParentResource::make($this->category),
+            'category_id' => $this->category_id,
             'price' => $this->price,
             'status' => $this->status,
             'quantity' => $this->quantity,
-            'variations' => VariationResource::collection($this->variations),
+            'variations' => VariationResource::collection($this->whenLoaded('variations')),
 
         ];
     }

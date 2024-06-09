@@ -11,16 +11,20 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('user_id')->unique();
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('city_id')->nullable();
+            $table->string('address');
+
             $table->string('image')->nullable();
-            $table->enum('status',['active','inactive','pending'])->default('pending');
-            $table->boolean('is_active')->default(true);
-            $table->string('icon')->nullable();
+            $table->enum('status', ['active', 'inactive', 'pending'])->default('pending');
             $table->timestamps();
 
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('set null');
+
         });
     }
 

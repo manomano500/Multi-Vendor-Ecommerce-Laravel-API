@@ -9,18 +9,24 @@ use Illuminate\Http\Request;
 
 class StoreController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $query = Store::query();
-
-        foreach ($request->all() as $key => $value) {
-            $query->where($key, $value);
-        }
-
-        $stores = $query->get()->where('status', 'active');
-if ($stores->isEmpty()) {
+        $stores = Store::paginate(10);
+        if ($stores->isEmpty()) {
             return response()->json(['message' => 'no stores found'], 200);
         }
         return response()->json(['data' => StoreResource::collection($stores)]);
+    }
+
+    public function showProducts($id)
+
+    {
+        $store = Store::with(['products'])->find($id);
+
+        if (!$store) {
+            return response()->json(['message' => 'store not found'], 404);
+        }
+
+        return response()->json(['data' => new StoreResource($store)]);
     }
 }

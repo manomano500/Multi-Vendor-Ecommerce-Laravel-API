@@ -8,10 +8,7 @@ use App\Models\Order;
 
 //Route::get('/stores',)
 
-Route::post('/become-vendor', [RegisteredUserController::class, 'becomeVendor'])
-    ->middleware(['auth','auth:sanctum','role:customer'])
-    ->name('become-vendor');
-
+Route::post('/become-vendor', [\App\Http\Controllers\Auth\StoreController::class, 'becomeVendor']);
 
 
 Route::get('/test',function (){

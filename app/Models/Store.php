@@ -16,6 +16,8 @@ class Store extends Model
         'category_id',
         'status',
         'user_id',
+        'city_id',
+        'address',
     ];
 
     public function category()
@@ -25,6 +27,11 @@ class Store extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
     }
 
     // New function to get category name

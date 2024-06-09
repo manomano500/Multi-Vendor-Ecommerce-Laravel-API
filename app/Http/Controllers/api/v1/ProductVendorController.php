@@ -23,10 +23,8 @@ class ProductVendorController extends Controller
     //////////////for the vendor
     public function index(): \Illuminate\Http\JsonResponse
     {
-//        $products = Product::with('attributeValues.attribute')->where('store_id', Auth::user()->storeId())->get();
-//        $products = Product::where('store_id', Auth::user()->store->id)->get();
-$products =Auth::user()->products()->with('category')
 
+$products =Auth::user()->products()->with('category')
     ->get();
 
         return ProductVendorAllCollection::make($products)->response();
@@ -85,6 +83,9 @@ catch (\Exception $e) {}
 
     public function update(Request $request, Product $product)
     {
+        if ($product->store_id != Auth::user()->store->id) {
+            return response()->json(['message' => 'Product not found'], 404);
+        }
         $productRequest = ProductRequest::createFrom($request);
         $validated = Validator::make($productRequest->all(), $productRequest->rules());
 
@@ -117,7 +118,9 @@ catch (\Exception $e) {}
 
     public function destroy($id)
     {
+
         try {
+
             $product = Product::findOrFail($id);
             if($product->store_id != Auth::user()->store->id){
                 return response()->json(['message' => 'Product not found'], 404);

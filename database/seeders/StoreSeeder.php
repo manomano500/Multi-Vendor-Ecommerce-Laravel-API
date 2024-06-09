@@ -15,8 +15,9 @@ class StoreSeeder extends Seeder
             'user_id' => 2,
             'image' => 'ewr',
             'status' => 'active',
-            'is_active' => 1,
-            'icon' => 'ewr',
+    'address' => 'ewr',
+
+    'city_id' => 1,
         ]);
 
     }

@@ -13,7 +13,7 @@ class VariationResource extends JsonResource
         return [
             'id' => $this->id,
             'value' => $this->value,
-            'attribute' => $this->attribute,
+            'attribute' => $this->attribute_id,
 
 
 

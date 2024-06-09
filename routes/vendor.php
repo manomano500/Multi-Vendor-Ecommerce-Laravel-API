@@ -4,7 +4,8 @@ use App\Http\Controllers\api\v1\ProductVendorController;
 use App\Models\User;
 
 
-Route::get('/stores', [\App\Http\Controllers\StoreController::class, 'index']);
+Route::get('/stores', [\App\Http\Controllers\Auth\StoreController::class, 'show']);
+Route::post('/stores', [\App\Http\Controllers\Auth\StoreController::class, 'update']);
 
 
 

@@ -36,25 +36,19 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 //get categories with their children
 Route::get('/categories',[ CategoryController::class,'index']);
-
 Route::get('/categories/with-children', [CategoryController::class, 'indexWhitChildren']);
-//get the category with the prducts
 Route::get('/categories/{id}/products', [CategoryController::class, 'show']);
 
 
+
 Route::get('/variations', [VariationController::class, 'index']);
-
-//Route::get('/variations/{variationid}', [VariationController::class, 'show']);
-
 
 
 
 Route::resource('/products', \App\Http\Controllers\api\v1\public\ProductController::class);
 
+
 Route::get('/stores',[StoreController::class,'index']);
+Route::get('/stores/{id}/products', [StoreController::class, 'showProducts']);
 
-Route::get('/test', function () {
 
-   $products = \App\Models\Product::find(1)->with('variations')->get();
-      ;
-});
