@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Categories;
 
 use App\Http\Resources\ProductResource;
+use App\Http\Resources\StoreResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -14,8 +15,7 @@ class CategoryParentResource extends JsonResource
             'id'=>$this->id,
             "name"=>$this->name ,
 
-            'products' => ProductResource::collection($this->whenLoaded('products')),
-
+'stores' =>StoreResource::collection($this->whenLoaded('stores')),
 
 
         ];

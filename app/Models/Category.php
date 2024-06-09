@@ -34,9 +34,10 @@ class Category extends Model
         return $this->hasMany(Product::class);
     }
 
-    public function getParents()
-    {
-        return $this->where('category_id',null);
-    }
+public function stores()
+{
+    return$this->hasMany(Store::class);
+
+}
 }
 

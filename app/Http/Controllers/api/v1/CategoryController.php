@@ -4,6 +4,8 @@ namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Categories\CategoryParentChildrenResource;
+use App\Http\Resources\Categories\CategoryParentResource;
+use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -27,6 +29,19 @@ class CategoryController extends Controller
     /**
      *public
      */
+
+    public function show($id)
+    {
+        $category = Category::find($id)
+//            ->get('id','name')
+            ->load('stores');
+        if(!$category){
+            return response()->json(['message' => 'Category not found'], 404);
+        }
+        return CategoryParentResource::make($category);
+    }
+
+
 
     public function indexWhitChildren()
     {

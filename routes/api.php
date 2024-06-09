@@ -36,7 +36,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 //get categories with their children
 Route::get('/categories',[ CategoryController::class,'index']);
 Route::get('/categories/with-children', [CategoryController::class, 'indexWhitChildren']);
-Route::get('/categories/{id}/products', [CategoryController::class, 'show']);
+Route::get('/categories/{id}/stores', [CategoryController::class, 'show']);
 
 
 
