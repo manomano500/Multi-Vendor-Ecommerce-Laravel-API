@@ -15,6 +15,7 @@ class ProductRequest extends FormRequest
             'category_id' => 'required|integer|exists:categories,id',
             'quantity' => 'required|integer', // 'quantity' is added to the fillable array
             'price' => 'required|numeric',
+            'images' => 'array',
             'variations' => 'required|array',
             'variations.*' => 'required|integer|distinct|exists:variations,id|' ,
             'status' => 'required|in:active,inactive,out_of_stock',

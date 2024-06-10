@@ -13,25 +13,7 @@ class ProductController extends Controller
     public function index(Request $request)
 
     {
-        $query = Product::query();
-
-        // Iterate over each request parameter and add conditions to the query
-        foreach ($request->all() as $key => $value) {
-            $query->where($key, $value);
-        }
-
-        // Eager load the category relationship to avoid N+1 problem
-        $query->with('category');
-
-        // Execute the query and get the products
-        $products = $query->get();
-
-
-        // If no products are found, return an empty response
-        if ($products->isEmpty()) {
-            return response()->json(['message'=>'no products found'], 200); // 200 OK with an empty array
-        }
-
+        $products = Product::with('category')->where('status', 'active')->paginate();
         return new ProductVendorAllCollection($products);
     }
 

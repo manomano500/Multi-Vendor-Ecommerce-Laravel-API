@@ -13,6 +13,7 @@ class  ProductVendorAllCollection extends ResourceCollection
         return [
              ProductVendorAllResource::collection($this->collection),
 
+
         ];
     }
 }

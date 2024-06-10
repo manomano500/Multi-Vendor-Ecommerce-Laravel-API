@@ -24,6 +24,11 @@ class ProductVariation extends Pivot
         return $this->belongsTo(Variation::class);
     }
 
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
+
 //    public static function boot()
 //    {
 //        parent::boot();

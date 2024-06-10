@@ -28,5 +28,8 @@ class Variation extends Model
         return $this->belongsToMany(Product::class, 'product_variations');
     }
 
-
+    public function orderProducts()
+    {
+        return $this->belongsToMany(OrderProduct::class, 'order_product_variation');
+    }
 }

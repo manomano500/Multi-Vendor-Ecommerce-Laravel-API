@@ -40,4 +40,9 @@ class Store extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function orders()
+    {
+        return $this->hasManyThrough(Order::class, Product::class);
+    }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\v1\OrderController;
 use App\Http\Controllers\api\v1\ProductVendorController;
 use App\Models\User;
 
@@ -15,9 +16,8 @@ Route::post('/stores', [\App\Http\Controllers\Auth\StoreController::class, 'upda
 Route::resource('/products', ProductVendorController::class);
 
 
-Route::get('test', function () {
 
-    $user =User::find(2);
-//   Log::info($user->products);
-    return response()->json(['$user'=>$user->products->groupBy('category_id')])    ;
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('vendor/orders/{order}/approve', [OrderController::class, 'approve']);
+    Route::post('vendor/orders/{order}/deny', [OrderController::class, 'deny']);
 });

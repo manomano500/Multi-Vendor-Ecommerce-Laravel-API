@@ -21,13 +21,14 @@ class ProductVendorController extends Controller
 {
 
     //////////////for the vendor
-    public function index(): \Illuminate\Http\JsonResponse
+    public function index(): ProductVendorAllCollection
     {
 
 $products =Auth::user()->products()->with('category')
-    ->get();
+    ->get()
+;
 
-        return ProductVendorAllCollection::make($products)->response();
+        return  ProductVendorAllCollection::make($products);
     }
         public function store(Request $request)
         {
@@ -51,6 +52,14 @@ try {
         ]));
 
     $product->store_id = Auth::user()->store->id;
+    if($request->hasFile('images')) {
+        $images = [];
+        foreach ($request->file('images') as $image) {
+            $path = $image->store('products', 'public');
+            $images[] = $path;
+        }
+        $product->images = $images;
+    }
 
     $product->save();
     $product->variations()->attach($request->input('variations'));

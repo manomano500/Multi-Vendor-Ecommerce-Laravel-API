@@ -78,4 +78,9 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->store()->exists();
 
     }
+
+    public function isVendor()
+    {
+        return $this->hasRole('vendor');
+    }
 }

@@ -22,6 +22,10 @@ class ProductVendorAllResource extends JsonResource
             'price' => $this->price,
             'status' => $this->status,
 
+
         ];
+
+
     }
+
 }

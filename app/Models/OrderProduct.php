@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class OrderProduct extends Pivot
+class   OrderProduct extends Model
 {
     use HasFactory;
+    protected $table = 'order_products';
 
-//    protected $fillable = ['order_id', 'product_id', 'quantity', 'price'];
+protected $fillable = ['order_id', 'product_id', 'quantity', 'price'];
 
     public function order()
     {
@@ -19,7 +20,8 @@ class OrderProduct extends Pivot
 
     public function product()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Product::class)
+            ;
     }
 
 
