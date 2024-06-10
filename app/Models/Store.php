@@ -16,7 +16,6 @@ class Store extends Model
         'category_id',
         'status',
         'user_id',
-        'city_id',
         'address',
     ];
 

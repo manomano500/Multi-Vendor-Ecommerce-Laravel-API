@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreRequest;
 use App\Http\Resources\StoreResource;
 use App\Models\Store;
 use Illuminate\Http\Request;
@@ -82,15 +83,9 @@ class StoreController extends Controller
     public function becomeVendor(Request $request)
     {
         $user = Auth::user();
+        $storeRequest =StoreRequest::create($request);
 
-        $validator = Validator::make($request->all(), [
-            'name' => ['required', 'string', 'max:255'],
-            'description' => ['nullable', 'string'],
-            'category' => ['required', 'string', 'exists:categories,id'],
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
-            'address' => 'nullable|string|max:255',
-            'city' => 'nullable|string|max:255',
-        ]);
+        $validator = Validator::make($request->all(), $storeRequest->rules());
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 422);
         }
@@ -103,7 +98,6 @@ class StoreController extends Controller
                         'name' => $request->name,
                         'description' => $request->description,
                         'category_id' => $request->category,
-                        'city_id' => $request->city,
                         'address' => $request->address,
 
                     ]

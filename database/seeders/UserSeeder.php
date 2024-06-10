@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -28,6 +29,8 @@ class UserSeeder extends Seeder
             'password' => bcrypt('12345678'),
             'role_id' => 3,
         ]);
+
+        User::factory(10)->create();
 
 
 

@@ -48,6 +48,8 @@ class OrderController extends Controller
             $productModel = Product::findOrFail($product['product_id']);
             $productPrice = $productModel->price * $product['quantity'];
             $orderTotal += $productPrice;
+            $storeProductMap = [];
+
 
             $productsData[] = [
                 'product_id' => $product['product_id'],
@@ -55,7 +57,15 @@ class OrderController extends Controller
                 'price' => $productModel->price,
                 'variations' => $product['variations'] ?? [],
             ];
+
+            $storeId = $productModel->store_id;
+
+            if (!isset($storeProductMap[$storeId])) {
+                $storeProductMap[$storeId] = [];
+            }
+            $storeProductMap[$storeId][] = $product;
         }
+        Log::info($storeProductMap);
 
 
         // Create order
@@ -82,13 +92,13 @@ class OrderController extends Controller
             }
 
             DB::commit();
-
-            // Notify each vendor involved in the order
-            foreach ($productsData as $product) {
-                $productModel = Product::find($product['product_id']);
-                $vendor = $productModel->vendor;
-                $vendor->notify(new OrderPlacedNotification($order));
-            }
+//
+//            // Notify each vendor involved in the order
+//            foreach ($productsData as $product) {
+//                $productModel = Product::find($product['product_id']);
+//                $vendor = $productModel->vendor;
+//                $vendor->notify(new OrderPlacedNotification($order));
+//            }
             return OrderResource::make($order->load('products'));
 
 

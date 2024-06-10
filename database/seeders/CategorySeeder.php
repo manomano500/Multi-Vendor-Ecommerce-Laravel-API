@@ -40,7 +40,44 @@ class CategorySeeder extends Seeder
                     ['name' => 'Decor'],
                 ],
             ],
+            [
+                'name' => 'Health & Beauty',
+                'subcategories' => [
+                    ['name' => 'Makeup'],
+                    ['name' => 'Skin Care'],
+                    ['name' => 'Hair Care'],
+                ],
+            ],
+            [
+                'name' => 'Books',
+                'subcategories' => [
+                    ['name' => 'Fiction'],
+                    ['name' => 'Non-Fiction'],
+                    ['name' => 'Children'],
+                ],
+            ],
+            [
+                'name' => 'Sports',
+                'subcategories' => [
+                    ['name' => 'Fitness'],
+                    ['name' => 'Running'],
+                    ['name' => 'Cycling'],
+                ],
+            ],
+            [
+                'name' => 'Toys',
+                'subcategories' => [
+                    ['name' => 'Action Figures'],
+                    ['name' => 'Dolls'],
+                    ['name' => 'Educational'],
+
+                ],
+            ]
         ];
+
+
+
+
 
         // Insert categories and subcategories
         foreach ($categories as $category) {
