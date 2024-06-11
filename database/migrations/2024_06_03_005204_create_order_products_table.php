@@ -11,9 +11,14 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('order_id')->constrained()->onDelete('cascade');
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('store_id');
+
             $table->integer('quantity');
-            $table->decimal('price', 10, 2); // Adding price column to the pivot table
+            $table->decimal('price', 10, 2);
             $table->timestamps();
+
+
+            $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
 
             $table->unique(['order_id', 'product_id']);
         });

@@ -90,32 +90,36 @@ class StoreController extends Controller
             return response()->json(['errors' => $validator->errors()], 422);
         }
         try {
-            DB::transaction(function () use ($request, $user) {
+            $new_store = new Store(
+                [
+                    'user_id' => $user->id,
+                    'name' => $request->name,
+                    'description' => $request->description,
+                    'category_id' => $request->category,
+                    'address' => $request->address,
+                    'email'=>'r@r.r'  ,
+                    'phone'=>'123456789',
 
-                $new_store = new Store(
-                    [
-                        'user_id' => $user->id,
-                        'name' => $request->name,
-                        'description' => $request->description,
-                        'category_id' => $request->category,
-                        'address' => $request->address,
+                ]
+            );
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $path = $image->store('images/stores', 'public');
+                $new_store->image = $path;
+            }
 
-                    ]
-                );
-
-                if ($request->hasFile('image')) {
-                    $image = $request->file('image');
-                    $path = $image->store('images/stores', 'public');
-                    $new_store->image = $path;
-                }
-                $new_store->save();
-                $user->role_id = 2;
-                $user->save();
-
-            });
+//            DB::transaction(function () use ($request, $user, $new_store) {
+//
+//
+//
+//                $new_store->save();
+//                $user->role_id = 2;
+//                $user->save();
+//
+//            });
             return response()->json(['message' => 'You are now a vendor'], 200);
         } catch (\Exception $e) {
-            return response()->json(['error' => $validator->errors()], 500);
+            return response()->json(['error' => $e->getMessage()], 500);
         }
 
     }

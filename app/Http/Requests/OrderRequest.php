@@ -21,8 +21,8 @@ class OrderRequest extends FormRequest
             'products.*.product_id' => 'required|exists:products,id',
             'products.*.quantity' => 'required|integer|min:1',
 
-            'products.*.variations' => 'required|array',
-            'products.*.variations.*.variation_id' => 'required|exists:variations,id',
+//            'products.*.variations' => 'required|array',
+//            'products.*.variations.*.variation_id' => 'required|exists:variations,id',
 
         ];
     }

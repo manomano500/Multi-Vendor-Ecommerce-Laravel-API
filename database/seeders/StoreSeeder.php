@@ -12,10 +12,10 @@ class StoreSeeder extends Seeder
     {
 
 
-$stores =Store::factory()->count(40)->create();
+$stores =Store::factory()->count(100)->create();
 
         $stores->each(function ($store) {
-            Product::factory()->count(20)->create([
+            Product::factory()->count(100)->create([
                 'store_id' => $store->id,
             ]);
         });

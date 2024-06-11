@@ -21,6 +21,7 @@ class ProductFactory extends Factory
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'store_id' => 1,
+
             'category_id' => 1,
 
 

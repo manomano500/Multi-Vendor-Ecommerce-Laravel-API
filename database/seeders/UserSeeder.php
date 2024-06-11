@@ -23,6 +23,17 @@ class UserSeeder extends Seeder
             'role_id' => 2,
 
         ]);
+        Db::table('stores')->insert([
+            'name' => 'John Doe Store',
+            'description' => 'This is John Doe Store',
+            'category_id' => 1,
+            'user_id' => 2,
+            'image' => 'https://via.placeholder.com/150',
+            'status' => 'active',
+            'address' => '123 Main St, Lagos',
+            'phone' => '08012345678',
+            'email' => 'v@v.v',
+        ]);
         DB::table('users')->insert([
             'name' => 'Jane Doe',
             'email' => 'c@c.c',

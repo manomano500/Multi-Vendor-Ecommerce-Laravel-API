@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\api\v1\OrderController;
 use App\Http\Controllers\api\v1\ProductVendorController;
+use App\Http\Controllers\VendorOrderController;
 use App\Models\User;
 
 
@@ -17,7 +18,6 @@ Route::resource('/products', ProductVendorController::class);
 
 
 
-Route::middleware('auth:sanctum')->group(function () {
+Route::get('/orders', [VendorOrderController::class, 'index']);
     Route::post('vendor/orders/{order}/approve', [OrderController::class, 'approve']);
     Route::post('vendor/orders/{order}/deny', [OrderController::class, 'deny']);
-});

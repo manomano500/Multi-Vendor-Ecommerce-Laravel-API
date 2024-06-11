@@ -17,6 +17,8 @@ class OrderProductFactory extends Factory
             'product_id' => $this->faker->numberBetween(1, 20),
             'quantity' => 2,
             'price' => 20,
+            'store_id' => 1, // 'store_id' is added to the definition array
+
 
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),

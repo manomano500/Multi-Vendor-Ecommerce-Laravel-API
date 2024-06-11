@@ -2,12 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\OrderResource;
+use App\Models\Store;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class VendorOrderController extends Controller
 {
+
+
+    public function index()
+    {
+        $store = Auth::user()->store;
+        $orders = $store->orders()->with('orderProducts.product')->get();
+
+        return OrderResource::collection($orders->load('orderProducts.product'));
+
+        // Return the orders as a collection of resources
+    }
+
+
+
+
+
+
     public function approve(Request $request, Order $order)
     {
         // Check if the authenticated vendor is part of the order
