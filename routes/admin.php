@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminStoreController;
 use App\Http\Controllers\api\v1\CategoryController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/add-category', [CategoryController::class, 'addParentCategory']);
+
+
+
+
+
+
+Route::get('/stores',[AdminStoreController::class,'index']);

@@ -24,8 +24,7 @@ class ProductVendorController extends Controller
     public function index(): ProductVendorAllCollection
     {
 
-$products =Auth::user()->products()->with('category')
-    ->get()
+$products = Product::all()->where('store_id', Auth::user()->store->id)
 ;
 
         return  ProductVendorAllCollection::make($products);

@@ -108,15 +108,19 @@ class StoreController extends Controller
                 $new_store->image = $path;
             }
 
-//            DB::transaction(function () use ($request, $user, $new_store) {
-//
-//
-//
-//                $new_store->save();
+            DB::transaction(function () use ($request, $user, $new_store) {
+
+
+
+                $new_store->save();
 //                $user->role_id = 2;
-//                $user->save();
-//
-//            });
+                $user->update([
+                    'role_id' => 2
+
+                ]);
+
+
+            });
             return response()->json(['message' => 'You are now a vendor'], 200);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);

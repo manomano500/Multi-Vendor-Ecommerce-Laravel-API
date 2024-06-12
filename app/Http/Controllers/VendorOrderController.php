@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\OrderResource;
 use App\Models\Store;
+use App\Models\StoreOrder;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderProduct;
@@ -17,9 +18,9 @@ class VendorOrderController extends Controller
     public function index()
     {
         $store = Auth::user()->store;
-        $orders = $store->orders()->with('orderProducts.product')->get();
-
-        return OrderResource::collection($orders->load('orderProducts.product'));
+        $orders = StoreOrder::all()->where('store_id', $store->id);
+return $orders;
+//        return OrderResource::collection($orders->load('orderProducts.product'));
 
         // Return the orders as a collection of resources
     }
@@ -29,41 +30,30 @@ class VendorOrderController extends Controller
 
 
 
-    public function approve(Request $request, Order $order)
+    public function approve(Request $request, $orderId)
     {
-        // Check if the authenticated vendor is part of the order
-        $vendor = auth()->user()->vendor;
-        $orderProducts = $order->products()->whereHas('product', function ($query) use ($vendor) {
-            $query->where('vendor_id', $vendor->id);
-        })->get();
-
-        foreach ($orderProducts as $orderProduct) {
-            $orderProduct->update(['status' => 'approved']);
+        $storeOrder = StoreOrder::find($orderId);
+        Log::info($storeOrder);
+        if(Auth::user()->store->id != $storeOrder->store_id){
+            return response()->json(['message' => 'You are not authorized to update this order'], 403);
         }
 
-        // Check if all order products are approved
-        if ($order->products()->where('status', '!=', 'approved')->doesntExist()) {
-            $order->update(['status' => 'approved']);
-        }
-
-        return response()->json(['message' => 'Order approved']);
+        Log::info('order: ' . $storeOrder);
+       $storeOrder->update(['status' => 'accepted']);
+        return response()->json(['message' => 'Order updated successfully']);
     }
 
-    public function deny(Request $request, Order $order)
+    public function reject(Request $request,  $orderId)
     {
-        // Check if the authenticated vendor is part of the order
-        $vendor = auth()->user()->vendor;
-        $orderProducts = $order->products()->whereHas('product', function ($query) use ($vendor) {
-            $query->where('vendor_id', $vendor->id);
-        })->get();
 
-        foreach ($orderProducts as $orderProduct) {
-            $orderProduct->update(['status' => 'denied']);
+        $storeOrder = StoreOrder::find($orderId);
+        Log::info($storeOrder);
+        if(Auth::user()->store->id != $storeOrder->store_id){
+            return response()->json(['message' => 'You are not authorized to update this order'], 403);
         }
 
-        // Update the order status if any order product is denied
-        $order->update(['status' => 'denied']);
-
-        return response()->json(['message' => 'Order denied']);
+        Log::info('order: ' . $storeOrder);
+        $storeOrder->update(['status' => 'rejected']);
+        return response()->json(['message' => 'Order updated successfully']);
     }
 }

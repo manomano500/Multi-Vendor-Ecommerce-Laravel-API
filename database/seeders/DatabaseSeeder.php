@@ -37,13 +37,13 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             StoreSeeder::class,
-                    ProductSeeder::class
+//                    ProductSeeder::class
         ]);
 
-        $this->call([
-            OrderSeeder::class,
-            OrderProductSeeder::class,
-        ]);
+//        $this->call([
+//            OrderSeeder::class,
+//            OrderProductSeeder::class,
+//        ]);
 
 
 

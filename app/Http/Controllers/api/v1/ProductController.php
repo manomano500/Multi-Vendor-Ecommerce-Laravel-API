@@ -7,13 +7,15 @@ use App\Http\Resources\Product\ProductVendorAllCollection;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ProductController extends Controller
 {
     public function index(Request $request)
 
     {
-        $products = Product::with('category')->where('status', 'active')->paginate();
+        $products = Product::with(['category'])->where('status', 'active')->paginate();
+        Log::info('products: ' . $products);
         return new ProductVendorAllCollection($products);
     }
 

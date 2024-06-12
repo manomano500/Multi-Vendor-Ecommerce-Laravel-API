@@ -18,7 +18,7 @@ class StoreFactory extends Factory
         return [
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'name' => $this->faker->company(),
+            'name' => 'placeholder name',
             'description' => $this->faker->text(),
             'category_id' => $this->faker->randomElement([1, 5, 9, 13, 17]),
             'user_id' => $user->id, // Add this line

@@ -12,6 +12,7 @@ use App\Models\OrderProduct;
 use App\Models\OrderProductVariation;
 use App\Models\Product;
 use App\Models\ProductVariation;
+use App\Models\StoreOrder;
 use App\Notifications\OrderPlacedNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +32,7 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         // Validate request
-       $orderRequest = OrderRequest::createFrom($request);
+        $orderRequest = OrderRequest::createFrom($request);
         $validated = Validator::make($orderRequest->all(), $orderRequest->rules());
         if ($validated->fails()) {
             return response()->json(['message' => $validated->errors()], 400);
@@ -41,31 +42,31 @@ class OrderController extends Controller
         // Get the authenticated user
 
 
-        // Calculate order total and add additional inputs
+        $orderRequest = OrderRequest::createFrom($request);
+        $validated = Validator::make($orderRequest->all(), $orderRequest->rules());
+        if ($validated->fails()) {
+            return response()->json(['message' => $validated->errors()], 400);
+        }
+
+        // Calculate order total and prepare products data
         $orderTotal = 0;
-
-
-
         $productsData = [];
+        $storeProductMap = [];
 
         foreach ($request['products'] as $product) {
-
             $productModel = Product::findOrFail($product['product_id']);
             $productPrice = $productModel->price * $product['quantity'];
             $orderTotal += $productPrice;
 
-
-
-            $productsData[] = [
+            $productData = [
                 'product_id' => $product['product_id'],
                 'quantity' => $product['quantity'],
                 'price' => $productModel->price,
                 'store_id' => $productModel->store_id, // Include store_id
             ];
-            Log::info($productsData);
-
+            $productsData[] = $productData;
+            $storeProductMap[$productModel->store_id][] = $productData;
         }
-
 
         // Create order
         $order = new Order([
@@ -76,9 +77,10 @@ class OrderController extends Controller
             'shipping_address' => $request['shipping_address'],
         ]);
 
-        try{
+        try {
             DB::beginTransaction();
             $order->save();
+
             foreach ($productsData as $product) {
                 OrderProduct::create([
                     'order_id' => $order->id,
@@ -89,19 +91,33 @@ class OrderController extends Controller
                 ]);
 
             }
+Log::info($storeProductMap);
+            // Create store orders
+            foreach ($storeProductMap as $storeId => $products) {
+                $storeOrder = StoreOrder::create([
+                    'order_id' => $order->id,
+                    'store_id' => $storeId,
+                    'status' => 'pending',
+                ]);
+
+//                foreach ($products as $product) {
+//                    $storeOrder->products()->attach($product['product_id'], [
+//                        'quantity' => $product['quantity'],
+//                        'price' => $product['price'],
+//                    ]);
+//                }
+            }
 
             DB::commit();
-
 
             event(new OrderCreated($order));
 
             return OrderResource::make($order->load('orderProducts.product'));
 
-
-
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             DB::rollBack();
-            return response()->json(['message' => 'Failed to create order','error'=>$e->getMessage()], 500);
+            Log::error($e->getMessage());
+            return response()->json(['message' => 'Failed to create order', 'error' => $e->getMessage()], 500);
         }
     }
 
