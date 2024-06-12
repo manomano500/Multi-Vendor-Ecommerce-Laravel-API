@@ -21,9 +21,16 @@ class StoreOrder extends Model
         return $this->belongsTo(Store::class);
     }
 
+
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'order_products')
-            ->withPivot('quantity', 'price');
+        return $this->hasManyThrough(
+            Product::class,
+            OrderProduct::class,
+            'store_order_id', // Foreign key on OrderProduct table...
+            'id', // Foreign key on Product table...
+            'id', // Local key on StoreOrder table...
+            'product_id' // Local key on OrderProduct table...
+        )->withPivot('quantity', 'price');
     }
 }

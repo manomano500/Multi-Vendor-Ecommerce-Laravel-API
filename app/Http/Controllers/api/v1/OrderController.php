@@ -13,7 +13,7 @@ use App\Models\OrderProductVariation;
 use App\Models\Product;
 use App\Models\ProductVariation;
 use App\Models\StoreOrder;
-use App\Notifications\OrderPlacedNotification;
+use App\Notifications\NewStoreOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

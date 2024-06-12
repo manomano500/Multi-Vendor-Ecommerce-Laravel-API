@@ -18,12 +18,28 @@ class VendorOrderController extends Controller
     public function index()
     {
         $store = Auth::user()->store;
-        return StoreOrder::where('store_id', $store->id)->paginate(2);
+        $storeOrders = StoreOrder::with(['products'])->where('store_id', $store)->get();
+
+
+
+      Log::info($storeOrders);
+        return response()->json($store->orders);
+        // Get the orders for the authenticated user's store
 //        return OrderResource::collection($orders->load('orderProducts.product'));
 
         // Return the orders as a collection of resources
     }
 
+    public function getStoreOrdersWithProducts()
+    {
+        $storeId =Auth::user()->store;
+        // Fetch all store orders for the given store ID with their products and pivot data
+        $storeOrders = StoreOrder::with(['products' => function ($query) {
+            $query->select('products.*', 'order_product.quantity', 'order_product.price');
+        }])->where('store_id', 1)->get();
+
+        return response()->json(['data' => $storeOrders]);
+    }
 
 
 

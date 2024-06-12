@@ -20,7 +20,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         [
             'App\Events\OrderCreated' => [
-                'App\Listeners\SendOrderCreatedNotification',
+                'App\Listeners\NotifyStores',
             ],
         ]
     ];

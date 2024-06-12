@@ -27,6 +27,7 @@ class StoreController extends Controller
 
     public function update(Request $request)
     {
+
         $store = Auth::user()->store;
 
         $validator = Validator::make($request->all(), [

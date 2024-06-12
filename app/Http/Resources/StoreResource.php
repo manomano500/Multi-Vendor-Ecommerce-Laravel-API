@@ -19,6 +19,7 @@ class StoreResource extends JsonResource
             'description' => $this->description,
             'image' => $this->image,
             'category' => $this->category->name,
+            'status' => $this->status,
 //            'status' => $this->status,
             'user' => $this->whenLoaded('user', ['id', 'name', 'email', 'phone']),
             'products' => ProductResource::collection($this->whenLoaded('products')),

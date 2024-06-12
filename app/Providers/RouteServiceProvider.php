@@ -33,7 +33,8 @@ public const VENDOR = '/vendor';
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
-                ->group(base_path('routes/web.php'));
+                ->group(base_path('routes/web.php'))
+            ;
 
 
 
@@ -48,6 +49,7 @@ public const VENDOR = '/vendor';
 
             Route::middleware(['api','auth:sanctum','role:customer'])
                 ->prefix('api/customer')
+
                 ->group(base_path('routes/customer.php'));
 
         });

@@ -63,6 +63,8 @@ class Product extends Model
         return $this->belongsToMany(Order::class,'order_products')->withPivot('quantity', 'price');
     }
 
-
-
+    public function storeOrder()
+    {
+        return $this->belongsTo(StoreOrder::class, 'store_order_id');
+    }
 }
