@@ -18,8 +18,7 @@ class VendorOrderController extends Controller
     public function index()
     {
         $store = Auth::user()->store;
-        $orders = StoreOrder::all()->where('store_id', $store->id);
-return $orders;
+        return StoreOrder::where('store_id', $store->id)->paginate(2);
 //        return OrderResource::collection($orders->load('orderProducts.product'));
 
         // Return the orders as a collection of resources

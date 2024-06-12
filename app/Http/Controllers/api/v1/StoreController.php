@@ -21,12 +21,13 @@ class StoreController extends Controller
     public function showProducts($id)
 
     {
-        $store = Store::with(['products'])->find($id);
+        $store =Store::find($id);
 
         if (!$store) {
             return response()->json(['message' => 'store not found'], 404);
         }
+        $products = $store->products()->paginate(10);
 
-        return response()->json(['data' => new StoreResource($store)]);
+        return response()->json(['data' => new StoreResource($store->with('products')->find($id))]);
     }
 }
