@@ -15,28 +15,42 @@ class VendorOrderController extends Controller
 {
 
 
-    public function index()
+
+        public function index()
     {
+        // Get the logged-in user's store
         $store = Auth::user()->store;
-        $storeOrders = StoreOrder::with(['products'])->where('store_id', $store)->get();
 
+        if (!$store) {
+            return response()->json(['message' => 'No store found for this user'], 404);
+        }
 
+        // Get all store orders for the logged-in user's store with their products
+        $storeOrders = StoreOrder::with([ 'orderProducts'=>function($query){
+            $query->where('store_id', Auth::user()->store->id);
 
-      Log::info($storeOrders);
-        return response()->json($store->orders);
-        // Get the orders for the authenticated user's store
-//        return OrderResource::collection($orders->load('orderProducts.product'));
+        }])
+            ->where('store_id', $store->id)
 
-        // Return the orders as a collection of resources
+            ->get();
+        Log::info($storeOrders->where('store_id', $store->id));
+
+        if ($storeOrders->isEmpty()) {
+            return response()->json(['message' => 'No store orders found'], 404);
+        }
+
+        return response()->json(['data' => $storeOrders]);
     }
+
 
     public function getStoreOrdersWithProducts()
     {
         $storeId =Auth::user()->store;
         // Fetch all store orders for the given store ID with their products and pivot data
-        $storeOrders = StoreOrder::with(['products' => function ($query) {
-            $query->select('products.*', 'order_product.quantity', 'order_product.price');
-        }])->where('store_id', 1)->get();
+        $storeOrders = StoreOrder::all();
+
+//        where('store_id', $storeId)->get();
+
 
         return response()->json(['data' => $storeOrders]);
     }

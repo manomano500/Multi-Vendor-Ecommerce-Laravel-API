@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class StoreOrder extends Model
 {
-    use HasFactory;
     protected $fillable = ['order_id', 'store_id', 'status'];
+
 
     public function order()
     {
@@ -22,15 +22,11 @@ class StoreOrder extends Model
     }
 
 
-    public function products()
+
+    public function orderProducts()
     {
-        return $this->hasManyThrough(
-            Product::class,
-            OrderProduct::class,
-            'store_order_id', // Foreign key on OrderProduct table...
-            'id', // Foreign key on Product table...
-            'id', // Local key on StoreOrder table...
-            'product_id' // Local key on OrderProduct table...
-        )->withPivot('quantity', 'price');
+        return $this->hasMany(OrderProduct::class, 'order_id', 'order_id');
     }
+
+
 }

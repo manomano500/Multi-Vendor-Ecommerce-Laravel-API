@@ -27,15 +27,17 @@ return $this->hasManyThrough(Variation::class, Product::class, 'id', 'product_id
 
 
 
-    public function orderProductVariations()
-    {
-        return $this->hasMany(OrderProductVariation::class);
-    }
+
 
     public function orderProducts()
     {
         return $this->hasMany(OrderProduct::class);
-}
+    }
+
+    public function storeOrders()
+    {
+        return $this->hasMany(StoreOrder::class);
+    }
 
 
 
