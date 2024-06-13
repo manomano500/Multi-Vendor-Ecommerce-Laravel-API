@@ -97,7 +97,7 @@ class StoreController extends Controller
                     'name' => $request->name,
                     'description' => $request->description,
                     'category_id' => $request->category,
-                    'address' => $request->address,
+                    'address' => '$request->address',
                     'email'=>'r@r.r'  ,
                     'phone'=>'123456789',
 
