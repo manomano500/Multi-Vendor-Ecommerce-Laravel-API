@@ -51,3 +51,8 @@ Route::get('/stores',[StoreController::class,'index']);
 Route::get('/stores/{id}/products', [StoreController::class, 'showProducts']);
 
 
+
+use App\Http\Controllers\PlutuController;
+
+Route::post('/plutu/verify', [PlutuController::class, 'verify']);
+Route::post('/plutu/confirm', [PlutuController::class, 'confirm']);

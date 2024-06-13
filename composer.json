@@ -11,6 +11,7 @@
         "laravel/sanctum": "^3.3",
         "laravel/telescope": "^5.0",
         "laravel/tinker": "^2.8",
+        "plutu/plutu-laravel": "^1.1",
         "spatie/laravel-query-builder": "^6.0"
     },
     "require-dev": {
