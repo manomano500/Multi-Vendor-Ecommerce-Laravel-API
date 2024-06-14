@@ -11,7 +11,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('order_id')->constrained()->onDelete('cascade');
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->unsignedBigInteger('store_id');
+//            $table->unsignedBigInteger('store_id');
 
             $table->integer('quantity');
             $table->decimal('price', 10, 2);

@@ -29,98 +29,40 @@ class OrderController extends Controller
         return OrderResource::collection($orders);
     }
 
-    public function store(Request $request)
-    {
-        // Validate request
-        $orderRequest = OrderRequest::createFrom($request);
-        $validated = Validator::make($orderRequest->all(), $orderRequest->rules());
-        if ($validated->fails()) {
-            return response()->json(['message' => $validated->errors()], 400);
-        }
+   public function store(OrderRequest $request){
 
+       // Validate request
+       $orderRequest = OrderRequest::createFrom($request);
+       $validated = Validator::make($orderRequest->all(), $orderRequest->rules());
+       if ($validated->fails()) {
+           return response()->json(['message' => $validated->errors()], 400);
+       }
 
-        // Get the authenticated user
+         // Create order
 
-
-        $orderRequest = OrderRequest::createFrom($request);
-        $validated = Validator::make($orderRequest->all(), $orderRequest->rules());
-        if ($validated->fails()) {
-            return response()->json(['message' => $validated->errors()], 400);
-        }
-
-        // Calculate order total and prepare products data
-        $orderTotal = 0;
-        $productsData = [];
-        $storeProductMap = [];
-
-        foreach ($request['products'] as $product) {
-            $productModel = Product::findOrFail($product['product_id']);
-            $productPrice = $productModel->price * $product['quantity'];
-            $orderTotal += $productPrice;
-
-            $productData = [
-                'product_id' => $product['product_id'],
-                'quantity' => $product['quantity'],
-                'price' => $productModel->price,
-                'store_id' => $productModel->store_id, // Include store_id
-            ];
-            $productsData[] = $productData;
-            $storeProductMap[$productModel->store_id][] = $productData;
-        }
-
-        // Create order
-        $order = new Order([
+        $order = Order::create([
             'user_id' => Auth::id(),
-            'order_total' => $orderTotal,
-            'status' => 'pending', // Default status
-            'city' => $request['city'],
-            'shipping_address' => $request['shipping_address'],
+            'status' => 'pending',
+            'order_total' => 0,
+            'city' => $orderRequest->city,
+            'shipping_address' => $orderRequest->shipping_address,
+
         ]);
 
-        try {
-            DB::beginTransaction();
-            $order->save();
+       $order->save();
+       $orderTotal = 0;
 
-            foreach ($productsData as $product) {
-                OrderProduct::create([
-                    'order_id' => $order->id,
-                    'store_id' => $product['store_id'], // Include store_id
-                    'product_id' => $product['product_id'],
-                    'quantity' => $product['quantity'],
-                    'price' => $product['price'],
-                ]);
-
-            }
-Log::info($storeProductMap);
-            // Create store orders
-            foreach ($storeProductMap as $storeId => $products) {
-                $storeOrder = StoreOrder::create([
-                    'order_id' => $order->id,
-                    'store_id' => $storeId,
-                    'status' => 'pending',
-                ]);
-
-//                foreach ($products as $product) {
-//                    $storeOrder->products()->attach($product['product_id'], [
-//                        'quantity' => $product['quantity'],
-//                        'price' => $product['price'],
-//                    ]);
-//                }
-            }
-
-            DB::commit();
-
-            event(new OrderCreated($order));
-
-            return OrderResource::make($order->load('orderProducts.product'));
-
-        } catch (\Exception $e) {
-            DB::rollBack();
-            Log::error($e->getMessage());
-            return response()->json(['message' => 'Failed to create order', 'error' => $e->getMessage()], 500);
-        }
-    }
-
+       foreach ($orderRequest->products as $product) {
+           $orderProducts = OrderProduct::create([
+               'order_id' => $order->id,
+               'product_id' => $product['product_id'],
+               'quantity' => $product['quantity'],
+               'price' => Product::find($product['product_id'])->price,
+               $orderTotal += Product::find($product['product_id'])->price * $product['quantity'],
+           ]);
+       }
+       $order->order_total = $orderTotal;
+   }
 
 
         function show($id)
