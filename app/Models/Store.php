@@ -10,9 +10,9 @@ class Store extends Model
 {
     use HasFactory;
 
-    public function scopeActive(Builder $builder)
+    public function scopeStatus(Builder $builder,$status)
     {
-        $builder->where('status', 'active');
+        $builder->where('status', '=', $status);
     }
 
     protected $fillable = [

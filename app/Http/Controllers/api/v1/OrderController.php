@@ -38,16 +38,6 @@ class OrderController extends Controller
             return response()->json(['message' => $validated->errors()], 400);
         }
 
-
-        // Get the authenticated user
-
-
-        $orderRequest = OrderRequest::createFrom($request);
-        $validated = Validator::make($orderRequest->all(), $orderRequest->rules());
-        if ($validated->fails()) {
-            return response()->json(['message' => $validated->errors()], 400);
-        }
-
         // Calculate order total and prepare products data
         $orderTotal = 0;
         $productsData = [];
@@ -62,7 +52,7 @@ class OrderController extends Controller
                 'product_id' => $product['product_id'],
                 'quantity' => $product['quantity'],
                 'price' => $productModel->price,
-                'store_id' => $productModel->store_id, // Include store_id
+                'store_id' => $productModel->store_id,
             ];
             $productsData[] = $productData;
             $storeProductMap[$productModel->store_id][] = $productData;
@@ -72,7 +62,7 @@ class OrderController extends Controller
         $order = new Order([
             'user_id' => Auth::id(),
             'order_total' => $orderTotal,
-            'status' => 'pending', // Default status
+            'status' => 'pending',
             'city' => $request['city'],
             'shipping_address' => $request['shipping_address'],
         ]);
@@ -84,28 +74,20 @@ class OrderController extends Controller
             foreach ($productsData as $product) {
                 OrderProduct::create([
                     'order_id' => $order->id,
-                    'store_id' => $product['store_id'], // Include store_id
+                    'store_id' => $product['store_id'],
                     'product_id' => $product['product_id'],
                     'quantity' => $product['quantity'],
                     'price' => $product['price'],
                 ]);
-
             }
-Log::info($storeProductMap);
+
             // Create store orders
             foreach ($storeProductMap as $storeId => $products) {
-                $storeOrder = StoreOrder::create([
+                StoreOrder::create([
                     'order_id' => $order->id,
                     'store_id' => $storeId,
                     'status' => 'pending',
                 ]);
-
-//                foreach ($products as $product) {
-//                    $storeOrder->products()->attach($product['product_id'], [
-//                        'quantity' => $product['quantity'],
-//                        'price' => $product['price'],
-//                    ]);
-//                }
             }
 
             DB::commit();

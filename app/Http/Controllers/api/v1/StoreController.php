@@ -10,7 +10,7 @@ class StoreController extends Controller
 {
     public function index()
     {
-        $stores = Store::active()->paginate(10);
+        $stores = Store::status('active')->paginate(10);
 ;
         if ($stores->isEmpty()) {
             return response()->json(['message' => 'no stores found'], 200);
