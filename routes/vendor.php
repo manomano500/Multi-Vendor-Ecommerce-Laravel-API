@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\api\v1\OrderController;
 use App\Http\Controllers\api\v1\ProductVendorController;
-use App\Http\Controllers\StoreOrderController;
 use App\Http\Controllers\VendorOrderController;
 use App\Models\Product;
 use App\Models\User;

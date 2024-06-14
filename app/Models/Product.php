@@ -68,11 +68,10 @@ public function scopeStatus(Builder $builder,$status)
 
     public function orders()
     {
-        return $this->belongsToMany(Order::class,'order_products')->withPivot('quantity', 'price');
+        return $this->belongsToMany(Order::class,'order_products')
+            ->withPivot('quantity', 'price', 'store_id')
+            ->withTimestamps();
     }
 
-    public function storeOrder()
-    {
-        return $this->belongsTo(StoreOrder::class, 'store_order_id');
-    }
+
 }
