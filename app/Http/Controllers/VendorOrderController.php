@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\OrderResource;
+use App\Http\Resources\VendorOrderResource;
 use App\Models\Store;
 use Illuminate\Http\Request;
 use App\Models\Order;
@@ -17,24 +18,20 @@ class VendorOrderController extends Controller
 
         public function index()
     {
-        // Get the logged-in user's store
-        $storeId = Auth::user()->store->id;
-        Log::info($storeId);
-
-
+        $storeId =1;
         $store = Store::findOrFail($storeId);
 
-        // Get orders with their products
-        $orders = Order::whereHas('products', function ($query) use ($storeId) {
-            $query->where('order_products.store_id', $storeId); // specify the table alias
-        })->with(['products' => function ($query) use ($storeId) {
-            $query->where('order_products.store_id', $storeId); // specify the table alias
-        }])->get();
+        // Get orders with their products using the scope
+        $orders = Order::withStoreProducts($storeId)->get();
+
+        // Structure the data
+
+        return VendorOrderResource::collection($orders);
 
 
 
 
-        return  OrderResource::collection($orders);
+
 
 
         }

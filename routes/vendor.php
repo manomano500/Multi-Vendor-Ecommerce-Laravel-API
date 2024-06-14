@@ -24,11 +24,6 @@ Route::get('/orders', [VendorOrderController::class, 'index']);
 
 
 
-Route::post('/store-orders/{storeOrder}/approve', [StoreOrderController::class, 'approve']);
-Route::post('/store-orders/{storeOrder}/deny', [StoreOrderController::class, 'deny']);
-Route::get('/store-orders', [StoreOrderController::class, 'index']);
-
-
 
 
 
