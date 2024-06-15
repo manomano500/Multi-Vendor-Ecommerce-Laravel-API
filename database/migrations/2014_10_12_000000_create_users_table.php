@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone')->nullable(); // Phone column
             $table->rememberToken();
+            $table->string('google_id')->nullable()->unique();
+
             $table->timestamps();
 
         });

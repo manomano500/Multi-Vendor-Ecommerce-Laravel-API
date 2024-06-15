@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GoogleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,15 @@ Route::get('/', function () {
 // routes/web.php
 
 
+Route::get('login/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('callback', [GoogleController::class, 'handleGoogleCallback']);
+
+
+
+
+Route::get('/logged-in', function () {
+    return view('redirect.google-logged-in');
+});
 
 //Route::get('/products', [\App\Http\Controllers\api\v1\VendorProductController::class, 'index']);
 
