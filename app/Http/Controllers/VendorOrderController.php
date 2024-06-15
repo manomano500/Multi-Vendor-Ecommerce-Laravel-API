@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\OrderResource;
+use App\Http\Resources\VendorOrderResource;
 use App\Models\Store;
-use App\Models\StoreOrder;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderProduct;
@@ -18,42 +18,27 @@ class VendorOrderController extends Controller
 
         public function index()
     {
-        // Get the logged-in user's store
-        $store = Auth::user()->store;
+        $storeId =1;
+        $store = Store::findOrFail($storeId);
 
-        if (!$store) {
-            return response()->json(['message' => 'No store found for this user'], 404);
+        // Get orders with their products using the scope
+        $orders = Order::withStoreProducts($storeId)->get();
+
+        // Structure the data
+
+        return VendorOrderResource::collection($orders);
+
+
+
+
+
+
+
         }
 
-        // Get all store orders for the logged-in user's store with their products
-        $storeOrders = StoreOrder::with([ 'orderProducts'=>function($query){
-            $query->where('store_id', Auth::user()->store->id);
-
-        }])
-            ->where('store_id', $store->id)
-
-            ->get();
-        Log::info($storeOrders->where('store_id', $store->id));
-
-        if ($storeOrders->isEmpty()) {
-            return response()->json(['message' => 'No store orders found'], 404);
-        }
-
-        return response()->json(['data' => $storeOrders]);
-    }
 
 
-    public function getStoreOrdersWithProducts()
-    {
-        $storeId =Auth::user()->store;
-        // Fetch all store orders for the given store ID with their products and pivot data
-        $storeOrders = StoreOrder::all();
 
-//        where('store_id', $storeId)->get();
-
-
-        return response()->json(['data' => $storeOrders]);
-    }
 
 
 

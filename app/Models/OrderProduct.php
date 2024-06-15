@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
@@ -28,6 +29,7 @@ class   OrderProduct extends Model
     {
         return $this->belongsTo(Store::class, 'store_id', 'id');
     }
+
 
 
 

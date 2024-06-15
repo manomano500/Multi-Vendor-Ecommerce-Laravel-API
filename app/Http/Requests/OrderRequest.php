@@ -34,7 +34,7 @@ class OrderRequest extends FormRequest
     }
 
 
-    protected function withValidator(Validator $validator)
+/*    protected function withValidator(Validator $validator)
     {
         $validator->after(function ($validator) {
             $products = $this->input('products', []);
@@ -46,5 +46,5 @@ class OrderRequest extends FormRequest
                 }
             }
         });
-    }
+    }*/
 }

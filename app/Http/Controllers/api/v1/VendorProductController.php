@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
-class ProductVendorController extends Controller
+class VendorProductController extends Controller
 {
 
     //////////////for the vendor

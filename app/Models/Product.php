@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -11,6 +12,11 @@ class Product extends Model
 {
     use SoftDeletes, HasFactory;
 
+
+public function scopeStatus(Builder $builder,$status)
+{
+    $builder->where('status', '', $status);
+}
     protected $fillable = [
         'name',
         'description',
@@ -62,11 +68,10 @@ class Product extends Model
 
     public function orders()
     {
-        return $this->belongsToMany(Order::class,'order_products')->withPivot('quantity', 'price');
+        return $this->belongsToMany(Order::class,'order_products')
+            ->withPivot('quantity', 'price', 'store_id')
+            ->withTimestamps();
     }
 
-    public function storeOrder()
-    {
-        return $this->belongsTo(StoreOrder::class, 'store_order_id');
-    }
+
 }

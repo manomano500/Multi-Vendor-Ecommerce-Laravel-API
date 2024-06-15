@@ -2,12 +2,18 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Store extends Model
 {
     use HasFactory;
+
+    public function scopeStatus(Builder $builder,$status)
+    {
+        $builder->where('status', '=', $status);
+    }
 
     protected $fillable = [
         'name',
@@ -42,16 +48,11 @@ class Store extends Model
 
     public function orders()
     {
-        return $this->hasManyThrough(StoreOrder::class, OrderProduct::class, 'store_id', 'id', 'id', 'order_id')
-
-            ->with('products')
-            ;
+        return $this->hasManyThrough(Order::class, OrderProduct::class, 'store_id', 'id', 'id', 'order_id');
     }
 
-    public function storeOrders()
-    {
-        return $this->hasMany(StoreOrder::class);
-    }
+
+
 
 
 

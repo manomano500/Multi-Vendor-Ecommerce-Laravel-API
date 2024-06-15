@@ -2,36 +2,37 @@
 
 namespace App\Http\Resources;
 
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Facades\Log;
-
 /** @mixin \App\Models\Order */
-class OrderResource extends JsonResource
+
+
+class VendorOrderResource extends JsonResource
 {
+    /**
+     * Transform the resource into an array.
+     *
+     * @return array<string, mixed>
+     */
     public function toArray(Request $request): array
     {
-        return [
+       return [
             'id' => $this->id,
+            'user_name' => $this->user->name,
+           'user_email' => $this->user->email,
+           'user_phone' => $this->user->phone,
 
-
-            'order_total' => $this->order_total,
             'order_status' => $this->status,
-           'shipping_address' => $this->shipping_address,
-
-            'created_at' => $this->created_at ? Carbon::parse($this->created_at)->format('d-n-Y H:i:s') : null,
-
+            'shipping_address' => $this->shipping_address,
+            'created_at' => $this->created_at->diffForHumans(),
             'products'=>$this->products->map(function($product){
                 return [
                     'product_id'=>$product->id,
                     'name'=>$product->name,
-
                     'price' => $product->pivot->price,
                     'quantity'=>$product->pivot->quantity,
-                    'store_id'=>$product->store_id,
                 ];
-}),
+            }),
         ];
     }
 }
