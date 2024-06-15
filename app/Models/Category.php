@@ -19,15 +19,26 @@ class Category extends Model
         'updated_at',
     ];
 
+    public function scopeParent($query)
+    {
+        return $query->whereNull('category_id');
+
+    }
+
+    public function scopeChild($query)
+    {
+        return $query->whereNotNull('category_id');
+    }
+
     public function children(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Category::Class,'category_id')->with('children');
     }
 
-    public function parent()
-    {
-        return $this->belongsTo(Category::class, 'category_id');
-    }
+//    public function parent()
+//    {
+//        return $this->belongsTo(Category::class, 'category_id');
+//    }
 
     public function products()
     {

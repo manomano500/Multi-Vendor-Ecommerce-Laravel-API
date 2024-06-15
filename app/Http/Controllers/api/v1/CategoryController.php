@@ -19,7 +19,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::whereNull('category_id')->get(['id','name']);
+        $categories = Category::parent()->get(['id','name']);
         Log::info($categories);
         return  $categories;
 

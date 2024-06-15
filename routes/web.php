@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 
 
-//Route::get('/products', [\App\Http\Controllers\api\v1\ProductVendorController::class, 'index']);
+//Route::get('/products', [\App\Http\Controllers\api\v1\VendorProductController::class, 'index']);
 
 
 require __DIR__.'/auth.php';

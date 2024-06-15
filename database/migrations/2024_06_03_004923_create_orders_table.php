@@ -13,6 +13,8 @@ return new class extends Migration {
             $table->decimal('order_total', 10, 2);
             $table->enum('status', ['pending', 'processing', 'shipped', 'delivered'])->default('pending');
 
+            $table->string('payment_method')->default('on delivery');
+            $table->string('payment_status')->default('pending');
             $table->string('city');
             $table->string('shipping_address');
             $table->timestamps();

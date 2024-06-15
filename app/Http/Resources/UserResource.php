@@ -14,18 +14,11 @@ class UserResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
-            'email_verified_at' => $this->email_verified_at,
 
             'phone' => $this->phone,
-            'remember_token' => $this->remember_token,
+            'role_id' => $this->role->name,
 
-
-            'notifications_count' => $this->notifications_count,
-            'read_notifications_count' => $this->read_notifications_count,
-            'tokens_count' => $this->tokens_count,
-            'unread_notifications_count' => $this->unread_notifications_count,
-
-            'role_id' => $this->role_id,
-        ];
+//            'created_at' => $this->created_at->diffForHumans(),
+            ];
     }
 }
