@@ -29,7 +29,7 @@ class OrderResource extends JsonResource
 
                     'price' => $product->pivot->price,
                     'quantity'=>$product->pivot->quantity,
-                    'store_id'=>$product->store_id,
+                    'store_id'=>$product->store->name,
                 ];
 }),
         ];
