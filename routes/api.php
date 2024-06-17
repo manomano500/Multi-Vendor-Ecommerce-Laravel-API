@@ -3,6 +3,7 @@
 use App\Http\Controllers\api\v1\CategoryController;
 use App\Http\Controllers\api\v1\StoreController;
 use App\Http\Controllers\api\v1\VariationController;
+use App\Http\Controllers\MPGSController;
 use Illuminate\Http\Request;
 
 
@@ -56,3 +57,4 @@ use App\Http\Controllers\PlutuController;
 
 Route::post('/plutu/verify', [PlutuController::class, 'verify']);
 Route::post('/plutu/confirm', [PlutuController::class, 'confirm']);
+Route::post('/mpgs/confirm-payment', [MPGSController::class, 'confirmPayment']);
