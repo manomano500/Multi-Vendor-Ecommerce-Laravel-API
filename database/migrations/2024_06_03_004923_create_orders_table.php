@@ -18,6 +18,7 @@ $table->enum('payment_status', ['pending', 'paid', 'failed'])->default('pending'
             $table->string('city');
             $table->string('phone')->unique();
             $table->string('shipping_address');
+            $table->timestamps();
         });
     }
 

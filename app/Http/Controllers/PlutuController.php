@@ -12,11 +12,11 @@ class PlutuController extends Controller
     public function __construct()
     {
         $this->api = new PlutuAdfali;
+        $this->api = new PlutuAdfali;
         $this->api->setCredentials(
             env('PLUTU_API_KEY'),
             env('PLUTU_ACCESS_TOKEN'),
-            env('PLUTU_SECRET_KEY')
-        );
+            env('PLUTU_SECRET_KEY')   );
     }
 
     public function verify(Request $request)

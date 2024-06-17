@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->integer('quantity')->default(1);
             $table->json('variations')->nullable();
             $table->decimal('price', 10, 2);
-            $table->timestamps();
+//            $table->timestamps();
 
 
             $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
