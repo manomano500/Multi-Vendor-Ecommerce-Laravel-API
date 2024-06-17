@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class   OrderProduct extends Model
+class   OrderProduct extends Pivot
 {
     use HasFactory;
-    protected $table = 'order_products';
+    protected $table = 'order_product';
+public $timestamps = false;
+public $incrementing = true;
 
 
     protected $fillable = ['order_id', 'product_id', 'quantity', 'price', 'store_id'];

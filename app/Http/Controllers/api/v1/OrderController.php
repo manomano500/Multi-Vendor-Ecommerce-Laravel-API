@@ -49,12 +49,13 @@ class OrderController extends Controller
                'status'=>'pending',
                'order_total'=>0,
                'city'=>$request['city'],
+               'phone'=>$request['phone'],
                'shipping_address'=>$request['shipping_address'],
            ]
        );
        try{
            DB::beginTransaction();
-              $order->save();
+
                 $orderTotal = 0;
                 foreach ($request['products'] as $productInserted) {
                     $product = $productsInOrder->find($productInserted['product_id']);

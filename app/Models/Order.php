@@ -10,24 +10,24 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'order_total', 'status', 'city', 'shipping_address'];
+    protected $fillable = ['user_id', 'order_total', 'status', 'city', 'shipping_address', 'phone'];
 
 
 
     public function scopeWithStoreProducts($query, $storeId)
     {
         return $query->whereHas('products', function ($query) use ($storeId) {
-            $query->where('order_products.store_id', $storeId);
+            $query->where('order_product.store_id', $storeId);
         })->with(['products' => function ($query) use ($storeId) {
-            $query->where('order_products.store_id', $storeId);
+            $query->where('order_product.store_id', $storeId);
         }]);
     }
 
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'order_products')
-            ->withPivot('quantity', 'price')
-            ->withTimestamps();
+        return $this->belongsToMany(Product::class, 'order_product')
+            ->using(OrderProduct::class)
+            ->withPivot('quantity', 'price', 'variations');
     }
 
     public function user()
@@ -51,6 +51,15 @@ return $this->hasManyThrough(Variation::class, Product::class, 'id', 'product_id
 
 
 
+public static function booted()
+{
+ static::creating(function (Order $order) {
+     $order->status = 'pending';
 
+
+ });
+
+
+}
 
 }

@@ -47,7 +47,7 @@ public const VENDOR = '/vendor';
                 ->prefix('api/vendor')
                 ->group(base_path('routes/vendor.php'));
 
-            Route::middleware(['api','auth:sanctum','role:customer'])
+            Route::middleware(['api','auth:sanctum','role:customer', 'csp'])
                 ->prefix('api/customer')
 
                 ->group(base_path('routes/customer.php'));

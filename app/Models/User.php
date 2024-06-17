@@ -74,14 +74,5 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Order::class);
     }
-    public function hasStore()
-    {
-        return $this->store()->exists();
 
-    }
-
-    public function isVendor()
-    {
-        return $this->hasRole('vendor');
-    }
 }

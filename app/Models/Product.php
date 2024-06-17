@@ -68,7 +68,7 @@ public function scopeStatus(Builder $builder,$status)
 
     public function orders()
     {
-        return $this->belongsToMany(Order::class,'order_products')
+        return $this->belongsToMany(Order::class,'order_product')
             ->withPivot('quantity', 'price', 'store_id')
             ->withTimestamps();
     }

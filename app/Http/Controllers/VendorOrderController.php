@@ -18,7 +18,7 @@ class VendorOrderController extends Controller
 
         public function index()
     {
-        $storeId =1;
+        $storeId =Auth::user()->store->id;
         $store = Store::findOrFail($storeId);
 
         // Get orders with their products using the scope
