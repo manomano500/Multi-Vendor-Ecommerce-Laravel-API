@@ -14,6 +14,18 @@ class AdminStoreResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+
+            'id' => $this->id,
+            'name' => $this->name,
+            'description' => $this->description,
+            'image' => $this->image,
+            'category' => $this->category->name,
+            'status' => $this->status,
+            'user' => $this->user->name,
+            'address' => $this->address,
+            'products' => $this->products->count(),
+            'orders' => $this->orders->count(),
+        ];
     }
 }
