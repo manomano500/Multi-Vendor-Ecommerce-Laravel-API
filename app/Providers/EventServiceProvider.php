@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Events\OrderCreated;
+use App\Listeners\ProcessOrder;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -18,19 +20,17 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        [
-            'App\Events\OrderCreated' => [
-                'App\Listeners\NotifyStores',
-            ],
-        ]
-    ];
+        OrderCreated::class => [
+            ProcessOrder::class,
+        ],
+        ];
 
     /**
      * Register any events for your application.
      */
     public function boot(): void
     {
-        //
+        parent::boot();
     }
 
     /**

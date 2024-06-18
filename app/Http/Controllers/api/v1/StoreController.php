@@ -10,8 +10,7 @@ class StoreController extends Controller
 {
     public function index()
     {
-        $stores = Store::status('active')->paginate(10);
-;
+        $stores = Store::status('active')->paginate(10);;
         if ($stores->isEmpty()) {
             return response()->json(['message' => 'no stores found'], 200);
         }
@@ -19,15 +18,18 @@ class StoreController extends Controller
     }
 
     public function showProducts($id)
-
     {
-        $store =Store::find($id);
+        $store = Store::status('active')->find($id);
 
         if (!$store) {
-            return response()->json(['message' => 'store not found'], 404);
+            return response()->json(['message' => 'Store not found'], 404);
         }
-        $products = $store->products()->paginate(10);
 
-        return response()->json(['data' => new StoreResource($store->with('products')->find($id))]);
+        // Get active products for the store and paginate the results
+        $products = $store->products()->status('active')->paginate(10);
+
+        return response()->json(['data' => new StoreResource($store->load(['products' => function ($query) {
+            $query->status('active');
+        }]))]);
     }
 }

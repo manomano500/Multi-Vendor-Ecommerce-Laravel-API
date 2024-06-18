@@ -14,7 +14,7 @@ class ProductController extends Controller
     public function index(Request $request)
 
     {
-        $products = Product::active()->with('category')->get();
+        $products = Product::status('active')->with('category')->get();
         Log::info('products: ' . $products);
         return new ProductVendorAllCollection($products);
     }
@@ -23,7 +23,7 @@ class ProductController extends Controller
     public function show($id)
     {
         try {
-            $product = Product::with('variations.attribute')->findOrFail($id);
+            $product = Product::status('active')->with('variations.attribute')->findOrFail($id);
             return response()->json(['product' => new ProductResource($product)], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Product not found', 'error' => $e->getMessage()], 404);

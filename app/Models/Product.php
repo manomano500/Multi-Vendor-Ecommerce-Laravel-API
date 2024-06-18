@@ -13,10 +13,10 @@ class Product extends Model
     use SoftDeletes, HasFactory;
 
 
-public function scopeStatus(Builder $builder,$status)
-{
-    $builder->where('status', '', $status);
-}
+    public function scopeStatus(Builder $builder, $status)
+    {
+        $builder->where('status', $status);
+    }
     protected $fillable = [
         'name',
         'description',

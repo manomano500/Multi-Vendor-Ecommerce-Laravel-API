@@ -10,15 +10,12 @@ use App\Models\User;
 Route::get('/stores', [\App\Http\Controllers\Auth\StoreController::class, 'show']);
 Route::post('/stores', [\App\Http\Controllers\Auth\StoreController::class, 'update']);
 
-
 Route::resource('/products', VendorProductController::class);
 
 
+
 Route::get('/orders', [VendorOrderController::class, 'index']);
-    Route::post('/orders/{order}/approve', [VendorOrderController::class, 'approve']);
-    Route::post('/orders/{order}/reject', [VendorOrderController::class, 'reject']);
-
-
+Route::get('/orders/{id}', [VendorOrderController::class, 'show']);
 
 
 

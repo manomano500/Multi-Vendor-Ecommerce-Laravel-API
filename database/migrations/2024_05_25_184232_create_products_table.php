@@ -11,7 +11,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('description');
-            $table->integer('quantity')->default(0);
+            $table->unsignedInteger('quantity')->default(0);
             $table->foreignId('category_id');
 $table->foreignId('store_id');
 

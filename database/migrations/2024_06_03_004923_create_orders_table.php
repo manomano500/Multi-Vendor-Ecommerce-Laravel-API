@@ -11,12 +11,12 @@ return new class extends Migration {
             $table->id()->autoIncrement();
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
             $table->decimal('order_total', 10, 2);
-            $table->enum('status', ['pending', 'processing', 'shipped', 'delivered'])->default('pending');
+            $table->enum('status', ['pending', 'processing', 'shipped', 'delivered','cancelled'])->default('pending');
 
             $table->string('payment_method')->default('on delivery');
 $table->enum('payment_status', ['pending', 'paid', 'failed'])->default('pending');
             $table->string('city');
-            $table->string('phone')->unique();
+            $table->string('phone');
             $table->string('shipping_address');
             $table->timestamps();
         });

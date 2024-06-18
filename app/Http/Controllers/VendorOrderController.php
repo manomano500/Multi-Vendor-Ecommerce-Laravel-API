@@ -19,14 +19,13 @@ class VendorOrderController extends Controller
         public function index()
     {
         $storeId =Auth::user()->store->id;
-        $store = Store::findOrFail($storeId);
 
         // Get orders with their products using the scope
         $orders = Order::withStoreProducts($storeId)->get();
 
         // Structure the data
 
-        return VendorOrderResource::collection($orders);
+        return  VendorOrderResource::collection($orders) ;
 
 
 
@@ -38,36 +37,26 @@ class VendorOrderController extends Controller
 
 
 
-
-
-
-
-
-
-    public function approve(Request $request, $orderId)
+public function show($id)
     {
-        $storeOrder = StoreOrder::find($orderId);
-        Log::info($storeOrder);
-        if(Auth::user()->store->id != $storeOrder->store_id){
-            return response()->json(['message' => 'You are not authorized to update this order'], 403);
+        $storeId =Auth::user()->store->id;
+
+        // Get the order with the given ID
+        $order = Order::withStoreProducts($storeId)->find($id);
+
+        // If the order doesn't exist, return an error response
+        if (!$order) {
+            return response()->json(['message' => 'Order not found'], 404);
         }
 
-        Log::info('order: ' . $storeOrder);
-       $storeOrder->update(['status' => 'accepted']);
-        return response()->json(['message' => 'Order updated successfully']);
+        // Structure the data
+        return new VendorOrderResource($order);
     }
 
-    public function reject(Request $request,  $orderId)
-    {
 
-        $storeOrder = StoreOrder::find($orderId);
-        Log::info($storeOrder);
-        if(Auth::user()->store->id != $storeOrder->store_id){
-            return response()->json(['message' => 'You are not authorized to update this order'], 403);
-        }
 
-        Log::info('order: ' . $storeOrder);
-        $storeOrder->update(['status' => 'rejected']);
-        return response()->json(['message' => 'Order updated successfully']);
-    }
+
+
+
+
 }
