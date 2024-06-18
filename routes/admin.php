@@ -29,5 +29,6 @@ Route::get('/users',[UserController::class,'index']);
 Route::get('/stores',[AdminStoreController::class,'index']);
 Route::get('/stores/{id}',[AdminStoreController::class,'show']);
 
+Route::get('/stores/{id}/products',[AdminStoreController::class,'showProducts']);
 
 Route::get('/orders',[AdminOrderController::class,'index']);

@@ -21,7 +21,9 @@ Route::get('/orders/{id}', [VendorOrderController::class, 'show']);
 
 
 
-
+Route::get('/notifications', function () {
+    return auth()->user()->notifications;
+});
 
 
 
