@@ -17,10 +17,11 @@ class ProductResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'category_id' => $this->category_id,
+            'category_id' => $this->category->name,
             'price' => $this->price,
             'status' => $this->status,
             'quantity' => $this->quantity,
+            'images' => $this->images?->pluck('image_url'),
             'variations' => VariationResource::collection($this->whenLoaded('variations')),
 
         ];

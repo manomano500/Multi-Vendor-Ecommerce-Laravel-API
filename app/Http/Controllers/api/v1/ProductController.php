@@ -23,8 +23,8 @@ class ProductController extends Controller
     public function show($id)
     {
         try {
-            $product = Product::status('active')->with('variations.attribute')->findOrFail($id);
-            return response()->json(['product' => new ProductResource($product)], 200);
+            $product = Product::status('active')->findOrFail($id);
+            return  new ProductResource($product->load('category'));
         } catch (\Exception $e) {
             return response()->json(['message' => 'Product not found', 'error' => $e->getMessage()], 404);
         }

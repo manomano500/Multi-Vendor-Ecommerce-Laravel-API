@@ -16,7 +16,7 @@ class ProductVendorAllResource extends JsonResource
             'name' => $this->name,
             'description' => $this->description,
 //            'store_id' => $this->store->name,
-            'images' => $this->images->pluck('image_url'), // Use accessor to get full URLs
+            'images' => $this->images?->pluck('image_url'), // Use accessor to get full URLs
 
             'category' => $this->category->name,
             'quantity' => $this->quantity,
