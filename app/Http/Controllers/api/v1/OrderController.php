@@ -32,8 +32,14 @@ class OrderController extends Controller
     }
     public function index()
     {
-        $orders = Auth::user()->orders;
-        return OrderResource::collection($orders);
+
+        try {
+            $orders = $this->orderService->getAllOrders(Auth::id());
+            return OrderResource::collection($orders);
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json(['message' => 'Failed to retrieve orders'], 500);
+        }
     }
 
     public function store(Request $request)
@@ -57,16 +63,16 @@ class OrderController extends Controller
     }
 
 
-        function show($id)
-        {
-
-            $order = Order::findOrFail($id)->load('products');
-            if ($order->user_id !== Auth::id()) {
-                return response()->json(['message' => 'Unauthorized'], 401);
-            }
-
+    public function show($id)
+    {
+        try {
+            $order = $this->orderService->getOrderById(Auth::id(), $id);
             return new OrderResource($order);
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json(['message' => 'Failed to retrieve the order'], 500);
         }
+    }
 
 
        public function cancelOrder($id)

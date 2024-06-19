@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\api\v1\CategoryController;
+use App\Http\Controllers\api\v1\ProductController;
 use App\Http\Controllers\api\v1\StoreController;
 use App\Http\Controllers\api\v1\VariationController;
 use App\Http\Controllers\StripeController;
@@ -45,7 +46,7 @@ Route::get('/variations', [VariationController::class, 'index']);
 
 
 
-Route::resource('/products', \App\Http\Controllers\api\v1\ProductController::class);
+Route::resource('/products', ProductController::class);
 
 
 Route::get('/stores',[StoreController::class,'index']);

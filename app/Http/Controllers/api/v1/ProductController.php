@@ -14,7 +14,7 @@ class ProductController extends Controller
     public function index(Request $request)
 
     {
-        $products = Product::status('active')->with('category')->get();
+        $products = Product::filter($request->query())->with('category')->paginate(10);
         Log::info('products: ' . $products);
         return new ProductVendorAllCollection($products);
     }

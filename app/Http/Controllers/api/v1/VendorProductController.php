@@ -9,6 +9,7 @@ use App\Http\Resources\Product\ProductVendorAllCollection;
 use App\Http\Resources\Product\ProductVendorSingleResource;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
+use App\Models\ProductImage;
 use App\Models\ProductVariation;
 use App\Models\Variation;
 use Illuminate\Http\Request;
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class VendorProductController extends Controller
 {
@@ -49,18 +51,28 @@ try {
             'status',
 
         ]));
-
     $product->store_id = Auth::user()->store->id;
-    if($request->hasFile('images')) {
+    $product->save();
+    if ($request->hasFile('images')) {
         $images = [];
         foreach ($request->file('images') as $image) {
-            $path = $image->store('products', 'public');
-            $images[] = $path;
+            // Create a meaningful filename
+            $filename = Str::slug($productRequest['name']) . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
+            $path = $image->storeAs('images/products', $filename, 'public');
+            $images[] = [
+                'product_id' => $product->id,
+                'image' => $path,
+            ];
         }
-        $product->images = $images;
+
+        // Batch insert images
+        ProductImage::insert($images);
+
+
+
     }
 
-    $product->save();
+
     $product->variations()->attach($request->input('variations'));
     return response()->json(['message' => 'Product created successfully', 'data' => new ProductResource($product),], 201);
 }
@@ -95,7 +107,17 @@ catch (\Exception $e) {}
             return response()->json(['message' => 'Product not found'], 404);
         }
         $productRequest = ProductRequest::createFrom($request);
-        $validated = Validator::make($productRequest->all(), $productRequest->rules());
+        $validated = Validator::make($productRequest->all(), [
+            'name' => 'sometimes|required|string|max:255',
+            'description' => 'sometimes|required|string|max:255',
+            'category_id' => 'sometimes|required|integer|exists:categories,id',
+            'quantity' => 'sometimes|required|integer',
+            'price' => 'sometimes|required|numeric',
+            'images' => 'array',
+            'variations' => 'sometimes|required|array',
+            'variations.*' => 'required|integer|distinct|exists:variations,id',
+            'status' => 'sometimes|required|in:active,inactive,out_of_stock',
+        ]);
 
         if ($validated->fails()) {
             return response()->json(['message' => $validated->errors()], 400);

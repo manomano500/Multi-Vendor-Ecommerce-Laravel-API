@@ -13,7 +13,9 @@ return new class extends Migration {
             $table->string('description');
             $table->unsignedInteger('quantity')->default(0);
             $table->foreignId('category_id');
-$table->foreignId('store_id');
+            $table->json('images')->nullable(); // JSON column for images
+
+            $table->foreignId('store_id');
 
             $table->double('price');
 

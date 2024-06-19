@@ -10,11 +10,11 @@ class StoreController extends Controller
 {
     public function index()
     {
-        $stores = Store::status('active')->paginate(10);;
+        $stores = Store::filter(request()->query())->with('category')->paginate(10);
         if ($stores->isEmpty()) {
             return response()->json(['message' => 'no stores found'], 200);
         }
-        return response()->json(['data' => StoreResource::collection($stores->load('category'))]);
+        return  StoreResource::collection($stores);
     }
 
     public function showProducts($id)

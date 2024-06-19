@@ -15,6 +15,42 @@ class Store extends Model
         $builder->where('status', $status);
     }
 
+    public function scopeFilter(Builder $builder, $filters)
+    {
+        $options = array_merge([
+            'status' => 'active',
+            'category_id' => null,
+            'search' => null,
+            'sort' => null,
+            'limit' => null,
+            'page' => null,
+        ], $filters);
+
+        $builder->when($options['status'], function ($query, $status) {
+            $query->where('status', $status);
+        });
+
+        $builder->when($options['category_id'], function ($query, $category) {
+            $query->where('category_id', $category);
+        });
+
+        $builder->when($options['search'], function ($query, $search) {
+            $query->where('name', 'like', "%$search%");
+        });
+
+        $builder->when($options['sort'], function ($query, $sort) {
+            $query->orderBy($sort);
+        });
+
+        $builder->when($options['limit'], function ($query, $limit) {
+            $query->limit($limit);
+        });
+
+        $builder->when($options['page'], function ($query, $page) {
+            $query->paginate($page);
+        });
+    }
+
     protected $fillable = [
         'name',
         'description',

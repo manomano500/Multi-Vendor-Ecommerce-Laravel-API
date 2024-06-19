@@ -9,6 +9,7 @@ use App\Models\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class StoreController extends Controller
@@ -107,7 +108,10 @@ class StoreController extends Controller
                 $image = $request->file('image');
                 $path = $image->store('images/stores', 'public');
                 $new_store->image = $path;
+                Log::info('path: ' . $path);
+                Log::info('image: ' . $new_store->image);
             }
+
 
             DB::transaction(function () use ($request, $user, $new_store) {
 
