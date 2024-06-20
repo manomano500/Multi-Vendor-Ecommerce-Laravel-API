@@ -56,28 +56,56 @@ class CategoryController extends Controller
      * admin
      */
 
-   public function addParentCategory(Request $request)
+   public function store(Request $request)
    {
+       $this->authorize('create', Category::class);
+
        $validated = Validator::make($request->all(), [
            'name' => 'required|string|max:255,unique:categories',
            'children' => 'array',
-              'children.*.name' => 'required|string|max:255'
+           'children.*.name' => 'required|string|max:255'
        ]);
-       if($validated->fails()){
+       if ($validated->fails()) {
            return response()->json($validated->errors(), 400);
        }
        try {
-           $category =Category::create($request->only('name')); ;
+           $category = Category::create($request->only('name'));;
 
-              foreach ($request->children as $child){
-                  $category->children()->create($child);
-              }
-              return new CategoryParentChildrenResource($category);
+//              foreach ($request->children as $child){
+           $category->children()->createMany($request->children);
+//              }
+           return Response()->json(['message' => 'Category created','data'=>$category], 201);
        } catch (\Exception $e) {
            return response()->json(['message' => $e->getMessage()], 400);
        }
-
    }
+
+
+
+       public function update(Request $request, $id)
+       {
+           $category = Category::findOrFail($id);
+           if(!$category){
+               return response()->json(['message' => 'Category not found'], 404);
+           }
+           $validated = Validator::make($request->all(), [
+               'name' => 'sometimes|required|string|max:255,unique:categories',
+               'children' => 'sometimes|array',
+               'children.*.name' => 'sometimes|required|string|max:255'
+           ]);
+           if($validated->fails()){
+               return response()->json($validated->errors(), 400);
+           }
+           try {
+               $category->update($request->only('name'));
+               $category->children()->updateOrInsert($request->children);
+              return Response()->json(['message' => 'Category updated'], 200);
+           } catch (\Exception $e) {
+               return response()->json(['message' => $e->getMessage()], 400);
+           }
+       }
+
+
 
 
 

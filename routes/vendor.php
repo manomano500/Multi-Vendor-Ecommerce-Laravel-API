@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\api\v1\OrderController;
-use App\Http\Controllers\api\v1\VendorProductController;
-use App\Http\Controllers\VendorOrderController;
+use App\Http\Controllers\api\v1\ProductVendorController;
+use App\Http\Controllers\OrderVendorController;
 use App\Models\Product;
 use App\Models\User;
 
@@ -10,12 +10,12 @@ use App\Models\User;
 Route::get('/stores', [\App\Http\Controllers\Auth\StoreController::class, 'show']);
 Route::post('/stores', [\App\Http\Controllers\Auth\StoreController::class, 'update']);
 
-Route::resource('/products', VendorProductController::class);
+Route::resource('/products', ProductVendorController::class);
 
 
 
-Route::get('/orders', [VendorOrderController::class, 'index']);
-Route::get('/orders/{id}', [VendorOrderController::class, 'show']);
+Route::get('/orders', [OrderVendorController::class, 'index']);
+Route::get('/orders/{id}', [OrderVendorController::class, 'show']);
 
 
 

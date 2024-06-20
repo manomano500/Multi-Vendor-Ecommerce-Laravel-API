@@ -7,7 +7,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 /** @mixin \App\Models\Order */
 
 
-class VendorOrderResource extends JsonResource
+class OrderVendorResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

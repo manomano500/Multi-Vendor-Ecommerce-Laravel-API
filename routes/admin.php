@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\AdminOrderController;
+use App\Http\Controllers\OrderAdminController;
 use App\Http\Controllers\AdminStoreController;
 use App\Http\Controllers\api\v1\CategoryController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,12 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/add-category', [CategoryController::class, 'addParentCategory']);
+Route::post('/categories', [CategoryController::class, 'store']);
+Route::get('/categories',[ CategoryController::class,'index']);
+Route::post('/categories/{id}',[CategoryController::class,'update']);
 
 
 
 
-Route::get('/users',[UserController::class,'index']);
+//Route::get('/users',[UserController::class,'index']);
 
 
 
@@ -31,4 +32,5 @@ Route::get('/stores/{id}',[AdminStoreController::class,'show']);
 
 Route::get('/stores/{id}/products',[AdminStoreController::class,'showProducts']);
 
-Route::get('/orders',[AdminOrderController::class,'index']);
+Route::get('/orders',[OrderAdminController::class,'index']);
+Route::get('/orders/{id}',[OrderAdminController::class,'show']);

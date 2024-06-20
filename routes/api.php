@@ -4,7 +4,6 @@ use App\Http\Controllers\api\v1\CategoryController;
 use App\Http\Controllers\api\v1\ProductController;
 use App\Http\Controllers\api\v1\StoreController;
 use App\Http\Controllers\api\v1\VariationController;
-use App\Http\Controllers\StripeController;
 use Illuminate\Http\Request;
 
 
@@ -53,5 +52,3 @@ Route::get('/stores',[StoreController::class,'index']);
 Route::get('/stores/{id}/products', [StoreController::class, 'showProducts']);
 
 
-
-Route::post('/payment-intent', [StripeController::class, 'createPaymentIntent']);

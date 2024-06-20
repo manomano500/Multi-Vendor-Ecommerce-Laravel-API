@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\AdminStoreResource;
+use App\Http\Resources\StoreAdminResource;
 use App\Http\Resources\StoreResource;
 use App\Models\Store;
 use Illuminate\Http\Request;
@@ -18,7 +18,7 @@ class AdminStoreController extends Controller
             return response()->json(['message' => 'no stores found'], 200);
         }
         Log::info($stores);
-        return  AdminStoreResource::collection($stores->load('category', 'user', 'products', 'orders'));
+        return  StoreAdminResource::collection($stores->load('category', 'user', 'products', 'orders'));
     }
 
 
@@ -29,6 +29,6 @@ class AdminStoreController extends Controller
         if (!$store) {
             return response()->json(['message' => 'store not found'], 404);
         }
-        return new AdminStoreResource($store->load('category', 'user', 'products', 'orders'));
+        return new StoreAdminResource($store->load('category', 'user', 'products', 'orders'));
     }
 }

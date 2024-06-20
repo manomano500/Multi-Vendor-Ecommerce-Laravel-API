@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\api\v1\OrderController;
 use App\Http\Controllers\Auth\StoreController;
+use App\Http\Controllers\PaymentController;
 use App\Models\Order;
 
 
@@ -21,5 +22,7 @@ Route::post('/orders', [OrderController::class, 'store']);
 Route::delete('/orders/{id}', [OrderController::class, 'cancelOrder']);
 
 
+Route::post('/payment/adfali/send-otp', [PaymentController::class, 'sendAdfaliOtp']);
+Route::post('/payment/adfali/confirm', [PaymentController::class, 'confirmAdfaliPayment']);
 
 
