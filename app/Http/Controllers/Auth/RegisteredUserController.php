@@ -27,9 +27,9 @@ class RegisteredUserController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'name' => ['bail','required', 'string', 'max:255','min:3',],
+            'email' => ['bail','required', 'string', 'lowercase', 'email', 'max:255','unique:' . User::class],
+            'password' => ['bail','required', 'confirmed', Rules\Password::defaults(),],
         ]);
 
         if ($validator->fails()) {

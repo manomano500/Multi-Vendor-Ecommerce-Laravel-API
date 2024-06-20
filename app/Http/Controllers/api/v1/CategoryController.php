@@ -19,7 +19,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::parent()->get(['id','name']);
+        $categories = Category::parent()->whereHas('stores')->get(['id','name']);
         Log::info($categories);
         return  $categories;
 

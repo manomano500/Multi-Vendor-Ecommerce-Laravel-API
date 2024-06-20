@@ -50,5 +50,7 @@ public function stores()
     return$this->hasMany(Store::class);
 
 }
+
+
 }
 

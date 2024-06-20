@@ -32,7 +32,7 @@ class OrderService
                 'status' => 'pending',
                 'order_total' => 0,
                 'city' => $data['city'],
-                'phone' => $data['phone'],
+                'phone' => '1212121212',
                 'shipping_address' => $data['shipping_address'],
             ]);
 
@@ -67,8 +67,8 @@ class OrderService
 
             // Fire the OrderCreated event
             event(new OrderCreated($order));
-
             return $order;
+
         });
     }
 
@@ -104,7 +104,7 @@ class OrderService
             if ($product) {
                 $product->quantity -= $orderProduct->pivot->quantity;
                 if ($product->quantity < 2) {
-                    $product->status = 'inactive';
+                    $product->status = 'out_of_stock';
                 }
                 $product->save();
             }

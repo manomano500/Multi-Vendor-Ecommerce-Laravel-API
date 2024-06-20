@@ -17,7 +17,7 @@ class OrderRequest extends FormRequest
 
             'city' => 'required|string',
             'shipping_address' => 'required|string',
-            'phone' => 'required|string',
+            'phone' => 'string',
             'products' => 'required|array',
             'products.*.product_id' => 'required|exists:products,id',
             'products.*.quantity' => 'required|integer|min:1',
