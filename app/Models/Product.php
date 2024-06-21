@@ -94,7 +94,7 @@ protected $hidden=['created_at','updated_at','deleted_at'];
 
     public function images()
     {
-        return $this->hasMany(ProductImage::class);
+        return $this->hasMany(ProductImage::class, 'product_id');
     }
 
 
