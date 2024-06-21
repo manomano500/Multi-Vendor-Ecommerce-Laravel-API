@@ -12,7 +12,7 @@ class Product extends Model
 {
     use SoftDeletes, HasFactory;
 
-
+protected $hidden=['created_at','updated_at','deleted_at'];
     protected $fillable = [
         'name',
         'description',
@@ -120,6 +120,14 @@ class Product extends Model
     }
 
 
-
+    public function getImageUrlsAttribute()
+    {
+        return $this->images?->map(function ($image) {
+            return [
+                'id' => $image->id,
+                'url' => $image->image_url, // Adjust this according to your actual column name
+            ];
+        });
+    }
 
 }

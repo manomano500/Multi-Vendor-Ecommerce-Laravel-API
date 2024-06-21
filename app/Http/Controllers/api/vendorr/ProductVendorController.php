@@ -87,9 +87,9 @@ catch (\Exception $e) {}
 
         $product = Product::where('id', $id)
             ->where('store_id', $storeId)
-            ->with('variations.attribute','category')
+            ->with('variations.attribute','category','images')
             // Eager load related data if needed
-            ->first();
+            ->find($id);
         if(!$product){
             return response()->json(['message' => 'Product not found '], 404);
 
@@ -115,6 +115,8 @@ catch (\Exception $e) {}
             'price' => 'sometimes|required|numeric',
             'images' => 'sometimes|required|array',
             "images.*" => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+          'deleted_images' => 'sometimes|required|array',
+            'deleted_images.*' => 'required|integer|exists:product_images,id',
             'variations' => 'sometimes|required|array',
             'variations.*' => 'required|integer|distinct|exists:variations,id',
             'status' => 'sometimes|required|in:active,inactive,out_of_stock',
@@ -134,6 +136,25 @@ catch (\Exception $e) {}
                 'status'
             ]);
 
+            if($request->hasFile('images')) {
+                $images = [];
+                foreach ($request->file('images') as $image) {
+                    // Create a meaningful filename
+                    $filename = Str::slug($productRequest['name']) . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
+                    $path = $image->storeAs('images/products', $filename, 'public');
+                    $images[] = [
+                        'product_id' => $product->id,
+                        'image' => $path,
+                    ];
+                }
+
+                // Batch insert images
+                ProductImage::insert($images);
+            }
+            if($request->has('deleted_images')) {
+                // Delete images
+                ProductImage::destroy($request->input('deleted_images'));
+            }
 
             // Update only the fields that the user has edited
             $product->update($updatedFields);
@@ -141,7 +162,7 @@ catch (\Exception $e) {}
             // Sync variations
             $product->variations()->sync($request->input('variations'));
 
-            return response()->json(['message' => 'Product updated successfully', 'data' => new ProductResource( $product)], 200);
+            return response()->json(['message' => 'Product updated successfully', 'data' =>  $product], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Failed to update product', 'error' => $e->getMessage()], 500);
         }
