@@ -96,6 +96,11 @@ protected $hidden=['created_at','updated_at','deleted_at'];
     {
         return $this->hasMany(ProductImage::class, 'product_id');
     }
+    public function deleteImages(array $imageIds)
+    {
+        // Detach images that match the provided IDs
+        $this->images()->whereIn('id', $imageIds)->delete();
+    }
 
 
 

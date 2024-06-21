@@ -152,9 +152,10 @@ catch (\Exception $e) {}
                 ProductImage::insert($images);
             }
             if($request->has('deleted_images')) {
-                // Delete images
-                ProductImage::destroy($request->input('deleted_images'));
-            }
+
+                $deletedImageIds = $request->input('deleted_images');
+                $product->deleteImages($deletedImageIds);
+               }
 
             // Update only the fields that the user has edited
             $product->update($updatedFields);
