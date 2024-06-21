@@ -163,7 +163,7 @@ catch (\Exception $e) {}
             // Sync variations
             $product->variations()->sync($request->input('variations'));
 
-            return response()->json(['message' => 'Product updated successfully', 'data' =>  $product], 200);
+            return response()->json(['message' => 'Product updated successfully', 'data' =>  [new ProductResource($product),]], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Failed to update product', 'error' => $e->getMessage()], 500);
         }
