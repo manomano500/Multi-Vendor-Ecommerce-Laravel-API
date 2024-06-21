@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\OrderAdminController;
-use App\Http\Controllers\AdminStoreController;
-use App\Http\Controllers\api\v1\CategoryController;
+use App\Http\Controllers\api\v1\admin\OrderAdminController;
+use App\Http\Controllers\api\v1\admin\StoreAdminController;
+use App\Http\Controllers\api\v1\public\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,10 +27,10 @@ Route::post('/categories/{id}',[CategoryController::class,'update']);
 
 
 
-Route::get('/stores',[AdminStoreController::class,'index']);
-Route::get('/stores/{id}',[AdminStoreController::class,'show']);
+Route::get('/stores',[StoreAdminController::class,'index']);
+Route::get('/stores/{id}',[StoreAdminController::class,'show']);
 
-Route::get('/stores/{id}/products',[AdminStoreController::class,'showProducts']);
+Route::get('/stores/{id}/products',[StoreAdminController::class,'showProducts']);
 
 Route::get('/orders',[OrderAdminController::class,'index']);
 Route::get('/orders/{id}',[OrderAdminController::class,'show']);

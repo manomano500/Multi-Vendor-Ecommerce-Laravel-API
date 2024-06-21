@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\api\v1;
+namespace App\Http\Controllers\api\vendorr;
 
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Http\Resources\Product\ProductVendorAllCollection;
-use App\Http\Resources\Product\ProductVendorSingleResource;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use App\Models\ProductImage;

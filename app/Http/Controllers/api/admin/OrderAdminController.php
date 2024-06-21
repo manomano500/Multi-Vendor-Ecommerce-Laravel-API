@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api\admin;
 
-use App\Http\Resources\OrderResource;
+use App\Http\Controllers\Controller;
 use App\Models\Order;
-use Illuminate\Http\Request;
 
 class OrderAdminController extends Controller
 {

@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\OrderProduct;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class OrderService
 {
@@ -25,52 +26,71 @@ class OrderService
     }
     public function createOrder($userId, $data)
     {
-        return DB::transaction(function () use ($userId, $data) {
-            // Create the order
-            $order = Order::create([
-                'user_id' => $userId,
-                'status' => 'pending',
-                'order_total' => 0,
-                'city' => $data['city'],
-                'phone' => '1212121212',
-                'shipping_address' => $data['shipping_address'],
-            ]);
+        try {
 
-            $orderTotal = 0;
+            // Start the transaction
+            $order = DB::transaction(function () use ($userId, $data) {
+                // Create the order
+                $order = Order::create([
+                    'user_id' => $userId,
+                    'status' => 'pending',
+                    'order_total' => 0,
+                    'city' => $data['city'],
+//                    'phone' => $data['phone'],
+                    'shipping_address' => $data['shipping_address'],
+                ]);
 
-            // Get product IDs from the request data
-            $productIds = collect($data['products'])->pluck('product_id');
+                $orderTotal = 0;
 
-            // Fetch all products in the order from the database
-            $products = Product::whereIn('id', $productIds)->get();
+                // Get product IDs and quantities from the request data
+                $productsData = $data['products'];
 
-            // Attach products to the order and calculate the total
-            foreach ($data['products'] as $productData) {
-                $product = $products->firstWhere('id', $productData['product_id']);
+                // Fetch all active products in the order from the database
+                $productIds = collect($productsData)->pluck('product_id');
+                $products = Product::whereIn('id', $productIds)->where('status', 'active')->get();
 
-                if ($product) {
-                    OrderProduct::create([
-                        'order_id' => $order->id,
-                        'product_id' => $product->id,
-                        'quantity' => $productData['quantity'],
-                        'price' => $product->price,
-                        'store_id' => $product->store_id,
-                    ]);
+                Log::info('products: ' . $products);
 
-                    $orderTotal += $product->price * $productData['quantity'];
+
+                // Attach products to the order and calculate the total
+                foreach ($productsData as $productData) {
+                    $product = $products->firstWhere('id', $productData['product_id']);
+
+                    if ($product) {
+                        OrderProduct::create([
+                            'order_id' => $order->id,
+                            'product_id' => $product->id,
+                            'quantity' => $productData['quantity'],
+                            'price' => $product->price,
+                            'store_id' => $product->store_id,
+                        ]);
+                        $this->deductProductQuantities($product, $productData['quantity']);
+                        $orderTotal += $product->price * $productData['quantity'];
+                    }
                 }
-            }
+//                Log::info('orderTotal: ' . $order);
 
-            // Update the order total and refresh the order instance
-            $order->update(['order_total' => $orderTotal]);
-            $order->refresh();
+                // Update the order total and refresh the order instance
+                $order->update(['order_total' => $orderTotal]);
+                $order->refresh();
+                event(new OrderCreated($order));
+                // Return the order instance from the transaction block
+                return $order;
+            });
 
-            // Fire the OrderCreated event
-            event(new OrderCreated($order));
             return $order;
+            // Fire the OrderCreated event outside the transaction
 
-        });
+
+        } catch (\Exception $e) {
+            // Rethrow the exception with a custom message
+            throw new \Exception( $e->getMessage());
+        }
+
+        // Return the order to the user
+
     }
+
 
 
     public function cancelOrder(Order $order)
@@ -96,18 +116,20 @@ class OrderService
     }
 
 
-    public function deductProductQuantities(Order $order)
+    public function deductProductQuantities(Product $product, $quantity): void
     {
-        // Deduct quantities for each product in the order
-        foreach ($order->products as $orderProduct) {
-            $product = Product::find($orderProduct->pivot->product_id);
-            if ($product) {
-                $product->quantity -= $orderProduct->pivot->quantity;
-                if ($product->quantity < 2) {
-                    $product->status = 'out_of_stock';
-                }
-                $product->save();
-            }
+
+        if ($product->quantity < $quantity) {
+            throw new \Exception('Insufficient quantity for product ' . $product->name);
         }
+
+        $remainingQuantity = $product->quantity - $quantity;
+        $product->update(['quantity' => $remainingQuantity]);
+        if ($remainingQuantity < 2) {
+            $product->update(['status' => 'out_of_stock']);
+        }
+
+        // Deduct quantities for each product in the order
+
     }
 }

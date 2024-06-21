@@ -1,15 +1,14 @@
 <?php
 
 
-use App\Http\Controllers\api\v1\OrderController;
-use App\Http\Controllers\Auth\StoreController;
-use App\Http\Controllers\PaymentController;
-use App\Models\Order;
+use App\Http\Controllers\api\OrderController;
+use App\Http\Controllers\Auth\BecomeVendor;
+use App\Http\Controllers\services\PaymentController;
 
 
 //Route::get('/stores',)
 
-Route::post('/become-vendor', [StoreController::class, 'becomeVendor']);
+Route::post('/become-vendor', [BecomeVendor::class, 'becomeVendor']);
 
 
 

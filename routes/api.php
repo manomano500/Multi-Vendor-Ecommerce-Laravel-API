@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\api\v1\CategoryController;
-use App\Http\Controllers\api\v1\ProductController;
-use App\Http\Controllers\api\v1\StoreController;
-use App\Http\Controllers\api\v1\VariationController;
+use App\Http\Controllers\api\public\CategoryController;
+use App\Http\Controllers\api\public\ProductController;
+use App\Http\Controllers\api\public\StoreController;
+
+use App\Http\Controllers\api\public\VariationController;
 use Illuminate\Http\Request;
 
 

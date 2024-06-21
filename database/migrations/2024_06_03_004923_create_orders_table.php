@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->string('payment_method')->default('on delivery');
 $table->enum('payment_status', ['pending', 'paid', 'failed'])->default('pending');
             $table->string('city');
-            $table->string('phone');
+            $table->string('phone')->nullable();
             $table->string('shipping_address');
             $table->timestamps();
         });

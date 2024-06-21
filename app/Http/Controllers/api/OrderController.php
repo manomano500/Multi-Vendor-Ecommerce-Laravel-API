@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api\v1;
+namespace App\Http\Controllers\api;
 
 use App\Events\OrderCreated;
 use App\Http\Controllers\Controller;
@@ -54,7 +54,7 @@ class OrderController extends Controller
 
         try {
             $order = $this->orderService->createOrder(Auth::id(), $request->all());
-            return new OrderResource($order);
+            return $order;
         } catch (\Exception $e) {
             Log::error($e->getMessage());
             return response()->json(['message' => $e->getMessage()], 500);

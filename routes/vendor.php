@@ -1,14 +1,13 @@
 <?php
 
-use App\Http\Controllers\api\v1\OrderController;
-use App\Http\Controllers\api\v1\ProductVendorController;
-use App\Http\Controllers\OrderVendorController;
+use App\Http\Controllers\api\vendorr\OrderVendorController;
+use App\Http\Controllers\api\vendorr\ProductVendorController;
+use App\Http\Controllers\api\vendorr\StoreVendorController;
 use App\Models\Product;
-use App\Models\User;
 
 
-Route::get('/stores', [\App\Http\Controllers\Auth\StoreController::class, 'show']);
-Route::post('/stores', [\App\Http\Controllers\Auth\StoreController::class, 'update']);
+Route::get('/stores', [StoreVendorController::class, 'show']);
+Route::post('/stores', [StoreVendorController::class, 'update']);
 
 Route::resource('/products', ProductVendorController::class);
 

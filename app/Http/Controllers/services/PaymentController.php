@@ -1,8 +1,9 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\services;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Services\PlutuService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class PaymentController extends Controller
