@@ -9,7 +9,13 @@ use App\Models\Product;
 Route::get('/stores', [StoreVendorController::class, 'show']);
 Route::post('/stores', [StoreVendorController::class, 'update']);
 
-Route::resource('/products', ProductVendorController::class);
+
+Route::get('/products', [ProductVendorController::class, 'index']);
+Route::post('/products', [ProductVendorController::class, 'store']);
+Route::get('/products/{id}', [ProductVendorController::class, 'show']);
+Route::post('/products/{id}', [ProductVendorController::class, 'update']);
+Route::delete('/products/{id}', [ProductVendorController::class, 'destroy']);
+
 
 
 

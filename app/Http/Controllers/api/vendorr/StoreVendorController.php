@@ -58,7 +58,7 @@ class StoreVendorController extends Controller
 
 
         } catch (\Exception $e) {
-            return response()->json(['error' => $validator->errors()], 500);
+            return response()->json(['error' => $validator->errors(),'exp'=>$e->getMessage()], 500);
         }
 
         //

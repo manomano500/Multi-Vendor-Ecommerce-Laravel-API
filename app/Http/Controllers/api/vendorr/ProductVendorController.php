@@ -100,8 +100,9 @@ catch (\Exception $e) {}
 
     }
 
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
+        $product = Product::findOrFail($id);
         if ($product->store_id != Auth::user()->store->id) {
             return response()->json(['message' => 'Product not found'], 404);
         }
@@ -124,7 +125,7 @@ catch (\Exception $e) {}
         }
 
         try {
-            $updatedFields = $productRequest->only([
+            $updatedFields = $request->only([
                 'name',
                 'description',
                 'quantity',
@@ -132,6 +133,7 @@ catch (\Exception $e) {}
                 'price',
                 'status'
             ]);
+
 
             // Update only the fields that the user has edited
             $product->update($updatedFields);

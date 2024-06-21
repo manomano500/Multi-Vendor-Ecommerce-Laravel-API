@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\api\v1\admin\OrderAdminController;
-use App\Http\Controllers\api\v1\admin\StoreAdminController;
-use App\Http\Controllers\api\v1\public\CategoryController;
+use App\Http\Controllers\api\admin\OrderAdminController;
+use App\Http\Controllers\api\admin\StoreAdminController;
+
+use App\Http\Controllers\api\public\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
