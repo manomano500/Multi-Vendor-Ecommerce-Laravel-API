@@ -114,11 +114,11 @@ catch (\Exception $e) {}
             'quantity' => 'sometimes|required|integer',
             'price' => 'sometimes|required|numeric',
             'images' => 'sometimes|required|array',
-            "images.*" => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            "images.*" => 'sometimes|required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
           'deleted_images' => 'sometimes|required|array',
-            'deleted_images.*' => 'required|integer|exists:product_images,id',
+            'deleted_images.*' => 'sometimes|required|integer|exists:product_images,id',
             'variations' => 'sometimes|required|array',
-            'variations.*' => 'required|integer|distinct|exists:variations,id',
+            'variations.*' => 'sometimes|required|integer|nullable|distinct|exists:variations,id',
             'status' => 'sometimes|required|in:active,inactive,out_of_stock',
         ]);
 
