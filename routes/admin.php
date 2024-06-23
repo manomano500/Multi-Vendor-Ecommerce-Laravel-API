@@ -6,6 +6,7 @@ use App\Http\Controllers\api\admin\StoreAdminController;
 
 use App\Http\Controllers\api\admin\UserController;
 use App\Http\Controllers\api\public\CategoryController;
+use App\Http\Controllers\StatisticsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,7 @@ Route::get('/categories',[ CategoryController::class,'index']);
 Route::post('/categories', [CategoryController::class, 'store']);
 Route::post('/categories/{id}',[CategoryController::class,'update']);
 
+Route::get('/statistics', [StatisticsController::class, 'adminStatistic']);
 
 
 Route::delete('/users/{id}',[UserController::class,'destroy']);
