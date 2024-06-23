@@ -11,7 +11,7 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = ['user_id', 'order_total', 'status', 'city', 'shipping_address', ];
-
+protected $hidden=['updated_at'];
 
 
     public function scopeWithStoreProducts($query, $storeId)
