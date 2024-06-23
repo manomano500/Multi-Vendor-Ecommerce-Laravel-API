@@ -55,7 +55,7 @@ class StatisticsController extends Controller
                 'new_orders_last_30_days' => $newOrdersLast30Days,
             ];
 
-            return response()->json(['statistics' => $statistics], 200);
+            return response()->json(['data' => $statistics], 200);
         } catch (Exception $e) {
             return response()->json(['message' => 'An error occurred while fetching statistics', 'error' => $e->getMessage()], 500);
         }
