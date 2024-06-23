@@ -4,6 +4,9 @@ namespace App\Http\Controllers\api\vendorr;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\StoreResource;
+use App\Models\Store;
+use App\Services\StoreService;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -11,6 +14,10 @@ use Illuminate\Support\Facades\Validator;
 class StoreVendorController extends Controller
 {
 
+    public function __construct(StoreService $storeService)
+    {
+        $this->storeService = $storeService;
+    }
 
     public function show(Request $request)
     {
@@ -25,44 +32,64 @@ class StoreVendorController extends Controller
 
     public function update(Request $request)
     {
-
-        $store = Auth::user()->store;
-
         $validator = Validator::make($request->all(), [
-            'name' => 'string', 'max:255',
-            'description' => 'nullable', 'string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
-            'status' => 'string|in:active,inactive'
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'status' => 'required|string',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 422);
+            return response()->json(['message' => 'Validation failed', 'errors' => $validator->errors()], 422);
+        }
+
+        $user = Auth::user();
+        $store = Store::findOrFail($user->store->id);
+
+        if ($store->user_id !== $user->id) {
+            return response()->json(['message' => 'Unauthorized access to store'], 403);
+        }
+
+        $updatedFields = $request->only([
+            'name',
+            'description',
+            'status',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->store('images/stores', 'public');
+            $updatedFields['image'] = $path;
         }
 
         try {
-            $updatedFields = $request->only([
-                'name',
-                'description',
-                'status',
-
-            ]);
-
-            if ($request->hasFile('image')) {
-                $image = $request->file('image');
-                $path = $image->store('images/stores', 'public');
-                $updatedFields['image'] = $path;
-            }
-
-
             $store->update($updatedFields);
             return response()->json(['message' => 'Store updated successfully', 'data' => new StoreResource($store)], 200);
-
-
-        } catch (\Exception $e) {
-            return response()->json(['error' => $validator->errors(),'exp'=>$e->getMessage()], 500);
+        } catch (Exception $e) {
+            return response()->json(['message' => 'An error occurred while updating the store', 'error' => $e->getMessage()], 500);
         }
-
-        //
     }
 
+
+    public function destroy()
+    {
+        $user = Auth::user();
+        $store = $user->store;
+
+        if (!$store) {
+            return response()->json(['message' => 'No store found for the user'], 404);
+        }
+
+        try {
+            $store->delete();
+
+            $user->role_id = 3;
+            $user->save();
+
+            return response()->json(['message' => 'Store deleted successfully'], 200);
+        } catch (Exception $e) {
+            return response()->json(['message' => 'An error occurred while deleting the store', 'error' => $e->getMessage()], 500);
+        }
+    }
 
 }

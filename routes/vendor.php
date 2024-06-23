@@ -8,6 +8,7 @@ use App\Models\Product;
 
 Route::get('/stores', [StoreVendorController::class, 'show']);
 Route::post('/stores', [StoreVendorController::class, 'update']);
+Route::delete('/stores', [StoreVendorController::class, 'destroy']);
 
 
 Route::get('/products', [ProductVendorController::class, 'index']);

@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\api\admin\OrderAdminController;
+use App\Http\Controllers\api\admin\ProductAdminController;
 use App\Http\Controllers\api\admin\StoreAdminController;
 
+use App\Http\Controllers\api\admin\UserController;
 use App\Http\Controllers\api\public\CategoryController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,21 +19,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/categories', [CategoryController::class, 'store']);
 Route::get('/categories',[ CategoryController::class,'index']);
+Route::post('/categories', [CategoryController::class, 'store']);
 Route::post('/categories/{id}',[CategoryController::class,'update']);
 
 
 
+Route::delete('/users/{id}',[UserController::class,'destroy']);
 
-//Route::get('/users',[UserController::class,'index']);
+
+
+Route::get('/admins',[UserController::class,'index']);
+Route::post('/admins',[UserController::class,'store']);
 
 
 
 Route::get('/stores',[StoreAdminController::class,'index']);
 Route::get('/stores/{id}',[StoreAdminController::class,'show']);
-
+Route::post('/stores/{id}',[StoreAdminController::class,'update']);
+Route::delete('/stores/{id}',[StoreAdminController::class,'destroy']);
 Route::get('/stores/{id}/products',[StoreAdminController::class,'showProducts']);
+
+
+
+
+Route::get('/products',[ProductAdminController::class,'index']);
 
 Route::get('/orders',[OrderAdminController::class,'index']);
 Route::get('/orders/{id}',[OrderAdminController::class,'show']);

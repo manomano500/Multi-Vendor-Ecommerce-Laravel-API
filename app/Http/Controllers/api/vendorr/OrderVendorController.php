@@ -5,26 +5,32 @@ namespace App\Http\Controllers\api\vendorr;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\OrderVendorResource;
 use App\Models\Order;
+use App\Models\OrderProduct;
 use Illuminate\Support\Facades\Auth;
 
 class OrderVendorController extends Controller
 {
 
 
-
-        public function index()
+    public function index()
     {
         $storeId =Auth::user()->store->id;
 
+        $orderIds = OrderProduct::where('store_id', $storeId)
+            ->pluck('order_id')
+            ->unique();
+
+        // Get the orders without the product details
+        $orders = Order::whereIn('id', $orderIds)
+            ->get();
+
+
         // Get orders with their products using the scope
-        $orders = Order::withStoreProducts($storeId)->get();
+//        $orders = Order::withStoreProducts($storeId)->get();
 
         // Structure the data
 
-        return  OrderVendorResource::collection($orders) ;
-
-
-
+        return  $orders ;
 
 
 
