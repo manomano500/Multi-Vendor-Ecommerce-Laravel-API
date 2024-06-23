@@ -1,0 +1,305 @@
+[33mcommit cef2b03225af3d506a16ded06a9778be29e5401f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Merge: d525da9 f446847
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Fri Jun 14 02:51:57 2024 +0200
+
+    Merge branch 'plutu' of https://github.com/manomano500/bazar-backend
+
+[33mcommit d525da9af868d5e9b5c28fc8e197bc72196015fc[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Fri Jun 14 02:49:18 2024 +0200
+
+    ordcntrlstr
+    
+    Signed-off-by: mahjouba <mano500mano13@gmail.com>
+
+[33mcommit b719fa3888616cadafe52d2bdf65f209ed4e6d24[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Thu Jun 13 20:56:10 2024 +0200
+
+    /
+    
+    Signed-off-by: mahjouba <mano500mano13@gmail.com>
+
+[33mcommit 0bfb9769e38e68ec83e15790d1bba2bbb332d829[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Thu Jun 13 19:56:56 2024 +0200
+
+    /
+    
+    Signed-off-by: mahjouba <mano500mano13@gmail.com>
+
+[33mcommit f446847f7d35a0223ef76a95de965f834ef2e828[m[33m ([m[1;31morigin/plutu[m[33m, [m[1;32mplutu[m[33m)[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Thu Jun 13 09:42:40 2024 +0200
+
+    plutu
+    
+    Signed-off-by: mahjouba <mano500mano13@gmail.com>
+
+[33mcommit 64fac83f8262ceeaaa8cdc10a7bcc9d1e554fe76[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Thu Jun 13 02:33:14 2024 +0200
+
+    //
+    
+    Signed-off-by: mahjouba <mano500mano13@gmail.com>
+
+[33mcommit ae1c462c540aad35fb0fb61ea9d52871a6bb11fc[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Wed Jun 12 23:12:07 2024 +0200
+
+    //
+    
+    Signed-off-by: mahjouba <mano500mano13@gmail.com>
+
+[33mcommit 2ce817305d90faeba8105b042b640aa23a344968[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Wed Jun 12 17:05:20 2024 +0200
+
+    //
+    
+    Signed-off-by: mahjouba <mano500mano13@gmail.com>
+
+[33mcommit 05d3a2cb04c87a3e8b3789a823651aa7bca70c0a[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Wed Jun 12 17:05:05 2024 +0200
+
+    //
+    
+    Signed-off-by: mahjouba <mano500mano13@gmail.com>
+
+[33mcommit 3fb87d140539c00a8d0ad6bbd5261944479e5a6f[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Wed Jun 12 17:03:58 2024 +0200
+
+    //
+    
+    Signed-off-by: mahjouba <mano500mano13@gmail.com>
+
+[33mcommit 13114732ae3074b490f56ac290504249d0e62463[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Wed Jun 12 16:34:06 2024 +0200
+
+    //
+    
+    Signed-off-by: mahjouba <mano500mano13@gmail.com>
+
+[33mcommit c61a0adb28f821e1123b9c0d1e94bca773659ea5[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Tue Jun 11 13:52:30 2024 +0200
+
+    //
+    
+    Signed-off-by: mahjouba <mano500mano13@gmail.com>
+
+[33mcommit 4716040d21cede0c380b8f1ffbc801a11bb7e4f8[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Mon Jun 10 14:50:22 2024 +0200
+
+    //
+    
+    Signed-off-by: mahjouba <mano500mano13@gmail.com>
+
+[33mcommit eb986e0d6dc6ee980fe15ed4ff302ecd531b6cd4[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Mon Jun 10 12:13:25 2024 +0200
+
+    //
+    
+    Signed-off-by: mahjouba <mano500mano13@gmail.com>
+
+[33mcommit f8365527cfb3ef230b0f26f091ce4dc5c33477dc[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Sun Jun 9 18:57:36 2024 +0200
+
+    cat_stores
+    
+    Signed-off-by: mahjouba <mano500mano13@gmail.com>
+
+[33mcommit 8bd2e12d46ab5342674c7c212a11637e5666606b[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Sun Jun 9 18:31:58 2024 +0200
+
+    ,,2
+    
+    Signed-off-by: mahjouba <mano500mano13@gmail.com>
+
+[33mcommit bfb09a44a525134ea12bda22ae11b6aeebdc719a[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Sun Jun 9 04:14:23 2024 +0200
+
+    ,,
+    
+    Signed-off-by: mahjouba <mano500mano13@gmail.com>
+
+[33mcommit 0986deeae90328e8c956baf4fc431a627d5864ca[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Sun Jun 9 04:13:35 2024 +0200
+
+    ,,
+    
+    Signed-off-by: mahjouba <mano500mano13@gmail.com>
+
+[33mcommit c973bc694da3d36c498bcb8b0cbdd5a86e4a0d38[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Sat Jun 8 23:00:53 2024 +0200
+
+    ,,
+
+[33mcommit bb97b5577e9623559eb03b6e7efc8c18618e5855[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Sat Jun 8 22:59:40 2024 +0200
+
+    product_res
+
+[33mcommit 06b4fd959d9ef225e3edab8b00cb713a76ad1fb1[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Sat Jun 8 19:36:54 2024 +0200
+
+    product_res
+
+[33mcommit b1ee6b6c24eba538bb7507fd14e55e9890002e85[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Sat Jun 8 16:34:05 2024 +0200
+
+    product_status
+
+[33mcommit d2f4203091976079cff7379aadd03691273b633d[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Sat Jun 8 16:31:24 2024 +0200
+
+    product_status
+
+[33mcommit 6014fb5fbf89410350ceac0d20257e58392f32f1[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Sat Jun 8 15:31:48 2024 +0200
+
+    ...
+
+[33mcommit 0dd88fadbdab8f9ff65c74d0170b8d0b2722ba60[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Fri Jun 7 22:18:33 2024 +0200
+
+    product_vartions
+
+[33mcommit 8fe4402b61c58c13bf70b052f8a9a0c50e2560f8[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Fri Jun 7 19:52:35 2024 +0200
+
+    product_status
+
+[33mcommit 8b7a7c6ef284921dd86791a2c1121c5d3cb2d439[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Fri Jun 7 19:24:33 2024 +0200
+
+    .
+
+[33mcommit e2b5a71a13884cd2522536cf45e0a4f54ecb6a9e[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Fri Jun 7 18:46:06 2024 +0200
+
+    store show
+
+[33mcommit dfe2b844a353db71b24ba76e73bf70c050f50e0b[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Fri Jun 7 18:44:59 2024 +0200
+
+    store show
+
+[33mcommit 972abbfeb3cd3cfac2a3fd3ece2260b51125fc1d[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Fri Jun 7 14:47:36 2024 +0200
+
+    .
+
+[33mcommit 9ce3e8a589ab219bb7c2cc317522c797b756bfce[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Fri Jun 7 13:38:15 2024 +0200
+
+    .
+
+[33mcommit 712874fe47488edb296e2eff6d393cf5bbf6d00e[m
+Merge: 8c56cff 283f26f
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Fri Jun 7 01:56:35 2024 +0200
+
+    Merge remote-tracking branch 'origin/main'
+
+[33mcommit 8c56cff4ba48294088480f54ef80f298d83b19c1[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Fri Jun 7 01:55:10 2024 +0200
+
+    cat_products
+
+[33mcommit 283f26faf737d3568d04cf8fa8d27d46ded08fa0[m
+Author: tekarr <137101567+tekarr@users.noreply.github.com>
+Date:   Wed Jun 5 20:22:41 2024 +0200
+
+    Update composer.lock
+
+[33mcommit ce441fb707036e6b5043bd0cc8432711156ccb80[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Mon Jun 3 20:05:44 2024 +0200
+
+    ee2
+
+[33mcommit 349e7e45c75758f07a283e5d3b7f790da6d8f713[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Mon Jun 3 19:35:35 2024 +0200
+
+    ee
+
+[33mcommit aace9ae32cfae2bb9626aa7832755854d79c79b2[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Mon Jun 3 04:58:32 2024 +0200
+
+    order and order_product
+
+[33mcommit b3db72662ee509fb583e4d533c9865277c0c222a[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Sun Jun 2 19:29:14 2024 +0200
+
+    Store.php
+
+[33mcommit 06c21ad1fc49bc59465a06fd79ab32941b037768[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Sun Jun 2 02:43:54 2024 +0200
+
+    update rels in models
+
+[33mcommit 6802cc0eb6f026163482978afbc70c279dbad755[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Fri May 31 17:10:05 2024 +0200
+
+    qury
+
+[33mcommit 47e616a85524de8fcc3896e0639591c41c63d49c[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Thu May 30 20:38:14 2024 +0200
+
+    env
+
+[33mcommit 34d18e06f47cb5e2a13ec060cafd92579c0e2739[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Thu May 30 20:22:28 2024 +0200
+
+    env
+
+[33mcommit 00a0bcee07a71b0b04dcd09c87c0f0c3f77ce0b2[m
+Author: mahjouba <mano500mano13@gmail.com>
+Date:   Thu May 30 20:21:36 2024 +0200
+
+    product_variations:v
+
+[33mcommit 6fcc5f77e5938f1c0a650ddd97d18fbeee4f6bd5[m
+Merge: 1f4bec9 4e06d02
+Author: mahjouba bouchouf <45915936+manomano500@users.noreply.github.com>
+Date:   Thu May 30 19:04:48 2024 +0200
+
+    Merge pull request #2 from manomano500/fixed-attr-vals
+    
+    product_variations:v
+
+[33mcommit 1f4bec9058faaaf409f5683be7f5ced6fec92f60[m
+Merge: ee7e9af b8d5388
