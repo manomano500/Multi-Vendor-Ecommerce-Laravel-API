@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::where('role_id',1)->get();
+        $users = User::where('role_id',1)->paginate(10);
         return response()->json($users, 200);
     }
     public function store(Request $request)

@@ -46,6 +46,7 @@ Route::get('/stores/{id}/products',[StoreAdminController::class,'showProducts'])
 
 
 Route::get('/products',[ProductAdminController::class,'index']);
+Route::delete('/products/{id}',[ProductAdminController::class,'destroy']);
 
 Route::get('/orders',[OrderAdminController::class,'index']);
 Route::get('/orders/{id}',[OrderAdminController::class,'show']);
