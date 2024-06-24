@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/categories',[ CategoryController::class,'index']);
 Route::post('/categories', [CategoryController::class, 'store']);
 Route::post('/categories/{id}',[CategoryController::class,'update']);
+//TODO
 
 Route::get('/statistics', [StatisticsController::class, 'adminStatistic']);
 

@@ -19,6 +19,6 @@ class Factory extends BaseFactory
 
     public function definition()
     {
-        // TODO: Implement definition() method.
+        //  TODO: Implement definition() method.
     }
 }
