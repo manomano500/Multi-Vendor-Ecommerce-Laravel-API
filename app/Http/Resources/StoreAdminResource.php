@@ -19,7 +19,7 @@ class StoreAdminResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'image' => $this->image,
+            'image' => $this->getImageUrlAttribute(),
             'category' => $this->category->name,
             'status' => $this->status,
             'user' => $this->user->name,

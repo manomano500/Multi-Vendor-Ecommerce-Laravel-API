@@ -90,7 +90,11 @@ class Store extends Model
 
 
 
+public function getImageUrlAttribute()
+{
+    return url('storage/' . $this->image);
 
+}
 
 
 
