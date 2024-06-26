@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
 
@@ -16,29 +17,28 @@ class VerifyEmailController extends Controller
     /**
      * Mark the authenticated user's email address as verified.
      */
-    public function __invoke(EmailVerificationRequest $request): RedirectResponse
+    public function __invoke(Request $request, $id, $token)
     {
-        if (! hash_equals((string) $request->route('id'), (string) $request->user()->getKey())) {
+        $user = User::findOrFail($id);
+
+        if (! $user) {
+            abort(404, 'User not found');
+        }
+
+        if (! hash_equals((string) $request->route('hash'), sha1($user->email))) {
             abort(403, 'Invalid verification link.');
         }
 
-        if (! hash_equals((string) $request->route('hash'), sha1($request->user()->getEmailForVerification()))) {
-            abort(403, 'Invalid verification link.');
-        }
-        Log::info('VerifyEmailController');
-        if ($request->user()->hasVerifiedEmail()) {
-            return redirect()->intended(
-                'http://localhost:8080'.RouteServiceProvider::HOME.'?verified=1'
-            );
+        if ($user->hasVerifiedEmail()) {
+            return view('redirect.verifed');
+
         }
 
-        if ($request->user()->markEmailAsVerified()) {
-            event(new Verified($request->user()));
+        if ($user->markEmailAsVerified()) {
+            event(new Verified($user));
         }
 
-        return redirect()->intended(
-            'http://localhost:8080'.RouteServiceProvider::HOME.'?verified=1'
-        );
+        return view('redirect.verifed');
     }
 
 
@@ -53,10 +53,15 @@ class VerifyEmailController extends Controller
         $url = URL::temporarySignedRoute(
             'verification.verify',
             now()->addMinutes(60),
-            ['id' => $user->id, 'hash' => sha1($user->email)],
+            [
+                'id' => $user->id,
+                'token' => $user->token,
+                'hash' => sha1($user->email)
+            ],
             true // absolute URL
         );
 
         return $url;
+
     }
 }
