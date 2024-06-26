@@ -50,4 +50,17 @@ Route::get('/products',[ProductAdminController::class,'index']);
 Route::delete('/products/{id}',[ProductAdminController::class,'destroy']);
 
 Route::get('/orders',[OrderAdminController::class,'index']);
+//Route::get('/orders/{id}',[OrderAdminController::class,'show']);
 Route::get('/orders/{id}',[OrderAdminController::class,'show']);
+
+Route::put('/orders/{id}',[OrderAdminController::class,'updateOrderStatus']);
+
+
+//Route::put('/orders/{orderId}/stores', [OrderAdminController::class, 'updateOrderProductStatus']);
+//Route::put('/order-products/{id}/status',[OrderAdminController::class,'updateOrderProductStatus']);
+
+
+
+
+
+Route::put('/orders/{order}/stores/{store}/products', [OrderAdminController::class, 'updateOrderProductStatus']);

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
@@ -12,12 +13,17 @@ class OrderFactory extends Factory
 
     public function definition(): array
     {
+        $userIds =User::where('role_id',3)->pluck('id')->toArray();
         return [
-            'user_id' => 3,
-            'order_total' => 40,
+            "city"=> "City fewrweName",
+  "shipping_address"=> "123 Main St",
+  "phone" =>"93493",
+            'user_id' => User::factory()->create([
+                'role_id' => 3,
+            ])->id,
             'status' => 'pending',
-            'city' => $this->faker->city,
-            'shipping_address' => $this->faker->address,
+            'order_total' => 33,
+
 
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),

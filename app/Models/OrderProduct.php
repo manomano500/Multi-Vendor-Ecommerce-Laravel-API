@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\OrderProductUpdated;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,6 +14,10 @@ class   OrderProduct extends Pivot
     protected $table = 'order_product';
 public $timestamps = false;
 public $incrementing = true;
+
+    protected $dispatchesEvents = [
+        'updated' => OrderProductUpdated::class,
+    ];
 
 
     protected $fillable = ['order_id', 'product_id', 'quantity', 'price', 'store_id'];

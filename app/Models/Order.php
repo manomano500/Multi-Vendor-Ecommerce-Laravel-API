@@ -12,7 +12,7 @@ class Order extends Model
 
     protected $fillable = ['user_id', 'order_total', 'status', 'city', 'shipping_address', ];
 
-
+protected $hidden = ['created_at', 'updated_at'];
 
     public function scopeWithStoreProducts($query, $storeId)
     {
@@ -61,5 +61,14 @@ public static function booted()
 
 
 }
+
+    public function getCreatedAttAttribute()
+    {
+        return $this->created_at->format('Y-m-d H:i');
+    }
+
+    // Specify the attributes that should be appended to the model's array form
+    protected $appends = ['created_att'];
+
 
 }

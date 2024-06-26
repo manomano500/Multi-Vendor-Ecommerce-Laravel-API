@@ -40,6 +40,13 @@ class DatabaseSeeder extends Seeder
 //                    ProductSeeder::class
         ]);
 
+
+        $this->call([
+            OrderSeeder::class,
+        ]);
+
+
+
 //        $this->call([
 //            OrderSeeder::class,
 //            OrderProductSeeder::class,

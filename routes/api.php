@@ -52,4 +52,6 @@ Route::resource('/products', ProductController::class);
 Route::get('/stores',[StoreController::class,'index']);
 Route::get('/stores/{id}/products', [StoreController::class, 'showProducts']);
 
-
+Route::get('t',function () {
+    return 't';
+});
