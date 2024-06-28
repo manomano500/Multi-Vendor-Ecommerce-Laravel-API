@@ -28,12 +28,14 @@ class OrderService
     {
         try {
 
+            DB::beginTransaction();
             // Start the transaction
-            $order = DB::transaction(function () use ($userId, $data) {
+
                 // Create the order
                 $order = Order::create([
                     'user_id' => $userId,
                     'status' => 'pending',
+//'order_total' => 0,
                     'order_total' => 0,
                     'city' => $data['city'],
 //                    'phone' => $data['phone'],
@@ -74,16 +76,15 @@ class OrderService
                 $order->update(['order_total' => $orderTotal]);
                 $order->refresh();
                 event(new OrderCreated($order));
-                // Return the order instance from the transaction block
-                return $order;
-            });
 
+
+            // Commit the transaction
+            DB::commit();
             return $order;
-            // Fire the OrderCreated event outside the transaction
-
 
         } catch (\Exception $e) {
-            // Rethrow the exception with a custom message
+            DB::rollBack();
+
             throw new \Exception( $e->getMessage());
         }
 

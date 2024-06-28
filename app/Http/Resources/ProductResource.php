@@ -22,7 +22,8 @@ class ProductResource extends JsonResource
             'status' => $this->status,
             'quantity' => $this->quantity,
             'images' => $this->images()->get()->map(function ($image) {
-                return $image->getImageUrlAttribute();
+                return $image->image;
+//                return $image->getImageUrlAttribute() //TODO:  this line return the user uploaded images
             }),
             'variations' => VariationResource::collection($this->whenLoaded('variations')),
 

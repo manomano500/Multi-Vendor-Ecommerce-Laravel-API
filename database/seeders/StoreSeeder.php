@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ProductImage;
 use Illuminate\Database\Seeder;
 use App\Models\Store;
 use App\Models\Product;
@@ -28,6 +29,9 @@ class StoreSeeder extends Seeder
                 $product->update([
                     'store_id' => $store->id,
                     'name' => 'Product ' . $productCount . ' of Store ' . $storeCount,
+                ]);
+                ProductImage::factory()->count(3)->create([
+                    'product_id' => $product->id,
                 ]);
 
                 // Increment the product counter
