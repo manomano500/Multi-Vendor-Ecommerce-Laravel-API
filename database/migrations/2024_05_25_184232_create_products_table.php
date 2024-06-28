@@ -19,7 +19,7 @@ return new class extends Migration {
 
             $table->double('price');
 
-            $table->enum('status', ['active', 'inactive', 'out_of_stock'])->default('active');
+            $table->enum('status', ['active', 'out_of_stock'])->default('active');
 
             $table->softDeletes();
             $table->timestamps();

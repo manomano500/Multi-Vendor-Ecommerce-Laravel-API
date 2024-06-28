@@ -127,7 +127,7 @@ catch (\Exception $e) {}
             'deleted_images.*' => 'sometimes|required|integer|exists:product_images,id',
             'variations' => 'sometimes|required|array',
             'variations.*' => 'sometimes|required|integer|nullable|distinct|exists:variations,id',
-            'status' => 'sometimes|required|in:active,inactive,out_of_stock',
+            'status' => 'sometimes|required|in:active,out_of_stock',
         ]);
 
         if ($validated->fails()) {

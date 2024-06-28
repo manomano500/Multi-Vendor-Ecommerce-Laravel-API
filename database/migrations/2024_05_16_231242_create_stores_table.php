@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->string('phone', 20)->unique()->nullable();
             $table->string('email')->unique()->nullable();
             // E.164 format max length is 15, but keeping 20 for flexibility
-            $table->enum('status', ['active', 'inactive', 'pending'])->default('pending');
+            $table->enum('status', ['active', 'inactive',])->default('active');
             $table->timestamps();
 
 

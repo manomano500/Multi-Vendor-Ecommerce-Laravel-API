@@ -18,7 +18,7 @@ class ProductRequest extends FormRequest
             'images' => 'array',
             'variations' => 'required|array',
             'variations.*' => 'required|integer|distinct|exists:variations,id|' ,
-            'status' => 'required|in:active,inactive,out_of_stock',
+            'status' => 'required|in:active,out_of_stock',
 
         ];
 
