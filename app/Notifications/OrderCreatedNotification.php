@@ -3,14 +3,15 @@
 namespace App\Notifications;
 
 use App\Models\Order;
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class OrderCreatedNotification extends Notification
+class OrderCreatedNotification extends Notification implements ShouldQueue
 {
-    use Queueable;
+    use Queueable ;
     protected $order;
 
     /**
@@ -63,7 +64,9 @@ class OrderCreatedNotification extends Notification
     {
         return[
             'body' => 'New Order Was Created #'. $this->order->id,
-            'url' => 'http://localhost:8080/vendor'
+            'url' => 'http://localhost:8080/vendor',
+//            'created_at' => $this->user->created_at->diffForHumans(), // Example of human-readable format
+
         ];
 
     }

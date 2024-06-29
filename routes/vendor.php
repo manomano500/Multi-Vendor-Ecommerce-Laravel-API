@@ -37,8 +37,3 @@ Route::get('/notifications', function () {
 
 
 
-Route::get('/test',function () {
-        Product::factory()->count(100)->create([
-            'store_id' => auth()->user()->store->id,
-        ]);
-    });

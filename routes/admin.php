@@ -6,6 +6,7 @@ use App\Http\Controllers\api\admin\StoreAdminController;
 
 use App\Http\Controllers\api\admin\UserController;
 use App\Http\Controllers\api\public\CategoryController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\StatisticsController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,18 +50,18 @@ Route::get('/stores/{id}/products',[StoreAdminController::class,'showProducts'])
 Route::get('/products',[ProductAdminController::class,'index']);
 Route::delete('/products/{id}',[ProductAdminController::class,'destroy']);
 
+
 Route::get('/orders',[OrderAdminController::class,'index']);
-//Route::get('/orders/{id}',[OrderAdminController::class,'show']);
 Route::get('/orders/{id}',[OrderAdminController::class,'show']);
 
+
+//update the status of an order
 Route::put('/orders/{id}',[OrderAdminController::class,'updateOrderStatus']);
 
-
-//Route::put('/orders/{orderId}/stores', [OrderAdminController::class, 'updateOrderProductStatus']);
-//Route::put('/order-products/{id}/status',[OrderAdminController::class,'updateOrderProductStatus']);
-
-
-
-
-
+//update the status of all products in an order
 Route::put('/orders/{order}/stores/{store}/products', [OrderAdminController::class, 'updateOrderProductStatus']);
+
+
+
+
+Route::get('/notifications', [NotificationController::class, 'index']);

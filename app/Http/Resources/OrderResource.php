@@ -16,7 +16,7 @@ class OrderResource extends JsonResource
             'order_total' => $this->order_total,
             'order_status' => $this->status,
             'shipping_address' => $this->shipping_address,
-             'created_at' => $this->created_at ? Carbon::parse($this->created_at)->format('d-n-Y H:i:s') : null,
+             'created_at' => $this->created_at ? Carbon::parse($this->created_at)->format('d-n-Y H:i') : null,
         ];
 
         if ($this->relationLoaded('products')) {

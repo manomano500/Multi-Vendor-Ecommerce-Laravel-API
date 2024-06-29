@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\OrderCreated;
+use App\Models\User;
 use App\Notifications\OrderCreatedNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -31,7 +32,10 @@ class SendOrderCreatedNotification implements ShouldQueue
         foreach ($uniqueStores as $store) {
             $storeOwner = $store->user;
             $storeOwner->notify(new OrderCreatedNotification($event->order));
+
         }
+        //notify the admins
+        User::where('role_id', '1')->get()->each->notify(new OrderCreatedNotification($event->order));
 
 
         //
