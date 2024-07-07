@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\services;
 
 use App\Http\Controllers\Controller;
+use Exception;
 use Illuminate\Http\Request;
 use Plutu\Services\PlutuAdfali;
 
@@ -35,7 +36,7 @@ class PlutuController extends Controller
                 $errorMessage = $apiResponse->getOriginalResponse()->getErrorMessage();
                 return response()->json(['error' => $errorMessage], 400);
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return response()->json(['exception' => $e->getMessage()], 500);
         }
     }
@@ -57,7 +58,7 @@ class PlutuController extends Controller
                 $errorMessage = $apiResponse->getOriginalResponse()->getErrorMessage();
                 return response()->json(['error' => $errorMessage], 400);
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return response()->json(['exception' => $e->getMessage()], 500);
         }
     }

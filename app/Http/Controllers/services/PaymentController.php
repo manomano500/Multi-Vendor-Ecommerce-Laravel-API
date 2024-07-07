@@ -5,10 +5,12 @@ use App\Http\Controllers\Controller;
 use App\Services\PlutuService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Log;
 
 class PaymentController extends Controller
 {
     protected $plutuService;
+
 
     public function __construct(PlutuService $plutuService)
     {
@@ -18,12 +20,17 @@ class PaymentController extends Controller
     // Adfali payment methods
     public function sendAdfaliOtp(Request $request)
     {
-        $request->validate([
+        $validated =Validator::make($request->all(), [
             'mobile_number' => 'required|string',
-            'amount' => 'required|numeric'
+            'order_id' => 'required'
         ]);
+       if($validated->fails()){
+           return response()->json($validated->errors(), 400);
+       }
+        Log::info("validated ");
 
-        $response = $this->plutuService->sendAdfaliOtp($request->mobile_number, $request->amount);
+
+        $response = $this->plutuService->sendAdfaliOtp($request->mobile_number, $request->order_id);
 
         return response()->json($response);
     }
@@ -41,7 +48,7 @@ class PaymentController extends Controller
          }
 
         $response = $this->plutuService->confirmAdfaliPayment($request->process_id, $request->code, $request->amount, $request->invoice_no);
-
+//Log::info('response: ' . $response);
         return response()->json($response);
     }
 

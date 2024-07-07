@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Validator;
 
 
 class CategoryAdminController extends Controller
@@ -21,7 +22,7 @@ class CategoryAdminController extends Controller
     public function update(Request $request,$id)
     {
         $categoryRequest=CategoryRequest::createFrom($request);
-        $validated = \Validator::make($request->all(), $categoryRequest->rules());
+        $validated = Validator::make($request->all(), $categoryRequest->rules());
         if ($validated->fails()) {
             return response()->json(['message' => $validated->errors()], 400);
         }

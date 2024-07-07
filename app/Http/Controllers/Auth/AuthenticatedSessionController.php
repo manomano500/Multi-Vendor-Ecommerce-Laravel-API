@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use Couchbase\ViewException;
 use Dotenv\Exception\ValidationException;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -62,7 +63,7 @@ class AuthenticatedSessionController extends Controller
             $request->session()->regenerateToken();
 
             return response()->json(['message' => 'Logout successful'], 200);
-            }catch (\Exception $e){
+            }catch (Exception $e){
             return response()->json(['error' => $e->getMessage()], 500);
         }
 

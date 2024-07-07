@@ -2,20 +2,22 @@
 
 namespace Database\Seeders;
 
+use App\Models\Attribute;
+use App\Models\Variation;
 use Illuminate\Database\Seeder;
 
 class VariationSeeder extends Seeder
 {
     public function run(): void
     {
-        $colorAttribute = \App\Models\Attribute::where('name', 'Color')->first();
-       $sizeAttribute = \App\Models\Attribute::where('name', 'Size')->first();
-       $materialAttribute = \App\Models\Attribute::where('name', 'Material')->first();
-         $brandAttribute = \App\Models\Attribute::where('name', 'Brand')->first();
-            $weightAttribute = \App\Models\Attribute::where('name', 'Weight')->first();
-            $heightAttribute = \App\Models\Attribute::where('name', 'Height')->first();
-            $widthAttribute = \App\Models\Attribute::where('name', 'Width')->first();
-            $lengthAttribute = \App\Models\Attribute::where('name', 'Length')->first();
+        $colorAttribute = Attribute::where('name', 'Color')->first();
+       $sizeAttribute = Attribute::where('name', 'Size')->first();
+       $materialAttribute = Attribute::where('name', 'Material')->first();
+         $brandAttribute = Attribute::where('name', 'Brand')->first();
+            $weightAttribute = Attribute::where('name', 'Weight')->first();
+            $heightAttribute = Attribute::where('name', 'Height')->first();
+            $widthAttribute = Attribute::where('name', 'Width')->first();
+            $lengthAttribute = Attribute::where('name', 'Length')->first();
 
         $values = [
             ['value' => 'Red', 'attribute_id' => $colorAttribute->id],
@@ -46,7 +48,7 @@ class VariationSeeder extends Seeder
             ];
 
         foreach ($values as $value) {
-            \App\Models\Variation::firstOrCreate($value);
+            Variation::firstOrCreate($value);
         }
     }
 }

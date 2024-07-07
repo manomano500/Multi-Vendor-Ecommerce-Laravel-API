@@ -59,7 +59,7 @@ Route::get('/orders/{id}',[OrderAdminController::class,'show']);
 Route::put('/orders/{id}',[OrderAdminController::class,'updateOrderStatus']);
 
 //update the status of all products in an order
-Route::put('/orders/{order}/stores/{store}/products', [OrderAdminController::class, 'updateOrderProductStatus']);
+Route::put('/order-products/{orderProductId}/cancel', [OrderAdminController::class, 'updateOrderProductStatus']);
 
 
 

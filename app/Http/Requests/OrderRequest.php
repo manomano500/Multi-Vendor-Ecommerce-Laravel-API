@@ -15,12 +15,13 @@ class OrderRequest extends FormRequest
 
 
 
-            'city' => 'required|string',
+
             'shipping_address' => 'required|string',
 //            'phone' => 'string',
             'products' => 'required|array',
             'products.*.product_id' => 'required|exists:products,id,status,active',
             'products.*.quantity' => 'required|integer|min:1',
+//            'mobile_number'=>"0913632323"
 
 //            'products.*.variations' => 'required|array',
 //            'products.*.variations.*.variation_id' => 'required|exists:variations,id',

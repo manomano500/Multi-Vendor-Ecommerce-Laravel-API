@@ -15,9 +15,9 @@ class OrderFactory extends Factory
     {
         $userIds =User::where('role_id',3)->pluck('id')->toArray();
         return [
-            "city"=> "City fewrweName",
-  "shipping_address"=> "123 Main St",
-  "phone" =>"93493",
+//            "city"=> "City fewrweName",
+//  "shipping_address"=> "123 Main St",
+//  "phone" =>"93493",
             'user_id' => User::factory()->create([
                 'role_id' => 3,
             ])->id,

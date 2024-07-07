@@ -2,10 +2,11 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Variation;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-/** @mixin \App\Models\Variation */
+/** @mixin Variation */
 class VariationResource extends JsonResource
 {
     public function toArray(Request $request): array

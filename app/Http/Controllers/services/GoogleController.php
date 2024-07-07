@@ -4,6 +4,7 @@ namespace App\Http\Controllers\services;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
@@ -13,7 +14,7 @@ class GoogleController extends Controller
     /**
      * Redirect the user to the Google authentication page.
      *
-     * @return \Illuminate\Http\RedirectResponse|\Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function redirectToGoogle()
     {
@@ -23,7 +24,7 @@ class GoogleController extends Controller
     /**
      * Obtain the user information from Google.
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function handleGoogleCallback()
     {

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\OrderRequest;
 use App\Http\Resources\OrderResource;
 use App\Models\Order;
+use Exception;
 use Illuminate\Http\Request;
 
 use App\Models\OrderProduct;
@@ -35,7 +36,7 @@ class OrderController extends Controller
         try {
             $orders = $this->orderService->getAllOrders(Auth::id());
             return OrderResource::collection($orders);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             Log::error($e->getMessage());
             return response()->json(['message' => 'Failed to retrieve orders'], 500);
         }
@@ -55,7 +56,7 @@ class OrderController extends Controller
         try {
             $order = $this->orderService->createOrder(Auth::id(), $request->all());
             return $order;
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             Log::error($e->getMessage());
             return response()->json(['message' => $e->getMessage()], 500);
         }
@@ -67,7 +68,7 @@ class OrderController extends Controller
         try {
             $order = $this->orderService->getOrderById(Auth::id(), $id);
             return new OrderResource($order);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             Log::error($e->getMessage());
             return response()->json(['message' => 'Failed to retrieve the order'], 500);
         }
@@ -84,7 +85,7 @@ class OrderController extends Controller
               try {
                   $this->orderService->cancelOrder($order);
                   return new OrderResource($order);
-              } catch (\Exception $e) {
+              } catch (Exception $e) {
                   Log::error($e->getMessage());
                   return response()->json(['message' => $e->getMessage()], 500);
               }

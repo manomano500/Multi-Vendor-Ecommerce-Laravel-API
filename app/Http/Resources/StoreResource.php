@@ -2,11 +2,12 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Store;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-/** @mixin \App\Models\Store */
+/** @mixin Store */
 class StoreResource extends JsonResource
 {
     public function toArray(Request $request): array

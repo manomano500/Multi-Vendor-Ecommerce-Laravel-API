@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\api\admin;
 
-use App\Events\OrderProductUpdated;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\admin\OrderResource;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -26,47 +25,41 @@ class OrderAdminController extends Controller
     public function show($id)
     {
         $order = Order::with('orderProducts', 'user')->findOrFail($id);
-        return OrderResource::make($order);
+        return $order;
+//        return OrderResource::make($order);
     }
 
 
-    public function updateOrderProductStatus(Request $request, $order, $store)
+    public function updateOrderProductStatus(Request $request, $orderProductId)
     {
 
-        $validated = Validator::make($request->all(), [
-            'status' => 'required|in:dropped_off,cancelled,delivered,returned',
-//            'store_id' => 'required|exists:order_product,store_id',
-        ]);
+        $orderProduct = OrderProduct::findOrFail($orderProductId);
 
-        if ($validated->fails()) {
-            return response()->json(['message' => $validated->errors()->first()], 422);
-        }
+//        $validated = Validator::make($request->all(), [
+//            'status' => 'required|in:dropped_off,cancelled,delivered,returned',
+////            'store_id' => 'required|exists:order_product,store_id',
+//        ]);
+//
+//        if ($validated->fails()) {
+//            return response()->json(['message' => $validated->errors()->first()], 422);
+//        }
 
         try {
             DB::beginTransaction();
 
 
-            $newStatus = $request->input('status');
-Log::info($newStatus);
-            $orderProducts = OrderProduct::where('order_id', $order)
-                ->where('store_id', $store)
-                ->get();
-//Log::info($orderProducts);
-            foreach ($orderProducts as $orderProduct) {
-                Log::info($orderProduct);
-                $orderProduct->status = $newStatus;
-                $orderProduct->save();
-                Log::info($orderProduct);
 
+ $orderProduct= OrderProduct::where('id',$orderProductId)->first();
 
-//                $orderProduct->update(['status' => $newStatus]);
-                event(new OrderProductUpdated($orderProduct));
-            }
-
+// Log::error($orderProduct->quantity*$orderProduct->price);
+ $productSubPrice=$orderProduct->order->order_total- $orderProduct->quantity*$orderProduct->price;
+ Log::error($productSubPrice);
+$orderProduct->order()->update(['order_total'=>$productSubPrice]);
+    $orderProduct->delete();
             DB::commit();
 
-            return response()->json(['message' => 'All products updated successfully', 'data' => $orderProducts]);
-        } catch (\Exception $exception) {
+            return response()->json(['message' => 'All products updated successfully', 'data' => "orderProduct"]);
+        } catch (Exception $exception) {
             DB::rollBack();
             Log::error($exception->getMessage());
 
@@ -92,7 +85,7 @@ Log::info($newStatus);
             DB::commit();
             return response()->json(['message' => 'updated successfully']);
 
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             DB::rollBack();
             Log::error($exception->getMessage());
             return response()->json(['message' => 'something went wrong','error'=>$exception->getMessage()], 500);

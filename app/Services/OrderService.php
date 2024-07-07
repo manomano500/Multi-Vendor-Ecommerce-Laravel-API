@@ -6,12 +6,18 @@ use App\Events\OrderCreated;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\OrderProduct;
+use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class OrderService
 {
+    protected $plutuService;
 
+    public function __construct(PlutuService $plutuService)
+    {
+        $this->plutuService = $plutuService;
+    }
     public function getAllOrders($userId)
     {
 
@@ -37,7 +43,7 @@ class OrderService
                     'status' => 'pending',
 //'order_total' => 0,
                     'order_total' => 0,
-                    'city' => $data['city'],
+//                    'city' => $data['city'],
 //                    'phone' => $data['phone'],
                     'shipping_address' => $data['shipping_address'],
                 ]);
@@ -75,17 +81,33 @@ class OrderService
                 // Update the order total and refresh the order instance
                 $order->update(['order_total' => $orderTotal]);
                 $order->refresh();
-                event(new OrderCreated($order));
+
+
+            // If payment method is Adfali, send OTP
+            try {
+
+                $this->plutuService->sendAdfaliOtp($data['mobile_number'], $order->id);
+                $order->payment_status = 'pending'; // Example status update
+//                $order->payment_status = 'otp_verified'; // Example status update
+                //TODO edit order payment status
+                $order->save();
+         Log::info('sendAdfaliOtp');
+            }catch (Exception $e) {
+                throw new Exception('Failed to send OTP');
+            }
+
+
+            event(new OrderCreated($order));
 
 
             // Commit the transaction
             DB::commit();
             return $order;
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollBack();
 
-            throw new \Exception( $e->getMessage());
+            throw new Exception( $e->getMessage());
         }
 
         // Return the order to the user
@@ -97,7 +119,7 @@ class OrderService
     public function cancelOrder(Order $order)
     {
         if($order->status != 'pending' || $order->payment_status !='pending') {
-            throw new \Exception('Order cannot be cancelled');
+            throw new Exception('Order cannot be cancelled');
         }
 
         return DB::transaction(function () use ($order) {
@@ -121,7 +143,7 @@ class OrderService
     {
 
         if ($product->quantity < $quantity) {
-            throw new \Exception('Insufficient quantity for product ' . $product->name);
+            throw new Exception('Insufficient quantity for product ' . $product->name);
         }
 
         $remainingQuantity = $product->quantity - $quantity;

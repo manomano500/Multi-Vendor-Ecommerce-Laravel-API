@@ -11,6 +11,7 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\ProductVariation;
 use App\Models\Variation;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -34,7 +35,7 @@ class ProductVendorController extends Controller
 
         return  ProductVendorAllCollection::make(
             $products
-        );;
+        );
 
         return  ProductVendorAllCollection::make($products);
     }
@@ -83,7 +84,7 @@ try {
     $product->variations()->attach($request->input('variations'));
     return response()->json(['message' => 'Product created successfully', 'data' => new ProductResource($product),], 201);
 }
-catch (\Exception $e) {}
+catch (Exception $e) {}
          return response()->json(['message' => 'Failed to create product', 'error' => $e->getMessage()], 500);
 
 
@@ -172,7 +173,7 @@ catch (\Exception $e) {}
             $product->variations()->sync($request->input('variations'));
 
             return response()->json(['message' => 'Product updated successfully', 'data' =>  [new ProductResource($product),]], 200);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return response()->json(['message' => 'Failed to update product', 'error' => $e->getMessage()], 500);
         }
     }
@@ -190,7 +191,7 @@ catch (\Exception $e) {}
             $product->delete();
 
             return response()->json(['message' => 'Product deleted successfully'], 200);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return response()->json(['message' => 'Product not found', 'error' => $e->getMessage()], 404);
         }
     }

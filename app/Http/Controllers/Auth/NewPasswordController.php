@@ -30,7 +30,7 @@ class NewPasswordController extends Controller
      *
      * @param Request $request The incoming HTTP request.
      *
-     * @throws \Illuminate\Validation\ValidationException If the validation fails.
+     * @throws ValidationException If the validation fails.
      *
      * @return JsonResponse A JSON response indicating the result of the operation.
      */

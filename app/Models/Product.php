@@ -36,7 +36,7 @@ protected $hidden=['created_at','updated_at','deleted_at'];
         'store_id' => null,
         'search' => null,
         'price' => null,
-        'sort' => null,
+        'sort' => null,//url?
         'limit' => null,
         'page' => null,
      ], $filters);
