@@ -5,16 +5,25 @@ use App\Models\Order;
 use Exception;
 use Illuminate\Support\Facades\Log;
 use Plutu\Services\PlutuAdfali;
+use Plutu\Services\PlutuLocalBankCards;
+use Plutu\Services\PlutuSadad;
 
 class PlutuService
 {
     protected $adfali;
+    protected $sadad;
+    protected $localBankCards;
 
     public function __construct()
     {
         $this->adfali = new PlutuAdfali;
+        $this->sadad = new PlutuSadad;
+        $this->localBankCards = new PlutuLocalBankCards;
+
 
         $this->setCredentials($this->adfali);
+        $this->setCredentials($this->sadad);
+        $this->setCredentials($this->localBankCards);
     }
 
     protected function setCredentials($service)
@@ -32,15 +41,15 @@ class PlutuService
         try {
             // Fetch the order to get the amount
             $order = Order::findOrFail($orderId);
-            Log::info('order: ' . $order);
+
             $amount = $order->order_total;
-            Log::info($amount);// Assuming order_total is the correct amount field
 
             $response = $this->adfali->verify($mobileNumber, $amount);
 
             if ($response->getOriginalResponse()->isSuccessful()) {
-                // Update the order status or save additional information if needed
 
+                $order->payment_status = 'otp_sent';
+                $order->save();
 
                 return [
                     'processId' => $response->getProcessId(),
@@ -68,6 +77,7 @@ class PlutuService
 
             if ($response->getOriginalResponse()->isSuccessful()) {
 
+
                 return [
                     'transactionId' => $response->getTransactionId(),
                     'data' => $response->getOriginalResponse()->getBody(),
@@ -87,6 +97,93 @@ class PlutuService
         }
     }
 
-    // Fawry-specific methods
+
+    public function sendSadadOtp($mobileNumber, $orderId)
+    {
+        try {
+            // Fetch the order to get the amount
+            $order = Order::findOrFail($orderId);
+            $amount = $order->order_total;
+            $birthYear = 1990; // Assuming the customer's birth year is 1990
+            // Assuming order_total is the correct amount field
+
+            $response = $this->sadad->verify($mobileNumber, $birthYear, $amount);
+
+            if ($response->getOriginalResponse()->isSuccessful()) {
+                // Update the order status or save additional information if needed
+                $order->payment_status = 'otp_sent';
+                $order->save();
+                return [
+                    'processId' => $response->getProcessId(),
+                    'status' => 'success'
+                ];
+            } else {
+                return [
+                    'error' => $response->getOriginalResponse()->getErrorMessage(),
+                    'status' => 'failed'
+                ];
+            }
+        } catch (Exception $e) {
+            return [
+                'exception' => $e->getMessage(),
+                'status' => 'failed'
+            ];
+
+        }
+
+
+    }
+
+
+    public function confirmSadadPayment($processId, $code, $amount, $invoiceNo)
+    {
+        try {
+            $response = $this->sadad->confirm($processId, $code, $amount, $invoiceNo);
+
+            if ($response->getOriginalResponse()->isSuccessful()) {
+
+                return [
+                    'transactionId' => $response->getTransactionId(),
+                    'data' => $response->getOriginalResponse()->getBody(),
+                    'status' => 'success'
+                ];
+            } else {
+                return [
+                    'error' => $response->getOriginalResponse()->getErrorMessage(),
+                    'status' => 'failed'
+                ];
+            }
+        } catch (Exception $e) {
+            return [
+                'exception' => $e->getMessage(),
+                'status' => 'failed'
+            ];
+        }
+    }
+
+
+public function localBankCards()
+{
+    try {
+        $response = $this->localBankCards->confirm(100, 'INV-123', 'http://localhost:8000/logged-in', '', 'en');
+        if ($response->getOriginalResponse()->isSuccessful()) {
+            return [
+
+                'data' => $response->getOriginalResponse()->getBody(),
+                'status' => 'success'
+            ];
+        } else {
+            return [
+                'error' => $response->getOriginalResponse()->getErrorMessage(),
+                'status' => 'failed'
+            ];
+        }
+        } catch (Exception $e) {
+            return [
+                'exception' => $e->getMessage(),
+                'status' => 'failed'
+            ];
+        }
+}
 
 }

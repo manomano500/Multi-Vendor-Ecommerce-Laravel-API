@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Events\OrderCreated;
 use App\Events\OrderProductUpdated;
+use App\Listeners\ProcessOrderPayment;
 use App\Listeners\SendNewUserNotification;
 use App\Listeners\SendOrderCreatedNotification;
 use App\Listeners\UpdateOrderStatus;
@@ -27,6 +28,7 @@ class EventServiceProvider extends ServiceProvider
             SendNewUserNotification::class,
         ],
         OrderCreated::class => [
+            ProcessOrderPayment::class,
 
             SendOrderCreatedNotification::class,
         ],

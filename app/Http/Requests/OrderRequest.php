@@ -11,17 +11,12 @@ class OrderRequest extends FormRequest
     {
         return [
 
-
-
-
-
-
             'shipping_address' => 'required|string',
-//            'phone' => 'string',
             'products' => 'required|array',
             'products.*.product_id' => 'required|exists:products,id,status,active',
             'products.*.quantity' => 'required|integer|min:1',
-//            'mobile_number'=>"0913632323"
+            'payment_method' => 'required|string',
+            'mobile_number' => 'required_if:payment_method,Adfali,|nullable|string|max:15',
 
 //            'products.*.variations' => 'required|array',
 //            'products.*.variations.*.variation_id' => 'required|exists:variations,id',

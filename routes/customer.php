@@ -6,7 +6,6 @@ use App\Http\Controllers\Auth\BecomeVendor;
 use App\Http\Controllers\services\PaymentController;
 
 
-
 Route::post('/become-vendor', [BecomeVendor::class, 'becomeVendor']);
 
 
@@ -19,7 +18,9 @@ Route::post('/orders', [OrderController::class, 'store']);
 Route::delete('/orders/{id}', [OrderController::class, 'cancelOrder']);
 
 
-Route::post('/payment/adfali/send-otp', [PaymentController::class, 'sendAdfaliOtp']);
 Route::post('/payment/adfali/confirm', [PaymentController::class, 'confirmAdfaliPayment']);
+//Route::post('/payment/adfali/confirm', [PaymentController::class, 'confirmAdfaliPayment']);
+Route::post('/payment/sadad/confirm', [PaymentController::class, 'confirmSadadPayment']);
 
 
+Route::post('/payment/localbanks/confirm', [PaymentController::class, 'confirmLocalBankPayment']);

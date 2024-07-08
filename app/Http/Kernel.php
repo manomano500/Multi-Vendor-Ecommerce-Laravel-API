@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\CheckApiOrigin;
 use App\Http\Middleware\CheckRole;
 use App\Http\Middleware\ContentSecurityPolicy;
 use App\Http\Middleware\EncryptCookies;
@@ -69,6 +70,7 @@ class Kernel extends HttpKernel
             EnsureFrontendRequestsAreStateful::class,
             ThrottleRequests::class.':api',
             SubstituteBindings::class,
+//            CheckApiOrigin::class,
         ],
     ];
 

@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\OrderRequest;
 use App\Http\Resources\OrderResource;
 use App\Models\Order;
+use App\Providers\RouteServiceProvider;
+use App\Services\PlutuService;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -20,15 +22,18 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\View;
 
 class OrderController extends Controller
 {
 
     protected $orderService;
+    protected $plutuService;
 
     public function __construct(OrderService $orderService)
     {
         $this->orderService = $orderService;
+        $this->plutuService = new PlutuService();
     }
     public function index()
     {
@@ -54,7 +59,38 @@ class OrderController extends Controller
 
 
         try {
+            Log::info('Creating order');
+            Log::info($request->all());
             $order = $this->orderService->createOrder(Auth::id(), $request->all());
+
+if($request->payment_method == 'Adfali') {
+    $otpResponse = $this->plutuService->sendAdfaliOtp($request['mobile_number'], $order->id);
+
+    if($otpResponse["status"]==="success"){
+
+
+        return response()->json(['message' => 'OTP sent successfully',"processId"=>$otpResponse['processId'],"amount"=>$order->order_total], 200);
+
+    }else
+        return response()->json(['message' => 'Failed to send OTP'], 500);
+
+
+
+
+
+
+}
+if($request->payment_method == 'Sadad') {
+    $sadadResponse = $this->plutuService->sendSadadOtp($request['mobile_number'], $order->id);
+
+    if($sadadResponse["status"]==="success"){
+        return response()->json(['message' => 'OTP sent successfully',"processId"=>$sadadResponse['processId'],"amount"=>$order->order_total], 200);
+    }
+}
+            $order->save();
+
+
+
             return $order;
         } catch (Exception $e) {
             Log::error($e->getMessage());
