@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\OrderResource;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use Exception;
@@ -24,9 +25,11 @@ class OrderAdminController extends Controller
 
     public function show($id)
     {
-        $order = Order::with('orderProducts', 'user')->findOrFail($id);
-        return $order;
-//        return OrderResource::make($order);
+        $loadOrder = Order::findOrFail($id)
+            ->load('products.store','user',);
+        $order = Order::with('orderProducts', 'user','products')->findOrFail($id);
+//        return $order;
+        return OrderResource::make($order);
     }
 
 

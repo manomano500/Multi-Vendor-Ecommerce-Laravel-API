@@ -27,7 +27,7 @@ class OrderResource extends JsonResource
                     'name' => $product->name,
                     'price' => $product->pivot->price,
                     'quantity' => $product->pivot->quantity,
-                    'store_id' => $product->relationLoaded('store') ? $product->store->name : null,
+                    'store_name' => $product->store->name ?? null,
                 ];
             });
         }

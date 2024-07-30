@@ -2,8 +2,8 @@
 
 
 use App\Http\Controllers\api\OrderController;
+use App\Http\Controllers\api\PaymentController;
 use App\Http\Controllers\Auth\BecomeVendor;
-use App\Http\Controllers\services\PaymentController;
 
 
 Route::post('/become-vendor', [BecomeVendor::class, 'becomeVendor']);

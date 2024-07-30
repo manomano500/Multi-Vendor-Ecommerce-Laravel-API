@@ -1,10 +1,9 @@
 <?php
 
+use App\Http\Controllers\api\StatisticsController;
 use App\Http\Controllers\api\vendorr\OrderVendorController;
 use App\Http\Controllers\api\vendorr\ProductVendorController;
 use App\Http\Controllers\api\vendorr\StoreVendorController;
-use App\Http\Controllers\StatisticsController;
-use App\Models\Product;
 
 Route::get('/statistics', [StatisticsController::class, 'vendorStatistic']);
 

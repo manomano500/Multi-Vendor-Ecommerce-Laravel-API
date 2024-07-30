@@ -1,8 +1,7 @@
 <?php
-namespace App\Http\Controllers\services;
+namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Order;
 use App\Services\PlutuService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;

@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\api\OrderController;
-use App\Http\Controllers\services\GoogleController;
-use App\Http\Controllers\services\PaymentController;
+use App\Http\Controllers\api\GoogleController;
 use Illuminate\Support\Facades\Route;
 
 /*

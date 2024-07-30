@@ -3,9 +3,7 @@
 use App\Http\Controllers\api\public\CategoryController;
 use App\Http\Controllers\api\public\ProductController;
 use App\Http\Controllers\api\public\StoreController;
-
 use App\Http\Controllers\api\public\VariationController;
-use App\Http\Controllers\services\PaymentController;
 use Illuminate\Http\Request;
 
 
@@ -60,6 +58,3 @@ Route::get('/stores/{id}/products', [StoreController::class, 'showProducts']);
 //Route::post('/confirm-payment', [PaymentController::class, 'confirmAdfaliPayment'])->name('confirm-payment');
 
 
-Route::get('t',function () {
-    return 't';
-});

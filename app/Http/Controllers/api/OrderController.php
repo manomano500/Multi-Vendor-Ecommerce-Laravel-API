@@ -87,6 +87,13 @@ if($request->payment_method == 'Sadad') {
         return response()->json(['message' => 'OTP sent successfully',"processId"=>$sadadResponse['processId'],"amount"=>$order->order_total], 200);
     }
 }
+if($request->payment_method == 'pay on deliver') {
+    $order->payment_status = 'unpaid';
+    return response()->json(['message' => 'Order created successfully'], 200);
+}
+
+
+
             $order->save();
 
 

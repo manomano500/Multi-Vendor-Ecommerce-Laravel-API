@@ -3,11 +3,10 @@
 use App\Http\Controllers\api\admin\OrderAdminController;
 use App\Http\Controllers\api\admin\ProductAdminController;
 use App\Http\Controllers\api\admin\StoreAdminController;
-
 use App\Http\Controllers\api\admin\UserController;
+use App\Http\Controllers\api\NotificationController;
 use App\Http\Controllers\api\public\CategoryController;
-use App\Http\Controllers\NotificationController;
-use App\Http\Controllers\StatisticsController;
+use App\Http\Controllers\api\StatisticsController;
 use Illuminate\Support\Facades\Route;
 
 /*
