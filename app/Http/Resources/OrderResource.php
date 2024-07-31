@@ -24,10 +24,10 @@ class OrderResource extends JsonResource
             $data['products'] = $this->products->map(function($product) {
                 return [
                     'product_id' => $product->id,
-                    'name' => $product->name,
+                    'product_name' => $product->name,
+                    'store_name' => $product->store->name ?? null,
                     'price' => $product->pivot->price,
                     'quantity' => $product->pivot->quantity,
-                    'store_name' => $product->store->name ?? null,
                 ];
             });
         }
