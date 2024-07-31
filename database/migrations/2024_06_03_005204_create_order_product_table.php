@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->foreignId('order_id')->constrained()->onDelete('cascade');
             $table->foreignId('product_id')->nullable()->constrained()->onDelete('set null');
             $table->unsignedBigInteger('store_id');
-            $table->enum('status', ['pending','dropped_off', 'cancelled', 'delivered', 'returned'])->default('pending');
+            $table->enum('status', ['pending','in_stock', 'cancelled', ])->default('pending');
 
             $table->integer('quantity')->default(1);
             $table->json('variations')->nullable();

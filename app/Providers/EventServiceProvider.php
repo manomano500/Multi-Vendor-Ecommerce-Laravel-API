@@ -33,7 +33,7 @@ class EventServiceProvider extends ServiceProvider
             SendOrderCreatedNotification::class,
         ],
         OrderProductUpdated::class => [
-            UpdateOrderStatus::class,
+//            UpdateOrderStatus::class,
         ],
         ];
 

@@ -38,16 +38,27 @@ class OrderAdminController extends Controller
 
         $orderProduct = OrderProduct::findOrFail($orderProductId);
 
-//        $validated = Validator::make($request->all(), [
-//            'status' => 'required|in:dropped_off,cancelled,delivered,returned',
-////            'store_id' => 'required|exists:order_product,store_id',
-//        ]);
-//
-//        if ($validated->fails()) {
-//            return response()->json(['message' => $validated->errors()->first()], 422);
-//        }
+        $validated = Validator::make($request->all(), [
+            'status' => 'required|in:in_stock,',
+//            'store_id' => 'required|exists:order_product,store_id',
+        ]);
+
+        if ($validated->fails()) {
+            return response()->json(['message' => $validated->errors()->first()], 422);
+        }
 
         try {
+            DB::beginTransaction();
+            $orderProduct->status = $request->input('status');
+            $orderProduct->save();
+            DB::commit();
+            return response()->json(['message' => 'updated successfully']);
+        } catch (Exception $exception) {
+            DB::rollBack();
+            Log::error($exception->getMessage());
+            return response()->json(['message' => 'something went wrong', 'error' => $exception->getMessage()], 500);
+        }
+/*        try {
             DB::beginTransaction();
 
 
@@ -67,14 +78,14 @@ $orderProduct->order()->update(['order_total'=>$productSubPrice]);
             Log::error($exception->getMessage());
 
             return response()->json(['message' => 'Something went wrong', 'error' => $exception->getMessage()], 500);
-        }
+        }*/
     }
 
 
     public function updateOrderStatus(Request $request, $id)
     {
         $validated = Validator::make(request()->all(), [
-            'status' => 'required|in:shipped,delivered,cancelled',
+            'status' => 'required|in:ready_for_shipment,shipped,delivered,cancelled',
         ]);
         if ($validated->fails()) {
             return response()->json(['message' => $validated->errors()->first()], 422);

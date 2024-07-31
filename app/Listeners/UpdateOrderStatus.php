@@ -7,6 +7,8 @@ use App\Models\Order;
 
 class UpdateOrderStatus
 {
+
+    //unused
     public function handle(OrderProductUpdated $event)
     {
         $order = $event->orderProduct->order;
