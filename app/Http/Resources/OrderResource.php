@@ -15,7 +15,7 @@ class OrderResource extends JsonResource
         $data = [
             'id' => $this->id,
             'order_total' => $this->order_total,
-            'order_status' => $this->status,
+            'order_status' => $this->status?? null,
             'shipping_address' => $this->shipping_address,
              'created_at' => $this->created_at ? Carbon::parse($this->created_at)->format('d-n-Y H:i') : null,
         ];
@@ -25,6 +25,7 @@ class OrderResource extends JsonResource
                 return [
                     'product_id' => $product->id,
                     'product_name' => $product->name,
+                    'product_status' => $product->pivot->status,
                     'store_name' => $product->store->name ?? null,
                     'price' => $product->pivot->price,
                     'quantity' => $product->pivot->quantity,

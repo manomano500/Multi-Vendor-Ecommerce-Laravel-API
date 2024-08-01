@@ -27,7 +27,7 @@ protected $hidden = ['created_at', 'updated_at'];
     {
         return $this->belongsToMany(Product::class, 'order_product')
             ->using(OrderProduct::class)
-            ->withPivot('quantity', 'price', 'variations');
+            ->withPivot('quantity', 'price', 'status','variations');
     }
 
     public function user()
