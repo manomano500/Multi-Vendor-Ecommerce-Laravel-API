@@ -33,10 +33,10 @@ class OrderAdminController extends Controller
     }
 
 
-    public function updateOrderProductStatus(Request $request, $orderProductId)
+    public function updateOrderProductStatus(Request $request, $order,$product)
     {
 
-        $orderProduct = OrderProduct::findOrFail($orderProductId);
+        $orderProduct = OrderProduct::where('order_id', $order)->where('product_id', $product)->firstOrFail();
 
         $validated = Validator::make($request->all(), [
             'status' => 'required|in:in_stock,',
