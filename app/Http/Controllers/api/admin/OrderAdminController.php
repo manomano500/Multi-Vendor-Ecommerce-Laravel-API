@@ -85,7 +85,7 @@ $orderProduct->order()->update(['order_total'=>$productSubPrice]);
     public function updateOrderStatus(Request $request, $id)
     {
         $validated = Validator::make(request()->all(), [
-            'status' => 'required|in:ready_for_shipment,shipped,delivered,cancelled',
+            'status' => 'required|in:ready_for_shipment,in_the_way,delivered,cancelled',
         ]);
         if ($validated->fails()) {
             return response()->json(['message' => $validated->errors()->first()], 422);

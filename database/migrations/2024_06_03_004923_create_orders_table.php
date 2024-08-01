@@ -11,7 +11,7 @@ return new class extends Migration {
             $table->id()->autoIncrement();
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
             $table->decimal('order_total', 10, 2);
-            $table->enum('status', ['pending', 'processing', 'ready_for_shipment', 'shipped', 'delivered', 'cancelled'])->default('pending');
+            $table->enum('status', ['pending', 'processing', 'ready_for_shipment', 'in_the_way', 'delivered', 'cancelled'])->default('pending');
 
             $table->string('payment_method');
             $table->string('payment_status', )->default('pending');
