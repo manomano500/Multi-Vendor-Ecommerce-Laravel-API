@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Store;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class OrderSeeder extends Seeder
 {
@@ -51,6 +52,8 @@ class OrderSeeder extends Seeder
 
             // Calculate and save the total order price
             $order->order_total = $order->orderProducts->sum('price');
+            $order->status = 'pending';
+            Log::info($order);
             $order->save();
         }
     }
