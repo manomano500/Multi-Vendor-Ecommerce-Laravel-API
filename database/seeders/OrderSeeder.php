@@ -45,8 +45,8 @@ class OrderSeeder extends Seeder
                     ]);
 
                     // Update the price based on quantity
-                    $orderProduct->price = $orderProduct->quantity * $orderProduct->product->price;
-                    $orderProduct->save();
+//                    $orderProduct->price = $orderProduct->quantity * $orderProduct->product->price;
+//                    $orderProduct->save();
                 }
             }
 
