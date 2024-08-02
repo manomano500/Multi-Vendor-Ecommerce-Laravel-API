@@ -38,7 +38,7 @@ class OrderAdminController extends Controller
         $orderProduct = OrderProduct::where('order_id', $order)->where('product_id', $product)->firstOrFail();
 
         $validated = Validator::make($request->all(), [
-            'status' => 'required|in:pending,in_stock,',
+            'status' => 'required|in:in_stock,',
 //            'store_id' => 'required|exists:order_product,store_id',
         ]);
 
