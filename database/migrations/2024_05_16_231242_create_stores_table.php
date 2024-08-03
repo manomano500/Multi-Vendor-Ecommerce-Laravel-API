@@ -10,7 +10,7 @@ return new class extends Migration {
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->unsignedBigInteger('user_id')->unique();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->string('address');

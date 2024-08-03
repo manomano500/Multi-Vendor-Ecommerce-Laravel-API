@@ -31,9 +31,12 @@ Route::get('/statistics', [StatisticsController::class, 'adminStatistic']);
 Route::delete('/users/{id}',[UserController::class,'destroy']);
 
 
+Route::get('/users',[UserController::class,'index']);
+Route::post('/users',[UserController::class,'store']);
 
-Route::get('/admins',[UserController::class,'index']);
-Route::post('/admins',[UserController::class,'store']);
+//Route::get('/admins',[UserController::class,'index']);
+//Route::post('/admins',[UserController::class,'store']);
+
 
 
 
@@ -53,11 +56,8 @@ Route::delete('/products/{id}',[ProductAdminController::class,'destroy']);
 Route::get('/orders',[OrderAdminController::class,'index']);
 Route::get('/orders/{id}',[OrderAdminController::class,'show']);
 
-
 //update the status of an order
 Route::put('/orders/{id}/status',[OrderAdminController::class,'updateOrderStatus']);
-
-//update the status of all products in an order
 Route::put('/orders/{order}/products/{product}/status', [OrderAdminController::class, 'updateOrderProductStatus']);
 
 
