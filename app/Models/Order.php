@@ -64,7 +64,7 @@ public static function booted()
 
     public function getCreatedAttAttribute()
     {
-        return $this->created_at->format('Y-m-d H:i');
+        return $this->created_at?->format('Y-m-d H:i');
     }
 
     // Specify the attributes that should be appended to the model's array form

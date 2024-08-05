@@ -71,6 +71,29 @@ class StoreAdminController extends Controller
         }
     }
 
+    public function store(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'status' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category_id' => 'required|exists:categories,id',
+            'user_id' => 'required|exists:users,id',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['message' => 'Validation failed', 'errors' => $validator->errors()], 422);
+        }
+
+        $store = new Store();
+        $store->name = $request->name;
+        $store->description = $request->description;
+        $store->status = $request->status;
+        $store->category_id = $request->category_id;
+
+    }
+
     public function destroy($id)
     {
         $store = Store::findOrFail($id);

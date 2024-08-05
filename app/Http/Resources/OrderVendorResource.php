@@ -34,6 +34,7 @@ class OrderVendorResource extends JsonResource
                     'quantity'=>$product->pivot->quantity,
                 ];
             }),
-        ];
+
+           ];
     }
 }

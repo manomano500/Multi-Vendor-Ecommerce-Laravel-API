@@ -28,20 +28,18 @@ Route::post('/categories/{id}',[CategoryController::class,'update']);
 Route::get('/statistics', [StatisticsController::class, 'adminStatistic']);
 
 
-Route::delete('/users/{id}',[UserController::class,'destroy']);
 
 
 Route::get('/users',[UserController::class,'index']);
 Route::post('/users',[UserController::class,'store']);
-
-//Route::get('/admins',[UserController::class,'index']);
-//Route::post('/admins',[UserController::class,'store']);
+Route::delete('/users/{id}',[UserController::class,'destroy']);
 
 
 
 
 Route::get('/stores',[StoreAdminController::class,'index']);
 Route::get('/stores/{id}',[StoreAdminController::class,'show']);
+Route::post('/stores',[StoreAdminController::class,'store']);
 Route::post('/stores/{id}',[StoreAdminController::class,'update']);
 Route::delete('/stores/{id}',[StoreAdminController::class,'destroy']);
 Route::get('/stores/{id}/products',[StoreAdminController::class,'showProducts']);
