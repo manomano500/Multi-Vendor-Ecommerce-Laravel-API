@@ -5,12 +5,14 @@ namespace App\Http\Controllers\api\vendorr;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
+use App\Http\Resources\admin\ProductAdminResource;
 use App\Http\Resources\Product\ProductVendorAllCollection;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\ProductVariation;
 use App\Models\Variation;
+use App\Services\ProductService;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,6 +23,12 @@ use Illuminate\Support\Str;
 
 class ProductVendorController extends Controller
 {
+    protected $productService;
+
+    public function __construct(ProductService $productService)
+    {
+        $this->productService = $productService;
+    }
 
     //////////////for the vendor
     public function index(): ProductVendorAllCollection
@@ -37,7 +45,6 @@ class ProductVendorController extends Controller
             $products
         );
 
-        return  ProductVendorAllCollection::make($products);
     }
         public function store(Request $request)
         {
@@ -135,47 +142,10 @@ catch (Exception $e) {}
             return response()->json(['message' => $validated->errors()], 400);
         }
 
-        try {
-            $updatedFields = $request->only([
-                'name',
-                'description',
-                'quantity',
-                'category_id',
-                'price',
-                'status'
-            ]);
+        $updatedProduct =  $this->productService->updateProduct($id,$request);
+        return Response()->json(['message'=>'Product updated successfully', 'data'=>new ProductAdminResource($updatedProduct)],200);
 
-            if($request->hasFile('images')) {
-                $images = [];
-                foreach ($request->file('images') as $image) {
-                    // Create a meaningful filename
-                    $filename = Str::slug($productRequest['name']) . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
-                    $path = $image->storeAs('images/products', $filename, 'public');
-                    $images[] = [
-                        'product_id' => $product->id,
-                        'image' => $path,
-                    ];
-                }
 
-                // Batch insert images
-                ProductImage::insert($images);
-            }
-            if($request->has('deleted_images')) {
-
-                $deletedImageIds = $request->input('deleted_images');
-                $product->deleteImages($deletedImageIds);
-               }
-
-            // Update only the fields that the user has edited
-            $product->update($updatedFields);
-
-            // Sync variations
-            $product->variations()->sync($request->input('variations'));
-
-            return response()->json(['message' => 'Product updated successfully', 'data' =>  [new ProductResource($product),]], 200);
-        } catch (Exception $e) {
-            return response()->json(['message' => 'Failed to update product', 'error' => $e->getMessage()], 500);
-        }
     }
 
 
