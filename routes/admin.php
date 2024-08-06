@@ -36,7 +36,7 @@ Route::delete('/users/{id}',[UserController::class,'destroy']);
 
 
 
-
+//???
 Route::get('/stores',[StoreAdminController::class,'index']);
 Route::get('/stores/{id}',[StoreAdminController::class,'show']);
 Route::post('/stores',[StoreAdminController::class,'store']);
@@ -48,7 +48,10 @@ Route::get('/stores/{id}/products',[StoreAdminController::class,'showProducts'])
 
 
 Route::get('/products',[ProductAdminController::class,'index']);
+Route::get('/products/{id}',[ProductAdminController::class,'show']);
+Route::post('/products/{id}',[ProductAdminController::class,'update']);
 Route::delete('/products/{id}',[ProductAdminController::class,'destroy']);
+
 
 
 Route::get('/orders',[OrderAdminController::class,'index']);

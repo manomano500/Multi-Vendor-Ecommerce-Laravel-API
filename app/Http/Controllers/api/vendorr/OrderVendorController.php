@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api\vendorr;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\OrderResource;
 use App\Http\Resources\OrderVendorResource;
 use App\Models\Order;
 use App\Models\OrderProduct;
@@ -33,9 +34,9 @@ class OrderVendorController extends Controller
 //        $orders = Order::withStoreProducts($storeId)->get();
 
         // Structure the data
-
-        return  $orders ;
-
+//return $orders;
+        return  OrderVendorResource::collection($orders) ;
+//
 
 
 
