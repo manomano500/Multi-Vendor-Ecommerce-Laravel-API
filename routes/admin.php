@@ -42,7 +42,6 @@ Route::get('/stores/{id}',[StoreAdminController::class,'show']);
 Route::post('/stores',[StoreAdminController::class,'store']);
 Route::post('/stores/{id}',[StoreAdminController::class,'update']);
 Route::delete('/stores/{id}',[StoreAdminController::class,'destroy']);
-Route::get('/stores/{id}/products',[StoreAdminController::class,'showProducts']);
 
 
 
