@@ -109,11 +109,11 @@ class OrderService
                ]);
 
 
-               return response()->json(['message' => 'OTP sent successfully',"processId"=>$otpResponse['processId'],"amount"=>$order->order_total], 200);
+               return $otpResponse;
 
            }else {
 
-               return response()->json(['message' => 'Failed to send OTP'], 500);
+              throw new Exception('Failed to send OTP');
            }
 
 
@@ -133,10 +133,10 @@ class OrderService
                    'status' => 'pending'
                ]);
 
-               return response()->json(['message' => 'OTP sent successfully',"processId"=>$$otpResponse['processId'],"amount"=>$order->order_total], 200);
+               return $otpResponse;
            }else {
 
-               return response()->json(['message' => 'Failed to send OTP'], 500);
+               throw new Exception($otpResponse);
            }
        }
        if($request->payment_method == 'PayOnDeliver') {

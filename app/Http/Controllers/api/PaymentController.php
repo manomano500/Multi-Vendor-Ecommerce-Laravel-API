@@ -68,7 +68,6 @@ if($response['status'] == 'success'){
             'process_id' => 'required|string',
             'code' => 'required|string',
             'amount' => 'required|numeric',
-            'order_id' => 'required|exists:orders,id'
         ]);
 
         if($validated->fails()){
@@ -109,6 +108,7 @@ if($response['status'] == 'success'){
 
     public function confirmLocalBankPayment(Request $request)
     {
+
         $order =Order::where('user_id',auth()->id())
             ->findOrFail($request->order_id);
 
