@@ -35,6 +35,7 @@ class OrderController extends Controller
         $this->orderService = $orderService;
         $this->plutuService = new PlutuService();
     }
+
     public function index()
     {
 
@@ -49,9 +50,9 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-       $orederRequest =OrderRequest::create($request);
+        $orederRequest = OrderRequest::create($request);
 
-       $validated =Validator::make($request->all(),$orederRequest->rules());
+        $validated = Validator::make($request->all(), $orederRequest->rules());
 
         if ($validated->fails()) {
             return response()->json(['errors' => $validated->errors()], 422);
@@ -59,46 +60,14 @@ class OrderController extends Controller
 
 
         try {
-            Log::info('Creating order');
-            Log::info($request->all());
+
             $order = $this->orderService->createOrder(Auth::id(), $request->all());
 
-if($request->payment_method == 'Adfali') {
-    $otpResponse = $this->plutuService->sendAdfaliOtp($request['mobile_number'], $order->id);
+            $processingResponse = $this->orderService->processPlutoOrderPayment($order, $request);
 
-    if($otpResponse["status"]==="success"){
+            Log::info($processingResponse);
+            return $processingResponse;
 
-
-        return response()->json(['message' => 'OTP sent successfully',"processId"=>$otpResponse['processId'],"amount"=>$order->order_total], 200);
-
-    }else
-        return response()->json(['message' => 'Failed to send OTP'], 500);
-
-
-
-
-
-
-}
-if($request->payment_method == 'Sadad') {
-    $sadadResponse = $this->plutuService->sendSadadOtp($request['mobile_number'], $order->id);
-
-    if($sadadResponse["status"]==="success"){
-        return response()->json(['message' => 'OTP sent successfully',"processId"=>$sadadResponse['processId'],"amount"=>$order->order_total], 200);
-    }
-}
-if($request->payment_method == 'pay on deliver') {
-    $order->payment_status = 'unpaid';
-    return response()->json(['message' => 'Order created successfully'], 200);
-}
-
-
-
-            $order->save();
-
-
-
-            return $order;
         } catch (Exception $e) {
             Log::error($e->getMessage());
             return response()->json(['message' => $e->getMessage()], 500);
@@ -118,22 +87,21 @@ if($request->payment_method == 'pay on deliver') {
     }
 
 
-       public function cancelOrder($id)
-       {
-              $order = Order::findOrFail($id);
-              if ($order->user_id !== Auth::id()) {
-                return response()->json(['message' => 'Unauthorized'], 401);
-              }
+    public function cancelOrder($id)
+    {
+        $order = Order::findOrFail($id);
+        if ($order->user_id !== Auth::id()) {
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
 
-              try {
-                  $this->orderService->cancelOrder($order);
-                  return new OrderResource($order);
-              } catch (Exception $e) {
-                  Log::error($e->getMessage());
-                  return response()->json(['message' => $e->getMessage()], 500);
-              }
+        try {
+            $this->orderService->cancelOrder($order);
+            return new OrderResource($order);
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
 
 
-
-       }
+    }
 }

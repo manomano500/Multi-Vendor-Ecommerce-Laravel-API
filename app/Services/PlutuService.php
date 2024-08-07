@@ -36,11 +36,11 @@ class PlutuService
     }
 
     // Adfali-specific methods
-    public function sendAdfaliOtp($mobileNumber, $orderId)
+    public function sendAdfaliOtp($mobileNumber, Order $order)
     {
         try {
             // Fetch the order to get the amount
-            $order = Order::findOrFail($orderId);
+
 
             $amount = $order->order_total;
 
@@ -70,10 +70,11 @@ class PlutuService
     }
 
 
-    public function confirmAdfaliPayment($processId, $code, $amount, $invoiceNo)
+    public function confirmAdfaliPayment($processId, $code, $amount, $orderId)
     {
         try {
-            $response = $this->adfali->confirm($processId, $code, $amount, $invoiceNo);
+//            orderId = invoice_no
+            $response = $this->adfali->confirm($processId, $code, $amount, $orderId);
 
             if ($response->getOriginalResponse()->isSuccessful()) {
 
@@ -162,10 +163,10 @@ class PlutuService
     }
 
 
-public function localBankCards()
+public function localBankCards(Order $order)
 {
     try {
-        $response = $this->localBankCards->confirm(100, 'INV-123', 'http://localhost:8000/logged-in', '', 'en');
+        $response = $this->localBankCards->confirm($order->order_total, $order->id, 'http://localhost:8000/logged-in', '', 'en');
         if ($response->getOriginalResponse()->isSuccessful()) {
             return [
 

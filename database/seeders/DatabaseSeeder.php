@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             AttributeSeeder::class,
             VariationSeeder::class,
-            CitySeeder::class,
+//            CitySeeder::class,
         ]);
 
 
