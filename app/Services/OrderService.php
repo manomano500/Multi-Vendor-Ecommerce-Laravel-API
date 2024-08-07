@@ -94,52 +94,6 @@ class OrderService
     }
 
 
-    public function delprocessPlutoOrderPayment(Order $order, Request $request)
-    {
-        try {
-            switch ($request->payment_method) {
-                case 'Adfali':
-                    $otpResponse = $this->plutuService->sendAdfaliOtp($request['mobile_number'], $order->id);
-                    $this->handleOtpResponse($otpResponse, $order->order_total);
-                    break;
-
-                case 'Sadad':
-                    $sadadResponse = $this->plutuService->sendSadadOtp($request['mobile_number'], $order->id);
-                    $this->handleOtpResponse($sadadResponse, $order->order_total);
-                    break;
-
-                case 'pay on deliver':
-                    $order->payment_status = 'unpaid';
-                    return response()->json(['message' => 'Order created successfully'], 200);
-
-                case 'localBankCards':
-                    $localBankResponse = $this->plutuService->localBankCards($order->order_total);
-                    $this->handleOtpResponse($localBankResponse, $order->order_total);
-                    break;
-
-                default:
-                    throw new \Exception('Invalid payment method');
-            }
-        } catch (\Exception $e) {
-            Log::error('Error processing order payment: ' . $e->getMessage());
-            return response()->json(['message' => 'Failed to process payment', 'error' => $e->getMessage()], 500);
-        }
-    }
-
-    private function handleOtpResponse($response, $amount)
-    {
-        if ($response['status'] === 'success') {
-            Log::info($response);
-            return response()->json([
-                'message' => 'OTP sent successfully',
-                'processId' => $response['processId'],
-                'amount' => $amount
-            ], 200);
-        } else {
-            throw new \Exception('Failed to send OTP');
-        }
-    }
-
     public function processPlutoOrderPayment(Order $order,Request $request )
    {
        if($request->payment_method == 'Adfali') {
