@@ -18,7 +18,9 @@ class ProductAdminResource extends JsonResource
            'id' => $this->id,
            'name' => $this->name,
            'price' => $this->price,
-'image'=>$this->images()->first()?->getImageUrlAttribute() ?? null,
+           'image' => $this->images()->get(['id','image']), // Use accessor to get full URLs
+
+//'image'=>$this->images()->first()?->getImageUrlAttribute() ?? null,
            'category' => $this->category->name,
            'store' => $this->store->name,
 
