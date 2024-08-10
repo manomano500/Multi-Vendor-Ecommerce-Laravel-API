@@ -144,10 +144,11 @@ class OrderService
            return response()->json(['message' => 'Order created successfully'], 200);
        }
        if($request->payment_method == 'localBankCards') {
-           $localBankResponse = $this->plutuService->localBankCards($order->order_total);
+           log::info('localBankCards');
+           $localBankResponse = $this->plutuService->localBankCards($order);
 
            if($localBankResponse["status"]==="success"){
-               return response()->json(['message' => 'Payment link sent successfully',"processId"=>$localBankResponse['processId'],"amount"=>$order->order_total], 200);
+               return response()->json(['message' => 'Payment link sent successfully',"data"=>$localBankResponse,"amount"=>$order->order_total], 200);
            }
        }
 

@@ -165,9 +165,13 @@ class PlutuService
 
 public function localBankCards(Order $order)
 {
+    $order =Order::findOrFail($order->id);
     try {
+
         $response = $this->localBankCards->confirm($order->order_total, $order->id, 'http://localhost:8000/logged-in', '', 'en');
+
         if ($response->getOriginalResponse()->isSuccessful()) {
+
             return [
 
                 'data' => $response->getOriginalResponse()->getBody(),

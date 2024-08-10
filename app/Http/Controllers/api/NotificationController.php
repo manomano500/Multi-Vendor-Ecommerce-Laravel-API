@@ -11,7 +11,7 @@ class NotificationController extends Controller
     {
         $notification= auth()->user()->notifications;
         return NotificationResource::collection($notification);
-        return new NotificationResource($notification);
+//        return new NotificationResource($notification);
     }
 
 }
