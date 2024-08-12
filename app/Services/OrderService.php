@@ -96,6 +96,12 @@ class OrderService
 
     public function processPlutoOrderPayment(Order $order,Request $request )
    {
+       if($request->payment_method == 'pay_on_deliver') {
+           $order->payment_status = 'unpaid';
+              $order->save();
+           return Response()->json(['message' => 'Order created successfully'], 200);
+       }
+
        if($request->payment_method == 'Adfali') {
            $otpResponse = $this->plutuService->sendAdfaliOtp($request['mobile_number'], $order);
 
@@ -139,18 +145,14 @@ class OrderService
                throw new Exception($otpResponse);
            }
        }
-       if($request->payment_method == 'PayOnDeliver') {
-           $order->payment_status = 'unpaid';
-           return response()->json(['message' => 'Order created successfully'], 200);
-       }
        if($request->payment_method == 'localBankCards') {
            log::info('localBankCards');
            $localBankResponse = $this->plutuService->localBankCards($order);
 
-           if($localBankResponse["status"]==="success"){
-               return response()->json(['message' => 'Payment link sent successfully',"data"=>$localBankResponse,"amount"=>$order->order_total], 200);
-           }
+        return $localBankResponse;
        }
+
+
 
    }
     public function deductProductQuantities(Product $product, $quantity): void

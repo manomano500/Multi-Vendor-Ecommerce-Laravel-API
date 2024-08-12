@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Notifications\LowStockNotification;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\hasOneThrough;
+use Illuminate\Support\Facades\Notification;
 
 class Product extends Model
 {
@@ -54,9 +56,12 @@ protected $hidden=['created_at','updated_at','deleted_at'];
 
         });
         $builder->when($options['search'], function ($query, $search) {
-            $query->where('name', 'like', "%$search%");
-
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', "%$search%")
+                    ->orWhere('description', 'like', "%$search%");
+            });
         });
+
         $builder->when($options['price'], function ($query, $price) {
             $query->where('price', '<=', $price);
 
@@ -136,5 +141,27 @@ protected $hidden=['created_at','updated_at','deleted_at'];
     }
 
 
+    protected static function booted()
+    {
+        static::updated(function ($product) {
+            if ($product->quantity < 10) {
+                $product->notifyLowStock();
+            }
+        });
+    }
 
-}
+
+
+    public function notifyLowStock()
+    {
+        $store = $this->store;
+        $vendor = $store->user; // Assuming the store has a user relationship with the vendor
+        $admins = User::where('role_id', '=', 1)->get(); // Assuming you have an 'is_admin' column in users table
+
+// Merge vendor and admins into a single collection
+        $notifiables = $admins->push($vendor);
+
+// Send notifications to vendor and admins
+        Notification::send($notifiables, new LowStockNotification($this));
+
+    }}

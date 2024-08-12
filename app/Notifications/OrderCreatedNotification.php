@@ -44,6 +44,7 @@ class OrderCreatedNotification extends Notification implements ShouldQueue
             ->greeting('Hi '.$notifiable->name)
                     ->line("A New Order (#{$this->order->id}) Created by ".$user->name ."to Address: ".$this->order->shipping_address)
             ->action('See Order', url('http://localhost:8080/vendor'))
+            //TODO
                     ->line('Thank you for using our application!');
     }
 
@@ -64,8 +65,8 @@ class OrderCreatedNotification extends Notification implements ShouldQueue
     {
         return[
             'body' => 'New Order Was Created #'. $this->order->id,
-            'url' => 'http://localhost:8080/vendor',
-//            'created_at' => $this->user->created_at->diffForHumans(), // Example of human-readable format
+            'url' => '/orders/'.$this->order->id,
+            'created_at' => $this->order->created_at->diffForHumans(), // Example of human-readable format
 
         ];
 

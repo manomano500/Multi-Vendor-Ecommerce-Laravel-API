@@ -37,7 +37,7 @@ class NewUserRegisteredNotification extends Notification implements ShouldQueue
     {
         return [
             'body' => 'A new user'.$notifiable->name. 'has registered',
-            'url' => '/usesdrs/'.$this->user->id,
+            'url' => '/users/'.$this->user->id,
             'created_at' => $this->user->created_at->diffForHumans(), // Example of human-readable format
 
 

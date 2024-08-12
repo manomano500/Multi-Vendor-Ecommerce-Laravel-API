@@ -17,9 +17,9 @@ class OrderAdminController extends Controller
     public function index()
     {
 
-        $orders = Order::latest()->get();
-                return  $orders;
-    }
+        $orders =Order::filter(request()->query())->latest()->get();
+        return $orders;
+        }
 
 
     public function show($id)

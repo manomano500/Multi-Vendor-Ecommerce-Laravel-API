@@ -10,7 +10,7 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'order_total', 'status', 'city', 'shipping_address', 'payment_method','payment_status'];
+    protected $fillable = ['user_id', 'order_total', 'status',  'shipping_address', 'payment_method','payment_status'];
 
 protected $hidden = ['created_at', 'updated_at'];
 
@@ -23,6 +23,41 @@ protected $hidden = ['created_at', 'updated_at'];
         }]);
     }
 
+
+    public function scopeFilter(Builder $builder, $filters)
+    {
+        $options = array_merge([
+            'status' => 'pending',
+            'payment_status' => null,
+            'payment_method' => null,
+            'limit' => null,
+            'page' => null,
+        ], $filters);
+
+$builder->when($options['status'], function ($query, $status) {
+            $query->where('status', $status);
+        });
+
+$builder->when($options['payment_status'], function ($query, $payment_status) {
+            $query->where('payment_status', $payment_status);
+        });
+
+$builder->when($options['payment_method'], function ($query, $payment_method) {
+            $query->where('payment_method', $payment_method);
+        });
+
+$builder->when($options['limit'], function ($query, $limit) {
+            $query->limit($limit);
+        });
+
+$builder->when($options['page'], function ($query, $page) {
+            $query->paginate($page);
+        });
+
+
+
+
+    }
     public function products()
     {
         return $this->belongsToMany(Product::class, 'order_product')

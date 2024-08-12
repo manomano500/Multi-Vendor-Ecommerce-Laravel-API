@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Notifications\AdminNotification;
 use App\Notifications\NewUserRegisteredNotification;
 use App\Notifications\ResetPasswordNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -79,6 +80,26 @@ class User extends Authenticatable implements MustVerifyEmail
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+
+
+
+
+
+
+    public static function sendNotificationToUsers($message, $condition = null)
+    {
+        $query = self::query();
+
+        if ($condition) {
+            $query->where($condition);
+        }
+
+        $users = $query->get();
+
+        foreach ($users as $user) {
+            $user->notify(new AdminNotification($message));
+        }
     }
 
 

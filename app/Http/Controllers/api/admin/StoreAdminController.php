@@ -19,7 +19,7 @@ class StoreAdminController extends Controller
 
     public function index()
     {
-        $stores = Store::paginate(10);
+        $stores = Store::whereHas('products')->filter(request()->query())->with('category')->paginate(10);
         if ($stores->isEmpty()) {
             return response()->json(['message' => 'no stores found'], 200);
         }

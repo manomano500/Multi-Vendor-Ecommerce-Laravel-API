@@ -21,6 +21,7 @@ class OrderVendorController extends Controller
             ->pluck('order_id')
             ->unique();
 
+
         // Get the orders without the product details
         $orders = Order::whereIn('id', $orderIds)
             ->select(['id', 'user_id', 'status', 'payment_method', 'payment_status', 'shipping_address', 'created_at'])
