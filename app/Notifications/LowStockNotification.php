@@ -25,7 +25,6 @@ class LowStockNotification extends Notification
         return [
             'body' => 'The product "' . $this->product->name . '" has low stock with only ' . $this->product->quantity . ' pieces left.',
             'url' => '/products/' . $this->product->id,
-            'created_at' => now()->diffForHumans(), // Using current time in human-readable format
         ];
     }
 }

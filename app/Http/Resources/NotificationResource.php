@@ -22,6 +22,7 @@ class NotificationResource extends JsonResource
 
 
            'created_at' => $this->created_at->diffForHumans(),
+           'read_at' => $this->read_at ? $this->read_at->diffForHumans() : 'Unread',
        ];
     }
 }

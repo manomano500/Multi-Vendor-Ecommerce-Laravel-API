@@ -66,7 +66,7 @@ class OrderCreatedNotification extends Notification implements ShouldQueue
         return[
             'body' => 'New Order Was Created #'. $this->order->id,
             'url' => '/orders/'.$this->order->id,
-            'created_at' => $this->order->created_at->diffForHumans(), // Example of human-readable format
+//            'created_at' => $this->order->created_at->diffForHumans(), // Example of human-readable format
 
         ];
 
