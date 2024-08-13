@@ -45,11 +45,15 @@ Route::get('/variations', [VariationController::class, 'index']);
 
 
 
-Route::resource('/products', ProductController::class);
+//Route::resource('/products', ProductController::class);
+Route::get('/products',[ProductController::class,'index']);
+Route::get('/products/{id}',[ProductController::class,'show']);
 
 
 Route::get('/stores',[StoreController::class,'index']);
 Route::get('/stores/{id}/products', [StoreController::class, 'showProducts']);
+
+
 
 //Route::get('/confirm-otp',function () {
 //    return view('redirect.complate-payment');
