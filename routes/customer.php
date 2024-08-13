@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\api\NotificationController;
 use App\Http\Controllers\api\OrderController;
 use App\Http\Controllers\api\PaymentController;
 use App\Http\Controllers\Auth\BecomeVendor;
@@ -18,9 +19,13 @@ Route::post('/orders', [OrderController::class, 'store']);
 Route::delete('/orders/{id}', [OrderController::class, 'cancelOrder']);
 
 
+Route::get('/notifications', [NotificationController::class, 'index']);
+
+
 Route::post('/payment/adfali/confirm', [PaymentController::class, 'confirmAdfaliPayment']);
 //Route::post('/payment/adfali/confirm', [PaymentController::class, 'confirmAdfaliPayment']);
 Route::post('/payment/sadad/confirm', [PaymentController::class, 'confirmSadadPayment']);
 
 
 Route::post('/payment/localbanks/confirm', [PaymentController::class, 'confirmLocalBankPayment']);
+

@@ -24,7 +24,7 @@ class OrderVendorController extends Controller
 
         // Get the orders without the product details
         $orders = Order::whereIn('id', $orderIds)
-            ->select(['id', 'user_id', 'status', 'payment_method', 'payment_status', 'shipping_address', 'created_at'])
+            ->select(['id', 'user_id', 'status', 'payment_method', 'payment_status', 'created_at'])
 
 
             ->get()

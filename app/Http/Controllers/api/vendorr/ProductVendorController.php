@@ -36,7 +36,7 @@ class ProductVendorController extends Controller
 
 
         $products = Product::where('store_id', Auth::user()->store->id)
-            ->with('category')
+            ->load('category')
             ->get()
 
         ;
