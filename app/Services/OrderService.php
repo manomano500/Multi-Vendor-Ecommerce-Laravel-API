@@ -82,6 +82,7 @@ class OrderService
 
 
             DB::commit();
+            event(new OrderCreated($order));
             return $order;
 
         } catch (Exception $e) {
