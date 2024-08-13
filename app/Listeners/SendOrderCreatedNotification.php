@@ -36,7 +36,7 @@ class SendOrderCreatedNotification implements ShouldQueue
         }
         //notify the admins
         User::where('role_id', '1')->get()->each->notify(new OrderCreatedNotification($event->order));
-
+User::where('id',$event->order->user_id)->first()->notify(new OrderCreatedNotification($event->order));
 
         //
     }

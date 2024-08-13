@@ -15,12 +15,17 @@ class UserSeeder extends Seeder
             'email' => 'a@a.a',
             'password' => bcrypt('12345678'),
             'role_id' => 1,
+            'phone' => '08012345678',
+            'address' => 'tarik alsour',
+
         ]);
         DB::table('users')->insert([
             'name' => 'John Doe',
             'email' => 'v@v.v',
             'password' => bcrypt('12345678'),
             'role_id' => 2,
+            'phone' => '08012345678',
+            'address' => 'tarik alsour',
 
         ]);
         Db::table('stores')->insert([
@@ -39,6 +44,8 @@ class UserSeeder extends Seeder
             'email' => 'c@c.c',
             'password' => bcrypt('12345678'),
             'role_id' => 3,
+            'phone' => '08012345678',
+            'address' => 'tarik alsour',
         ]);
 
         User::factory(10)->create();

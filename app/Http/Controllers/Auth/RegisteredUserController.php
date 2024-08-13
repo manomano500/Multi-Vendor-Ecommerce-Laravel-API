@@ -33,6 +33,8 @@ class RegisteredUserController extends Controller
             'name' => ['bail','required', 'string', 'max:255','min:3',],
             'email' => ['bail','required', 'string', 'lowercase', 'email', 'max:255','unique:' . User::class],
             'password' => ['bail','required', 'confirmed', Rules\Password::defaults(),],
+            "address" => "required|string",
+            "phone" => "required|string",
         ]);
 
         if ($validator->fails()) {
@@ -44,7 +46,9 @@ class RegisteredUserController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-                'role_id' => 3
+                'role_id' => 3,
+                'phone' => $request->phone,
+                'address' => $request->address,
             ]);
             event(new Registered($user));
             Auth::login($user);

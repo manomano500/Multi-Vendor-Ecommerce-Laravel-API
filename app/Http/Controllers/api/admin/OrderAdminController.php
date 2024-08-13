@@ -25,7 +25,7 @@ class OrderAdminController extends Controller
     public function show($id)
     {
         $loadOrder = Order::findOrFail($id)
-            ->load('products.store','user',);
+            ->load(['products.store','user',]);
         $order = Order::with('orderProducts', 'user','products')->findOrFail($id);
 //        return $order;
         return OrderResource::make($order);

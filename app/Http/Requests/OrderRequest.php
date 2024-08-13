@@ -11,8 +11,7 @@ class OrderRequest extends FormRequest
     {
         return [
 
-            'shipping_address' => 'required|string',
-            'products' => 'required|array',
+                'products' => 'required|array',
             'products.*.product_id' => 'required|exists:products,id,status,active',
             'products.*.quantity' => 'required|integer|min:1',
             'payment_method' => 'required|string|in:Adfali,Sadad,localBankCards,pay_on_deliver',

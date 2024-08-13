@@ -31,7 +31,8 @@ class OrderService
     public function getOrderById($userId, $orderId)
     {
         $order = Order::where('id', $orderId)->where('user_id', $userId)->firstOrFail();
-        $order->load('products');
+        $order->load(['products','user'])
+        ;
         return $order;
     }
 
@@ -48,7 +49,6 @@ class OrderService
                 'status' => 'pending',
                 'payment_method' => $data['payment_method'], // Make sure this is set
                 'order_total' => 0,
-                'shipping_address' => $data['shipping_address'],
             ]);
             Log::info('Order created', ['order' => $order->payment_method]);
 

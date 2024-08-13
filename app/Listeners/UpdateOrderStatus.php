@@ -17,12 +17,14 @@ class UpdateOrderStatus
         // Check if all order products are 'dropped_off'
         if ($orderProducts->every(fn($item) => $item->status === 'in_stock')) {
             $order->status = 'ready_for_shipment'; // Assuming this is your intended status
+
             $order->save();
         }
 
-        elseif ($order->status !== 'processing') {
+        if ($order->status == 'pending') {
             $order->status = 'processing';
             $order->save();
         }
+
     }
 }
