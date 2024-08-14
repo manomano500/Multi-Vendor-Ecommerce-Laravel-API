@@ -34,8 +34,11 @@ class Store extends Model
             $query->where('category_id', $category);
         });
 
-        $builder->when($options['search'], function ($query, $search) {
-            $query->where('name', 'like', "%$search%");
+        $builder->when($options['search'],  function ($query, $search) {
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', "%$search%")
+                    ->orWhere('description', 'like', "%$search%");
+            });
         });
 
         $builder->when($options['sort'], function ($query, $sort) {
