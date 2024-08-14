@@ -38,7 +38,7 @@ EcommerceSeeder::class,
 
         $this->call([
             UserSeeder::class,
-            StoreSeeder::class,
+//            StoreSeeder::class,
 //                    ProductSeeder::class
         ]);
 

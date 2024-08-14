@@ -68,4 +68,52 @@ class BecomeVendor extends Controller
         }
 
     }
+
+
+
+    public function updateStore(Request $request)
+    {
+        $user = Auth::user();
+        $validator = Validator::make($request->all(), [
+            'name' => ['sometimes', 'required', 'string', 'max:255', 'min:3'],
+            'phone' => ['sometimes', 'required', 'string'],
+            'store_name' => ['sometimes', 'required', 'string', 'max:255'],
+            'store_description' => ['sometimes', 'nullable', 'string'],
+            'store_address' => ['sometimes', 'required', 'string', 'max:255'],
+            'store_image' => ['sometimes', 'nullable', 'image'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        try {
+            DB::transaction(function () use ($request, $user) {
+                // Update user information if provided
+                $user->update($request->only('name', 'phone'));
+
+                // Update or create store information if provided
+                if ($user->store) {
+                    $user->store->update($request->only('store_name', 'store_description', 'store_address'));
+                } else {
+                    $storeData = $request->only('store_name', 'store_description', 'store_address');
+                    $storeData['user_id'] = $user->id;
+                    $new_store = Store::create($storeData);
+                    $user->store()->save($new_store);
+                }
+
+                // Handle store image upload if provided
+                if ($request->hasFile('store_image')) {
+                    $image = $request->file('store_image');
+                    $path = $image->store('images/stores', 'public');
+                    $user->store->update(['image' => $path]);
+                }
+            });
+
+            return response()->json(['message' => 'Profile and store information updated successfully'], 200);
+        } catch (Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+
 }
