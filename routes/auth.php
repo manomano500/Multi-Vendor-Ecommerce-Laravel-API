@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\BecomeVendor;
 use App\Http\Controllers\Auth\ChangePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\NewPasswordController;
@@ -48,7 +47,3 @@ Route::post('/update-profile',[UpdateProfileController::class,'updateProfile'])
     ->middleware('auth:sanctum')
     ->name('profile.updateProfile');
 
-
-Route::post("/update-store",[BecomeVendor::class,'updateStore'])
-    ->middleware('auth:sanctum')
-    ->name('store.updateStore');
