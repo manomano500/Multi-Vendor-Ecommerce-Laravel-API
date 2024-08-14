@@ -12,7 +12,6 @@ class CategorySeeder extends Seeder
     public function run()
     {
         // Clear the categories table
-        DB::table('categories')->delete();
 
         // Create categories with subcategories
         $categories = [

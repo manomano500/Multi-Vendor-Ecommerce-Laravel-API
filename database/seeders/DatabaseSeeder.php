@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-
+$this->call([
+EcommerceSeeder::class,
+        ]);
 
 
 
@@ -47,10 +49,6 @@ class DatabaseSeeder extends Seeder
 
 
 
-//        $this->call([
-//            OrderSeeder::class,
-//            OrderProductSeeder::class,
-//        ]);
 
 
 

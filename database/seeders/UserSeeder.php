@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
             'name' => 'John Doe Store',
             'description' => 'This is John Doe Store',
             'category_id' => 1,
-            'user_id' => 2,
+            'user_id' => User::where('email', 'v@v.v')->first()->id,
             'image' => 'https://via.placeholder.com/150',
             'status' => 'active',
             'address' => '123 Main St, Lagos',

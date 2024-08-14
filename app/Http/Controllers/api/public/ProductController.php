@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function index(Request $request)
 
     {
-        $products = Product::filter($request->query())->with('category')->paginate(10);
+        $products = Product::filter($request->query())->with('category')->get();
         Log::info('products: ' . $products);
         return new ProductVendorAllCollection($products);
     }

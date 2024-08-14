@@ -21,7 +21,8 @@ class ProductSeeder extends Seeder
                    ->count(4)
                    ->create([
                        'product_id' => $product->id,
-                   ]);
+                       'image' => 'https://via.placeholder.com/150'
+                                          ]);
            });
     }
 

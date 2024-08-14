@@ -1,0 +1,767 @@
+{
+    "categories": [
+        {
+            "name": "beauty",
+            "folder": "fakestore_data\\beauty"
+        },
+        {
+            "name": "fragrances",
+            "folder": "fakestore_data\\fragrances"
+        },
+        {
+            "name": "furniture",
+            "folder": "fakestore_data\\furniture"
+        },
+        {
+            "name": "groceries",
+            "folder": "fakestore_data\\groceries"
+        },
+        {
+            "name": "electronics",
+            "folder": "fakestore_data\\electronics"
+        },
+        {
+            "name": "jewelery",
+            "folder": "fakestore_data\\jewelery"
+        },
+        {
+            "name": "men's clothing",
+            "folder": "fakestore_data\\men's clothing"
+        },
+        {
+            "name": "women's clothing",
+            "folder": "fakestore_data\\women's clothing"
+        },
+        {
+            "name": "shoes",
+            "folder": "fakestore_data\\shoes"
+        }
+    ],
+    "products": [
+
+        {
+            "id": 1,
+            "title": "Puma Smashic Sneakers For Men",
+            "description": "The Puma Smashic Sneakers For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Puma_Smashic_Sneakers_For_Men.jpg"
+        },
+        {
+            "id": 2,
+            "title": "Stride Runner M Running Shoes For Men",
+            "description": "The Stride Runner M Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Stride_Runner_M_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 3,
+            "title": "Downshifter 13 Running Shoes For Men",
+            "description": "The Downshifter 13 Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Downshifter_13_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 4,
+            "title": "Revolution 6 Running Shoes For Men",
+            "description": "The Revolution 6 Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Revolution_6_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 5,
+            "title": "Zoom Freak 3 Basketball Shoes For Men",
+            "description": "The Zoom Freak 3 Basketball Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Zoom_Freak_3_Basketball_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 6,
+            "title": "Running Shoes For Men",
+            "description": "The Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 7,
+            "title": "Reflect Lite Trail Running Shoes For Men",
+            "description": "The Reflect Lite Trail Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Reflect_Lite_Trail_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 8,
+            "title": "Basket Classic XXI Sneakers For Men",
+            "description": "The Basket Classic XXI Sneakers For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Basket_Classic_XXI_Sneakers_For_Men.jpg"
+        },
+        {
+            "id": 9,
+            "title": "Downshifter 12 Running Shoes For Men",
+            "description": "The Downshifter 12 Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Downshifter_12_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 10,
+            "title": "Legend Essential Running Shoes For Men",
+            "description": "The Legend Essential Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Legend_Essential_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 11,
+            "title": "Scorch Runner V2 Running Shoes For Men",
+            "description": "The Scorch Runner V2 Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Scorch_Runner_V2_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 12,
+            "title": "Puma Walter Running Shoes For Men",
+            "description": "The Puma Walter Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Puma_Walter_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 13,
+            "title": "Offcourt Slide Casuals For Men",
+            "description": "The Offcourt Slide Casuals For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Offcourt_Slide_Casuals_For_Men.jpg"
+        },
+        {
+            "id": 14,
+            "title": "Air Max 90 Running Shoes For Men",
+            "description": "The Air Max 90 Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Air_Max_90_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 15,
+            "title": "Revolution 7 Running Shoes For Men",
+            "description": "The Revolution 7 Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Revolution_7_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 16,
+            "title": "Running Shoes For Men",
+            "description": "The Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 17,
+            "title": "FTR Xtraflow IDP Running Shoes For Men",
+            "description": "The FTR Xtraflow IDP Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/FTR_Xtraflow_IDP_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 18,
+            "title": "Super Speed Running Shoes For Men",
+            "description": "The Super Speed Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Super_Speed_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 19,
+            "title": "M NK MC TRAINER 2 Training & Gym Shoes For Men",
+            "description": "The M NK MC TRAINER 2 Training & Gym Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/M_NK_MC_TRAINER_2_Training_&_Gym_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 20,
+            "title": "Downshifter 12 Running Shoes For Men",
+            "description": "The Downshifter 12 Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Downshifter_12_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 21,
+            "title": "Softride Runphlo Walking Shoes For Men",
+            "description": "The Softride Runphlo Walking Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Softride_Runphlo_Walking_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 22,
+            "title": "Puma Sprinter Casuals For Men",
+            "description": "The Puma Sprinter Casuals For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Puma_Sprinter_Casuals_For_Men.jpg"
+        },
+        {
+            "id": 23,
+            "title": "Flex Experience Run 10 Running Shoes For Men",
+            "description": "The Flex Experience Run 10 Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Flex_Experience_Run_10_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 24,
+            "title": "Downshifter 12 Running Shoes For Men",
+            "description": "The Downshifter 12 Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Downshifter_12_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 25,
+            "title": "Full Force Lo Casuals For Men",
+            "description": "The Full Force Lo Casuals For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Full_Force_Lo_Casuals_For_Men.jpg"
+        },
+        {
+            "id": 26,
+            "title": "Running Shoes For Men",
+            "description": "The Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 27,
+            "title": "Stride Runner M Running Shoes For Men",
+            "description": "The Stride Runner M Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Stride_Runner_M_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 28,
+            "title": "Enzo 2 Revamp Running Shoes For Men",
+            "description": "The Enzo 2 Revamp Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Enzo_2_Revamp_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 29,
+            "title": "Free Metcon 5 Training & Gym Shoes For Men",
+            "description": "The Free Metcon 5 Training & Gym Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Free_Metcon_5_Training_&_Gym_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 30,
+            "title": "AIR MAX DAWN Running Shoes For Men",
+            "description": "The AIR MAX DAWN Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/AIR_MAX_DAWN_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 31,
+            "title": "Puma Unleash Sneakers For Men",
+            "description": "The Puma Unleash Sneakers For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Puma_Unleash_Sneakers_For_Men.jpg"
+        },
+        {
+            "id": 32,
+            "title": "Turin 3 Sneakers For Men",
+            "description": "The Turin 3 Sneakers For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Turin_3_Sneakers_For_Men.jpg"
+        },
+        {
+            "id": 33,
+            "title": "Quest 5 Running Shoes For Men",
+            "description": "The Quest 5 Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Quest_5_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 34,
+            "title": "AIR MAX 90 Sneakers For Men",
+            "description": "The AIR MAX 90 Sneakers For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/AIR_MAX_90_Sneakers_For_Men.jpg"
+        },
+        {
+            "id": 35,
+            "title": "Air Zoom Pegasus 40 Running Shoes For Men",
+            "description": "The Air Zoom Pegasus 40 Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Air_Zoom_Pegasus_40_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 36,
+            "title": "Revolution 6 Running Shoes For Men",
+            "description": "The Revolution 6 Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Revolution_6_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 37,
+            "title": "Badminton Smash Sprint Running Shoes For Men",
+            "description": "The Badminton Smash Sprint Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Badminton_Smash_Sprint_Running_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 38,
+            "title": "ANZARUN TECH Sneakers For Men",
+            "description": "The ANZARUN TECH Sneakers For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/ANZARUN_TECH_Sneakers_For_Men.jpg"
+        },
+        {
+            "id": 39,
+            "title": "Football Shoes For Men",
+            "description": "The Football Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Football_Shoes_For_Men.jpg"
+        },
+        {
+            "id": 40,
+            "title": "Running Shoes For Men",
+            "description": "The Running Shoes For Men offers a versatile range of options.",
+            "price": 50.0,
+            "category": "shoes",
+            "image": "shoes/Running_Shoes_For_Men.jpg"
+        },
+
+
+
+        {
+            "id": 1,
+            "title": "Essence Mascara Lash Princess",
+            "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+            "price": 9.99,
+            "category": "beauty",
+            "image": "beauty/1_0.jpg"
+        },
+        {
+            "id": 2,
+            "title": "Eyeshadow Palette with Mirror",
+            "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
+            "price": 19.99,
+            "category": "beauty",
+            "image": "beauty/2_0.jpg"
+        },
+        {
+            "id": 3,
+            "title": "Powder Canister",
+            "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
+            "price": 14.99,
+            "category": "beauty",
+            "image": "beauty/3_0.jpg"
+        },
+        {
+            "id": 4,
+            "title": "Red Lipstick",
+            "description": "The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy and pigmented formula, it provides a vibrant and long-lasting finish.",
+            "price": 12.99,
+            "category": "beauty",
+            "image": "beauty/4_0.jpg"
+        },
+        {
+            "id": 5,
+            "title": "Red Nail Polish",
+            "description": "The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.",
+            "price": 8.99,
+            "category": "beauty",
+            "image": "beauty/5_0.jpg"
+        },
+        {
+            "id": 6,
+            "title": "Calvin Klein CK One",
+            "description": "CK One by Calvin Klein is a classic unisex fragrance, known for its fresh and clean scent. It's a versatile fragrance suitable for everyday wear.",
+            "price": 49.99,
+            "category": "fragrances",
+            "image": "fragrances/6_2.jpg"
+        },
+        {
+            "id": 7,
+            "title": "Chanel Coco Noir Eau De",
+            "description": "Coco Noir by Chanel is an elegant and mysterious fragrance, featuring notes of grapefruit, rose, and sandalwood. Perfect for evening occasions.",
+            "price": 129.99,
+            "category": "fragrances",
+            "image": "fragrances/7_2.jpg"
+        },
+        {
+            "id": 8,
+            "title": "Dior J'adore",
+            "description": "J'adore by Dior is a luxurious and floral fragrance, known for its blend of ylang-ylang, rose, and jasmine. It embodies femininity and sophistication.",
+            "price": 89.99,
+            "category": "fragrances",
+            "image": "fragrances/8_2.jpg"
+        },
+        {
+            "id": 9,
+            "title": "Dolce Shine Eau de",
+            "description": "Dolce Shine by Dolce & Gabbana is a vibrant and fruity fragrance, featuring notes of mango, jasmine, and blonde woods. It's a joyful and youthful scent.",
+            "price": 69.99,
+            "category": "fragrances",
+            "image": "fragrances/9_2.jpg"
+        },
+        {
+            "id": 10,
+            "title": "Gucci Bloom Eau de",
+            "description": "Gucci Bloom by Gucci is a floral and captivating fragrance, with notes of tuberose, jasmine, and Rangoon creeper. It's a modern and romantic scent.",
+            "price": 79.99,
+            "category": "fragrances",
+            "image": "fragrances/10_2.jpg"
+        },
+        {
+            "id": 11,
+            "title": "Annibale Colombo Bed",
+            "description": "The Annibale Colombo Bed is a luxurious and elegant bed frame, crafted with high-quality materials for a comfortable and stylish bedroom.",
+            "price": 1899.99,
+            "category": "furniture",
+            "image": "furniture/11_2.jpg"
+        },
+        {
+            "id": 12,
+            "title": "Annibale Colombo Sofa",
+            "description": "The Annibale Colombo Sofa is a sophisticated and comfortable seating option, featuring exquisite design and premium upholstery for your living room.",
+            "price": 2499.99,
+            "category": "furniture",
+            "image": "furniture/12_2.jpg"
+        },
+        {
+            "id": 13,
+            "title": "Bedside Table African Cherry",
+            "description": "The Bedside Table in African Cherry is a stylish and functional addition to your bedroom, providing convenient storage space and a touch of elegance.",
+            "price": 299.99,
+            "category": "furniture",
+            "image": "furniture/13_2.jpg"
+        },
+        {
+            "id": 14,
+            "title": "Knoll Saarinen Executive Conference Chair",
+            "description": "The Knoll Saarinen Executive Conference Chair is a modern and ergonomic chair, perfect for your office or conference room with its timeless design.",
+            "price": 499.99,
+            "category": "furniture",
+            "image": "furniture/14_2.jpg"
+        },
+        {
+            "id": 15,
+            "title": "Wooden Bathroom Sink With Mirror",
+            "description": "The Wooden Bathroom Sink with Mirror is a unique and stylish addition to your bathroom, featuring a wooden sink countertop and a matching mirror.",
+            "price": 799.99,
+            "category": "furniture",
+            "image": "furniture/15_2.jpg"
+        },
+        {
+            "id": 16,
+            "title": "Apple",
+            "description": "Fresh and crisp apples, perfect for snacking or incorporating into various recipes.",
+            "price": 1.99,
+            "category": "groceries",
+            "image": "groceries/16_0.jpg"
+        },
+        {
+            "id": 17,
+            "title": "Beef Steak",
+            "description": "High-quality beef steak, great for grilling or cooking to your preferred level of doneness.",
+            "price": 12.99,
+            "category": "groceries",
+            "image": "groceries/17_0.jpg"
+        },
+        {
+            "id": 18,
+            "title": "Cat Food",
+            "description": "Nutritious cat food formulated to meet the dietary needs of your feline friend.",
+            "price": 8.99,
+            "category": "groceries",
+            "image": "groceries/18_0.jpg"
+        },
+        {
+            "id": 19,
+            "title": "Chicken Meat",
+            "description": "Fresh and tender chicken meat, suitable for various culinary preparations.",
+            "price": 9.99,
+            "category": "groceries",
+            "image": "groceries/19_1.jpg"
+        },
+        {
+            "id": 20,
+            "title": "Cooking Oil",
+            "description": "Versatile cooking oil suitable for frying, saut\u00e9ing, and various culinary applications.",
+            "price": 4.99,
+            "category": "groceries",
+            "image": "groceries/20_0.jpg"
+        },
+        {
+            "id": 21,
+            "title": "Cucumber",
+            "description": "Crisp and hydrating cucumbers, ideal for salads, snacks, or as a refreshing side.",
+            "price": 1.49,
+            "category": "groceries",
+            "image": "groceries/21_0.jpg"
+        },
+        {
+            "id": 22,
+            "title": "Dog Food",
+            "description": "Specially formulated dog food designed to provide essential nutrients for your canine companion.",
+            "price": 10.99,
+            "category": "groceries",
+            "image": "groceries/22_0.jpg"
+        },
+        {
+            "id": 23,
+            "title": "Eggs",
+            "description": "Fresh eggs, a versatile ingredient for baking, cooking, or breakfast.",
+            "price": 2.99,
+            "category": "groceries",
+            "image": "groceries/23_0.jpg"
+        },
+        {
+            "id": 24,
+            "title": "Fish Steak",
+            "description": "Quality fish steak, suitable for grilling, baking, or pan-searing.",
+            "price": 14.99,
+            "category": "groceries",
+            "image": "groceries/24_0.jpg"
+        },
+        {
+            "id": 25,
+            "title": "Green Bell Pepper",
+            "description": "Fresh and vibrant green bell pepper, perfect for adding color and flavor to your dishes.",
+            "price": 1.29,
+            "category": "groceries",
+            "image": "groceries/25_0.jpg"
+        },
+        {
+            "id": 26,
+            "title": "Green Chili Pepper",
+            "description": "Spicy green chili pepper, ideal for adding heat to your favorite recipes.",
+            "price": 0.99,
+            "category": "groceries",
+            "image": "groceries/26_0.jpg"
+        },
+        {
+            "id": 27,
+            "title": "Honey Jar",
+            "description": "Pure and natural honey in a convenient jar, perfect for sweetening beverages or drizzling over food.",
+            "price": 6.99,
+            "category": "groceries",
+            "image": "groceries/27_0.jpg"
+        },
+        {
+            "id": 28,
+            "title": "Ice Cream",
+            "description": "Creamy and delicious ice cream, available in various flavors for a delightful treat.",
+            "price": 5.49,
+            "category": "groceries",
+            "image": "groceries/28_3.jpg"
+        },
+        {
+            "id": 29,
+            "title": "Juice",
+            "description": "Refreshing fruit juice, packed with vitamins and great for staying hydrated.",
+            "price": 3.99,
+            "category": "groceries",
+            "image": "groceries/29_0.jpg"
+        },
+        {
+            "id": 30,
+            "title": "Kiwi",
+            "description": "Nutrient-rich kiwi, perfect for snacking or adding a tropical twist to your dishes.",
+            "price": 2.49,
+            "category": "groceries",
+            "image": "groceries/30_0.jpg"
+        },
+
+        {
+            "id": 1,
+            "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+            "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+            "price": 109.95,
+            "category": "men's clothing",
+            "image": "fakestore_data\\men's clothing\\1.jpg"
+        },
+        {
+            "id": 2,
+            "title": "Mens Casual Premium Slim Fit T-Shirts ",
+            "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
+            "price": 22.3,
+            "category": "men's clothing",
+            "image": "fakestore_data\\men's clothing\\2.jpg"
+        },
+        {
+            "id": 3,
+            "title": "Mens Cotton Jacket",
+            "description": "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
+            "price": 55.99,
+            "category": "men's clothing",
+            "image": "fakestore_data\\men's clothing\\3.jpg"
+        },
+        {
+            "id": 4,
+            "title": "Mens Casual Slim Fit",
+            "description": "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
+            "price": 15.99,
+            "category": "men's clothing",
+            "image": "fakestore_data\\men's clothing\\4.jpg"
+        },
+        {
+            "id": 5,
+            "title": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
+            "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
+            "price": 695,
+            "category": "jewelery",
+            "image": "fakestore_data\\jewelery\\5.jpg"
+        },
+        {
+            "id": 6,
+            "title": "Solid Gold Petite Micropave ",
+            "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
+            "price": 168,
+            "category": "jewelery",
+            "image": "fakestore_data\\jewelery\\6.jpg"
+        },
+        {
+            "id": 7,
+            "title": "White Gold Plated Princess",
+            "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
+            "price": 9.99,
+            "category": "jewelery",
+            "image": "fakestore_data\\jewelery\\7.jpg"
+        },
+        {
+            "id": 8,
+            "title": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+            "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
+            "price": 10.99,
+            "category": "jewelery",
+            "image": "fakestore_data\\jewelery\\8.jpg"
+        },
+        {
+            "id": 9,
+            "title": "WD 2TB Elements Portable External Hard Drive - USB 3.0 ",
+            "description": "USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user\u2019s hardware configuration and operating system",
+            "price": 64,
+            "category": "electronics",
+            "image": "fakestore_data\\electronics\\9.jpg"
+        },
+        {
+            "id": 10,
+            "title": "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
+            "description": "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5\u201d hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)",
+            "price": 109,
+            "category": "electronics",
+            "image": "fakestore_data\\electronics\\10.jpg"
+        },
+        {
+            "id": 11,
+            "title": "Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5",
+            "description": "3D NAND flash are applied to deliver high transfer speeds Remarkable transfer speeds that enable faster bootup and improved overall system performance. The advanced SLC Cache Technology allows performance boost and longer lifespan 7mm slim design suitable for Ultrabooks and Ultra-slim notebooks. Supports TRIM command, Garbage Collection technology, RAID, and ECC (Error Checking & Correction) to provide the optimized performance and enhanced reliability.",
+            "price": 109,
+            "category": "electronics",
+            "image": "fakestore_data\\electronics\\11.jpg"
+        },
+        {
+            "id": 12,
+            "title": "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
+            "description": "Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty",
+            "price": 114,
+            "category": "electronics",
+            "image": "fakestore_data\\electronics\\12.jpg"
+        },
+        {
+            "id": 13,
+            "title": "Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin",
+            "description": "21. 5 inches Full HD (1920 x 1080) widescreen IPS display And Radeon free Sync technology. No compatibility for VESA Mount Refresh Rate: 75Hz - Using HDMI port Zero-frame design | ultra-thin | 4ms response time | IPS panel Aspect ratio - 16: 9. Color Supported - 16. 7 million colors. Brightness - 250 nit Tilt angle -5 degree to 15 degree. Horizontal viewing angle-178 degree. Vertical viewing angle-178 degree 75 hertz",
+            "price": 599,
+            "category": "electronics",
+            "image": "fakestore_data\\electronics\\13.jpg"
+        },
+        {
+            "id": 14,
+            "title": "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) \u2013 Super Ultrawide Screen QLED ",
+            "description": "49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag",
+            "price": 999.99,
+            "category": "electronics",
+            "image": "fakestore_data\\electronics\\14.jpg"
+        },
+        {
+            "id": 15,
+            "title": "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats",
+            "description": "Note:The Jackets is US standard size, Please choose size as your usual wear Material: 100% Polyester; Detachable Liner Fabric: Warm Fleece. Detachable Functional Liner: Skin Friendly, Lightweigt and Warm.Stand Collar Liner jacket, keep you warm in cold weather. Zippered Pockets: 2 Zippered Hand Pockets, 2 Zippered Pockets on Chest (enough to keep cards or keys)and 1 Hidden Pocket Inside.Zippered Hand Pockets and Hidden Pocket keep your things secure. Humanized Design: Adjustable and Detachable Hood and Adjustable cuff to prevent the wind and water,for a comfortable fit. 3 in 1 Detachable Design provide more convenience, you can separate the coat and inner as needed, or wear it together. It is suitable for different season and help you adapt to different climates",
+            "price": 56.99,
+            "category": "women's clothing",
+            "image": "fakestore_data\\women's clothing\\15.jpg"
+        },
+        {
+            "id": 16,
+            "title": "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
+            "description": "100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON",
+            "price": 29.95,
+            "category": "women's clothing",
+            "image": "fakestore_data\\women's clothing\\16.jpg"
+        },
+        {
+            "id": 17,
+            "title": "Rain Jacket Women Windbreaker Striped Climbing Raincoats",
+            "description": "Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn't overdo it.Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look.",
+            "price": 39.99,
+            "category": "women's clothing",
+            "image": "fakestore_data\\women's clothing\\17.jpg"
+        },
+        {
+            "id": 18,
+            "title": "MBJ Women's Solid Short Sleeve Boat Neck V ",
+            "description": "95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem",
+            "price": 9.85,
+            "category": "women's clothing",
+            "image": "fakestore_data\\women's clothing\\18.jpg"
+        },
+        {
+            "id": 19,
+            "title": "Opna Women's Short Sleeve Moisture",
+            "description": "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
+            "price": 7.95,
+            "category": "women's clothing",
+            "image": "fakestore_data\\women's clothing\\19.jpg"
+        },
+        {
+            "id": 20,
+            "title": "DANVOUY Womens T Shirt Casual Cotton Short",
+            "description": "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
+            "price": 12.99,
+            "category": "women's clothing",
+            "image": "fakestore_data\\women's clothing\\20.jpg"
+        }
+    ]
+}

@@ -17,13 +17,14 @@ class ProductFactory extends Factory
             'name' => $this->faker->name,
             'description' => $this->faker->text,
             'price' => $this->faker->randomFloat(2, 1, 100),
-            'status' => $this->faker->randomElement(['active', 'out_of_stock']),
+            'status' => "active",
+//            'status' => $this->faker->randomElement(['active', 'out_of_stock']),
             'quantity' => $this->faker->numberBetween(1, 100),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'store_id' => Store::where('status', "=",'active')->first()->id ,
 
-            'category_id' => 1,
+            'category_id' => 7,
 
 
 
