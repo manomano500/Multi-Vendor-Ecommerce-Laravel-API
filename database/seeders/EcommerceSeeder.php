@@ -9,7 +9,6 @@ use App\Models\ProductImage;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Exception;
 use Faker\Factory as Faker;
@@ -34,7 +33,7 @@ class EcommerceSeeder extends Seeder
         foreach ($jsonData['categories'] as $categoryData) {
             $categoryName = $categoryData['name'];
             $categoryFolder = $categoryData['folder'];
-log::info($categoryName);
+
             // Create or get the category
             $category = Category::firstOrCreate(['name' => $categoryName]);
 

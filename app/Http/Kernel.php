@@ -66,12 +66,15 @@ class Kernel extends HttpKernel
             ShareErrorsFromSession::class,
             VerifyCsrfToken::class,
             SubstituteBindings::class,
+            ChangeLanguage::class,
         ],
 
         'api' => [
             EnsureFrontendRequestsAreStateful::class,
             ThrottleRequests::class.':api',
             SubstituteBindings::class,
+            \App\Http\Middleware\ChangeLanguage::class,
+
 //            CheckApiOrigin::class,
         ],
     ];

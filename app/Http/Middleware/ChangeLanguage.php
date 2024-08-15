@@ -14,16 +14,16 @@ class ChangeLanguage
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Default to English if 'lang' parameter is not set or invalid
         $locale = $request->input('lang', 'en');
 
-        // Validate 'lang' parameter
         if (!in_array($locale, ['en', 'ar'])) {
-            $locale = 'en'; // Fallback to English if invalid value is provided
+            $locale = 'en';
         }
 
-        // Set the application locale
         app()->setLocale($locale);
+
+        // Debugging
+        \Log::info('Locale set to: ' . $locale);
 
         return $next($request);
     }
