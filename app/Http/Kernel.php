@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\ChangeLanguage;
 use App\Http\Middleware\CheckApiOrigin;
 use App\Http\Middleware\CheckRole;
 use App\Http\Middleware\ContentSecurityPolicy;
@@ -47,6 +48,7 @@ class Kernel extends HttpKernel
         ValidatePostSize::class,
         TrimStrings::class,
         ConvertEmptyStringsToNull::class,
+        ChangeLanguage::class,
 //        \App\Http\Middleware\ContentSecurityPolicy::class,
 
     ];
@@ -94,6 +96,7 @@ class Kernel extends HttpKernel
         'verified' => EnsureEmailIsVerified::class,
         'role' => CheckRole::class,
         'csp' => ContentSecurityPolicy::class,
+        'change-language' => \App\Http\Middleware\ChangeLanguage::class,
 
     ];
 }
