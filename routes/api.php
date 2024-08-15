@@ -56,10 +56,5 @@ Route::get('/stores/{id}/products', [StoreController::class, 'showProducts']);
 
 
 
-//Route::get('/confirm-otp',function () {
-//    return view('redirect.complate-payment');
-//})->name('confirm-otp');
-
-//Route::post('/confirm-payment', [PaymentController::class, 'confirmAdfaliPayment'])->name('confirm-payment');
 
 

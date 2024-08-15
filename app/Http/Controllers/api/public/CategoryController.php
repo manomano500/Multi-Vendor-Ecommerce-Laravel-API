@@ -7,6 +7,7 @@ use App\Http\Resources\Categories\CategoryParentChildrenResource;
 use App\Http\Resources\Categories\CategoryParentResource;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,13 +17,18 @@ class CategoryController extends Controller
     /**
 * public
      */
+
     public function index()
     {
-        $categories = Category::parent()->whereHas('stores')->get(['id','name']);
+        // Cache the categories for 60 minutes
+        $categories = Cache::remember('categories_with_stores', 60, function () {
+            return Category::parent()->whereHas('stores')->get(['id', 'name']);
+        });
+
+        // Log the categories
         Log::info($categories);
-        return  $categories;
 
-
+        return $categories;
     }
 
     /**

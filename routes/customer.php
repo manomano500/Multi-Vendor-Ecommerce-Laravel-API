@@ -23,9 +23,6 @@ Route::get('/notifications', [NotificationController::class, 'index']);
 
 
 Route::post('/payment/adfali/confirm', [PaymentController::class, 'confirmAdfaliPayment']);
-//Route::post('/payment/adfali/confirm', [PaymentController::class, 'confirmAdfaliPayment']);
 Route::post('/payment/sadad/confirm', [PaymentController::class, 'confirmSadadPayment']);
-
-
 Route::post('/payment/localbanks/confirm', [PaymentController::class, 'confirmLocalBankPayment']);
 
