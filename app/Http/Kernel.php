@@ -73,7 +73,7 @@ class Kernel extends HttpKernel
             EnsureFrontendRequestsAreStateful::class,
             ThrottleRequests::class.':api',
             SubstituteBindings::class,
-            \App\Http\Middleware\ChangeLanguage::class,
+            ChangeLanguage::class,
 
 //            CheckApiOrigin::class,
         ],
@@ -99,7 +99,7 @@ class Kernel extends HttpKernel
         'verified' => EnsureEmailIsVerified::class,
         'role' => CheckRole::class,
         'csp' => ContentSecurityPolicy::class,
-        'change-language' => \App\Http\Middleware\ChangeLanguage::class,
+        'change-language' => ChangeLanguage::class,
 
     ];
 }

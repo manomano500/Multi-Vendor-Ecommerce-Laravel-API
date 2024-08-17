@@ -7,6 +7,7 @@ use App\Http\Resources\StoreResource;
 use App\Models\Store;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
 
 class StoreController extends Controller
@@ -36,7 +37,8 @@ class StoreController extends Controller
 
     public function showProducts($id)
     {
-        // Fetch store
+        Log::info('store id is '. $id);
+
         $store = DB::table('stores')
             ->where('id', $id)
             ->where('status', 'active')
