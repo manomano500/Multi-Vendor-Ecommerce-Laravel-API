@@ -12,7 +12,7 @@ class ChangeLanguage
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+/*    public function handle(Request $request, Closure $next): Response
     {
         $locale = $request->input('lang', 'en');
 
@@ -24,6 +24,20 @@ class ChangeLanguage
 
         // Debugging
         \Log::info('Locale set to: ' . $locale);
+
+        return $next($request);
+    }*/
+
+    public function handle(Request $request, Closure $next): Response
+    {
+        // Get the 'lang' parameter from the route or default to 'en'
+        $locale = $request->route('lang', $request->query('lang', 'en'));
+
+        if (!in_array($locale, ['en', 'ar'])) {
+            $locale = 'en';
+        }
+
+        app()->setLocale($locale);
 
         return $next($request);
     }

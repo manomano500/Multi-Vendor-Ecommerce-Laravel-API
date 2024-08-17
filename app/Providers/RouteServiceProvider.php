@@ -28,27 +28,28 @@ public const VENDOR = '/vendor';
         $this->configureRateLimiting();
 
         $this->routes(function () {
-            Route::middleware('api')
-                ->prefix('api')
+            Route::middleware(['api','change-language'])
+                ->prefix('{lang?}/api')
+
                 ->group(base_path('routes/api.php'));
 
-            Route::middleware('web')
+            Route::middleware(['web','change-language'])
                 ->group(base_path('routes/web.php'))
             ;
 
 
 
 
-            Route::middleware(['api', 'auth:sanctum', 'role:admin'])
-                ->prefix('api/admin')
+            Route::middleware(['api', 'auth:sanctum', 'role:admin','change-language'])
+                ->prefix('{lang?}/api/admin')
                 ->group(base_path('routes/admin.php'));
 
-            Route::middleware(['api', 'auth:sanctum', 'role:vendor'])
-                ->prefix('api/vendor')
+            Route::middleware(['api', 'auth:sanctum', 'role:vendor','change-language'])
+                ->prefix('{lang}/api/vendor')
                 ->group(base_path('routes/vendor.php'));
 
-            Route::middleware(['api','auth:sanctum','role:customer', 'csp'])
-                ->prefix('api/customer')
+            Route::middleware(['api','auth:sanctum','role:customer', 'change-language'])
+                ->prefix('{lang}/api/customer')
 
                 ->group(base_path('routes/customer.php'));
 

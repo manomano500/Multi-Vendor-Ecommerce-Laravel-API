@@ -31,8 +31,9 @@ class AuthenticatedSessionController extends Controller
 
             $credentials = $request->only('email', 'password');
             if (!Auth::attempt($credentials)) {
-                return response()->json(['message' => 'Invalid credentials'], 401);
-
+                return response()->json([
+                    'message' => __('auth.invalid_credentials')
+                ], 401);
         }
 
             $user=$request->user();
@@ -62,7 +63,7 @@ class AuthenticatedSessionController extends Controller
 
             $request->session()->regenerateToken();
 
-            return response()->json(['message' => 'Logout successful'], 200);
+            return response()->json(['message' => __('auth.logout')], 200);
             }catch (Exception $e){
             return response()->json(['error' => $e->getMessage()], 500);
         }

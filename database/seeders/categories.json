@@ -1,0 +1,159 @@
+[
+    {
+        "name": {
+            "en": "Electronics",
+            "ar": "الإلكترونيات"
+        },
+        "subcategories": [
+            {"name": {"en": "Mobile Phones", "ar": "الهواتف المحمولة"}},
+            {"name": {"en": "Laptops", "ar": "أجهزة الكمبيوتر المحمولة"}},
+            {"name": {"en": "Cameras", "ar": "الكاميرات"}}
+        ]
+    },
+    {
+        "name": {
+            "en": "Fashion",
+            "ar": "الموضة"
+        },
+        "subcategories": [
+            {"name": {"en": "Men", "ar": "رجال"}},
+            {"name": {"en": "Women", "ar": "نساء"}},
+            {"name": {"en": "Kids", "ar": "أطفال"}}
+        ]
+    },
+    {
+        "name": {
+            "en": "Home & Garden",
+            "ar": "المنزل والحديقة"
+        },
+        "subcategories": [
+            {"name": {"en": "Furniture", "ar": "الأثاث"}},
+            {"name": {"en": "Kitchen", "ar": "المطبخ"}},
+            {"name": {"en": "Decor", "ar": "الديكور"}}
+        ]
+    },
+    {
+        "name": {
+            "en": "Health & Beauty",
+            "ar": "الصحة والجمال"
+        },
+        "subcategories": [
+            {"name": {"en": "Makeup", "ar": "مكياج"}},
+            {"name": {"en": "Skin Care", "ar": "العناية بالبشرة"}},
+            {"name": {"en": "Hair Care", "ar": "العناية بالشعر"}}
+        ]
+    },
+    {
+        "name": {
+            "en": "Books",
+            "ar": "الكتب"
+        },
+        "subcategories": [
+            {"name": {"en": "Fiction", "ar": "خيال"}},
+            {"name": {"en": "Non-Fiction", "ar": "غير خيالي"}},
+            {"name": {"en": "Children", "ar": "الأطفال"}}
+        ]
+    },
+    {
+        "name": {
+            "en": "Sports",
+            "ar": "الرياضة"
+        },
+        "subcategories": [
+            {"name": {"en": "Fitness", "ar": "اللياقة البدنية"}},
+            {"name": {"en": "Running", "ar": "الجري"}},
+            {"name": {"en": "Cycling", "ar": "ركوب الدراجات"}}
+        ]
+    },
+    {
+        "name": {
+            "en": "Toys",
+            "ar": "الألعاب"
+        },
+        "subcategories": [
+            {"name": {"en": "Action Figures", "ar": "الدمى المجسمة"}},
+            {"name": {"en": "Dolls", "ar": "الدمى"}},
+            {"name": {"en": "Educational", "ar": "تعليمي"}}
+        ]
+    },
+
+        {
+            "name": {
+                "en": "Women",
+                "ar": "نساء"
+            },
+            "subcategories": []
+        },
+        {
+            "name": {
+                "en": "Men",
+                "ar": "رجال"
+            },
+            "subcategories": []
+        },
+        {
+            "name": {
+                "en": "Kids",
+                "ar": "أطفال"
+            },
+            "subcategories": []
+        },
+        {
+            "name": {
+                "en": "Beauty",
+                "ar": "الجمال"
+            },
+            "subcategories": []
+        },
+        {
+            "name": {
+                "en": "Fragrances",
+                "ar": "العطور"
+            },
+            "subcategories": []
+        },
+        {
+            "name": {
+                "en": "Furniture",
+                "ar": "الأثاث"
+            },
+            "subcategories": []
+        },
+        {
+            "name": {
+                "en": "Groceries",
+                "ar": "البقالة"
+            },
+            "subcategories": []
+        },
+        {
+            "name": {
+                "en": "Electronics",
+                "ar": "الإلكترونيات"
+            },
+            "subcategories": []
+        },
+        {
+            "name": {
+                "en": "Jewelery",
+                "ar": "المجوهرات"
+            },
+            "subcategories": []
+        },
+        {
+            "name": {
+                "en": "Men's Clothing",
+                "ar": "ملابس الرجال"
+            },
+            "subcategories": []
+        },
+        {
+            "name": {
+                "en": "Shoes",
+                "ar": "الأحذية"
+            },
+            "subcategories": []
+        }
+    ]
+
+

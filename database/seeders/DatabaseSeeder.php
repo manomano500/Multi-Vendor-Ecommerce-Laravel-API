@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
     {
 
 $this->call([
+    CategorySeeder::class,
 
     EcommerceSeeder::class,
         ]);
@@ -25,7 +26,6 @@ $this->call([
 
 
         $this->call([
-            CategorySeeder::class,
             AttributeSeeder::class,
             VariationSeeder::class,
 //            CitySeeder::class,
