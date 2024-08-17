@@ -3,51 +3,51 @@
     "categories": [
         {
             "name": "women",
-            "folder": "fakestore_data\\\\women"
+            "folder": "women"
         },
         {
             "name": "men",
-            "folder": "fakestore_data\\\\men"
+            "folder": "men"
         },
         {
             "name": "kids",
-            "folder": "fakestore_data\\\\kids"
+            "folder": "kids"
         },
         {
             "name": "beauty",
-            "folder": "fakestore_data\\beauty"
+            "folder": "beauty"
         },
         {
             "name": "fragrances",
-            "folder": "fakestore_data\\fragrances"
+            "folder": "fragrances"
         },
         {
             "name": "furniture",
-            "folder": "fakestore_data\\furniture"
+            "folder": "furniture"
         },
         {
             "name": "groceries",
-            "folder": "fakestore_data\\groceries"
+            "folder": "groceries"
         },
         {
             "name": "electronics",
-            "folder": "fakestore_data\\electronics"
+            "folder": "electronics"
         },
         {
             "name": "jewelery",
-            "folder": "fakestore_data\\jewelery"
+            "folder": "jewelery"
         },
         {
             "name": "men's clothing",
-            "folder": "fakestore_data\\men's clothing"
+            "folder": "men's clothing"
         },
         {
             "name": "women",
-            "folder": "fakestore_data\\women"
+            "folder": "women"
         },
         {
             "name": "shoes",
-            "folder": "fakestore_data\\shoes"
+            "folder": "shoes"
         }
     ],
     "products": [
@@ -108,9 +108,9 @@
             "price": 365.0,
             "category": "women",
             "images": [
-                "fakestore_data\\women\\Scorci_Fiorentini_print_scarf_1.jpg",
-                "fakestore_data\\women\\Scorci_Fiorentini_print_scarf_2.jpg",
-                "fakestore_data\\women\\Scorci_Fiorentini_print_scarf_3.jpg"
+                "women/Scorci_Fiorentini_print_scarf_1.jpg",
+                "women/Scorci_Fiorentini_print_scarf_2.jpg",
+                "women/Scorci_Fiorentini_print_scarf_3.jpg"
             ]
         },
         {
@@ -120,11 +120,11 @@
             "price": 304.0,
             "category": "women",
             "images": [
-                "fakestore_data\\women\\wide-collar_crochet_sweater_3.jpg",
-                "fakestore_data\\women\\wide-collar_crochet_sweater_1.jpg",
-                "fakestore_data\\women\\wide-collar_crochet_sweater_2.jpg",
-                "fakestore_data\\women\\wide-collar_crochet_sweater_4.jpg",
-                "fakestore_data\\women\\wide-collar_crochet_sweater_5.jpg"
+                "women/wide-collar_crochet_sweater_3.jpg",
+                "women/wide-collar_crochet_sweater_1.jpg",
+                "women/wide-collar_crochet_sweater_2.jpg",
+                "women/wide-collar_crochet_sweater_4.jpg",
+                "women/wide-collar_crochet_sweater_5.jpg"
             ]
         },
         {
@@ -134,11 +134,11 @@
             "price": 454.0,
             "category": "women",
             "images": [
-                "fakestore_data\\women\\logo-embroidered_fine-knit_jumper_2.jpg",
-                "fakestore_data\\women\\logo-embroidered_fine-knit_jumper_3.jpg",
-                "fakestore_data\\women\\logo-embroidered_fine-knit_jumper_1.jpg",
-                "fakestore_data\\women\\logo-embroidered_fine-knit_jumper_4.jpg",
-                "fakestore_data\\women\\logo-embroidered_fine-knit_jumper_5.jpg"
+                "women/logo-embroidered_fine-knit_jumper_2.jpg",
+                "women/logo-embroidered_fine-knit_jumper_3.jpg",
+                "women/logo-embroidered_fine-knit_jumper_1.jpg",
+                "women/logo-embroidered_fine-knit_jumper_4.jpg",
+                "women/logo-embroidered_fine-knit_jumper_5.jpg"
             ]
         },
         {
@@ -148,12 +148,12 @@
             "price": 1005.0,
             "category": "women",
             "images": [
-                "fakestore_data\\women\\rope-detail_rib_knit_midi_skirt_2.jpg",
-                "fakestore_data\\women\\rope-detail_rib_knit_midi_skirt_5.jpg",
-                "fakestore_data\\women\\rope-detail_rib_knit_midi_skirt_3.jpg",
-                "fakestore_data\\\\women\\\\rope-detail_rib_knit_midi_skirt_1.jpg",
-                "fakestore_data\\\\women\\\\rope-detail_rib_knit_midi_skirt_6.jpg",
-                "fakestore_data\\\\women\\\\rope-detail_rib_knit_midi_skirt_4.jpg"
+                "women/rope-detail_rib_knit_midi_skirt_2.jpg",
+                "women/rope-detail_rib_knit_midi_skirt_5.jpg",
+                "women/rope-detail_rib_knit_midi_skirt_3.jpg",
+                "women/rope-detail_rib_knit_midi_skirt_1.jpg",
+                "women/rope-detail_rib_knit_midi_skirt_6.jpg",
+                "women/rope-detail_rib_knit_midi_skirt_4.jpg"
             ]
         },
         {
@@ -163,10 +163,10 @@
             "price": 573.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Himalayan_cargo_trousers_2.jpg",
-                "fakestore_data\\\\women\\\\Himalayan_cargo_trousers_4.jpg",
-                "fakestore_data\\\\women\\\\Himalayan_cargo_trousers_1.jpg",
-                "fakestore_data\\\\women\\\\Himalayan_cargo_trousers_3.jpg"
+                "women/Himalayan_cargo_trousers_2.jpg",
+                "women/Himalayan_cargo_trousers_4.jpg",
+                "women/Himalayan_cargo_trousers_1.jpg",
+                "women/Himalayan_cargo_trousers_3.jpg"
             ]
         },
         {
@@ -176,8 +176,8 @@
             "price": 182.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Heart_necklace_2.jpg",
-                "fakestore_data\\\\women\\\\Heart_necklace_1.jpg"
+                "women/Heart_necklace_2.jpg",
+                "women/Heart_necklace_1.jpg"
             ]
         },
         {
@@ -187,9 +187,9 @@
             "price": 810.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Tropea_80mm_sandals_2.jpg",
-                "fakestore_data\\\\women\\\\Tropea_80mm_sandals_4.jpg",
-                "fakestore_data\\\\women\\\\Tropea_80mm_sandals_1.jpg"
+                "women/Tropea_80mm_sandals_2.jpg",
+                "women/Tropea_80mm_sandals_4.jpg",
+                "women/Tropea_80mm_sandals_1.jpg"
             ]
         },
         {
@@ -199,10 +199,10 @@
             "price": 188.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\logo_single-breasted_jacket_5.jpg",
-                "fakestore_data\\\\men\\\\logo_single-breasted_jacket_4.jpg",
-                "fakestore_data\\\\men\\\\logo_single-breasted_jacket_3.jpg",
-                "fakestore_data\\\\men\\\\logo_single-breasted_jacket_2.jpg"
+                "men/logo_single-breasted_jacket_5.jpg",
+                "men/logo_single-breasted_jacket_4.jpg",
+                "men/logo_single-breasted_jacket_3.jpg",
+                "men/logo_single-breasted_jacket_2.jpg"
             ]
         },
         {
@@ -212,8 +212,8 @@
             "price": 127.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\soft_leather_belt_2.jpg",
-                "fakestore_data\\\\men\\\\soft_leather_belt_1.jpg"
+                "men/soft_leather_belt_2.jpg",
+                "men/soft_leather_belt_1.jpg"
             ]
         },
         {
@@ -223,9 +223,9 @@
             "price": 548.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\VLOGO_low_top_sneakers_3.jpg",
-                "fakestore_data\\\\men\\\\VLOGO_low_top_sneakers_1.jpg",
-                "fakestore_data\\\\men\\\\VLOGO_low_top_sneakers_2.jpg"
+                "men/VLOGO_low_top_sneakers_3.jpg",
+                "men/VLOGO_low_top_sneakers_1.jpg",
+                "men/VLOGO_low_top_sneakers_2.jpg"
             ]
         },
         {
@@ -235,12 +235,12 @@
             "price": 760.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\checked_floral_shirt_2.jpg",
-                "fakestore_data\\\\women\\\\checked_floral_shirt_3.jpg",
-                "fakestore_data\\\\women\\\\checked_floral_shirt_4.jpg",
-                "fakestore_data\\\\women\\\\checked_floral_shirt_5.jpg",
-                "fakestore_data\\\\women\\\\checked_floral_shirt_6.jpg",
-                "fakestore_data\\\\women\\\\checked_floral_shirt_1.jpg"
+                "women/checked_floral_shirt_2.jpg",
+                "women/checked_floral_shirt_3.jpg",
+                "women/checked_floral_shirt_4.jpg",
+                "women/checked_floral_shirt_5.jpg",
+                "women/checked_floral_shirt_6.jpg",
+                "women/checked_floral_shirt_1.jpg"
             ]
         },
         {
@@ -250,8 +250,8 @@
             "price": 312.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\interwoven_leather_belt_1.jpg",
-                "fakestore_data\\\\men\\\\interwoven_leather_belt_2.jpg"
+                "men/interwoven_leather_belt_1.jpg",
+                "men/interwoven_leather_belt_2.jpg"
             ]
         },
         {
@@ -261,9 +261,9 @@
             "price": 335.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\logo-print_long-sleeved_shirt_3.jpg",
-                "fakestore_data\\\\kids\\\\logo-print_long-sleeved_shirt_1.jpg",
-                "fakestore_data\\\\kids\\\\logo-print_long-sleeved_shirt_2.jpg"
+                "kids/logo-print_long-sleeved_shirt_3.jpg",
+                "kids/logo-print_long-sleeved_shirt_1.jpg",
+                "kids/logo-print_long-sleeved_shirt_2.jpg"
             ]
         },
         {
@@ -273,10 +273,10 @@
             "price": 214.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\S-ASTICO_high-top_sneakers_3.jpg",
-                "fakestore_data\\\\men\\\\S-ASTICO_high-top_sneakers_2.jpg",
-                "fakestore_data\\\\men\\\\S-ASTICO_high-top_sneakers_4.jpg",
-                "fakestore_data\\\\men\\\\S-ASTICO_high-top_sneakers_1.jpg"
+                "men/S-ASTICO_high-top_sneakers_3.jpg",
+                "men/S-ASTICO_high-top_sneakers_2.jpg",
+                "men/S-ASTICO_high-top_sneakers_4.jpg",
+                "men/S-ASTICO_high-top_sneakers_1.jpg"
             ]
         },
         {
@@ -286,10 +286,10 @@
             "price": 948.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\lightweight_hooded_coat_1.jpg",
-                "fakestore_data\\\\women\\\\lightweight_hooded_coat_5.jpg",
-                "fakestore_data\\\\women\\\\lightweight_hooded_coat_4.jpg",
-                "fakestore_data\\\\women\\\\lightweight_hooded_coat_3.jpg"
+                "women/lightweight_hooded_coat_1.jpg",
+                "women/lightweight_hooded_coat_5.jpg",
+                "women/lightweight_hooded_coat_4.jpg",
+                "women/lightweight_hooded_coat_3.jpg"
             ]
         },
         {
@@ -299,10 +299,10 @@
             "price": 526.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\pointelle-knit_belted_cardi-coat_1.jpg",
-                "fakestore_data\\\\women\\\\pointelle-knit_belted_cardi-coat_5.jpg",
-                "fakestore_data\\\\women\\\\pointelle-knit_belted_cardi-coat_2.jpg",
-                "fakestore_data\\\\women\\\\pointelle-knit_belted_cardi-coat_4.jpg"
+                "women/pointelle-knit_belted_cardi-coat_1.jpg",
+                "women/pointelle-knit_belted_cardi-coat_5.jpg",
+                "women/pointelle-knit_belted_cardi-coat_2.jpg",
+                "women/pointelle-knit_belted_cardi-coat_4.jpg"
             ]
         },
         {
@@ -312,8 +312,8 @@
             "price": 486.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\monogram_print_wallet_1.jpg",
-                "fakestore_data\\\\women\\\\monogram_print_wallet_2.jpg"
+                "women/monogram_print_wallet_1.jpg",
+                "women/monogram_print_wallet_2.jpg"
             ]
         },
         {
@@ -323,8 +323,8 @@
             "price": 234.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\paisley-print_silk_scarf_1.jpg",
-                "fakestore_data\\\\women\\\\paisley-print_silk_scarf_3.jpg"
+                "women/paisley-print_silk_scarf_1.jpg",
+                "women/paisley-print_silk_scarf_3.jpg"
             ]
         },
         {
@@ -334,9 +334,9 @@
             "price": 1261.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Hike_1_lace-up_boots_2.jpg",
-                "fakestore_data\\\\women\\\\Hike_1_lace-up_boots_1.jpg",
-                "fakestore_data\\\\women\\\\Hike_1_lace-up_boots_3.jpg"
+                "women/Hike_1_lace-up_boots_2.jpg",
+                "women/Hike_1_lace-up_boots_1.jpg",
+                "women/Hike_1_lace-up_boots_3.jpg"
             ]
         },
         {
@@ -346,9 +346,9 @@
             "price": 244.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\logo-waistband_trousers_1.jpg",
-                "fakestore_data\\\\kids\\\\logo-waistband_trousers_2.jpg",
-                "fakestore_data\\\\kids\\\\logo-waistband_trousers_3.jpg"
+                "kids/logo-waistband_trousers_1.jpg",
+                "kids/logo-waistband_trousers_2.jpg",
+                "kids/logo-waistband_trousers_3.jpg"
             ]
         },
         {
@@ -358,10 +358,10 @@
             "price": 259.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\padded_high-neck_jacket_1.jpg",
-                "fakestore_data\\\\men\\\\padded_high-neck_jacket_5.jpg",
-                "fakestore_data\\\\men\\\\padded_high-neck_jacket_2.jpg",
-                "fakestore_data\\\\men\\\\padded_high-neck_jacket_4.jpg"
+                "men/padded_high-neck_jacket_1.jpg",
+                "men/padded_high-neck_jacket_5.jpg",
+                "men/padded_high-neck_jacket_2.jpg",
+                "men/padded_high-neck_jacket_4.jpg"
             ]
         },
         {
@@ -371,9 +371,9 @@
             "price": 972.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\70s_shearling-trimmed_suede_clogs_2.jpg",
-                "fakestore_data\\\\women\\\\70s_shearling-trimmed_suede_clogs_3.jpg",
-                "fakestore_data\\\\women\\\\70s_shearling-trimmed_suede_clogs_4.jpg"
+                "women/70s_shearling-trimmed_suede_clogs_2.jpg",
+                "women/70s_shearling-trimmed_suede_clogs_3.jpg",
+                "women/70s_shearling-trimmed_suede_clogs_4.jpg"
             ]
         },
         {
@@ -383,9 +383,9 @@
             "price": 339.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\animal-print_hooded_jacket_2.jpg",
-                "fakestore_data\\\\kids\\\\animal-print_hooded_jacket_3.jpg",
-                "fakestore_data\\\\kids\\\\animal-print_hooded_jacket_1.jpg"
+                "kids/animal-print_hooded_jacket_2.jpg",
+                "kids/animal-print_hooded_jacket_3.jpg",
+                "kids/animal-print_hooded_jacket_1.jpg"
             ]
         },
         {
@@ -395,8 +395,8 @@
             "price": 56.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Capriosca_bikini_top_1.jpg",
-                "fakestore_data\\\\women\\\\Capriosca_bikini_top_3.jpg"
+                "women/Capriosca_bikini_top_1.jpg",
+                "women/Capriosca_bikini_top_3.jpg"
             ]
         },
         {
@@ -406,7 +406,7 @@
             "price": 354.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\interlocking_G_print_sweatshirt_1.jpg"
+                "kids/interlocking_G_print_sweatshirt_1.jpg"
             ]
         },
         {
@@ -416,13 +416,13 @@
             "price": 319.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\fox_patch_hoodie_2.jpg",
-                "fakestore_data\\\\women\\\\fox_patch_hoodie_4.jpg",
-                "fakestore_data\\\\women\\\\fox_patch_hoodie_1.jpg",
-                "fakestore_data\\\\women\\\\fox_patch_hoodie_3.jpg",
-                "fakestore_data\\\\women\\\\fox_patch_hoodie_5.jpg",
-                "fakestore_data\\\\women\\\\fox_patch_hoodie_7.jpg",
-                "fakestore_data\\\\women\\\\fox_patch_hoodie_6.jpg"
+                "women/fox_patch_hoodie_2.jpg",
+                "women/fox_patch_hoodie_4.jpg",
+                "women/fox_patch_hoodie_1.jpg",
+                "women/fox_patch_hoodie_3.jpg",
+                "women/fox_patch_hoodie_5.jpg",
+                "women/fox_patch_hoodie_7.jpg",
+                "women/fox_patch_hoodie_6.jpg"
             ]
         },
         {
@@ -432,11 +432,11 @@
             "price": 2290.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\intarsia-knit_logo_jumper_4.jpg",
-                "fakestore_data\\\\women\\\\intarsia-knit_logo_jumper_5.jpg",
-                "fakestore_data\\\\women\\\\intarsia-knit_logo_jumper_2.jpg",
-                "fakestore_data\\\\women\\\\intarsia-knit_logo_jumper_3.jpg",
-                "fakestore_data\\\\women\\\\intarsia-knit_logo_jumper_1.jpg"
+                "women/intarsia-knit_logo_jumper_4.jpg",
+                "women/intarsia-knit_logo_jumper_5.jpg",
+                "women/intarsia-knit_logo_jumper_2.jpg",
+                "women/intarsia-knit_logo_jumper_3.jpg",
+                "women/intarsia-knit_logo_jumper_1.jpg"
             ]
         },
         {
@@ -446,10 +446,10 @@
             "price": 285.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\striped_T-shirt_1.jpg",
-                "fakestore_data\\\\men\\\\striped_T-shirt_4.jpg",
-                "fakestore_data\\\\men\\\\striped_T-shirt_5.jpg",
-                "fakestore_data\\\\men\\\\striped_T-shirt_2.jpg"
+                "men/striped_T-shirt_1.jpg",
+                "men/striped_T-shirt_4.jpg",
+                "men/striped_T-shirt_5.jpg",
+                "men/striped_T-shirt_2.jpg"
             ]
         },
         {
@@ -459,10 +459,10 @@
             "price": 782.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\3_Stripe_&amp;_Your_Out_leather_sneakers_4.jpg",
-                "fakestore_data\\\\women\\\\3_Stripe_&amp;_Your_Out_leather_sneakers_3.jpg",
-                "fakestore_data\\\\women\\\\3_Stripe_&amp;_Your_Out_leather_sneakers_1.jpg",
-                "fakestore_data\\\\women\\\\3_Stripe_&amp;_Your_Out_leather_sneakers_2.jpg"
+                "women/3_Stripe_&amp;_Your_Out_leather_sneakers_4.jpg",
+                "women/3_Stripe_&amp;_Your_Out_leather_sneakers_3.jpg",
+                "women/3_Stripe_&amp;_Your_Out_leather_sneakers_1.jpg",
+                "women/3_Stripe_&amp;_Your_Out_leather_sneakers_2.jpg"
             ]
         },
         {
@@ -472,9 +472,9 @@
             "price": 84.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\multi-pocket_cotton_cargo_trousers_2.jpg",
-                "fakestore_data\\\\kids\\\\multi-pocket_cotton_cargo_trousers_1.jpg",
-                "fakestore_data\\\\kids\\\\multi-pocket_cotton_cargo_trousers_3.jpg"
+                "kids/multi-pocket_cotton_cargo_trousers_2.jpg",
+                "kids/multi-pocket_cotton_cargo_trousers_1.jpg",
+                "kids/multi-pocket_cotton_cargo_trousers_3.jpg"
             ]
         },
         {
@@ -484,9 +484,9 @@
             "price": 772.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Sr1_55mm_logo_plaque_pumps_1.jpg",
-                "fakestore_data\\\\women\\\\Sr1_55mm_logo_plaque_pumps_4.jpg",
-                "fakestore_data\\\\women\\\\Sr1_55mm_logo_plaque_pumps_2.jpg"
+                "women/Sr1_55mm_logo_plaque_pumps_1.jpg",
+                "women/Sr1_55mm_logo_plaque_pumps_4.jpg",
+                "women/Sr1_55mm_logo_plaque_pumps_2.jpg"
             ]
         },
         {
@@ -496,7 +496,7 @@
             "price": 469.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\x_Paula_Cademartori_West_sandals_1.jpg"
+                "women/x_Paula_Cademartori_West_sandals_1.jpg"
             ]
         },
         {
@@ -506,9 +506,9 @@
             "price": 100.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\logo-print_T-shirt_1.jpg",
-                "fakestore_data\\\\kids\\\\logo-print_T-shirt_3.jpg",
-                "fakestore_data\\\\kids\\\\logo-print_T-shirt_2.jpg"
+                "kids/logo-print_T-shirt_1.jpg",
+                "kids/logo-print_T-shirt_3.jpg",
+                "kids/logo-print_T-shirt_2.jpg"
             ]
         },
         {
@@ -518,9 +518,9 @@
             "price": 85.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\Maya_Limited_T-shirt_dress_3.jpg",
-                "fakestore_data\\\\kids\\\\Maya_Limited_T-shirt_dress_2.jpg",
-                "fakestore_data\\\\kids\\\\Maya_Limited_T-shirt_dress_1.jpg"
+                "kids/Maya_Limited_T-shirt_dress_3.jpg",
+                "kids/Maya_Limited_T-shirt_dress_2.jpg",
+                "kids/Maya_Limited_T-shirt_dress_1.jpg"
             ]
         },
         {
@@ -530,9 +530,9 @@
             "price": 1298.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\pilot-frame_logo_sunglasses_3.jpg",
-                "fakestore_data\\\\women\\\\pilot-frame_logo_sunglasses_1.jpg",
-                "fakestore_data\\\\women\\\\pilot-frame_logo_sunglasses_2.jpg"
+                "women/pilot-frame_logo_sunglasses_3.jpg",
+                "women/pilot-frame_logo_sunglasses_1.jpg",
+                "women/pilot-frame_logo_sunglasses_2.jpg"
             ]
         },
         {
@@ -542,11 +542,11 @@
             "price": 1295.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\zip_front_hoodie_3.jpg",
-                "fakestore_data\\\\women\\\\zip_front_hoodie_2.jpg",
-                "fakestore_data\\\\women\\\\zip_front_hoodie_4.jpg",
-                "fakestore_data\\\\women\\\\zip_front_hoodie_5.jpg",
-                "fakestore_data\\\\women\\\\zip_front_hoodie_1.jpg"
+                "women/zip_front_hoodie_3.jpg",
+                "women/zip_front_hoodie_2.jpg",
+                "women/zip_front_hoodie_4.jpg",
+                "women/zip_front_hoodie_5.jpg",
+                "women/zip_front_hoodie_1.jpg"
             ]
         },
         {
@@ -556,11 +556,11 @@
             "price": 285.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Trini_skinny-fit_jeans_4.jpg",
-                "fakestore_data\\\\women\\\\Trini_skinny-fit_jeans_2.jpg",
-                "fakestore_data\\\\women\\\\Trini_skinny-fit_jeans_1.jpg",
-                "fakestore_data\\\\women\\\\Trini_skinny-fit_jeans_5.jpg",
-                "fakestore_data\\\\women\\\\Trini_skinny-fit_jeans_3.jpg"
+                "women/Trini_skinny-fit_jeans_4.jpg",
+                "women/Trini_skinny-fit_jeans_2.jpg",
+                "women/Trini_skinny-fit_jeans_1.jpg",
+                "women/Trini_skinny-fit_jeans_5.jpg",
+                "women/Trini_skinny-fit_jeans_3.jpg"
             ]
         },
         {
@@ -570,12 +570,12 @@
             "price": 225.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\paisley-print_ruffled_blouse_2.jpg",
-                "fakestore_data\\\\women\\\\paisley-print_ruffled_blouse_3.jpg",
-                "fakestore_data\\\\women\\\\paisley-print_ruffled_blouse_1.jpg",
-                "fakestore_data\\\\women\\\\paisley-print_ruffled_blouse_4.jpg",
-                "fakestore_data\\\\women\\\\paisley-print_ruffled_blouse_5.jpg",
-                "fakestore_data\\\\women\\\\paisley-print_ruffled_blouse_6.jpg"
+                "women/paisley-print_ruffled_blouse_2.jpg",
+                "women/paisley-print_ruffled_blouse_3.jpg",
+                "women/paisley-print_ruffled_blouse_1.jpg",
+                "women/paisley-print_ruffled_blouse_4.jpg",
+                "women/paisley-print_ruffled_blouse_5.jpg",
+                "women/paisley-print_ruffled_blouse_6.jpg"
             ]
         },
         {
@@ -585,8 +585,8 @@
             "price": 483.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Cecilia_flatform_sneakers_4.jpg",
-                "fakestore_data\\\\women\\\\Cecilia_flatform_sneakers_3.jpg"
+                "women/Cecilia_flatform_sneakers_4.jpg",
+                "women/Cecilia_flatform_sneakers_3.jpg"
             ]
         },
         {
@@ -596,9 +596,9 @@
             "price": 63.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\Polo_Pony_logo_cotton_T-shirt_2.jpg",
-                "fakestore_data\\\\kids\\\\Polo_Pony_logo_cotton_T-shirt_3.jpg",
-                "fakestore_data\\\\kids\\\\Polo_Pony_logo_cotton_T-shirt_1.jpg"
+                "kids/Polo_Pony_logo_cotton_T-shirt_2.jpg",
+                "kids/Polo_Pony_logo_cotton_T-shirt_3.jpg",
+                "kids/Polo_Pony_logo_cotton_T-shirt_1.jpg"
             ]
         },
         {
@@ -608,8 +608,8 @@
             "price": 272.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\TEEN_bow-detail_ballerina_shoes_1.jpg",
-                "fakestore_data\\\\kids\\\\TEEN_bow-detail_ballerina_shoes_3.jpg"
+                "kids/TEEN_bow-detail_ballerina_shoes_1.jpg",
+                "kids/TEEN_bow-detail_ballerina_shoes_3.jpg"
             ]
         },
         {
@@ -619,9 +619,9 @@
             "price": 515.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\superfine_tailored_trousers_3.jpg",
-                "fakestore_data\\\\men\\\\superfine_tailored_trousers_4.jpg",
-                "fakestore_data\\\\men\\\\superfine_tailored_trousers_2.jpg"
+                "men/superfine_tailored_trousers_3.jpg",
+                "men/superfine_tailored_trousers_4.jpg",
+                "men/superfine_tailored_trousers_2.jpg"
             ]
         },
         {
@@ -631,7 +631,7 @@
             "price": 249.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\logo-print_pullover_hoodie_3.jpg"
+                "kids/logo-print_pullover_hoodie_3.jpg"
             ]
         },
         {
@@ -641,9 +641,9 @@
             "price": 210.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\Vodka_photo-patches_plaid_flannel_shirt_4.jpg",
-                "fakestore_data\\\\men\\\\Vodka_photo-patches_plaid_flannel_shirt_3.jpg",
-                "fakestore_data\\\\men\\\\Vodka_photo-patches_plaid_flannel_shirt_5.jpg"
+                "men/Vodka_photo-patches_plaid_flannel_shirt_4.jpg",
+                "men/Vodka_photo-patches_plaid_flannel_shirt_3.jpg",
+                "men/Vodka_photo-patches_plaid_flannel_shirt_5.jpg"
             ]
         },
         {
@@ -653,10 +653,10 @@
             "price": 1496.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\high-waisted_lace_pencil_skirt_5.jpg",
-                "fakestore_data\\\\women\\\\high-waisted_lace_pencil_skirt_3.jpg",
-                "fakestore_data\\\\women\\\\high-waisted_lace_pencil_skirt_2.jpg",
-                "fakestore_data\\\\women\\\\high-waisted_lace_pencil_skirt_1.jpg"
+                "women/high-waisted_lace_pencil_skirt_5.jpg",
+                "women/high-waisted_lace_pencil_skirt_3.jpg",
+                "women/high-waisted_lace_pencil_skirt_2.jpg",
+                "women/high-waisted_lace_pencil_skirt_1.jpg"
             ]
         },
         {
@@ -666,10 +666,10 @@
             "price": 121.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\geode_print_belted_dress_2.jpg",
-                "fakestore_data\\\\women\\\\geode_print_belted_dress_3.jpg",
-                "fakestore_data\\\\women\\\\geode_print_belted_dress_5.jpg",
-                "fakestore_data\\\\women\\\\geode_print_belted_dress_1.jpg"
+                "women/geode_print_belted_dress_2.jpg",
+                "women/geode_print_belted_dress_3.jpg",
+                "women/geode_print_belted_dress_5.jpg",
+                "women/geode_print_belted_dress_1.jpg"
             ]
         },
         {
@@ -679,9 +679,9 @@
             "price": 932.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\Rubber_Arrows_straight-leg_track_pants_3.jpg",
-                "fakestore_data\\\\men\\\\Rubber_Arrows_straight-leg_track_pants_1.jpg",
-                "fakestore_data\\\\men\\\\Rubber_Arrows_straight-leg_track_pants_2.jpg"
+                "men/Rubber_Arrows_straight-leg_track_pants_3.jpg",
+                "men/Rubber_Arrows_straight-leg_track_pants_1.jpg",
+                "men/Rubber_Arrows_straight-leg_track_pants_2.jpg"
             ]
         },
         {
@@ -691,8 +691,8 @@
             "price": 248.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\slogan-print_colour-block_jumper_3.jpg",
-                "fakestore_data\\\\kids\\\\slogan-print_colour-block_jumper_1.jpg"
+                "kids/slogan-print_colour-block_jumper_3.jpg",
+                "kids/slogan-print_colour-block_jumper_1.jpg"
             ]
         },
         {
@@ -702,12 +702,12 @@
             "price": 364.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\cropped_trousers_2.jpg",
-                "fakestore_data\\\\women\\\\cropped_trousers_5.jpg",
-                "fakestore_data\\\\women\\\\cropped_trousers_4.jpg",
-                "fakestore_data\\\\women\\\\cropped_trousers_3.jpg",
-                "fakestore_data\\\\women\\\\cropped_trousers_6.jpg",
-                "fakestore_data\\\\women\\\\cropped_trousers_7.jpg"
+                "women/cropped_trousers_2.jpg",
+                "women/cropped_trousers_5.jpg",
+                "women/cropped_trousers_4.jpg",
+                "women/cropped_trousers_3.jpg",
+                "women/cropped_trousers_6.jpg",
+                "women/cropped_trousers_7.jpg"
             ]
         },
         {
@@ -717,12 +717,12 @@
             "price": 281.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\leather-effect_tie-waist_shorts_3.jpg",
-                "fakestore_data\\\\women\\\\leather-effect_tie-waist_shorts_1.jpg",
-                "fakestore_data\\\\women\\\\leather-effect_tie-waist_shorts_2.jpg",
-                "fakestore_data\\\\women\\\\leather-effect_tie-waist_shorts_4.jpg",
-                "fakestore_data\\\\women\\\\leather-effect_tie-waist_shorts_7.jpg",
-                "fakestore_data\\\\women\\\\leather-effect_tie-waist_shorts_6.jpg"
+                "women/leather-effect_tie-waist_shorts_3.jpg",
+                "women/leather-effect_tie-waist_shorts_1.jpg",
+                "women/leather-effect_tie-waist_shorts_2.jpg",
+                "women/leather-effect_tie-waist_shorts_4.jpg",
+                "women/leather-effect_tie-waist_shorts_7.jpg",
+                "women/leather-effect_tie-waist_shorts_6.jpg"
             ]
         },
         {
@@ -732,10 +732,10 @@
             "price": 665.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\embroidered_logo_sweatshirt_2.jpg",
-                "fakestore_data\\\\men\\\\embroidered_logo_sweatshirt_3.jpg",
-                "fakestore_data\\\\men\\\\embroidered_logo_sweatshirt_1.jpg",
-                "fakestore_data\\\\men\\\\embroidered_logo_sweatshirt_5.jpg"
+                "men/embroidered_logo_sweatshirt_2.jpg",
+                "men/embroidered_logo_sweatshirt_3.jpg",
+                "men/embroidered_logo_sweatshirt_1.jpg",
+                "men/embroidered_logo_sweatshirt_5.jpg"
             ]
         },
         {
@@ -745,9 +745,9 @@
             "price": 739.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\padded_hoodie_jacket_2.jpg",
-                "fakestore_data\\\\men\\\\padded_hoodie_jacket_3.jpg",
-                "fakestore_data\\\\men\\\\padded_hoodie_jacket_1.jpg"
+                "men/padded_hoodie_jacket_2.jpg",
+                "men/padded_hoodie_jacket_3.jpg",
+                "men/padded_hoodie_jacket_1.jpg"
             ]
         },
         {
@@ -757,8 +757,8 @@
             "price": 475.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\DG_buckle_belt_1.jpg",
-                "fakestore_data\\\\men\\\\DG_buckle_belt_2.jpg"
+                "men/DG_buckle_belt_1.jpg",
+                "men/DG_buckle_belt_2.jpg"
             ]
         },
         {
@@ -768,8 +768,8 @@
             "price": 89.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\embroidered_logo_beanie_1.jpg",
-                "fakestore_data\\\\kids\\\\embroidered_logo_beanie_2.jpg"
+                "kids/embroidered_logo_beanie_1.jpg",
+                "kids/embroidered_logo_beanie_2.jpg"
             ]
         },
         {
@@ -779,11 +779,11 @@
             "price": 215.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\Asymmetrical_seam_track_trousers_2.jpg",
-                "fakestore_data\\\\men\\\\Asymmetrical_seam_track_trousers_5.jpg",
-                "fakestore_data\\\\men\\\\Asymmetrical_seam_track_trousers_3.jpg",
-                "fakestore_data\\\\men\\\\Asymmetrical_seam_track_trousers_1.jpg",
-                "fakestore_data\\\\men\\\\Asymmetrical_seam_track_trousers_4.jpg"
+                "men/Asymmetrical_seam_track_trousers_2.jpg",
+                "men/Asymmetrical_seam_track_trousers_5.jpg",
+                "men/Asymmetrical_seam_track_trousers_3.jpg",
+                "men/Asymmetrical_seam_track_trousers_1.jpg",
+                "men/Asymmetrical_seam_track_trousers_4.jpg"
             ]
         },
         {
@@ -793,10 +793,10 @@
             "price": 649.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Blair_slip_on_sneakers_2.jpg",
-                "fakestore_data\\\\women\\\\Blair_slip_on_sneakers_3.jpg",
-                "fakestore_data\\\\women\\\\Blair_slip_on_sneakers_1.jpg",
-                "fakestore_data\\\\women\\\\Blair_slip_on_sneakers_4.jpg"
+                "women/Blair_slip_on_sneakers_2.jpg",
+                "women/Blair_slip_on_sneakers_3.jpg",
+                "women/Blair_slip_on_sneakers_1.jpg",
+                "women/Blair_slip_on_sneakers_4.jpg"
             ]
         },
         {
@@ -806,9 +806,9 @@
             "price": 703.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Coby_touch-strap_sneakers_2.jpg",
-                "fakestore_data\\\\women\\\\Coby_touch-strap_sneakers_1.jpg",
-                "fakestore_data\\\\women\\\\Coby_touch-strap_sneakers_4.jpg"
+                "women/Coby_touch-strap_sneakers_2.jpg",
+                "women/Coby_touch-strap_sneakers_1.jpg",
+                "women/Coby_touch-strap_sneakers_4.jpg"
             ]
         },
         {
@@ -818,8 +818,8 @@
             "price": 180.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\floral-print_silk_scarf_1.jpg",
-                "fakestore_data\\\\women\\\\floral-print_silk_scarf_2.jpg"
+                "women/floral-print_silk_scarf_1.jpg",
+                "women/floral-print_silk_scarf_2.jpg"
             ]
         },
         {
@@ -829,10 +829,10 @@
             "price": 330.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Astrid_toe-strap_sandals_3.jpg",
-                "fakestore_data\\\\women\\\\Astrid_toe-strap_sandals_1.jpg",
-                "fakestore_data\\\\women\\\\Astrid_toe-strap_sandals_4.jpg",
-                "fakestore_data\\\\women\\\\Astrid_toe-strap_sandals_2.jpg"
+                "women/Astrid_toe-strap_sandals_3.jpg",
+                "women/Astrid_toe-strap_sandals_1.jpg",
+                "women/Astrid_toe-strap_sandals_4.jpg",
+                "women/Astrid_toe-strap_sandals_2.jpg"
             ]
         },
         {
@@ -842,7 +842,7 @@
             "price": 86.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\Tiger_logo-print_one-piece_swimsuit_2.jpg"
+                "kids/Tiger_logo-print_one-piece_swimsuit_2.jpg"
             ]
         },
         {
@@ -852,10 +852,10 @@
             "price": 604.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Estelle_bodycon_mini_dress_5.jpg",
-                "fakestore_data\\\\women\\\\Estelle_bodycon_mini_dress_4.jpg",
-                "fakestore_data\\\\women\\\\Estelle_bodycon_mini_dress_2.jpg",
-                "fakestore_data\\\\women\\\\Estelle_bodycon_mini_dress_1.jpg"
+                "women/Estelle_bodycon_mini_dress_5.jpg",
+                "women/Estelle_bodycon_mini_dress_4.jpg",
+                "women/Estelle_bodycon_mini_dress_2.jpg",
+                "women/Estelle_bodycon_mini_dress_1.jpg"
             ]
         },
         {
@@ -865,10 +865,10 @@
             "price": 249.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\knee-length_chino_shorts_3.jpg",
-                "fakestore_data\\\\men\\\\knee-length_chino_shorts_1.jpg",
-                "fakestore_data\\\\men\\\\knee-length_chino_shorts_4.jpg",
-                "fakestore_data\\\\men\\\\knee-length_chino_shorts_2.jpg"
+                "men/knee-length_chino_shorts_3.jpg",
+                "men/knee-length_chino_shorts_1.jpg",
+                "men/knee-length_chino_shorts_4.jpg",
+                "men/knee-length_chino_shorts_2.jpg"
             ]
         },
         {
@@ -878,9 +878,9 @@
             "price": 109.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\zebra-print_elasticated-waist_swim_shorts_2.jpg",
-                "fakestore_data\\\\men\\\\zebra-print_elasticated-waist_swim_shorts_1.jpg",
-                "fakestore_data\\\\men\\\\zebra-print_elasticated-waist_swim_shorts_3.jpg"
+                "men/zebra-print_elasticated-waist_swim_shorts_2.jpg",
+                "men/zebra-print_elasticated-waist_swim_shorts_1.jpg",
+                "men/zebra-print_elasticated-waist_swim_shorts_3.jpg"
             ]
         },
         {
@@ -890,8 +890,8 @@
             "price": 715.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\logo-plaque_wallet_3.jpg",
-                "fakestore_data\\\\women\\\\logo-plaque_wallet_2.jpg"
+                "women/logo-plaque_wallet_3.jpg",
+                "women/logo-plaque_wallet_2.jpg"
             ]
         },
         {
@@ -901,9 +901,9 @@
             "price": 1119.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Lauren_low-top_sneakers_2.jpg",
-                "fakestore_data\\\\women\\\\Lauren_low-top_sneakers_4.jpg",
-                "fakestore_data\\\\women\\\\Lauren_low-top_sneakers_3.jpg"
+                "women/Lauren_low-top_sneakers_2.jpg",
+                "women/Lauren_low-top_sneakers_4.jpg",
+                "women/Lauren_low-top_sneakers_3.jpg"
             ]
         },
         {
@@ -913,8 +913,8 @@
             "price": 65.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\Johanna_strawberry_appliqu\u00e9_T-shirt_3.jpg",
-                "fakestore_data\\\\kids\\\\Johanna_strawberry_appliqu\u00e9_T-shirt_2.jpg"
+                "kids/Johanna_strawberry_appliqu\u00e9_T-shirt_3.jpg",
+                "kids/Johanna_strawberry_appliqu\u00e9_T-shirt_2.jpg"
             ]
         },
         {
@@ -924,11 +924,11 @@
             "price": 1404.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\oversized_shirt_dress_1.jpg",
-                "fakestore_data\\\\women\\\\oversized_shirt_dress_4.jpg",
-                "fakestore_data\\\\women\\\\oversized_shirt_dress_5.jpg",
-                "fakestore_data\\\\women\\\\oversized_shirt_dress_3.jpg",
-                "fakestore_data\\\\women\\\\oversized_shirt_dress_2.jpg"
+                "women/oversized_shirt_dress_1.jpg",
+                "women/oversized_shirt_dress_4.jpg",
+                "women/oversized_shirt_dress_5.jpg",
+                "women/oversized_shirt_dress_3.jpg",
+                "women/oversized_shirt_dress_2.jpg"
             ]
         },
         {
@@ -938,9 +938,9 @@
             "price": 459.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\May_laminated_sneakers_1.jpg",
-                "fakestore_data\\\\kids\\\\May_laminated_sneakers_2.jpg",
-                "fakestore_data\\\\kids\\\\May_laminated_sneakers_3.jpg"
+                "kids/May_laminated_sneakers_1.jpg",
+                "kids/May_laminated_sneakers_2.jpg",
+                "kids/May_laminated_sneakers_3.jpg"
             ]
         },
         {
@@ -950,11 +950,11 @@
             "price": 276.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\Star_Eyes_crew_neck_sweatshirt_1.jpg",
-                "fakestore_data\\\\men\\\\Star_Eyes_crew_neck_sweatshirt_5.jpg",
-                "fakestore_data\\\\men\\\\Star_Eyes_crew_neck_sweatshirt_4.jpg",
-                "fakestore_data\\\\men\\\\Star_Eyes_crew_neck_sweatshirt_2.jpg",
-                "fakestore_data\\\\men\\\\Star_Eyes_crew_neck_sweatshirt_3.jpg"
+                "men/Star_Eyes_crew_neck_sweatshirt_1.jpg",
+                "men/Star_Eyes_crew_neck_sweatshirt_5.jpg",
+                "men/Star_Eyes_crew_neck_sweatshirt_4.jpg",
+                "men/Star_Eyes_crew_neck_sweatshirt_2.jpg",
+                "men/Star_Eyes_crew_neck_sweatshirt_3.jpg"
             ]
         },
         {
@@ -964,8 +964,8 @@
             "price": 180.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\The_Camo_Webbing_shoulder_strap_1.jpg",
-                "fakestore_data\\\\women\\\\The_Camo_Webbing_shoulder_strap_2.jpg"
+                "women/The_Camo_Webbing_shoulder_strap_1.jpg",
+                "women/The_Camo_Webbing_shoulder_strap_2.jpg"
             ]
         },
         {
@@ -975,9 +975,9 @@
             "price": 1328.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\two-tone_logo_crossbody_bag_5.jpg",
-                "fakestore_data\\\\women\\\\two-tone_logo_crossbody_bag_3.jpg",
-                "fakestore_data\\\\women\\\\two-tone_logo_crossbody_bag_1.jpg"
+                "women/two-tone_logo_crossbody_bag_5.jpg",
+                "women/two-tone_logo_crossbody_bag_3.jpg",
+                "women/two-tone_logo_crossbody_bag_1.jpg"
             ]
         },
         {
@@ -987,10 +987,10 @@
             "price": 1599.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\padded_jacket_1.jpg",
-                "fakestore_data\\\\men\\\\padded_jacket_3.jpg",
-                "fakestore_data\\\\men\\\\padded_jacket_5.jpg",
-                "fakestore_data\\\\men\\\\padded_jacket_7.jpg"
+                "men/padded_jacket_1.jpg",
+                "men/padded_jacket_3.jpg",
+                "men/padded_jacket_5.jpg",
+                "men/padded_jacket_7.jpg"
             ]
         },
         {
@@ -1000,9 +1000,9 @@
             "price": 1206.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\LeBron_9_AS_sneakers_1.jpg",
-                "fakestore_data\\\\men\\\\LeBron_9_AS_sneakers_4.jpg",
-                "fakestore_data\\\\men\\\\LeBron_9_AS_sneakers_2.jpg"
+                "men/LeBron_9_AS_sneakers_1.jpg",
+                "men/LeBron_9_AS_sneakers_4.jpg",
+                "men/LeBron_9_AS_sneakers_2.jpg"
             ]
         },
         {
@@ -1012,8 +1012,8 @@
             "price": 862.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\VLOGO_reversible_belt_2.jpg",
-                "fakestore_data\\\\women\\\\VLOGO_reversible_belt_1.jpg"
+                "women/VLOGO_reversible_belt_2.jpg",
+                "women/VLOGO_reversible_belt_1.jpg"
             ]
         },
         {
@@ -1023,11 +1023,11 @@
             "price": 242.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\crew_neck_long-sleeve_sweatshirt_3.jpg",
-                "fakestore_data\\\\women\\\\crew_neck_long-sleeve_sweatshirt_2.jpg",
-                "fakestore_data\\\\women\\\\crew_neck_long-sleeve_sweatshirt_5.jpg",
-                "fakestore_data\\\\women\\\\crew_neck_long-sleeve_sweatshirt_4.jpg",
-                "fakestore_data\\\\women\\\\crew_neck_long-sleeve_sweatshirt_1.jpg"
+                "women/crew_neck_long-sleeve_sweatshirt_3.jpg",
+                "women/crew_neck_long-sleeve_sweatshirt_2.jpg",
+                "women/crew_neck_long-sleeve_sweatshirt_5.jpg",
+                "women/crew_neck_long-sleeve_sweatshirt_4.jpg",
+                "women/crew_neck_long-sleeve_sweatshirt_1.jpg"
             ]
         },
         {
@@ -1037,11 +1037,11 @@
             "price": 258.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Rave_graphic-print_sweatshirt_3.jpg",
-                "fakestore_data\\\\women\\\\Rave_graphic-print_sweatshirt_1.jpg",
-                "fakestore_data\\\\women\\\\Rave_graphic-print_sweatshirt_4.jpg",
-                "fakestore_data\\\\women\\\\Rave_graphic-print_sweatshirt_5.jpg",
-                "fakestore_data\\\\women\\\\Rave_graphic-print_sweatshirt_2.jpg"
+                "women/Rave_graphic-print_sweatshirt_3.jpg",
+                "women/Rave_graphic-print_sweatshirt_1.jpg",
+                "women/Rave_graphic-print_sweatshirt_4.jpg",
+                "women/Rave_graphic-print_sweatshirt_5.jpg",
+                "women/Rave_graphic-print_sweatshirt_2.jpg"
             ]
         },
         {
@@ -1051,11 +1051,11 @@
             "price": 184.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\logo-print_track_pants_2.jpg",
-                "fakestore_data\\\\men\\\\logo-print_track_pants_1.jpg",
-                "fakestore_data\\\\men\\\\logo-print_track_pants_4.jpg",
-                "fakestore_data\\\\men\\\\logo-print_track_pants_5.jpg",
-                "fakestore_data\\\\men\\\\logo-print_track_pants_3.jpg"
+                "men/logo-print_track_pants_2.jpg",
+                "men/logo-print_track_pants_1.jpg",
+                "men/logo-print_track_pants_4.jpg",
+                "men/logo-print_track_pants_5.jpg",
+                "men/logo-print_track_pants_3.jpg"
             ]
         },
         {
@@ -1065,10 +1065,10 @@
             "price": 326.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\contrasting_strap_slides_3.jpg",
-                "fakestore_data\\\\men\\\\contrasting_strap_slides_2.jpg",
-                "fakestore_data\\\\men\\\\contrasting_strap_slides_1.jpg",
-                "fakestore_data\\\\men\\\\contrasting_strap_slides_4.jpg"
+                "men/contrasting_strap_slides_3.jpg",
+                "men/contrasting_strap_slides_2.jpg",
+                "men/contrasting_strap_slides_1.jpg",
+                "men/contrasting_strap_slides_4.jpg"
             ]
         },
         {
@@ -1078,9 +1078,9 @@
             "price": 414.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\crew-neck_wool_jumper_5.jpg",
-                "fakestore_data\\\\women\\\\crew-neck_wool_jumper_4.jpg",
-                "fakestore_data\\\\women\\\\crew-neck_wool_jumper_2.jpg"
+                "women/crew-neck_wool_jumper_5.jpg",
+                "women/crew-neck_wool_jumper_4.jpg",
+                "women/crew-neck_wool_jumper_2.jpg"
             ]
         },
         {
@@ -1090,9 +1090,9 @@
             "price": 105.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\Spotty_flowers-print_mini_skirt_3.jpg",
-                "fakestore_data\\\\kids\\\\Spotty_flowers-print_mini_skirt_1.jpg",
-                "fakestore_data\\\\kids\\\\Spotty_flowers-print_mini_skirt_2.jpg"
+                "kids/Spotty_flowers-print_mini_skirt_3.jpg",
+                "kids/Spotty_flowers-print_mini_skirt_1.jpg",
+                "kids/Spotty_flowers-print_mini_skirt_2.jpg"
             ]
         },
         {
@@ -1110,9 +1110,9 @@
             "price": 742.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\crystal-logo_midi_dress_1.jpg",
-                "fakestore_data\\\\kids\\\\crystal-logo_midi_dress_2.jpg",
-                "fakestore_data\\\\kids\\\\crystal-logo_midi_dress_3.jpg"
+                "kids/crystal-logo_midi_dress_1.jpg",
+                "kids/crystal-logo_midi_dress_2.jpg",
+                "kids/crystal-logo_midi_dress_3.jpg"
             ]
         },
         {
@@ -1122,8 +1122,8 @@
             "price": 750.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\3R_low-top_sneakers_2.jpg",
-                "fakestore_data\\\\women\\\\3R_low-top_sneakers_3.jpg"
+                "women/3R_low-top_sneakers_2.jpg",
+                "women/3R_low-top_sneakers_3.jpg"
             ]
         },
         {
@@ -1133,10 +1133,10 @@
             "price": 1450.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Bing_crystal-embellished_pointed_flats_1.jpg",
-                "fakestore_data\\\\women\\\\Bing_crystal-embellished_pointed_flats_2.jpg",
-                "fakestore_data\\\\women\\\\Bing_crystal-embellished_pointed_flats_4.jpg",
-                "fakestore_data\\\\women\\\\Bing_crystal-embellished_pointed_flats_3.jpg"
+                "women/Bing_crystal-embellished_pointed_flats_1.jpg",
+                "women/Bing_crystal-embellished_pointed_flats_2.jpg",
+                "women/Bing_crystal-embellished_pointed_flats_4.jpg",
+                "women/Bing_crystal-embellished_pointed_flats_3.jpg"
             ]
         },
         {
@@ -1146,7 +1146,7 @@
             "price": 185.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Arrows_motif_mid-calf_socks_1.jpg"
+                "women/Arrows_motif_mid-calf_socks_1.jpg"
             ]
         },
         {
@@ -1156,8 +1156,8 @@
             "price": 379.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\sleeveless_crop_top_2.jpg",
-                "fakestore_data\\\\women\\\\sleeveless_crop_top_3.jpg"
+                "women/sleeveless_crop_top_2.jpg",
+                "women/sleeveless_crop_top_3.jpg"
             ]
         },
         {
@@ -1167,7 +1167,7 @@
             "price": 68.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\rib-knit_logo_beanie_2.jpg"
+                "kids/rib-knit_logo_beanie_2.jpg"
             ]
         },
         {
@@ -1177,11 +1177,11 @@
             "price": 3945.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\4-bar_Matte_Nylon_Coat_2.jpg",
-                "fakestore_data\\\\men\\\\4-bar_Matte_Nylon_Coat_3.jpg",
-                "fakestore_data\\\\men\\\\4-bar_Matte_Nylon_Coat_5.jpg",
-                "fakestore_data\\\\men\\\\4-bar_Matte_Nylon_Coat_4.jpg",
-                "fakestore_data\\\\men\\\\4-bar_Matte_Nylon_Coat_1.jpg"
+                "men/4-bar_Matte_Nylon_Coat_2.jpg",
+                "men/4-bar_Matte_Nylon_Coat_3.jpg",
+                "men/4-bar_Matte_Nylon_Coat_5.jpg",
+                "men/4-bar_Matte_Nylon_Coat_4.jpg",
+                "men/4-bar_Matte_Nylon_Coat_1.jpg"
             ]
         },
         {
@@ -1191,10 +1191,10 @@
             "price": 224.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Shark_camouflage_pattern_T-shirt_2.jpg",
-                "fakestore_data\\\\women\\\\Shark_camouflage_pattern_T-shirt_5.jpg",
-                "fakestore_data\\\\women\\\\Shark_camouflage_pattern_T-shirt_3.jpg",
-                "fakestore_data\\\\women\\\\Shark_camouflage_pattern_T-shirt_1.jpg"
+                "women/Shark_camouflage_pattern_T-shirt_2.jpg",
+                "women/Shark_camouflage_pattern_T-shirt_5.jpg",
+                "women/Shark_camouflage_pattern_T-shirt_3.jpg",
+                "women/Shark_camouflage_pattern_T-shirt_1.jpg"
             ]
         },
         {
@@ -1204,8 +1204,8 @@
             "price": 249.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\camouflage_print_sun_hat_2.jpg",
-                "fakestore_data\\\\men\\\\camouflage_print_sun_hat_1.jpg"
+                "men/camouflage_print_sun_hat_2.jpg",
+                "men/camouflage_print_sun_hat_1.jpg"
             ]
         },
         {
@@ -1215,9 +1215,9 @@
             "price": 404.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\Scarpa_Uomo_Vitello_low-top_sneakers_3.jpg",
-                "fakestore_data\\\\men\\\\Scarpa_Uomo_Vitello_low-top_sneakers_1.jpg",
-                "fakestore_data\\\\men\\\\Scarpa_Uomo_Vitello_low-top_sneakers_4.jpg"
+                "men/Scarpa_Uomo_Vitello_low-top_sneakers_3.jpg",
+                "men/Scarpa_Uomo_Vitello_low-top_sneakers_1.jpg",
+                "men/Scarpa_Uomo_Vitello_low-top_sneakers_4.jpg"
             ]
         },
         {
@@ -1227,10 +1227,10 @@
             "price": 874.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\lace-up_low-top_sneakers_3.jpg",
-                "fakestore_data\\\\women\\\\lace-up_low-top_sneakers_1.jpg",
-                "fakestore_data\\\\women\\\\lace-up_low-top_sneakers_4.jpg",
-                "fakestore_data\\\\women\\\\lace-up_low-top_sneakers_2.jpg"
+                "women/lace-up_low-top_sneakers_3.jpg",
+                "women/lace-up_low-top_sneakers_1.jpg",
+                "women/lace-up_low-top_sneakers_4.jpg",
+                "women/lace-up_low-top_sneakers_2.jpg"
             ]
         },
         {
@@ -1240,9 +1240,9 @@
             "price": 775.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\high-shine_lace-up_shoes_4.jpg",
-                "fakestore_data\\\\men\\\\high-shine_lace-up_shoes_2.jpg",
-                "fakestore_data\\\\men\\\\high-shine_lace-up_shoes_1.jpg"
+                "men/high-shine_lace-up_shoes_4.jpg",
+                "men/high-shine_lace-up_shoes_2.jpg",
+                "men/high-shine_lace-up_shoes_1.jpg"
             ]
         },
         {
@@ -1252,11 +1252,11 @@
             "price": 1317.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\The_New_Luxury_cardigan_3.jpg",
-                "fakestore_data\\\\women\\\\The_New_Luxury_cardigan_2.jpg",
-                "fakestore_data\\\\women\\\\The_New_Luxury_cardigan_4.jpg",
-                "fakestore_data\\\\women\\\\The_New_Luxury_cardigan_1.jpg",
-                "fakestore_data\\\\women\\\\The_New_Luxury_cardigan_5.jpg"
+                "women/The_New_Luxury_cardigan_3.jpg",
+                "women/The_New_Luxury_cardigan_2.jpg",
+                "women/The_New_Luxury_cardigan_4.jpg",
+                "women/The_New_Luxury_cardigan_1.jpg",
+                "women/The_New_Luxury_cardigan_5.jpg"
             ]
         },
         {
@@ -1266,10 +1266,10 @@
             "price": 362.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\Air_Jordan_1_Mid_sneakers_4.jpg",
-                "fakestore_data\\\\kids\\\\Air_Jordan_1_Mid_sneakers_3.jpg",
-                "fakestore_data\\\\kids\\\\Air_Jordan_1_Mid_sneakers_2.jpg",
-                "fakestore_data\\\\kids\\\\Air_Jordan_1_Mid_sneakers_1.jpg"
+                "kids/Air_Jordan_1_Mid_sneakers_4.jpg",
+                "kids/Air_Jordan_1_Mid_sneakers_3.jpg",
+                "kids/Air_Jordan_1_Mid_sneakers_2.jpg",
+                "kids/Air_Jordan_1_Mid_sneakers_1.jpg"
             ]
         },
         {
@@ -1279,8 +1279,8 @@
             "price": 26.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\Tonkey_monkey-print_T-shirt_1.jpg",
-                "fakestore_data\\\\kids\\\\Tonkey_monkey-print_T-shirt_2.jpg"
+                "kids/Tonkey_monkey-print_T-shirt_1.jpg",
+                "kids/Tonkey_monkey-print_T-shirt_2.jpg"
             ]
         },
         {
@@ -1290,8 +1290,8 @@
             "price": 545.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\oversized-bow_silk_headband_1.jpg",
-                "fakestore_data\\\\women\\\\oversized-bow_silk_headband_2.jpg"
+                "women/oversized-bow_silk_headband_1.jpg",
+                "women/oversized-bow_silk_headband_2.jpg"
             ]
         },
         {
@@ -1301,9 +1301,9 @@
             "price": 1095.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\ruffle-trim_denim_dress_3.jpg",
-                "fakestore_data\\\\kids\\\\ruffle-trim_denim_dress_2.jpg",
-                "fakestore_data\\\\kids\\\\ruffle-trim_denim_dress_1.jpg"
+                "kids/ruffle-trim_denim_dress_3.jpg",
+                "kids/ruffle-trim_denim_dress_2.jpg",
+                "kids/ruffle-trim_denim_dress_1.jpg"
             ]
         },
         {
@@ -1313,9 +1313,9 @@
             "price": 303.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\long-sleeve_virgin_wool_shirt_5.jpg",
-                "fakestore_data\\\\women\\\\long-sleeve_virgin_wool_shirt_4.jpg",
-                "fakestore_data\\\\women\\\\long-sleeve_virgin_wool_shirt_2.jpg"
+                "women/long-sleeve_virgin_wool_shirt_5.jpg",
+                "women/long-sleeve_virgin_wool_shirt_4.jpg",
+                "women/long-sleeve_virgin_wool_shirt_2.jpg"
             ]
         },
         {
@@ -1325,10 +1325,10 @@
             "price": 448.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\long-sleeve_cotton_hoodie_2.jpg",
-                "fakestore_data\\\\men\\\\long-sleeve_cotton_hoodie_1.jpg",
-                "fakestore_data\\\\men\\\\long-sleeve_cotton_hoodie_3.jpg",
-                "fakestore_data\\\\men\\\\long-sleeve_cotton_hoodie_4.jpg"
+                "men/long-sleeve_cotton_hoodie_2.jpg",
+                "men/long-sleeve_cotton_hoodie_1.jpg",
+                "men/long-sleeve_cotton_hoodie_3.jpg",
+                "men/long-sleeve_cotton_hoodie_4.jpg"
             ]
         },
         {
@@ -1338,9 +1338,9 @@
             "price": 74.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\bell-print_T-shirt_2.jpg",
-                "fakestore_data\\\\kids\\\\bell-print_T-shirt_1.jpg",
-                "fakestore_data\\\\kids\\\\bell-print_T-shirt_3.jpg"
+                "kids/bell-print_T-shirt_2.jpg",
+                "kids/bell-print_T-shirt_1.jpg",
+                "kids/bell-print_T-shirt_3.jpg"
             ]
         },
         {
@@ -1350,10 +1350,10 @@
             "price": 230.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\mid-rise_straight-leg_jeans_1.jpg",
-                "fakestore_data\\\\women\\\\mid-rise_straight-leg_jeans_2.jpg",
-                "fakestore_data\\\\women\\\\mid-rise_straight-leg_jeans_3.jpg",
-                "fakestore_data\\\\women\\\\mid-rise_straight-leg_jeans_5.jpg"
+                "women/mid-rise_straight-leg_jeans_1.jpg",
+                "women/mid-rise_straight-leg_jeans_2.jpg",
+                "women/mid-rise_straight-leg_jeans_3.jpg",
+                "women/mid-rise_straight-leg_jeans_5.jpg"
             ]
         },
         {
@@ -1363,11 +1363,11 @@
             "price": 3392.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\biker_gilet_5.jpg",
-                "fakestore_data\\\\men\\\\biker_gilet_3.jpg",
-                "fakestore_data\\\\men\\\\biker_gilet_1.jpg",
-                "fakestore_data\\\\men\\\\biker_gilet_4.jpg",
-                "fakestore_data\\\\men\\\\biker_gilet_2.jpg"
+                "men/biker_gilet_5.jpg",
+                "men/biker_gilet_3.jpg",
+                "men/biker_gilet_1.jpg",
+                "men/biker_gilet_4.jpg",
+                "men/biker_gilet_2.jpg"
             ]
         },
         {
@@ -1377,9 +1377,9 @@
             "price": 642.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Gilda_woven-strap_sandals_1.jpg",
-                "fakestore_data\\\\women\\\\Gilda_woven-strap_sandals_2.jpg",
-                "fakestore_data\\\\women\\\\Gilda_woven-strap_sandals_4.jpg"
+                "women/Gilda_woven-strap_sandals_1.jpg",
+                "women/Gilda_woven-strap_sandals_2.jpg",
+                "women/Gilda_woven-strap_sandals_4.jpg"
             ]
         },
         {
@@ -1389,10 +1389,10 @@
             "price": 1020.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\Oversized_lace-up_sneakers_4.jpg",
-                "fakestore_data\\\\men\\\\Oversized_lace-up_sneakers_3.jpg",
-                "fakestore_data\\\\men\\\\Oversized_lace-up_sneakers_2.jpg",
-                "fakestore_data\\\\men\\\\Oversized_lace-up_sneakers_1.jpg"
+                "men/Oversized_lace-up_sneakers_4.jpg",
+                "men/Oversized_lace-up_sneakers_3.jpg",
+                "men/Oversized_lace-up_sneakers_2.jpg",
+                "men/Oversized_lace-up_sneakers_1.jpg"
             ]
         },
         {
@@ -1402,12 +1402,12 @@
             "price": 2626.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\mini_shoulder_bag_3.jpg",
-                "fakestore_data\\\\women\\\\mini_shoulder_bag_2.jpg",
-                "fakestore_data\\\\women\\\\mini_shoulder_bag_4.jpg",
-                "fakestore_data\\\\women\\\\mini_shoulder_bag_1.jpg",
-                "fakestore_data\\\\women\\\\mini_shoulder_bag_5.jpg",
-                "fakestore_data\\\\women\\\\mini_shoulder_bag_6.jpg"
+                "women/mini_shoulder_bag_3.jpg",
+                "women/mini_shoulder_bag_2.jpg",
+                "women/mini_shoulder_bag_4.jpg",
+                "women/mini_shoulder_bag_1.jpg",
+                "women/mini_shoulder_bag_5.jpg",
+                "women/mini_shoulder_bag_6.jpg"
             ]
         },
         {
@@ -1417,11 +1417,11 @@
             "price": 1000.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\Engineered_4-Bar_Jersey_Sweatshort_4.jpg",
-                "fakestore_data\\\\men\\\\Engineered_4-Bar_Jersey_Sweatshort_3.jpg",
-                "fakestore_data\\\\men\\\\Engineered_4-Bar_Jersey_Sweatshort_5.jpg",
-                "fakestore_data\\\\men\\\\Engineered_4-Bar_Jersey_Sweatshort_1.jpg",
-                "fakestore_data\\\\men\\\\Engineered_4-Bar_Jersey_Sweatshort_2.jpg"
+                "men/Engineered_4-Bar_Jersey_Sweatshort_4.jpg",
+                "men/Engineered_4-Bar_Jersey_Sweatshort_3.jpg",
+                "men/Engineered_4-Bar_Jersey_Sweatshort_5.jpg",
+                "men/Engineered_4-Bar_Jersey_Sweatshort_1.jpg",
+                "men/Engineered_4-Bar_Jersey_Sweatshort_2.jpg"
             ]
         },
         {
@@ -1431,10 +1431,10 @@
             "price": 628.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\portrait_print_drawstring_hoodie_1.jpg",
-                "fakestore_data\\\\men\\\\portrait_print_drawstring_hoodie_5.jpg",
-                "fakestore_data\\\\men\\\\portrait_print_drawstring_hoodie_2.jpg",
-                "fakestore_data\\\\men\\\\portrait_print_drawstring_hoodie_4.jpg"
+                "men/portrait_print_drawstring_hoodie_1.jpg",
+                "men/portrait_print_drawstring_hoodie_5.jpg",
+                "men/portrait_print_drawstring_hoodie_2.jpg",
+                "men/portrait_print_drawstring_hoodie_4.jpg"
             ]
         },
         {
@@ -1444,8 +1444,8 @@
             "price": 301.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Classic_Industrial_buckle_belt_2.jpg",
-                "fakestore_data\\\\women\\\\Classic_Industrial_buckle_belt_1.jpg"
+                "women/Classic_Industrial_buckle_belt_2.jpg",
+                "women/Classic_Industrial_buckle_belt_1.jpg"
             ]
         },
         {
@@ -1455,9 +1455,9 @@
             "price": 255.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Miller_hinge-stud_bangle_1.jpg",
-                "fakestore_data\\\\women\\\\Miller_hinge-stud_bangle_3.jpg",
-                "fakestore_data\\\\women\\\\Miller_hinge-stud_bangle_2.jpg"
+                "women/Miller_hinge-stud_bangle_1.jpg",
+                "women/Miller_hinge-stud_bangle_3.jpg",
+                "women/Miller_hinge-stud_bangle_2.jpg"
             ]
         },
         {
@@ -1467,10 +1467,10 @@
             "price": 1006.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\graphic-print_denim_shirt_3.jpg",
-                "fakestore_data\\\\men\\\\graphic-print_denim_shirt_1.jpg",
-                "fakestore_data\\\\men\\\\graphic-print_denim_shirt_2.jpg",
-                "fakestore_data\\\\men\\\\graphic-print_denim_shirt_4.jpg"
+                "men/graphic-print_denim_shirt_3.jpg",
+                "men/graphic-print_denim_shirt_1.jpg",
+                "men/graphic-print_denim_shirt_2.jpg",
+                "men/graphic-print_denim_shirt_4.jpg"
             ]
         },
         {
@@ -1480,9 +1480,9 @@
             "price": 78.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\jersey_footed_leggings_1.jpg",
-                "fakestore_data\\\\kids\\\\jersey_footed_leggings_3.jpg",
-                "fakestore_data\\\\kids\\\\jersey_footed_leggings_2.jpg"
+                "kids/jersey_footed_leggings_1.jpg",
+                "kids/jersey_footed_leggings_3.jpg",
+                "kids/jersey_footed_leggings_2.jpg"
             ]
         },
         {
@@ -1492,10 +1492,10 @@
             "price": 2845.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\logo_zipped_backpack_1.jpg",
-                "fakestore_data\\\\men\\\\logo_zipped_backpack_5.jpg",
-                "fakestore_data\\\\men\\\\logo_zipped_backpack_3.jpg",
-                "fakestore_data\\\\men\\\\logo_zipped_backpack_4.jpg"
+                "men/logo_zipped_backpack_1.jpg",
+                "men/logo_zipped_backpack_5.jpg",
+                "men/logo_zipped_backpack_3.jpg",
+                "men/logo_zipped_backpack_4.jpg"
             ]
         },
         {
@@ -1505,10 +1505,10 @@
             "price": 186.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Edy_leather_sandals_2.jpg",
-                "fakestore_data\\\\women\\\\Edy_leather_sandals_3.jpg",
-                "fakestore_data\\\\women\\\\Edy_leather_sandals_1.jpg",
-                "fakestore_data\\\\women\\\\Edy_leather_sandals_4.jpg"
+                "women/Edy_leather_sandals_2.jpg",
+                "women/Edy_leather_sandals_3.jpg",
+                "women/Edy_leather_sandals_1.jpg",
+                "women/Edy_leather_sandals_4.jpg"
             ]
         },
         {
@@ -1518,10 +1518,10 @@
             "price": 95.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\Zebra_embroidered_T-shirt_3.jpg",
-                "fakestore_data\\\\men\\\\Zebra_embroidered_T-shirt_2.jpg",
-                "fakestore_data\\\\men\\\\Zebra_embroidered_T-shirt_1.jpg",
-                "fakestore_data\\\\men\\\\Zebra_embroidered_T-shirt_5.jpg"
+                "men/Zebra_embroidered_T-shirt_3.jpg",
+                "men/Zebra_embroidered_T-shirt_2.jpg",
+                "men/Zebra_embroidered_T-shirt_1.jpg",
+                "men/Zebra_embroidered_T-shirt_5.jpg"
             ]
         },
         {
@@ -1531,12 +1531,12 @@
             "price": 2505.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\long_sequin-embellished_biker_coat_2.jpg",
-                "fakestore_data\\\\women\\\\long_sequin-embellished_biker_coat_3.jpg",
-                "fakestore_data\\\\women\\\\long_sequin-embellished_biker_coat_5.jpg",
-                "fakestore_data\\\\women\\\\long_sequin-embellished_biker_coat_1.jpg",
-                "fakestore_data\\\\women\\\\long_sequin-embellished_biker_coat_4.jpg",
-                "fakestore_data\\\\women\\\\long_sequin-embellished_biker_coat_6.jpg"
+                "women/long_sequin-embellished_biker_coat_2.jpg",
+                "women/long_sequin-embellished_biker_coat_3.jpg",
+                "women/long_sequin-embellished_biker_coat_5.jpg",
+                "women/long_sequin-embellished_biker_coat_1.jpg",
+                "women/long_sequin-embellished_biker_coat_4.jpg",
+                "women/long_sequin-embellished_biker_coat_6.jpg"
             ]
         },
         {
@@ -1546,9 +1546,9 @@
             "price": 142.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\checked_trouser_3.jpg",
-                "fakestore_data\\\\kids\\\\checked_trouser_1.jpg",
-                "fakestore_data\\\\kids\\\\checked_trouser_2.jpg"
+                "kids/checked_trouser_3.jpg",
+                "kids/checked_trouser_1.jpg",
+                "kids/checked_trouser_2.jpg"
             ]
         },
         {
@@ -1558,7 +1558,7 @@
             "price": 190.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\logo_lace-up_sneakers_2.jpg"
+                "kids/logo_lace-up_sneakers_2.jpg"
             ]
         },
         {
@@ -1568,10 +1568,10 @@
             "price": 1457.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\two-tone_touch-strap_flat_sandals_4.jpg",
-                "fakestore_data\\\\women\\\\two-tone_touch-strap_flat_sandals_3.jpg",
-                "fakestore_data\\\\women\\\\two-tone_touch-strap_flat_sandals_2.jpg",
-                "fakestore_data\\\\women\\\\two-tone_touch-strap_flat_sandals_1.jpg"
+                "women/two-tone_touch-strap_flat_sandals_4.jpg",
+                "women/two-tone_touch-strap_flat_sandals_3.jpg",
+                "women/two-tone_touch-strap_flat_sandals_2.jpg",
+                "women/two-tone_touch-strap_flat_sandals_1.jpg"
             ]
         },
         {
@@ -1581,9 +1581,9 @@
             "price": 374.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\pilot-frame_sunglasses_1.jpg",
-                "fakestore_data\\\\women\\\\pilot-frame_sunglasses_3.jpg",
-                "fakestore_data\\\\women\\\\pilot-frame_sunglasses_4.jpg"
+                "women/pilot-frame_sunglasses_1.jpg",
+                "women/pilot-frame_sunglasses_3.jpg",
+                "women/pilot-frame_sunglasses_4.jpg"
             ]
         },
         {
@@ -1593,8 +1593,8 @@
             "price": 1015.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Craft_one-piece_swimsuit_3.jpg",
-                "fakestore_data\\\\women\\\\Craft_one-piece_swimsuit_1.jpg"
+                "women/Craft_one-piece_swimsuit_3.jpg",
+                "women/Craft_one-piece_swimsuit_1.jpg"
             ]
         },
         {
@@ -1604,9 +1604,9 @@
             "price": 238.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\distressed_denim_shorts_3.jpg",
-                "fakestore_data\\\\kids\\\\distressed_denim_shorts_1.jpg",
-                "fakestore_data\\\\kids\\\\distressed_denim_shorts_2.jpg"
+                "kids/distressed_denim_shorts_3.jpg",
+                "kids/distressed_denim_shorts_1.jpg",
+                "kids/distressed_denim_shorts_2.jpg"
             ]
         },
         {
@@ -1616,9 +1616,9 @@
             "price": 459.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\oversized_logo_tote_bag_1.jpg",
-                "fakestore_data\\\\women\\\\oversized_logo_tote_bag_3.jpg",
-                "fakestore_data\\\\women\\\\oversized_logo_tote_bag_2.jpg"
+                "women/oversized_logo_tote_bag_1.jpg",
+                "women/oversized_logo_tote_bag_3.jpg",
+                "women/oversized_logo_tote_bag_2.jpg"
             ]
         },
         {
@@ -1628,11 +1628,11 @@
             "price": 479.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\lace-up_sweatshirt_1.jpg",
-                "fakestore_data\\\\women\\\\lace-up_sweatshirt_2.jpg",
-                "fakestore_data\\\\women\\\\lace-up_sweatshirt_5.jpg",
-                "fakestore_data\\\\women\\\\lace-up_sweatshirt_3.jpg",
-                "fakestore_data\\\\women\\\\lace-up_sweatshirt_4.jpg"
+                "women/lace-up_sweatshirt_1.jpg",
+                "women/lace-up_sweatshirt_2.jpg",
+                "women/lace-up_sweatshirt_5.jpg",
+                "women/lace-up_sweatshirt_3.jpg",
+                "women/lace-up_sweatshirt_4.jpg"
             ]
         },
         {
@@ -1642,9 +1642,9 @@
             "price": 111.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\printed_AMIR_SLAMA_+_CHOCOLIX_swimming_T-shirt_1.jpg",
-                "fakestore_data\\\\kids\\\\printed_AMIR_SLAMA_+_CHOCOLIX_swimming_T-shirt_2.jpg",
-                "fakestore_data\\\\kids\\\\printed_AMIR_SLAMA_+_CHOCOLIX_swimming_T-shirt_3.jpg"
+                "kids/printed_AMIR_SLAMA_+_CHOCOLIX_swimming_T-shirt_1.jpg",
+                "kids/printed_AMIR_SLAMA_+_CHOCOLIX_swimming_T-shirt_2.jpg",
+                "kids/printed_AMIR_SLAMA_+_CHOCOLIX_swimming_T-shirt_3.jpg"
             ]
         },
         {
@@ -1654,9 +1654,9 @@
             "price": 67.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\checked_pyjama_set_3.jpg",
-                "fakestore_data\\\\men\\\\checked_pyjama_set_1.jpg",
-                "fakestore_data\\\\men\\\\checked_pyjama_set_2.jpg"
+                "men/checked_pyjama_set_3.jpg",
+                "men/checked_pyjama_set_1.jpg",
+                "men/checked_pyjama_set_2.jpg"
             ]
         },
         {
@@ -1666,9 +1666,9 @@
             "price": 162.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\slim-fit_jeans_1.jpg",
-                "fakestore_data\\\\kids\\\\slim-fit_jeans_3.jpg",
-                "fakestore_data\\\\kids\\\\slim-fit_jeans_2.jpg"
+                "kids/slim-fit_jeans_1.jpg",
+                "kids/slim-fit_jeans_3.jpg",
+                "kids/slim-fit_jeans_2.jpg"
             ]
         },
         {
@@ -1678,11 +1678,11 @@
             "price": 1217.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\RWB_stripe_piqu\u00e9_polo_dress_4.jpg",
-                "fakestore_data\\\\women\\\\RWB_stripe_piqu\u00e9_polo_dress_3.jpg",
-                "fakestore_data\\\\women\\\\RWB_stripe_piqu\u00e9_polo_dress_1.jpg",
-                "fakestore_data\\\\women\\\\RWB_stripe_piqu\u00e9_polo_dress_2.jpg",
-                "fakestore_data\\\\women\\\\RWB_stripe_piqu\u00e9_polo_dress_5.jpg"
+                "women/RWB_stripe_piqu\u00e9_polo_dress_4.jpg",
+                "women/RWB_stripe_piqu\u00e9_polo_dress_3.jpg",
+                "women/RWB_stripe_piqu\u00e9_polo_dress_1.jpg",
+                "women/RWB_stripe_piqu\u00e9_polo_dress_2.jpg",
+                "women/RWB_stripe_piqu\u00e9_polo_dress_5.jpg"
             ]
         },
         {
@@ -1692,7 +1692,7 @@
             "price": 141.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\logo_patch_jeans_2.jpg"
+                "kids/logo_patch_jeans_2.jpg"
             ]
         },
         {
@@ -1702,13 +1702,13 @@
             "price": 707.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\cropped_denim_jeans_1.jpg",
-                "fakestore_data\\\\men\\\\cropped_denim_jeans_3.jpg",
-                "fakestore_data\\\\men\\\\cropped_denim_jeans_2.jpg",
-                "fakestore_data\\\\men\\\\cropped_denim_jeans_6.jpg",
-                "fakestore_data\\\\men\\\\cropped_denim_jeans_5.jpg",
-                "fakestore_data\\\\men\\\\cropped_denim_jeans_4.jpg",
-                "fakestore_data\\\\men\\\\cropped_denim_jeans_7.jpg"
+                "men/cropped_denim_jeans_1.jpg",
+                "men/cropped_denim_jeans_3.jpg",
+                "men/cropped_denim_jeans_2.jpg",
+                "men/cropped_denim_jeans_6.jpg",
+                "men/cropped_denim_jeans_5.jpg",
+                "men/cropped_denim_jeans_4.jpg",
+                "men/cropped_denim_jeans_7.jpg"
             ]
         },
         {
@@ -1718,9 +1718,9 @@
             "price": 340.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\engraved-detail_beaded_bracelet_1.jpg",
-                "fakestore_data\\\\men\\\\engraved-detail_beaded_bracelet_2.jpg",
-                "fakestore_data\\\\men\\\\engraved-detail_beaded_bracelet_3.jpg"
+                "men/engraved-detail_beaded_bracelet_1.jpg",
+                "men/engraved-detail_beaded_bracelet_2.jpg",
+                "men/engraved-detail_beaded_bracelet_3.jpg"
             ]
         },
         {
@@ -1730,8 +1730,8 @@
             "price": 263.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Camaleon_1975_high-top_sneakers_2.jpg",
-                "fakestore_data\\\\women\\\\Camaleon_1975_high-top_sneakers_1.jpg"
+                "women/Camaleon_1975_high-top_sneakers_2.jpg",
+                "women/Camaleon_1975_high-top_sneakers_1.jpg"
             ]
         },
         {
@@ -1741,8 +1741,8 @@
             "price": 328.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\Brutus_lace-up_boots_1.jpg",
-                "fakestore_data\\\\women\\\\Brutus_lace-up_boots_4.jpg"
+                "women/Brutus_lace-up_boots_1.jpg",
+                "women/Brutus_lace-up_boots_4.jpg"
             ]
         },
         {
@@ -1752,9 +1752,9 @@
             "price": 506.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\hoops_pendant_earrings_4.jpg",
-                "fakestore_data\\\\women\\\\hoops_pendant_earrings_2.jpg",
-                "fakestore_data\\\\women\\\\hoops_pendant_earrings_1.jpg"
+                "women/hoops_pendant_earrings_4.jpg",
+                "women/hoops_pendant_earrings_2.jpg",
+                "women/hoops_pendant_earrings_1.jpg"
             ]
         },
         {
@@ -1764,11 +1764,11 @@
             "price": 661.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\rib-knit_cardigan_4.jpg",
-                "fakestore_data\\\\women\\\\rib-knit_cardigan_3.jpg",
-                "fakestore_data\\\\women\\\\rib-knit_cardigan_1.jpg",
-                "fakestore_data\\\\women\\\\rib-knit_cardigan_6.jpg",
-                "fakestore_data\\\\women\\\\rib-knit_cardigan_2.jpg"
+                "women/rib-knit_cardigan_4.jpg",
+                "women/rib-knit_cardigan_3.jpg",
+                "women/rib-knit_cardigan_1.jpg",
+                "women/rib-knit_cardigan_6.jpg",
+                "women/rib-knit_cardigan_2.jpg"
             ]
         },
         {
@@ -1778,9 +1778,9 @@
             "price": 292.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\sleeve_logo-patch_jacket_1.jpg",
-                "fakestore_data\\\\kids\\\\sleeve_logo-patch_jacket_2.jpg",
-                "fakestore_data\\\\kids\\\\sleeve_logo-patch_jacket_3.jpg"
+                "kids/sleeve_logo-patch_jacket_1.jpg",
+                "kids/sleeve_logo-patch_jacket_2.jpg",
+                "kids/sleeve_logo-patch_jacket_3.jpg"
             ]
         },
         {
@@ -1790,8 +1790,8 @@
             "price": 275.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\logo_knitted_sneakers_1.jpg",
-                "fakestore_data\\\\kids\\\\logo_knitted_sneakers_3.jpg"
+                "kids/logo_knitted_sneakers_1.jpg",
+                "kids/logo_knitted_sneakers_3.jpg"
             ]
         },
         {
@@ -1801,10 +1801,10 @@
             "price": 165.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\crocodile-logo_short-sleeve_polo_shirt_2.jpg",
-                "fakestore_data\\\\men\\\\crocodile-logo_short-sleeve_polo_shirt_1.jpg",
-                "fakestore_data\\\\men\\\\crocodile-logo_short-sleeve_polo_shirt_5.jpg",
-                "fakestore_data\\\\men\\\\crocodile-logo_short-sleeve_polo_shirt_3.jpg"
+                "men/crocodile-logo_short-sleeve_polo_shirt_2.jpg",
+                "men/crocodile-logo_short-sleeve_polo_shirt_1.jpg",
+                "men/crocodile-logo_short-sleeve_polo_shirt_5.jpg",
+                "men/crocodile-logo_short-sleeve_polo_shirt_3.jpg"
             ]
         },
         {
@@ -1814,11 +1814,11 @@
             "price": 3597.0,
             "category": "women",
             "images": [
-                "fakestore_data\\\\women\\\\floral-embroidered_sleeveless_dress_1.jpg",
-                "fakestore_data\\\\women\\\\floral-embroidered_sleeveless_dress_3.jpg",
-                "fakestore_data\\\\women\\\\floral-embroidered_sleeveless_dress_2.jpg",
-                "fakestore_data\\\\women\\\\floral-embroidered_sleeveless_dress_4.jpg",
-                "fakestore_data\\\\women\\\\floral-embroidered_sleeveless_dress_5.jpg"
+                "women/floral-embroidered_sleeveless_dress_1.jpg",
+                "women/floral-embroidered_sleeveless_dress_3.jpg",
+                "women/floral-embroidered_sleeveless_dress_2.jpg",
+                "women/floral-embroidered_sleeveless_dress_4.jpg",
+                "women/floral-embroidered_sleeveless_dress_5.jpg"
             ]
         },
         {
@@ -1828,10 +1828,10 @@
             "price": 343.0,
             "category": "men",
             "images": [
-                "fakestore_data\\\\men\\\\x_Daan_Van_Der_Linden_Blazer_Court_sneakers_4.jpg",
-                "fakestore_data\\\\men\\\\x_Daan_Van_Der_Linden_Blazer_Court_sneakers_1.jpg",
-                "fakestore_data\\\\men\\\\x_Daan_Van_Der_Linden_Blazer_Court_sneakers_2.jpg",
-                "fakestore_data\\\\men\\\\x_Daan_Van_Der_Linden_Blazer_Court_sneakers_3.jpg"
+                "men/x_Daan_Van_Der_Linden_Blazer_Court_sneakers_4.jpg",
+                "men/x_Daan_Van_Der_Linden_Blazer_Court_sneakers_1.jpg",
+                "men/x_Daan_Van_Der_Linden_Blazer_Court_sneakers_2.jpg",
+                "men/x_Daan_Van_Der_Linden_Blazer_Court_sneakers_3.jpg"
             ]
         },
         {
@@ -1841,9 +1841,9 @@
             "price": 1830.0,
             "category": "kids",
             "images": [
-                "fakestore_data\\\\kids\\\\hooded_ribbed-knit_coat_2.jpg",
-                "fakestore_data\\\\kids\\\\hooded_ribbed-knit_coat_3.jpg",
-                "fakestore_data\\\\kids\\\\hooded_ribbed-knit_coat_1.jpg"
+                "kids/hooded_ribbed-knit_coat_2.jpg",
+                "kids/hooded_ribbed-knit_coat_3.jpg",
+                "kids/hooded_ribbed-knit_coat_1.jpg"
             ]
         },
 
@@ -2369,7 +2369,7 @@
             "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
             "price": 109.95,
             "category": "men's clothing",
-            "images":[ "fakestore_data\\men's clothing\\1.jpg"]
+            "images":[ "men's clothing/1.jpg"]
         },
         {
             "id": 2,
@@ -2377,7 +2377,7 @@
             "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
             "price": 22.3,
             "category": "men's clothing",
-            "images":[ "fakestore_data\\men's clothing\\2.jpg"]
+            "images":[ "men's clothing/2.jpg"]
         },
         {
             "id": 3,
@@ -2385,7 +2385,7 @@
             "description": "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
             "price": 55.99,
             "category": "men's clothing",
-            "images":[ "fakestore_data\\men's clothing\\3.jpg"]
+            "images":[ "men's clothing/3.jpg"]
         },
         {
             "id": 4,
@@ -2393,7 +2393,7 @@
             "description": "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
             "price": 15.99,
             "category": "men's clothing",
-            "images":[ "fakestore_data\\men's clothing\\4.jpg"]
+            "images":[ "men's clothing/4.jpg"]
         },
         {
             "id": 5,
@@ -2401,7 +2401,7 @@
             "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
             "price": 695,
             "category": "jewelery",
-            "images":[ "fakestore_data\\jewelery\\5.jpg"]
+            "images":[ "jewelery/5.jpg"]
         },
         {
             "id": 6,
@@ -2409,7 +2409,7 @@
             "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
             "price": 168,
             "category": "jewelery",
-            "images":[ "fakestore_data\\jewelery\\6.jpg"]
+            "images":[ "jewelery/6.jpg"]
         },
         {
             "id": 7,
@@ -2417,7 +2417,7 @@
             "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
             "price": 9.99,
             "category": "jewelery",
-            "images":[ "fakestore_data\\jewelery\\7.jpg"]
+            "images":[ "jewelery/7.jpg"]
         },
         {
             "id": 8,
@@ -2425,7 +2425,7 @@
             "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
             "price": 10.99,
             "category": "jewelery",
-            "images":[ "fakestore_data\\jewelery\\8.jpg"]
+            "images":[ "jewelery/8.jpg"]
         },
         {
             "id": 9,
@@ -2433,7 +2433,7 @@
             "description": "USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user\u2019s hardware configuration and operating system",
             "price": 64,
             "category": "electronics",
-            "images":[ "fakestore_data\\electronics\\9.jpg"]
+            "images":[ "electronics/9.jpg"]
         },
         {
             "id": 10,
@@ -2441,7 +2441,7 @@
             "description": "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5\u201d hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)",
             "price": 109,
             "category": "electronics",
-            "images":[ "fakestore_data\\electronics\\10.jpg"]
+            "images":[ "electronics/10.jpg"]
         },
         {
             "id": 11,
@@ -2449,7 +2449,7 @@
             "description": "3D NAND flash are applied to deliver high transfer speeds Remarkable transfer speeds that enable faster bootup and improved overall system performance. The advanced SLC Cache Technology allows performance boost and longer lifespan 7mm slim design suitable for Ultrabooks and Ultra-slim notebooks. Supports TRIM command, Garbage Collection technology, RAID, and ECC (Error Checking & Correction) to provide the optimized performance and enhanced reliability.",
             "price": 109,
             "category": "electronics",
-            "images":[ "fakestore_data\\electronics\\11.jpg"]
+            "images":[ "electronics/11.jpg"]
         },
         {
             "id": 12,
@@ -2457,7 +2457,7 @@
             "description": "Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty",
             "price": 114,
             "category": "electronics",
-            "images":[ "fakestore_data\\electronics\\12.jpg"]
+            "images":[ "electronics/12.jpg"]
         },
         {
             "id": 13,
@@ -2465,7 +2465,7 @@
             "description": "21. 5 inches Full HD (1920 x 1080) widescreen IPS display And Radeon free Sync technology. No compatibility for VESA Mount Refresh Rate: 75Hz - Using HDMI port Zero-frame design | ultra-thin | 4ms response time | IPS panel Aspect ratio - 16: 9. Color Supported - 16. 7 million colors. Brightness - 250 nit Tilt angle -5 degree to 15 degree. Horizontal viewing angle-178 degree. Vertical viewing angle-178 degree 75 hertz",
             "price": 599,
             "category": "electronics",
-            "images":[ "fakestore_data\\electronics\\13.jpg"]
+            "images":[ "electronics/13.jpg"]
         },
         {
             "id": 14,
@@ -2473,7 +2473,7 @@
             "description": "49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag",
             "price": 999.99,
             "category": "electronics",
-            "images":[ "fakestore_data\\electronics\\14.jpg"]
+            "images":[ "electronics/14.jpg"]
         },
         {
             "id": 15,
@@ -2481,7 +2481,7 @@
             "description": "Note:The Jackets is US standard size, Please choose size as your usual wear Material: 100% Polyester; Detachable Liner Fabric: Warm Fleece. Detachable Functional Liner: Skin Friendly, Lightweigt and Warm.Stand Collar Liner jacket, keep you warm in cold weather. Zippered Pockets: 2 Zippered Hand Pockets, 2 Zippered Pockets on Chest (enough to keep cards or keys)and 1 Hidden Pocket Inside.Zippered Hand Pockets and Hidden Pocket keep your things secure. Humanized Design: Adjustable and Detachable Hood and Adjustable cuff to prevent the wind and water,for a comfortable fit. 3 in 1 Detachable Design provide more convenience, you can separate the coat and inner as needed, or wear it together. It is suitable for different season and help you adapt to different climates",
             "price": 56.99,
             "category": "women",
-            "images":[ "fakestore_data\\women\\15.jpg"]
+            "images":[ "women/15.jpg"]
         },
         {
             "id": 16,
@@ -2489,7 +2489,7 @@
             "description": "100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON",
             "price": 29.95,
             "category": "women",
-            "images":[ "fakestore_data\\women\\16.jpg"]
+            "images":[ "women/16.jpg"]
         },
         {
             "id": 17,
@@ -2497,7 +2497,7 @@
             "description": "Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn't overdo it.Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look.",
             "price": 39.99,
             "category": "women",
-            "images":[ "fakestore_data\\women\\17.jpg"]
+            "images":[ "women/17.jpg"]
         },
         {
             "id": 18,
@@ -2505,7 +2505,7 @@
             "description": "95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem",
             "price": 9.85,
             "category": "women",
-            "images":[ "fakestore_data\\women\\18.jpg"]
+            "images":[ "women/18.jpg"]
         },
         {
             "id": 19,
@@ -2513,7 +2513,7 @@
             "description": "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
             "price": 7.95,
             "category": "women",
-            "images":[ "fakestore_data\\women\\19.jpg"]
+            "images":[ "women/19.jpg"]
         },
         {
             "id": 20,
@@ -2521,7 +2521,7 @@
             "description": "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
             "price": 12.99,
             "category": "women",
-            "images":[ "fakestore_data\\women\\20.jpg"]
+            "images":[ "women/20.jpg"]
         }
     ]
 }
