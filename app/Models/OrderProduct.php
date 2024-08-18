@@ -41,7 +41,14 @@ public $incrementing = true;
 
 
 
+public function variations()
+{
+    $variations = json_decode($this->variations, true);
+    return $variations;
 
+
+
+}
 
 
 

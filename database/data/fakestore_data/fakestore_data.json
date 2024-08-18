@@ -1,17 +1,22 @@
 
 {
-"categories": [
+
+    "categories": [
         {
             "name": "shoes",
             "folder": "shoes",
             "variations": [
                 {
                     "type": "color",
-                    "options": ["Red", "Blue", "Green"]
+                    "options": ["Red", "Blue", "Green", "Black", "White"]
                 },
                 {
                     "type": "size",
-                    "options": ["S", "M", "L"]
+                    "options": ["S", "M", "L", "XL"]
+                },
+                {
+                    "type": "material",
+                    "options": ["Leather", "Canvas", "Synthetic"]
                 }
             ]
         },
@@ -21,11 +26,15 @@
             "variations": [
                 {
                     "type": "size",
-                    "options": ["M", "L", "XL"]
+                    "options": ["M", "L", "XL", "XXL"]
                 },
                 {
                     "type": "color",
-                    "options": ["Black", "White"]
+                    "options": ["Black", "White", "Gray", "Blue", "Green"]
+                },
+                {
+                    "type": "material",
+                    "options": ["Cotton", "Wool", "Polyester"]
                 }
             ]
         },
@@ -35,15 +44,19 @@
             "variations": [
                 {
                     "type": "warranty",
-                    "options": ["1 year", "2 years"]
+                    "options": ["1 year", "2 years", "3 years"]
                 },
                 {
                     "type": "color",
-                    "options": ["Black", "Silver", "White"]
+                    "options": ["Black", "Silver", "White", "Gold"]
                 },
                 {
                     "type": "size",
-                    "options": ["Small", "Medium", "Large"]
+                    "options": ["Small", "Medium", "Large", "Extra Large"]
+                },
+                {
+                    "type": "storage",
+                    "options": ["16GB", "32GB", "64GB", "128GB"]
                 }
             ]
         },
@@ -53,11 +66,15 @@
             "variations": [
                 {
                     "type": "size",
-                    "options": ["S", "M", "L", "XL"]
+                    "options": ["S", "M", "L", "XL", "XXL"]
                 },
                 {
                     "type": "color",
-                    "options": ["Red", "Blue", "Green", "Black", "White"]
+                    "options": ["Red", "Blue", "Green", "Black", "White", "Purple"]
+                },
+                {
+                    "type": "material",
+                    "options": ["Cotton", "Silk", "Wool"]
                 }
             ]
         },
@@ -67,11 +84,15 @@
             "variations": [
                 {
                     "type": "size",
-                    "options": ["S", "M", "L", "XL"]
+                    "options": ["S", "M", "L", "XL", "XXL"]
                 },
                 {
                     "type": "color",
-                    "options": ["Black", "White", "Gray", "Blue"]
+                    "options": ["Black", "White", "Gray", "Blue", "Brown"]
+                },
+                {
+                    "type": "material",
+                    "options": ["Cotton", "Polyester", "Denim"]
                 }
             ]
         },
@@ -85,7 +106,11 @@
                 },
                 {
                     "type": "color",
-                    "options": ["Pink", "Blue", "Yellow", "Green"]
+                    "options": ["Pink", "Blue", "Yellow", "Green", "Red"]
+                },
+                {
+                    "type": "material",
+                    "options": ["Cotton", "Fleece", "Denim"]
                 }
             ]
         },
@@ -95,11 +120,15 @@
             "variations": [
                 {
                     "type": "size",
-                    "options": ["Small", "Medium", "Large"]
+                    "options": ["Small", "Medium", "Large", "Extra Large"]
                 },
                 {
                     "type": "color",
-                    "options": ["Natural", "Bronze", "Rose", "Deep"]
+                    "options": ["Natural", "Bronze", "Rose", "Deep", "Ivory"]
+                },
+                {
+                    "type": "type",
+                    "options": ["Foundation", "Concealer", "Blush", "Mascara"]
                 }
             ]
         },
@@ -109,11 +138,15 @@
             "variations": [
                 {
                     "type": "size",
-                    "options": ["30ml", "50ml", "100ml"]
+                    "options": ["30ml", "50ml", "100ml", "200ml"]
                 },
                 {
                     "type": "scent",
-                    "options": ["Floral", "Woody", "Citrus", "Spicy"]
+                    "options": ["Floral", "Woody", "Citrus", "Spicy", "Oriental"]
+                },
+                {
+                    "type": "intensity",
+                    "options": ["Light", "Moderate", "Strong"]
                 }
             ]
         },
@@ -123,15 +156,19 @@
             "variations": [
                 {
                     "type": "material",
-                    "options": ["Wood", "Metal", "Glass", "Plastic"]
+                    "options": ["Wood", "Metal", "Glass", "Plastic", "Fabric"]
                 },
                 {
                     "type": "color",
-                    "options": ["Brown", "Black", "White", "Gray"]
+                    "options": ["Brown", "Black", "White", "Gray", "Beige"]
                 },
                 {
                     "type": "size",
-                    "options": ["Small", "Medium", "Large"]
+                    "options": ["Small", "Medium", "Large", "Extra Large"]
+                },
+                {
+                    "type": "style",
+                    "options": ["Modern", "Traditional", "Rustic"]
                 }
             ]
         },
@@ -141,11 +178,15 @@
             "variations": [
                 {
                     "type": "size",
-                    "options": ["500g", "1kg", "2kg"]
+                    "options": ["500g", "1kg", "2kg", "5kg"]
                 },
                 {
                     "type": "packaging",
-                    "options": ["Bag", "Box", "Bottle"]
+                    "options": ["Bag", "Box", "Bottle", "Can"]
+                },
+                {
+                    "type": "organic",
+                    "options": ["Organic", "Non-organic"]
                 }
             ]
         },
@@ -155,11 +196,15 @@
             "variations": [
                 {
                     "type": "material",
-                    "options": ["Gold", "Silver", "Platinum"]
+                    "options": ["Gold", "Silver", "Platinum", "Rose Gold"]
                 },
                 {
                     "type": "size",
-                    "options": ["Small", "Medium", "Large"]
+                    "options": ["Small", "Medium", "Large", "Extra Large"]
+                },
+                {
+                    "type": "type",
+                    "options": ["Ring", "Necklace", "Bracelet", "Earrings"]
                 }
             ]
         }

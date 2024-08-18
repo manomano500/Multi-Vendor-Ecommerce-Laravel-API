@@ -31,6 +31,7 @@ class OrderResource extends JsonResource
                     'store_name' => $product->store->name ?? null,
                     'price' => $product->pivot->price,
                     'quantity' => $product->pivot->quantity,
+                    'variations' => $product->pivot->variations() ?? 'N/A',
                 ];
             });
         }
