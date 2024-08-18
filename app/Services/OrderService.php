@@ -63,14 +63,20 @@ class OrderService
 
             foreach ($productsData as $productData) {
                 $product = $products->firstWhere('id', $productData['product_id']);
+                $variations = $productData['variations'] ?? [];
+                if (!is_array($variations)) {
+                    $variations = json_decode($variations, true); // Ensure it's an array
 
+                }
+                $encodedVariations = json_encode($variations);
                 if ($product) {
-                    OrderProduct::create([
+                $orderProduct =    OrderProduct::create([
                         'order_id' => $order->id,
                         'product_id' => $product->id,
                         'quantity' => $productData['quantity'],
                         'price' => $product->price,
                         'store_id' => $product->store_id,
+                        'variations' => $encodedVariations,
                     ]);
                     ProductHelper::deductProductQuantities($product, $productData['quantity']);
                     $orderTotal += $product->price * $productData['quantity'];
