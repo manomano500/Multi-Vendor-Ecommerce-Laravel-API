@@ -28,8 +28,16 @@ class ProductResource extends JsonResource
                 //TODO:  this line return the user uploaded images
             }),
 //        'images'=>$this->images()->get(['id','image']),
-            'variations' => VariationResource::collection($this->whenLoaded('variations')),
+            'variations' =>$this->variations->map(function ($variation) {
+                return [
+                    'attribute' => $variation->attribute->name,
+                    'variation_id' => $variation->id,
+                    'value' => $variation->value,
+                ];
+            })
 
-        ];
+
+            ];
+
     }
 }

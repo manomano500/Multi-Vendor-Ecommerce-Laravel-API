@@ -1,56 +1,172 @@
 
 {
-    "categories": [
+"categories": [
         {
-            "name": "women",
-            "folder": "women"
-        },
-        {
-            "name": "men",
-            "folder": "men"
-        },
-        {
-            "name": "kids",
-            "folder": "kids"
-        },
-        {
-            "name": "beauty",
-            "folder": "beauty"
-        },
-        {
-            "name": "fragrances",
-            "folder": "fragrances"
-        },
-        {
-            "name": "furniture",
-            "folder": "furniture"
-        },
-        {
-            "name": "groceries",
-            "folder": "groceries"
-        },
-        {
-            "name": "electronics",
-            "folder": "electronics"
-        },
-        {
-            "name": "jewelery",
-            "folder": "jewelery"
+            "name": "shoes",
+            "folder": "shoes",
+            "variations": [
+                {
+                    "type": "color",
+                    "options": ["Red", "Blue", "Green"]
+                },
+                {
+                    "type": "size",
+                    "options": ["S", "M", "L"]
+                }
+            ]
         },
         {
             "name": "men's clothing",
-            "folder": "men's clothing"
+            "folder": "men's clothing",
+            "variations": [
+                {
+                    "type": "size",
+                    "options": ["M", "L", "XL"]
+                },
+                {
+                    "type": "color",
+                    "options": ["Black", "White"]
+                }
+            ]
+        },
+        {
+            "name": "electronics",
+            "folder": "electronics",
+            "variations": [
+                {
+                    "type": "warranty",
+                    "options": ["1 year", "2 years"]
+                },
+                {
+                    "type": "color",
+                    "options": ["Black", "Silver", "White"]
+                },
+                {
+                    "type": "size",
+                    "options": ["Small", "Medium", "Large"]
+                }
+            ]
         },
         {
             "name": "women",
-            "folder": "women"
+            "folder": "women",
+            "variations": [
+                {
+                    "type": "size",
+                    "options": ["S", "M", "L", "XL"]
+                },
+                {
+                    "type": "color",
+                    "options": ["Red", "Blue", "Green", "Black", "White"]
+                }
+            ]
         },
         {
-            "name": "shoes",
-            "folder": "shoes"
+            "name": "men",
+            "folder": "men",
+            "variations": [
+                {
+                    "type": "size",
+                    "options": ["S", "M", "L", "XL"]
+                },
+                {
+                    "type": "color",
+                    "options": ["Black", "White", "Gray", "Blue"]
+                }
+            ]
+        },
+        {
+            "name": "kids",
+            "folder": "kids",
+            "variations": [
+                {
+                    "type": "size",
+                    "options": ["0-3 months", "3-6 months", "6-12 months", "1-2 years", "2-3 years"]
+                },
+                {
+                    "type": "color",
+                    "options": ["Pink", "Blue", "Yellow", "Green"]
+                }
+            ]
+        },
+        {
+            "name": "beauty",
+            "folder": "beauty",
+            "variations": [
+                {
+                    "type": "size",
+                    "options": ["Small", "Medium", "Large"]
+                },
+                {
+                    "type": "color",
+                    "options": ["Natural", "Bronze", "Rose", "Deep"]
+                }
+            ]
+        },
+        {
+            "name": "fragrances",
+            "folder": "fragrances",
+            "variations": [
+                {
+                    "type": "size",
+                    "options": ["30ml", "50ml", "100ml"]
+                },
+                {
+                    "type": "scent",
+                    "options": ["Floral", "Woody", "Citrus", "Spicy"]
+                }
+            ]
+        },
+        {
+            "name": "furniture",
+            "folder": "furniture",
+            "variations": [
+                {
+                    "type": "material",
+                    "options": ["Wood", "Metal", "Glass", "Plastic"]
+                },
+                {
+                    "type": "color",
+                    "options": ["Brown", "Black", "White", "Gray"]
+                },
+                {
+                    "type": "size",
+                    "options": ["Small", "Medium", "Large"]
+                }
+            ]
+        },
+        {
+            "name": "groceries",
+            "folder": "groceries",
+            "variations": [
+                {
+                    "type": "size",
+                    "options": ["500g", "1kg", "2kg"]
+                },
+                {
+                    "type": "packaging",
+                    "options": ["Bag", "Box", "Bottle"]
+                }
+            ]
+        },
+        {
+            "name": "jewelery",
+            "folder": "jewelery",
+            "variations": [
+                {
+                    "type": "material",
+                    "options": ["Gold", "Silver", "Platinum"]
+                },
+                {
+                    "type": "size",
+                    "options": ["Small", "Medium", "Large"]
+                }
+            ]
         }
-    ],
-    "products": [
+    ]
+,
+
+"products": [
 
         {
             "id": 1,

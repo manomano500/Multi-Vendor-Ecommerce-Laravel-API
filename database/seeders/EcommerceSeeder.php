@@ -7,6 +7,8 @@ use App\Models\Store;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\Category;
+use App\Models\Variation;
+use App\Models\Attribute;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -22,26 +24,18 @@ class EcommerceSeeder extends Seeder
         // Path to the 'data' directory
         $dataPath = database_path('data/fakestore_data');
 
-        // Get folder names as categories
-        $folderNames = array_filter(File::directories($dataPath), function ($folder) {
-            return is_dir($folder);
-        });
-
         // Load JSON data
         $jsonFilePath = $dataPath . '/fakestore_data.json';
         $jsonData = json_decode(File::get($jsonFilePath), true);
 
         $storeCount = 1;
 
-        foreach ($folderNames as $folderPath) {
-            $folderName = basename($folderPath);
-
+        foreach ($jsonData['categories'] as $categoryData) {
             // Create category
-/*            $category = Category::firstOrCreate(['name' => $folderName]);*/
             $category = Category::firstOrCreate([
                 'name' => [
-                    'en' => $folderName,             // Store the folder name in English
-                    'ar' => $this->translateToArabic($folderName) // Store the folder name in Arabic
+                    'en' => $categoryData['name'],
+                    'ar' => $this->translateToArabic($categoryData['name'])
                 ],
             ]);
 
@@ -54,37 +48,39 @@ class EcommerceSeeder extends Seeder
                 'description' => 'Description for Store ' . $storeCount,
                 'user_id' => $user->id,
                 'category_id' => $category->id,
-                'image' => $faker->imageUrl($width = 640, $height = 480, 'business', true), // Generate a fake image URL
+                'image' => $faker->imageUrl($width = 640, $height = 480, 'business', true),
                 'address' => '123 Main St',
                 'status' => 'active',
             ]);
 
             // Filter products for this category from JSON data
-            $products = array_filter($jsonData['products'], function ($product) use ($folderName) {
-                return $product['category'] === $folderName;
+            $products = array_filter($jsonData['products'], function ($product) use ($categoryData) {
+                return $product['category'] === $categoryData['name'];
             });
 
-            $productCount = 1;
+            if (empty($products)) {
+                $this->command->info("No products found for category: " . $categoryData['name']);
+            }
+
             foreach ($products as $productData) {
                 try {
-                    $productName = $productData['title'];
-                    $productDescription = $productData['description']; // Use the description from JSON
-
                     // Handle multiple images
-                    $imagePaths = $productData['images'];
+                    $imagePaths = $productData['images'] ?? []; // Handle cases where 'images' might be missing
                     $storedImagePaths = [];
                     foreach ($imagePaths as $index => $imageUrl) {
-                        $imagePath = $dataPath . '/' . $folderName . '/' . basename($imageUrl);
+                        $imagePath = $dataPath . '/' . $categoryData['folder'] . '/' . basename($imageUrl);
                         if (File::exists($imagePath)) {
-                            $storedImagePath = $this->storeImage($imagePath, $productName, $index);
+                            $storedImagePath = $this->storeImage($imagePath, $productData['title'], $index);
                             $storedImagePaths[] = $storedImagePath;
+                        } else {
+                            $this->command->warn("Image not found: " . $imagePath);
                         }
                     }
 
                     // Create product
                     $product = Product::create([
-                        'name' => $productName,
-                        'description' => $productDescription,
+                        'name' => $productData['title'],
+                        'description' => $productData['description'] ?? $productData['title'], // Fallback to title if description is missing
                         'price' => $productData['price'],
                         'quantity' => rand(1, 100),
                         'category_id' => $category->id,
@@ -100,7 +96,25 @@ class EcommerceSeeder extends Seeder
                         ]);
                     }
 
-                    $productCount++;
+                    // Attach variations based on category
+                    if (isset($categoryData['variations'])) {
+                        foreach ($categoryData['variations'] as $variationData) {
+                            $attribute = Attribute::firstOrCreate(['name' => $variationData['type']]);
+
+                            foreach ($variationData['options'] as $option) {
+                                $variation = Variation::firstOrCreate([
+                                    'attribute_id' => $attribute->id,
+                                    'value' => $option,
+                                ]);
+
+                                // Attach the variation to the product
+                                $product->variations()->attach($variation->id);
+                            }
+                        }
+                    } else {
+                        $this->command->info("No variations found for category: " . $categoryData['name']);
+                    }
+
                 } catch (Exception $e) {
                     // Handle exception
                     $this->command->error("Failed to store image or create product: " . $e->getMessage());
@@ -111,17 +125,8 @@ class EcommerceSeeder extends Seeder
         }
     }
 
-    /**
-     * Store the image and return the path.
-     *
-     * @param string $imagePath
-     * @param string $productName
-     * @param int $index
-     * @return string
-     */
     protected function storeImage(string $imagePath, string $productName, int $index): string
     {
-        // Check if the image file exists before attempting to fetch it
         if (!File::exists($imagePath)) {
             throw new Exception("Image file not found: " . $imagePath);
         }
@@ -135,17 +140,8 @@ class EcommerceSeeder extends Seeder
         return 'images/products/' . $filename;
     }
 
-    /**
-     * Translate the category name to Arabic.
-     *
-     * @param string $name
-     * @return string
-     */
     protected function translateToArabic(string $name): string
     {
-        // Implement a translation method here
-        // You could use a translation API or a manual mapping of known category names
-        // Example:
         $translations = [
             'women' => 'نساء',
             'men' => 'رجال',

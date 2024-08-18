@@ -21,7 +21,7 @@ public $incrementing = true;
 
 
 
-    protected $fillable = ['order_id', 'product_id', 'quantity', 'price', 'store_id', 'status', ];
+    protected $fillable = ['order_id', 'product_id', 'quantity', 'price', 'store_id', 'status','variations' ];
 
     public function order()
     {

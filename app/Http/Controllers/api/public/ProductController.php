@@ -25,7 +25,7 @@ class ProductController extends Controller
     {
         try {
             $product = Product::status('active')->findOrFail($id);
-            return  new ProductResource($product->load('category'));
+            return  new ProductResource($product->load(['category','variations.attribute',]));
         } catch (Exception $e) {
             return response()->json(['message' => 'Product not found', 'error' => $e->getMessage()], 404);
         }

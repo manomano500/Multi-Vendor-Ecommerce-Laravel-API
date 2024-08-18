@@ -17,7 +17,9 @@ class OrderRequest extends FormRequest
             'payment_method' => 'required|string|in:Adfali,Sadad,localBankCards,pay_on_deliver',
             'mobile_number' => 'required_if:payment_method,Adfali,Sadad|nullable|string|max:15',
 
-//            'products.*.variations' => 'required|array',
+            'products.*.variations' => 'required|array',
+            'product.*.variations.*.attribute' => 'required',
+            'product.*.variations.*.value' => 'required',
 //            'products.*.variations.*.variation_id' => 'required|exists:variations,id',
 
         ];

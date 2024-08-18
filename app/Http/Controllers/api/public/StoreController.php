@@ -84,7 +84,7 @@ class StoreController extends Controller
                         return URL::to('/') . '/storage/' . $image->image;
                     })->values()
                     : [],
-                'variations' => isset($variations[$product->id])
+        /*        'variations' => isset($variations[$product->id])
                     ? $variations[$product->id]->map(function ($variation) {
                         return [
                             'id' => $variation->id,
@@ -93,7 +93,7 @@ class StoreController extends Controller
                             // Add other variation fields as needed
                         ];
                     })->values()
-                    : [],
+                    : [],*/
             ];
         });
 
