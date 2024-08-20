@@ -11,8 +11,8 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->unsignedBigInteger('user_id')->unique();
-            $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('user_id')->unique()->index();
+            $table->unsignedBigInteger('category_id')->nullable()->index();
             $table->string('address');
 
             $table->string('image')->nullable();

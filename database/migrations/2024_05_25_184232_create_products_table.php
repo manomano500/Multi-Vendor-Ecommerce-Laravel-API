@@ -12,9 +12,9 @@ return new class extends Migration {
             $table->string('name');
             $table->text('description');
             $table->unsignedInteger('quantity')->default(0);
-            $table->foreignId('category_id');
+            $table->foreignId('category_id')->index();
 
-            $table->foreignId('store_id');
+            $table->foreignId('store_id')->index();
 
             $table->double('price');
 

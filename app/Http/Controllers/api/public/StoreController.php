@@ -19,11 +19,12 @@ class StoreController extends Controller
         $cacheKey = 'stores_' . md5(serialize(request()->query()));
 
         $stores = Cache::remember($cacheKey, 5, function () {
-            return Store::whereHas('products')
-                ->filter(request()->query())
-                ->with('category')
-                ->paginate(10);
+            return Store::filter(request()->query())
+
+                ->with(['category'])
+                ->paginate(20);
         });
+
 
         // Check if the stores collection is empty
         if ($stores->isEmpty()) {
@@ -101,7 +102,7 @@ class StoreController extends Controller
             'id' => $store->id,
             'name' => $store->name,
             'description' => $store->description,
-            'image' => ";store->image",
+            'image' => Store::getImageUrl($store->image),
             'status' => $store->status,
             'products' => $transformedProducts,
         ];

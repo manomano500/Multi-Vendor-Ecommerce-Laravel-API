@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api\public;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Product\ProductVendorAllCollection;
+use App\Http\Resources\ProductIndexResource;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Exception;
@@ -15,9 +16,9 @@ class ProductController extends Controller
     public function index(Request $request)
 
     {
-        $products = Product::filter($request->query())->with('category')->get();
+        $products = Product::filter($request->query())->with(['category','variations.attribute','images'])->paginate(15);
         Log::info('products: ' . $products);
-        return new ProductVendorAllCollection($products);
+        return ProductIndexResource::collection($products);
     }
 
 

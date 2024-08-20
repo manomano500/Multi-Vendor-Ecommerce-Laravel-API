@@ -9,20 +9,22 @@ return new class extends Migration {
     {
         Schema::create('order_product', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id')->constrained()->onDelete('cascade');
-            $table->foreignId('product_id')->nullable()->constrained()->onDelete('set null');
-            $table->unsignedBigInteger('store_id');
+            $table->unsignedBigInteger('order_id');
+            $table->unsignedBigInteger('product_id');
+                $table->unsignedBigInteger('store_id');
             $table->enum('status', ['pending','in_stock', 'cancelled', ])->default('pending');
 
             $table->integer('quantity')->default(1);
             $table->json('variations')->nullable();
             $table->decimal('price', 10, 2);
 //            $table->timestamps();
+$table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
 
 
             $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
 
-            $table->unique(['order_id', 'product_id']);
+//            $table->unique(['order_id', 'product_id']);
         });
     }
 

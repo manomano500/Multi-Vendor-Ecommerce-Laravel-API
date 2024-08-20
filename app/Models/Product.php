@@ -23,6 +23,7 @@ protected $hidden=['created_at','updated_at','deleted_at'];
         'category_id',
         'price',
         'status',
+
     ];
     public function scopeStatus(Builder $builder, $status)
     {
@@ -41,7 +42,20 @@ protected $hidden=['created_at','updated_at','deleted_at'];
         'sort' => null,//url?
         'limit' => null,
         'page' => null,
+         'variations' => null,
      ], $filters);
+
+        $builder->when($options['variations'], function ($query, $variations) {
+            foreach ($variations as $attributeName => $values) {
+                // Join with variations table and filter efficiently
+                $query->whereHas('variations', function ($q) use ($attributeName, $values) {
+                    $q->whereHas('attribute', function ($q) use ($attributeName) {
+                        $q->where('name', $attributeName);
+                    })->whereIn('value', (array)$values);
+                });
+            }
+        });
+
 
         $builder->when($options['status'], function ($query, $status) {
             $query->where('status', $status);

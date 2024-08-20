@@ -35,22 +35,21 @@ class CategoryController extends Controller
     {
         // Cache the categories for 60 minutes
         $categories = Cache::remember('categories_with_stores', 60, function () {
-            return Category::parent()->whereHas('stores')->get(['id', 'name']);
+            return Category::
+          whereHas('stores')
+                ->get(['id','name'])
+                ->map(function ($category) {
+                    return [
+                        'id' => $category->id,
+                        'name' => $category->getTranslation('name', app()->getLocale())
+                    ];
+                });
         });
+Log::info($categories);
 
-        // Extract and return the name based on the current locale
-        $categories = $categories->map(function ($category) {
-            return [
-                'id' => $category->id,
-                'name' => $category->getTranslation('name', app()->getLocale())
-            ];
-        });
-
-        // Log the categories for debugging
-        Log::info($categories);
-
-        return $categories;
+        return response()->json($categories); // Return as JSON if this is an API endpoint
     }
+
 
 
     /**

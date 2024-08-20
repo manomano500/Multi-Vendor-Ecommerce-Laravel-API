@@ -1,0 +1,110 @@
+{
+    "stores": [
+        {
+            "name": "shein",
+            "description": "A diverse selection of items including clothing, electronics, and home goods. Find something for everyone at this store.",
+            "image": "store_images/0_ffwavcctxNDNGqQd.jpg",
+            "category": "jewelery"
+        },
+        {
+            "name": "Altron Grand",
+            "description": "Fashion-forward store offering the latest trends in clothing and accessories for all ages.",
+            "image": "store_images/416053168_763133005856741_7521247943647472847_n.jpg",
+            "category": "women"
+        },
+        {
+            "name": "Cat",
+            "description": "A variety of stylish and functional products for everyday use, from fashion to electronics.",
+            "image": "store_images/cat1868.jpg",
+            "category": "electronics"
+        },
+        {
+            "name": "Chanel",
+            "description": "Luxury fashion and accessories store featuring high-end clothing, handbags, and more.",
+            "image": "store_images/Chanel.png",
+            "category": "men"
+        },
+        {
+            "name": "christian-dior-new",
+            "description": "High fashion store offering the latest collections of luxury clothing, accessories, and fragrances.",
+            "image": "store_images/christian-dior-new3874.jpg",
+            "category": "beauty"
+        },
+        {
+            "name": "Dior House",
+            "description": "Exclusive fashion and beauty products from a world-renowned luxury brand.",
+            "image": "store_images/Dior_Logo.svg.png",
+            "category": "beauty"
+        },
+        {
+            "name": "Gucci Home",
+            "description": "Upscale store offering a range of luxury fashion items, including clothing, accessories, and footwear.",
+            "image": "store_images/Gucci-Logo.png",
+            "category": "men's clothing"
+        },
+        {
+            "name": "Ikea",
+            "description": "Furniture and home decor store offering a variety of stylish and practical items for your home.",
+            "image": "store_images/Ikea_logo.svg.png",
+            "category": "furniture"
+        },
+        {
+            "name": "Levi's",
+            "description": "A mix of home goods, fashion, and tech products available at affordable prices.",
+            "image": "store_images/image-11.png",
+            "category": "groceries"
+        },
+        {
+            "name": "Mobile Share",
+            "description": "Luxury brand offering a range of high-quality fashion and beauty products.",
+            "image": "store_images/logo-dior_mobile_share.jpg",
+            "category": "beauty"
+        },
+        {
+            "name": "Loreal",
+            "description": "Top beauty and skincare products from a leading global brand.",
+            "image": "store_images/Loreal-Logo.jpg",
+            "category": "beauty"
+        },
+        {
+            "name": "marca-shein",
+            "description": "Trendy clothing and accessories store with a focus on contemporary fashion.",
+            "image": "store_images/marca-shein.jpg",
+            "category": "women"
+        },
+        {
+            "name": "Puma ",
+            "description": "Sportswear and athletic gear store offering a wide range of high-performance clothing and footwear.",
+            "image": "store_images/puma-logo-illustration-free-vector.jpg",
+            "category": "shoes"
+        },
+        {
+            "name": "Shoes House",
+            "description": "Renowned brand for sports and casual wear, featuring a wide selection of shoes and apparel.",
+            "image": "store_images/Puma-logo.png",
+            "category": "shoes"
+        },
+
+
+
+        {
+            "name": "متجر البروفيسور",
+            "description": "Bookstore and educational resources store with a wide selection of academic and recreational reading materials.",
+            "image": "store_images/متجر البروفيسور.jpg",
+            "category": "electronics"
+        },
+        {
+            "name": "متجر البيت العصري",
+            "description": "Home goods and decor store offering a variety of stylish and functional items for your living space.",
+            "image": "store_images/blank.jpg",
+            "category": "furniture"
+        },
+        {
+            "name": "Kids Store",
+            "description": "Children's clothing and toy store with a wide selection of fun and educational products for kids of all ages.",
+            "image": "store_images/blank.jpg",
+            "category": "kids"
+        }
+
+    ]
+}

@@ -8,6 +8,8 @@ use App\Http\Resources\OrderVendorResource;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class OrderVendorController extends Controller
 {
@@ -17,7 +19,7 @@ class OrderVendorController extends Controller
     {
         $storeId =Auth::user()->store->id;
 
-        $orderIds = OrderProduct::where('store_id', $storeId)
+      /*  $orderIds = OrderProduct::where('store_id', $storeId)
             ->pluck('order_id')
             ->unique();
 
@@ -28,15 +30,16 @@ class OrderVendorController extends Controller
 
 
             ->get()
-        ;
+        ;*/
 
 
+Log::info('e');
         // Get orders with their products using the scope
 //        $orders = Order::withStoreProducts($storeId)->get();
 
         // Structure the data
 //return $orders;
-        return  OrderVendorResource::collection($orders) ;
+//        return  OrderVendorResource::collection($orders) ;
 //
 
 

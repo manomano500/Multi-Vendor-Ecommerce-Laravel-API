@@ -18,7 +18,7 @@ class StoreResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'image' => $this->image,
+            'image' => url('storage/'.$this->image),
 //            'category' => $this->category->name,
             'status' => $this->status,
 //            'status' => $this->status,

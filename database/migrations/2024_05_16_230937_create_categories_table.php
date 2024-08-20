@@ -14,7 +14,11 @@ return new class extends Migration {
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories');
+            $table->index('category_id'); // Add index for foreign key if querying frequently
+
         });
+
+
     }
 
     public function down(): void

@@ -25,6 +25,13 @@ class ProductVendorAllResource extends JsonResource
 
 
             'price' => $this->price,
+            'variations' =>$this->variations->map(function ($variation) {
+                return [
+                    'attribute' => $variation->attribute->name,
+                    'variation_id' => $variation->id,
+                    'value' => $variation->value,
+                ];
+            }),
             'status' => $this->status,
 
 

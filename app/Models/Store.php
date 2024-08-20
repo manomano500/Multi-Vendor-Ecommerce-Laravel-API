@@ -10,10 +10,7 @@ class Store extends Model
 {
     use HasFactory;
 
-    public function scopeStatus(Builder $builder, $status)
-    {
-        $builder->where('status', $status);
-    }
+
 
     public function scopeFilter(Builder $builder, $filters)
     {
@@ -73,10 +70,6 @@ class Store extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function city()
-    {
-        return $this->belongsTo(City::class);
-    }
 
     // New function to get category name
 
@@ -93,11 +86,10 @@ class Store extends Model
 
 
 
-public function getImageUrlAttribute()
-{
-    return url('storage/' . $this->image);
-
-}
+    public static function getImageUrl(string $imagePath): string
+    {
+        return url('storage/' . $imagePath);
+    }
 
 
 

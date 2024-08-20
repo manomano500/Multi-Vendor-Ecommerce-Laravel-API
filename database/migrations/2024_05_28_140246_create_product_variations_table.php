@@ -9,9 +9,8 @@ return new class extends Migration {
     {
         Schema::create('product_variations', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_id');
-            $table->unsignedBigInteger('variation_id');
-            $table->timestamps();
+            $table->unsignedBigInteger('product_id')->index();
+            $table->unsignedBigInteger('variation_id')->index();
 
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('variation_id')->references('id')->on('variations')->onDelete('cascade');

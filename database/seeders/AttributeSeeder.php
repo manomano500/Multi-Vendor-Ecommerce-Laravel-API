@@ -21,7 +21,8 @@ class AttributeSeeder extends Seeder
             ['name' => 'Weight'],
             ['name' => 'Height'],
             ['name' => 'Width'],
-            ['name' => 'Length']
+            ['name' => 'Length'],
+
 
         ];
 

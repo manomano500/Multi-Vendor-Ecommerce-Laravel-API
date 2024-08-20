@@ -14,7 +14,7 @@ class StoreSeeder extends Seeder
         $storeCount = 1; // Initialize the store counter
 
         // Create stores
-        $stores = Store::factory()->count(30)->create()->each(function ($store) use (&$storeCount) {
+        $stores = Store::factory()->count(90)->create()->each(function ($store) use (&$storeCount) {
             // Update the store with a unique name
             $store->update([
                 'name' => 'St ' . $storeCount,
@@ -24,7 +24,7 @@ class StoreSeeder extends Seeder
             $productCount = 1;
 
             // Create products for each store
-            Product::factory()->count(50)->create()->each(function ($product) use ($store, &$productCount, $storeCount) {
+            Product::factory()->count(79)->create()->each(function ($product) use ($store, &$productCount, $storeCount) {
                 // Update the product with the store_id and a unique name
                 $product->update([
                     'store_id' => $store->id,

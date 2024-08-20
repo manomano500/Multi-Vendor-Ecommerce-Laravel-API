@@ -9,7 +9,8 @@ return new class extends Migration {
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
+
+$table->unsignedBigInteger('user_id')->index();
             $table->decimal('order_total', 10, 2);
             $table->enum('status', ['pending', 'processing', 'ready_for_shipment', 'in_the_way', 'delivered', 'cancelled'])->default('pending');
 
@@ -17,6 +18,7 @@ return new class extends Migration {
             $table->string('payment_status', )->default('pending');
 
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

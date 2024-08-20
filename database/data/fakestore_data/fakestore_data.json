@@ -1,7 +1,25 @@
 
 {
 
-    "categories": [
+"categories": [
+    {
+        "name": "pharmacy",
+        "folder": "pharmacy",
+        "variations": [
+            {
+                "type": "size",
+                "options": ["Small", "Medium", "Large", "Extra Large"]
+            },
+            {
+                "type": "color",
+                "options": ["White", "Blue", "Green", "Red", "Yellow"]
+            },
+            {
+                "type": "material",
+                "options": ["Plastic", "Metal", "Glass"]
+            }
+        ]
+    },
         {
             "name": "shoes",
             "folder": "shoes",
@@ -208,9 +226,7 @@
                 }
             ]
         }
-    ]
-,
-
+    ],
 "products": [
 
         {

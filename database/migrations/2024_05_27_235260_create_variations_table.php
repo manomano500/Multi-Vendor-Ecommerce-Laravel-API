@@ -9,11 +9,12 @@ return new class extends Migration {
     {
         Schema::create('variations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('attribute_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('attribute_id')->index();
 
             $table->string('value');
             $table->timestamps();
 
+            $table->foreign('attribute_id')->references('id')->on('attributes')->onDelete('cascade');
 //            $table->foreign('attribute_id')->references('id')->on('attributes')->onDelete('cascade');
 
       $table->unique(['attribute_id', 'value']);

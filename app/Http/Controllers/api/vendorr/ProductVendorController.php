@@ -36,14 +36,12 @@ class ProductVendorController extends Controller
 
 
         $products = Product::where('store_id', Auth::user()->store->id)
-            ->load('category')
+                ->with('category')
             ->get()
 
         ;
 
-        return  ProductVendorAllCollection::make(
-            $products
-        );
+        return  ProductVendorAllCollection::make($products );
 
     }
         public function store(Request $request)
