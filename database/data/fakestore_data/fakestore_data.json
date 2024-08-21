@@ -10,6 +10,7 @@
                 "type": "size",
                 "options": ["Small", "Medium", "Large", "Extra Large"]
             },
+
             {
                 "type": "color",
                 "options": ["White", "Blue", "Green", "Red", "Yellow"]
@@ -27,6 +28,10 @@
                 {
                     "type": "color",
                     "options": ["Red", "Blue", "Green", "Black", "White"]
+                },
+                {
+                    "type": "brand",
+                    "options": ["Johnson & Johnson", "Pfizer", "GSK", "Bayer","nike","puma"]
                 },
                 {
                     "type": "size",

@@ -36,64 +36,57 @@ class ProductVendorController extends Controller
 
 
         $products = Product::where('store_id', Auth::user()->store->id)
-                ->with('category')
-            ->get()
+            ->with('category')
+            ->get();
 
-        ;
-
-        return  ProductVendorAllCollection::make($products );
+        return ProductVendorAllCollection::make($products);
 
     }
-        public function store(Request $request)
-        {
 
-         $productRequest = ProductRequest::createFrom($request);
-         $validated =Validator::make($productRequest->all(), $productRequest->rules());
-         if ($validated->fails()) {
-                return response()->json(['message' => $validated->errors()], 400);
-    }
-
-try {
-    $product =new Product($productRequest->only(
-        [
-            'name',
-            'description',
-            'quantity',
-            'category_id',
-            'price',
-            'status',
-
-        ]));
-    $product->store_id = Auth::user()->store->id;
-    $product->save();
-    if ($request->hasFile('images')) {
-        $images = [];
-        foreach ($request->file('images') as $image) {
-            // Create a meaningful filename
-            $filename = Str::slug($productRequest['name']) . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
-            $path = $image->storeAs('images/products', $filename, 'public');
-            $images[] = [
-                'product_id' => $product->id,
-                'image' => $path,
-            ];
+    public function store(Request $request)
+    {
+        $productRequest = ProductRequest::createFrom($request);
+        $validated = Validator::make($productRequest->all(), $productRequest->rules());
+        if ($validated->fails()) {
+            return response()->json(['message' => $validated->errors()], 400);
         }
 
-        // Batch insert images
-        ProductImage::insert($images);
+        try {
+            $product = new Product($productRequest->only(
+                [
+                    'name',
+                    'description',
+                    'quantity',
+                    'category_id',
+                    'price',
+                    'status',
 
+                ]));
+            $product->store_id = Auth::user()->store->id;
+            $product->save();
+            if ($request->hasFile('images')) {
+                $images = [];
+                foreach ($request->file('images') as $image) {
+                    // Create a meaningful filename
+                    $filename = Str::slug($productRequest['name']) . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
+                    $path = $image->storeAs('images/products', $filename, 'public');
+                    $images[] = [
+                        'product_id' => $product->id,
+                        'image' => $path,
+                    ];
+                }
+
+                // Batch insert images
+                ProductImage::insert($images);
+            }
+            $product->variations()->attach($request->input('variations'));
+            return response()->json(['message' => 'Product created successfully', 'data' => new ProductResource($product),], 201);
+        } catch (Exception $e) {
+        }
+        return response()->json(['message' => 'Failed to create product', 'error' => $e->getMessage()], 500);
 
 
     }
-
-
-    $product->variations()->attach($request->input('variations'));
-    return response()->json(['message' => 'Product created successfully', 'data' => new ProductResource($product),], 201);
-}
-catch (Exception $e) {}
-         return response()->json(['message' => 'Failed to create product', 'error' => $e->getMessage()], 500);
-
-
-        }
 
     public function show($id)
     {
@@ -101,16 +94,16 @@ catch (Exception $e) {}
 
         $product = Product::where('id', $id)
             ->where('store_id', $storeId)
-            ->with('variations.attribute','category','images')
+            ->with('variations.attribute', 'category', 'images')
             // Eager load related data if needed
             ->find($id);
-        if(!$product){
+        if (!$product) {
             return response()->json(['message' => 'Product not found '], 404);
 
         }
-        return  Response()->json(['message'=>'Product found',
-            'data'=>new ProductResource($product)]
-            ,200);
+        return Response()->json(['message' => 'Product found',
+                'data' => new ProductResource($product)]
+            , 200);
 
     }
 
@@ -129,7 +122,7 @@ catch (Exception $e) {}
             'price' => 'sometimes|required|numeric',
             'images' => 'sometimes|required|array',
             "images.*" => 'sometimes|required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-          'deleted_images' => 'sometimes|required|array',
+            'deleted_images' => 'sometimes|required|array',
             'deleted_images.*' => 'sometimes|required|integer|exists:product_images,id',
             'variations' => 'sometimes|required|array',
             'variations.*' => 'sometimes|required|integer|nullable|distinct|exists:variations,id',
@@ -140,8 +133,8 @@ catch (Exception $e) {}
             return response()->json(['message' => $validated->errors()], 400);
         }
 
-        $updatedProduct =  $this->productService->updateProduct($id,$request);
-        return Response()->json(['message'=>'Product updated successfully', 'data'=>new ProductAdminResource($updatedProduct)],200);
+        $updatedProduct = $this->productService->updateProduct($id, $request);
+        return Response()->json(['message' => 'Product updated successfully', 'data' => new ProductAdminResource($updatedProduct)], 200);
 
 
     }
@@ -153,7 +146,7 @@ catch (Exception $e) {}
         try {
 
             $product = Product::findOrFail($id);
-            if($product->store_id != Auth::user()->store->id){
+            if ($product->store_id != Auth::user()->store->id) {
                 return response()->json(['message' => 'Product not found'], 404);
             }
             $product->delete();

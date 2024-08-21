@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\OrderResource;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Services\SabilService;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,6 +15,13 @@ use Illuminate\Support\Facades\Validator;
 
 class OrderAdminController extends Controller
 {
+
+    protected $sabilService;
+
+    public function __construct(SabilService $sabilService)
+    {
+        $this->sabilService = $sabilService;
+    }
     public function index()
     {
 
@@ -24,8 +32,8 @@ class OrderAdminController extends Controller
 
     public function show($id)
     {
-        $loadOrder = Order::findOrFail($id)
-            ->load(['products.store','user',]);
+      /*  $loadOrder = Order::findOrFail($id)
+            ->load(['products.store','user',]);*/
         $order = Order::with('orderProducts', 'user','products')->findOrFail($id);
 //        return $order;
         return OrderResource::make($order);
@@ -102,6 +110,21 @@ $orderProduct->order()->update(['order_total'=>$productSubPrice]);
             DB::rollBack();
             Log::error($exception->getMessage());
             return response()->json(['message' => 'something went wrong','error'=>$exception->getMessage()], 500);
+        }
+    }
+
+
+
+    public function sendOrderToSabil($orderId)
+    {
+        try {
+            $response = $this->sabilService->sendOrder($orderId);
+
+
+
+            return $response;
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'An unexpected error occurred.'], 500);
         }
     }
 

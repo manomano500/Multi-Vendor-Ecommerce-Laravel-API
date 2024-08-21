@@ -22,7 +22,7 @@ class ProductResource extends JsonResource
             'price' => $this->price,
             'status' => $this->status,
             'quantity' => $this->quantity,
-            'images' => $this->images()->get()->map(function ($image) {
+            'images' => $this->images->map(function ($image) {
 //                return $image->image;
                 return $image->getImageUrlAttribute() ;
                 //TODO:  this line return the user uploaded images
