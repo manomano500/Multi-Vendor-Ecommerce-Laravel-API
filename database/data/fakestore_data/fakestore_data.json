@@ -31,7 +31,7 @@
                 },
                 {
                     "type": "brand",
-                    "options": ["Johnson & Johnson", "Pfizer", "GSK", "Bayer","nike","puma"]
+                    "options": ["nike","puma","adidas"]
                 },
                 {
                     "type": "size",
