@@ -15,10 +15,10 @@ class OrderSeeder extends Seeder
     public function run()
     {
         // Create 60 orders
-        $orders = Order::factory(60)->create();
+        $orders = Order::factory(20)->create();
 
         // Number of stores and products to fetch
-        $numberOfStores = 5;
+        $numberOfStores = 4;
         $numberOfProductsPerStore = 3;
 
         foreach ($orders as $order) {
