@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use App\Models\Store;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -20,7 +21,7 @@ class StoreFactory extends Factory
             'updated_at' => Carbon::now(),
             'name' => 'placeholder name',
             'description' => $this->faker->text(),
-            'category_id' => $this->faker->randomElement([1, 5, 9, 13, 17]),
+            'category_id' => Category::factory()->create()->id,
             'user_id' => $user->id, // Add this line
             'image' => $this->faker->imageUrl,
             'status' => $this->faker->randomElement(['active', 'inactive']),

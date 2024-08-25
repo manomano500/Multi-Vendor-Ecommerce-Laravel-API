@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api\public;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\VariationResource;
 use App\Models\Attribute;
+use App\Models\Product;
 use App\Models\Variation;
 use Illuminate\Http\Request;
 
@@ -18,6 +19,37 @@ class VariationController extends Controller
 
 
     }
+    // In your Laravel Controller
+    public function getAllVariations()
+    {
+        // Fetch all unique variation attributes and their values across all products
+        $variations = Variation::with('attribute')
+            ->get();
+        return response()->json(['variations' => $variations]);
+    }
+
+    public function filterProducts(Request $request)
+    {
+        $query = Product::query();
+
+        // Apply variation filters
+        if ($request->has('variations')) {
+            foreach ($request->input('variations') as $attributeName => $values) {
+                $query->whereHas('variations', function ($q) use ($attributeName, $values) {
+                    $q->whereHas('attribute', function ($q) use ($attributeName) {
+                        $q->where('name', $attributeName);
+                    })->whereIn('value', (array)$values);
+                });
+            }
+        }
+
+        // Additional filters (category, price, etc.) can be applied here
+
+        $products = $query->get();
+
+        return response()->json(['products' => $products]);
+    }
+
 
     public function store(Request $request)
     {

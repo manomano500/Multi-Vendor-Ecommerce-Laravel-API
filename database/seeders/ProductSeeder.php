@@ -15,15 +15,6 @@ class ProductSeeder extends Seeder
     {
        Product::factory(20)
            ->create()
-           ->each(function ($product) {
-               // For each product, create 3 images
-               ProductImageFactory::factory()
-                   ->count(4)
-                   ->create([
-                       'product_id' => $product->id,
-                       'image' => 'https://via.placeholder.com/150'
-                                          ]);
-           });
-    }
+;    }
 
 }

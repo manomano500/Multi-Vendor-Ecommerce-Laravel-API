@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\Store;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -22,9 +23,9 @@ class ProductFactory extends Factory
             'quantity' => $this->faker->numberBetween(1, 100),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'store_id' => Store::where('status', "=",'active')->first()->id ,
+            'store_id' => Store::factory()->create()->id,
 
-            'category_id' => 7,
+            'category_id' => Category::factory()->create()->id,
 
 
 

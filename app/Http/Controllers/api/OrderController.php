@@ -65,8 +65,7 @@ class OrderController extends Controller
 
             $processingResponse = $this->orderService->processPlutoOrderPayment($order, $request);
 
-            return $processingResponse;
-
+            return response()->json($processingResponse,201);
         } catch (Exception $e) {
             Log::error($e->getMessage());
             return response()->json(['message' => $e->getMessage()], 500);

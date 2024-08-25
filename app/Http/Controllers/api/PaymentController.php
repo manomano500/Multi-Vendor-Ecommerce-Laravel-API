@@ -58,7 +58,7 @@ if($response['status'] == 'success'){
 
 }
        Log::info( $response);
-        return response()->json($response);
+        return response()->json($response,200);
     }
 
 
@@ -117,5 +117,49 @@ if($response['status'] == 'success'){
         return response()->json($response);
 
     }
+
+
+    public function confirmMpgsPayment(Request $request)
+    {
+        $validated =Validator::make($request->all(), [
+            'process_id' => 'required|string',
+            'code' => 'required|string',
+            'amount' => 'required|numeric',
+        ]);
+
+        if($validated->fails()){
+            Log::info($validated->errors());
+            return response()->json($validated->errors(), 400);
+        }
+        $transaction = Transaction::where('process_id', $request->process_id)->first();
+
+        $response = $this->plutuService->confirmMpgsPayment($request->process_id, $request->code, $request->amount, $transaction->order_id);
+        if($response['status'] == 'success'){
+            $transaction->update([
+                'status' => 'success',
+                'transaction_id' => $response['transactionId'], // 'transaction_id' => '1234567890
+                'payment_response' => $response
+            ]);
+            $transaction->order->update([
+                'payment_status' => 'success'
+            ]);
+            $transaction->save();
+        }else {
+
+            $transaction->update([
+                'status' => 'failed',
+                'payment_response' => $response
+            ]);
+            $transaction->order->update([
+                'payment_status' => 'failed'
+            ]);
+            $transaction->save();
+
+        }
+
+    }
+
+
+
 
 }

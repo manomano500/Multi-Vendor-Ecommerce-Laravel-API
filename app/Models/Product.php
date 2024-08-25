@@ -31,23 +31,21 @@ protected $hidden=['created_at','updated_at','deleted_at'];
     }
     public function scopeFilter(Builder $builder, $filters)
     {
+        $options = array_merge([
+            'status' => 'active',
+            'category_id' => null,
+            'store_id' => null,
+            'search' => null,
+            'price' => null,
+            'sort' => null,
+            'limit' => null,
+            'page' => null,
+            'variations' => null,
+        ], $filters);
 
-     $options =array_merge([
-
-         'status' => 'active', // 'status' is added to the array with a default value of 'active
-        'category_id' => null,
-        'store_id' => null,
-        'search' => null,
-        'price' => null,
-        'sort' => null,//url?
-        'limit' => null,
-        'page' => null,
-         'variations' => null,
-     ], $filters);
-
+        // Filter by variations
         $builder->when($options['variations'], function ($query, $variations) {
             foreach ($variations as $attributeName => $values) {
-                // Join with variations table and filter efficiently
                 $query->whereHas('variations', function ($q) use ($attributeName, $values) {
                     $q->whereHas('attribute', function ($q) use ($attributeName) {
                         $q->where('name', $attributeName);
@@ -56,19 +54,19 @@ protected $hidden=['created_at','updated_at','deleted_at'];
             }
         });
 
-
+        // Other filters (status, category, store, etc.)
         $builder->when($options['status'], function ($query, $status) {
             $query->where('status', $status);
-
         });
+
         $builder->when($options['category_id'], function ($query, $category) {
             $query->where('category_id', $category);
-
         });
+
         $builder->when($options['store_id'], function ($query, $store) {
             $query->where('store_id', $store);
-
         });
+
         $builder->when($options['search'], function ($query, $search) {
             $query->where(function ($q) use ($search) {
                 $q->where('name', 'like', "%$search%")
@@ -78,19 +76,34 @@ protected $hidden=['created_at','updated_at','deleted_at'];
 
         $builder->when($options['price'], function ($query, $price) {
             $query->where('price', '<=', $price);
-
         });
+
         $builder->when($options['sort'], function ($query, $sort) {
-            $query->orderBy( $sort);
-
+            $query->orderBy($sort);
         });
+
         $builder->when($options['limit'], function ($query, $limit) {
             $query->limit($limit);
-
         });
 
-
+        return $builder;
     }
+
+
+
+    public function scopeFilterVariations(Builder $query, array $selectedAttributes)
+    {
+        foreach ($selectedAttributes as $attributeName => $value) {
+            $query->whereHas('variations', function ($q) use ($attributeName, $value) {
+                $q->whereHas('attribute', function ($q) use ($attributeName) {
+                    $q->where('name', $attributeName);
+                })->where('value', $value);
+            });
+        }
+
+        return $query;
+    }
+
 
 
     public function store()

@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Store;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -19,7 +20,7 @@ class StoreAdminResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'image' => $this->getImageUrlAttribute(),
+            'image' => Store::getImageUrl($this->image),
             'category' => $this->category->name,
             'status' => $this->status,
             'user' => $this->user->name,

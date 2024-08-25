@@ -40,6 +40,6 @@ class ChangePasswordController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        return response()->json(['status' => 'Password changed successfully.']);
+        return response()->json(['status' => 'Password changed successfully.'],200);
     }
 }

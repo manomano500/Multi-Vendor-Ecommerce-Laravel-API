@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94e92b97a62ae16fb512a8d6ac0c8964",
+    "content-hash": "48ac0bc783e05d52561f61accffef494",
     "packages": [
         {
             "name": "brick/math",
@@ -134,6 +134,65 @@
                 }
             ],
             "time": "2023-12-11T17:09:12+00:00"
+        },
+        {
+            "name": "curl/curl",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-mod/curl.git",
+                "reference": "67f7c490060751fbf24a02bc1ff3b32073aeb5e0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-mod/curl/zipball/67f7c490060751fbf24a02bc1ff3b32073aeb5e0",
+                "reference": "67f7c490060751fbf24a02bc1ff3b32073aeb5e0",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*",
+                "squizlabs/php_codesniffer": "~2.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Curl": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hassan Amouhzi",
+                    "email": "hassan@anezi.net",
+                    "homepage": "http://hassan.amouhzi.com"
+                },
+                {
+                    "name": "php-curl-class",
+                    "homepage": "https://github.com/php-curl-class"
+                },
+                {
+                    "name": "user52",
+                    "homepage": "https://github.com/user52"
+                }
+            ],
+            "description": "cURL class for PHP",
+            "homepage": "https://github.com/php-mod/curl",
+            "keywords": [
+                "curl",
+                "dot"
+            ],
+            "support": {
+                "issues": "https://github.com/php-mod/curl/issues",
+                "source": "https://github.com/php-mod/curl/tree/master"
+            },
+            "time": "2015-04-09T16:29:25+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -3879,6 +3938,40 @@
                 }
             ],
             "time": "2024-04-27T21:32:50+00:00"
+        },
+        {
+            "name": "scribble/scribble",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GoScribble/Scribble.git",
+                "reference": "d9fbda51dfafd5c5dfddd73ce41a8b7011e63cfa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GoScribble/Scribble/zipball/d9fbda51dfafd5c5dfddd73ce41a8b7011e63cfa",
+                "reference": "d9fbda51dfafd5c5dfddd73ce41a8b7011e63cfa",
+                "shasum": ""
+            },
+            "require": {
+                "curl/curl": "1.2.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Scribble\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Publish your blog posts across multiple blogging platforms and sites",
+            "support": {
+                "issues": "https://github.com/GoScribble/Scribble/issues",
+                "source": "https://github.com/GoScribble/Scribble/tree/master"
+            },
+            "time": "2015-05-09T20:34:49+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",

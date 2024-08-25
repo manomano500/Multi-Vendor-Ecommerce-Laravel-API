@@ -14,13 +14,12 @@ class OrderRequest extends FormRequest
                 'products' => 'required|array',
             'products.*.product_id' => 'required|exists:products,id,status,active',
             'products.*.quantity' => 'required|integer|min:1',
-            'payment_method' => 'required|string|in:Adfali,Sadad,localBankCards,pay_on_deliver',
+            'payment_method' => 'required|string|in:Adfali,Sadad,localBankCards,pay_on_deliver,mpgs',
             'mobile_number' => 'required_if:payment_method,Adfali,Sadad|nullable|string|max:15',
 
-            'products.*.variations' => 'required|array',
-            'product.*.variations.*.attribute' => 'required',
-            'product.*.variations.*.value' => 'required',
-//            'products.*.variations.*.variation_id' => 'required|exists:variations,id',
+            'products.*.variations' => 'array',
+            'product.*.variations.*.attribute' => '',
+            'product.*.variations.*.value' => '',
 
         ];
     }
@@ -32,17 +31,5 @@ class OrderRequest extends FormRequest
     }
 
 
-/*    protected function withValidator(Validator $validator)
-    {
-        $validator->after(function ($validator) {
-            $products = $this->input('products', []);
-            foreach ($products as $product) {
-                $attributeIds = array_column($product['variations'], 'attribute_id');
-                if (count($attributeIds) !== count(array_unique($attributeIds))) {
-                    $validator->errors()->add('products.*.variations', 'Duplicate attributes are not allowed.');
-                    break;
-                }
-            }
-        });
-    }*/
+
 }

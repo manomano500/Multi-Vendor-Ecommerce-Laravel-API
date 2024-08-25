@@ -47,7 +47,7 @@ class EcommerceSeeder extends Seeder
         $categories = $this->createCategories($this->jsonData['categories']);
 
         // Seed stores and products multiple times
-        for ($i = 0; $i < 6; $i++) {
+        for ($i = 0; $i < 1; $i++) {
             // Create stores
             $stores = $this->createStores($storesData['stores'], $categories);
 

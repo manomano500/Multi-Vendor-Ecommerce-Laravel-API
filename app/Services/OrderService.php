@@ -44,13 +44,12 @@ class OrderService
             // Validate that payment_method is provided
         Log::info($data);
 
-            $order = Order::create([
+/*            $order = Order::create([
                 'user_id' => $userId,
                 'status' => 'pending',
                 'payment_method' => $data['payment_method'], // Make sure this is set
                 'order_total' => 0,
-            ]);
-            Log::info('Order created', ['order' => $order->payment_method]);
+            ]);*/
 
             $orderTotal = 0;
 
@@ -69,6 +68,13 @@ class OrderService
 
                 }
                 $encodedVariations = json_encode($variations);
+                $order = Order::create([
+                    'user_id' => $userId,
+                    'status' => 'pending',
+                    'payment_method' => $data['payment_method'], // Make sure this is set
+                    'order_total' => 0,
+                ]);
+
                 if ($product) {
                 $orderProduct =    OrderProduct::create([
                         'order_id' => $order->id,
@@ -157,6 +163,11 @@ class OrderService
            $localBankResponse = $this->plutuService->localBankCards($order);
 
         return $localBankResponse;
+       }
+       if($request->payment_method == 'mpgs'){
+              $mpgsResponse = $this->plutuService->mpgs($order);
+
+              return $mpgsResponse;
        }
 
 

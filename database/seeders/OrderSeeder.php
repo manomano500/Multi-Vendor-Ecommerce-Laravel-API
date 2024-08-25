@@ -19,7 +19,7 @@ class OrderSeeder extends Seeder
 
         // Number of stores and products to fetch
         $numberOfStores = 4;
-        $numberOfProductsPerStore = 3;
+        $numberOfProductsPerStore = 5;
 
         foreach ($orders as $order) {
             // Fetch random stores

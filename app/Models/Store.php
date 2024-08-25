@@ -86,10 +86,12 @@ class Store extends Model
 
 
 
-    public static function getImageUrl(string $imagePath): string
+    public static function getImageUrl( $imagePath): string
     {
         return url('storage/' . $imagePath);
     }
+
+
 
 
 

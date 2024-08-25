@@ -6,24 +6,29 @@ use Exception;
 use Illuminate\Support\Facades\Log;
 use Plutu\Services\PlutuAdfali;
 use Plutu\Services\PlutuLocalBankCards;
+use Plutu\Services\PlutuMpgs;
 use Plutu\Services\PlutuSadad;
 
 class PlutuService
 {
+    protected string $returnUrl = 'http://localhost:8000/api/payment-success';
     protected $adfali;
     protected $sadad;
     protected $localBankCards;
+    protected  $mpgs;
 
     public function __construct()
     {
         $this->adfali = new PlutuAdfali;
         $this->sadad = new PlutuSadad;
         $this->localBankCards = new PlutuLocalBankCards;
+        $this->mpgs = new PlutuMpgs;
 
 
         $this->setCredentials($this->adfali);
         $this->setCredentials($this->sadad);
         $this->setCredentials($this->localBankCards);
+        $this->setCredentials($this->mpgs);
     }
 
     protected function setCredentials($service)
@@ -168,7 +173,7 @@ public function localBankCards(Order $order)
     $order =Order::findOrFail($order->id);
     try {
 
-        $response = $this->localBankCards->confirm($order->order_total, $order->id, 'http://localhost:8000/logged-in', '', 'en');
+        $response = $this->localBankCards->confirm($order->order_total, $order->id, $this->returnUrl, '', 'en');
 
         if ($response->getOriginalResponse()->isSuccessful()) {
 
@@ -190,5 +195,50 @@ public function localBankCards(Order $order)
             ];
         }
 }
+
+    public function mpgs(Order $order)
+    {
+        try {
+            // Ensure the order exists
+            $order = Order::findOrFail($order->id);
+
+            // Set the necessary parameters
+            $amount = $order->order_total;
+            $invoiceNo = $order->id;
+            $returnUrl = $this->returnUrl; // Set your actual return URL
+            $customerIp = request()->ip(); // Get the customer's IP address
+            $lang = 'ar'; // Set the preferred language
+
+            // Call the PlutuMpgs confirm method
+            $response = $this->mpgs->confirm($amount, $invoiceNo, $returnUrl, $customerIp, $lang);
+
+            // Check if the response is successful
+            if ($response->getOriginalResponse()->isSuccessful()) {
+                // Handle successful payment confirmation
+//
+                $order->save();
+
+                return $response->getOriginalResponse()->getBody();
+/*                    [
+                    'transactionId' => $response->getTransactionId(),
+                    'data' => $response->getOriginalResponse()->getBody(),
+                    'status' => 'success'
+                ];*/
+            } else {
+                // Handle failed payment
+                return [
+                    'error' => $response->getOriginalResponse()->getErrorMessage(),
+                    'status' => 'failed'
+                ];
+            }
+        } catch (Exception $e) {
+            // Handle any exceptions
+            return [
+                'exception' => $e->getMessage(),
+                'status' => 'failed'
+            ];
+        }
+    }
+
 
 }
