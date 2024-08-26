@@ -3,34 +3,74 @@
 namespace App\Http\Controllers\api\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Validator;
-
+use Illuminate\Support\Facades\DB;
 
 class CategoryAdminController extends Controller
 {
     public function index()
     {
-        $categories = Category::paginate(10);
-
-        return $categories;
-
+        $categories = Category::with('children')->parent()->get();
+        return response()->json($categories);
     }
 
-    public function update(Request $request,$id)
+
+    public function store(Request $request)
     {
-        $categoryRequest=CategoryRequest::createFrom($request);
-        $validated = Validator::make($request->all(), $categoryRequest->rules());
-        if ($validated->fails()) {
-            return response()->json(['message' => $validated->errors()], 400);
-        }
+        $validated = $request->validate([
+            'name.en' => 'required|string|max:255',
+            'name.ar' => 'required|string|max:255',
+            'parent_id' => 'nullable|exists:categories,id',
+        ]);
 
-        $category =Category::findOrFail($id);
-
-        $category->update(request()->all());
-
+        // Ensure that the category can be added even if the parent category has subcategories
+        // This logic allows nesting of categories.
+        $category = Category::create($validated);
+        return response()->json($category);
     }
 
+    public function update(Request $request, Category $category)
+    {
+        $validated = $request->validate([
+            'name.en' => 'required|string|max:255',
+            'name.ar' => 'required|string|max:255',
+            'parent_id' => 'nullable|exists:categories,id',
+        ]);
+
+        // Update the category without restrictions on parent categories having subcategories
+        $category->update($validated);
+        return response()->json($category);
+    }
+    public function show(Category $category)
+    {
+        return response()->json($category->load('children'));
+    }
+
+
+    public function destroy(Category $category)
+    {
+        DB::beginTransaction();
+        try {
+            // Delete all children categories recursively
+            $this->deleteChildrenRecursively($category);
+
+            // Delete the category itself
+            $category->delete();
+
+            DB::commit();
+            return response()->json(['message' => 'Category deleted successfully']);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json(['message' => 'Error deleting category', 'error' => $e->getMessage()], 500);
+        }
+    }
+
+    private function deleteChildrenRecursively(Category $category)
+    {
+        foreach ($category->children as $child) {
+            $this->deleteChildrenRecursively($child);
+            $child->delete();
+        }
+    }
 }

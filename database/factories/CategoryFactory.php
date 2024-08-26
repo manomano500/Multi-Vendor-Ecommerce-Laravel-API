@@ -16,7 +16,7 @@ class CategoryFactory extends Factory
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'name' => $this->faker->name(),
-            'category_id' => 1,
+//            'category_id' => ,
         ];
     }
 }

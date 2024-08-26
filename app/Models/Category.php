@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -13,10 +14,7 @@ class Category extends Model
     public $translatable = ['name'];
 
 
-    protected $fillable = [
-        'name',
-        'category_id',
-    ];
+    protected $fillable = ['name', 'type', 'category_id'];
 
     protected $hidden = [
         'created_at',
@@ -54,6 +52,15 @@ public function stores()
     return$this->hasMany(Store::class);
 
 }
+    public function scopeProduct(Builder $query)
+    {
+        return $query->where('type', 'product');
+    }
+
+    public function scopeStore(Builder $query)
+    {
+        return $query->where('type', 'store');
+    }
 
 
 }

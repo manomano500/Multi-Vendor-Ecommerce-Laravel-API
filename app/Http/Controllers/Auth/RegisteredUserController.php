@@ -32,9 +32,9 @@ class RegisteredUserController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => ['bail','required', 'string', 'max:255','min:3',],
             'email' => ['bail','required', 'string', 'lowercase', 'email', 'max:255','unique:' . User::class],
-            'password' => ['bail','required', 'confirmed', Rules\Password::defaults(),],
+            'password' => ['bail','required', 'confirmed','min:8', Rules\Password::defaults(),],
             "address" => "required|string",
-            "phone" => "required|string",
+            "phone" => "required|string|min:10|max:15",
         ]);
 
         if ($validator->fails()) {

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\admin\CategoryAdminController;
 use App\Http\Controllers\api\admin\OrderAdminController;
 use App\Http\Controllers\api\admin\ProductAdminController;
 use App\Http\Controllers\api\admin\StoreAdminController;
@@ -20,9 +21,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/categories',[ CategoryController::class,'index']);
-Route::post('/categories', [CategoryController::class, 'store']);
-Route::post('/categories/{id}',[CategoryController::class,'update']);
+
+
+Route::prefix('/categories')->group(function () {
+    Route::get('/', [CategoryAdminController::class, 'index']);
+    Route::post('/', [CategoryAdminController::class, 'store']);
+    Route::get('/{category}', [CategoryAdminController::class, 'show']);
+    Route::put('/{category}', [CategoryAdminController::class, 'update']);
+    Route::delete('/{category}', [CategoryAdminController::class, 'destroy']);
+});
+
+Route::post('/categories/{id}',[CategoryAdminController::class,'update']);
 //TODO
 
 Route::get('/statistics', [StatisticsController::class, 'adminStatistic']);
@@ -61,6 +70,7 @@ Route::put('/orders/{id}/status',[OrderAdminController::class,'updateOrderStatus
 Route::put('/orders/{order}/products/{product}/status', [OrderAdminController::class, 'updateOrderProductStatus']);
 
 
+//Route::post('/orders/{orderId}/send-to-sabil', [OrderAdminController::class, 'sendOrderToSabil']);
 
 
 Route::get('/notifications', [NotificationController::class, 'index']);

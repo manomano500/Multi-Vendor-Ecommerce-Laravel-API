@@ -11,6 +11,8 @@ return new class extends Migration {
             $table->id();
             $table->json('name');
             $table->unsignedBigInteger('category_id')->nullable();
+            $table->enum('type', ['store', 'product'])->index();  // Added to differentiate category types
+
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories');
