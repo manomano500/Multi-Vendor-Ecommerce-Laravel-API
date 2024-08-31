@@ -26,7 +26,7 @@ class ProductAdminController extends Controller
     public function index()
     {
 
-        $products = Product::with('category', 'store',)->
+        $products = Product::with('category', 'store','images')->
         paginate();
         Log::info($products);
         return  ProductAdminResource::collection($products);

@@ -11,7 +11,6 @@ use App\Http\Controllers\Auth\BecomeVendor;
 Route::post('/become-vendor', [BecomeVendor::class, 'becomeVendor']);
 
 
-Route::get('/categories', [CategoryController::class, 'queryCats']);
 //Route::get('/categories', [CategoryController::class, 'queryCats']);
 
 

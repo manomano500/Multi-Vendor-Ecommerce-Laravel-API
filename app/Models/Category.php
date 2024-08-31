@@ -14,7 +14,7 @@ class Category extends Model
     public $translatable = ['name'];
 
 
-    protected $fillable = ['name', 'type', 'category_id'];
+    protected $fillable = ['name',  'category_id'];
 
     protected $hidden = [
         'created_at',

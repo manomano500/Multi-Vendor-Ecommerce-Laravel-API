@@ -19,11 +19,11 @@ class StoreAdminController extends Controller
 
     public function index()
     {
-        $stores = Store::whereHas('products')->filter(request()->query())   ->paginate(10);
+//        $stores = Store::whereHas('products')->filter(request()->query())   ->paginate(10);
+        $stores = Store::withCount('products', 'orders')->with('category', 'user')->get();
         if ($stores->isEmpty()) {
             return response()->json(['message' => 'no stores found'], 200);
         }
-        Log::info($stores);
         return StoreAdminResource::collection($stores->load('category', 'user', 'products', 'orders'));
     }
 

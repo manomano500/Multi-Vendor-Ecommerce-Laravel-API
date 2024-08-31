@@ -5,6 +5,7 @@ use App\Http\Controllers\api\admin\OrderAdminController;
 use App\Http\Controllers\api\admin\ProductAdminController;
 use App\Http\Controllers\api\admin\StoreAdminController;
 use App\Http\Controllers\api\admin\UserController;
+use App\Http\Controllers\api\admin\VariationAdminController;
 use App\Http\Controllers\api\NotificationController;
 use App\Http\Controllers\api\public\CategoryController;
 use App\Http\Controllers\api\StatisticsController;
@@ -29,6 +30,17 @@ Route::prefix('/categories')->group(function () {
     Route::get('/{category}', [CategoryAdminController::class, 'show']);
     Route::put('/{category}', [CategoryAdminController::class, 'update']);
     Route::delete('/{category}', [CategoryAdminController::class, 'destroy']);
+});
+
+
+
+
+Route::prefix('/variations')->group(function () {
+    Route::get('/', [VariationAdminController::class, 'index']);
+    Route::post('/', [VariationAdminController::class, 'store']);
+    Route::put('/{id}', [VariationAdminController::class, 'update']);
+    Route::delete('/{id}', [VariationAdminController::class, 'destroy']);
+    Route::get('/{id}', [VariationAdminController::class, 'show']);
 });
 
 Route::post('/categories/{id}',[CategoryAdminController::class,'update']);

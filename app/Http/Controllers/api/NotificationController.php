@@ -10,8 +10,12 @@ class NotificationController extends Controller
 {
     public function index()
     {
-        $notification= auth()->user()->notifications;
-        return NotificationResource::collection($notification);
+
+        // Fetch all notifications for the user
+
+        // Mark all unread notifications as read
+        $notifications= auth()->user()->notifications;
+        return NotificationResource::collection($notifications);
 //        return new NotificationResource($notification);
     }
 

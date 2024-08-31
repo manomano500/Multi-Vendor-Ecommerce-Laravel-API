@@ -18,14 +18,17 @@ class ProductAdminResource extends JsonResource
            'id' => $this->id,
            'name' => $this->name,
            'price' => $this->price,
-           'image' => $this->images()->get(['id','image']), // Use accessor to get full URLs
-
+           'quantity' => $this->quantity,
+           'image'=>$this->images->map(function($image){
+               return [
+                   'id'=>$image->id,
+                  'image'=> $image->getImageUrlAttribute()];
+           }),
 //'image'=>$this->images()->first()?->getImageUrlAttribute() ?? null,
            'category' => $this->category->name,
            'store' => $this->store->name,
 
-           'created_at' => $this->created_at,
-           'updated_at' => $this->updated_at,
+           'created_at' => $this->created_at->diffForHumans(),
        ];
     }
 }

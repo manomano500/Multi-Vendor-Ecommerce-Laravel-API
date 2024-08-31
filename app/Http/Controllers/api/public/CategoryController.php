@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Validator;
 class CategoryController extends Controller
 {
 
-    /**
-* public
-     */
+
 
    /* public function index()
     {
@@ -52,10 +50,6 @@ Log::info($categories);
 
 
 
-    /**
-     *public
-     */
-
     public function show($id)
     {
         $category = Category::find($id)
@@ -82,23 +76,7 @@ Log::info($categories);
 
 
 
-    public function queryCats(Request $request)
-    {
-        $type = $request->query('type', 'store'); // Default to 'product' if not specified
 
-        $categories = Category::with('children')
-            ->whereNull('category_id')
-            ->where('type', $type)
-            ->get()
-            ->map(function ($category) {
-                return [
-                    'id' => $category->id,
-                    'name' => $category->getTranslation('name', app()->getLocale())
-                ];
-            });;
-
-        return response()->json($categories);
-    }
 
 
 

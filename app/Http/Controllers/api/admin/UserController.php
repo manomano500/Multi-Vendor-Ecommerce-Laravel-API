@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UsersResource;
 use App\Models\User;
 use Exception;
 use Illuminate\Auth\Events\Registered;
@@ -22,9 +23,9 @@ class UserController extends Controller
             $query->where('role_id', $roleId);
         }
 
-        $users = $query->get();
-
-        return response()->json($users);
+//        $users = $query::with('role')->get();
+        $users =User::with('role')->get();
+        return UsersResource::collection($users);
     }
     public function store(Request $request)
     {
