@@ -18,8 +18,10 @@ class ProductIndexResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'category_id' => $this->category,
-            'price' => $this->price,
+            'category' => [
+                'id' => $this->category->id,
+                'name' => $this->category->getTranslation('name', app()->getLocale()),
+            ],            'price' => $this->price,
             'image' => $this->images->first()?->getImageUrlAttribute(), // Returns only the first image
 //        'images'=>$this->images()->get(['id','image']),
 
