@@ -78,11 +78,17 @@ class Store extends Model
         return $this->hasMany(Product::class);
     }
 
-    public function orders()
+ /*   public function orders()
     {
         return $this->hasManyThrough(Order::class, OrderProduct::class, 'store_id', 'id', 'id', 'order_id');
+    }*/
+    public function orders()
+    {
+        return $this->hasManyThrough(Order::class, OrderProduct::class, 'product_id', 'id', 'id', 'order_id')
+            ->whereHas('products', function ($query) {
+                $query->where('store_id', $this->id);
+            });
     }
-
 
 
 

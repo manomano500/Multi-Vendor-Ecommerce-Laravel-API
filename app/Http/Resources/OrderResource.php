@@ -29,6 +29,7 @@ class OrderResource extends JsonResource
                     'product_name' => $product->name,
                     'product_status' => $product->pivot->status,
                     'store_name' => $product->store->name ?? null,
+                    'store_id' => $product->store->id ?? null,
                     'price' => $product->pivot->price,
                     'quantity' => $product->pivot->quantity,
                     'variations' => $product->pivot->variations() ?? 'N/A',

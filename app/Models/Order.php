@@ -14,20 +14,28 @@ class Order extends Model
 
 protected $hidden = ['created_at', 'updated_at'];
 
-    public function scopeWithStoreProducts($query, $storeId)
+/*    public function scopeWithStoreProducts($query, $storeId)
     {
         return $query->whereHas('products', function ($query) use ($storeId) {
             $query->where('order_product.store_id', $storeId);
         })->with(['products' => function ($query) use ($storeId) {
             $query->where('order_product.store_id', $storeId);
         }]);
-    }
+    }*/
 
+    public function scopeWithStoreProducts($query, $storeId)
+    {
+        return $query->whereHas('products.store', function ($query) use ($storeId) {
+            $query->where('id', $storeId);
+        })->with(['products.store' => function ($query) use ($storeId) {
+            $query->where('id', $storeId);
+        }]);
+    }
 
     public function scopeFilter(Builder $builder, $filters)
     {
         $options = array_merge([
-            'status' => 'pending',
+            'status' => null,
             'payment_status' => null,
             'payment_method' => null,
             'limit' => null,
@@ -99,7 +107,7 @@ public static function booted()
 
     public function getCreatedAttAttribute()
     {
-        return $this->created_at?->format('Y-m-d H:i');
+        return $this->created_at?->format('Y-m-d');
     }
 
     // Specify the attributes that should be appended to the model's array form

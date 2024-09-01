@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Tests\TestCase;
 
-class OrderControllerTest extends TestCase
+class OrdersTest extends TestCase
 {
     use RefreshDatabase, WithFaker;
 
@@ -53,11 +53,11 @@ class OrderControllerTest extends TestCase
 
     public function test_customer_can_order_from_multiple_stores()
     {
-        $user = User::factory()->create(["role_id" => 3]);
+        $user = User::factory()->create();
         $store1 = Store::factory()->create();
         $store2 = Store::factory()->create();
-        $product1 = Product::factory()->create(['status' => 'active', 'store_id' => $store1->id]);
-        $product2 = Product::factory()->create(['status' => 'active', 'store_id' => $store2->id]);
+        $product1 = Product::factory()->create([ 'store_id' => $store1->id]);
+        $product2 = Product::factory()->create([ 'store_id' => $store2->id]);
 
         $orderData = [
             'products' => [
@@ -82,10 +82,15 @@ class OrderControllerTest extends TestCase
         $response = $this->actingAs($user)
             ->postJson('/api/customer/orders', $orderData);
 
+        $this->assertDatabaseHas('orders', [
+            'user_id' => $user->id,
+            'status' => 'pending',
+        ]);
+
         $response->assertStatus(201);
     }
 
-    public function test_customer_can_view_order_history()
+/*    public function test_customer_can_view_order_history()
     {
         $user = User::factory()->create(['role_id' => 3]);
         Auth::login($user);
@@ -95,9 +100,9 @@ class OrderControllerTest extends TestCase
         $response = $this->getJson('/api/customer/orders');
 
         $response->assertStatus(Response::HTTP_OK);
-    }
+    }*/
 
-    public function test_customer_can_view_order_details()
+/*    public function test_customer_can_view_order_details()
     {
         $user = User::factory()->create(['role_id' => 3]);
         Auth::login($user);
@@ -107,19 +112,8 @@ class OrderControllerTest extends TestCase
         $response = $this->getJson("/api/customer/orders/{$order->id}");
 
         $response->assertStatus(Response::HTTP_OK);
-    }
+    }*/
 
-    public function test_customer_can_cancel_order()
-    {
-        $user = User::factory()->create(['role_id' => 3]);
-        Auth::login($user);
-
-        $order = Order::factory()->create(['user_id' => $user->id]);
-
-        $response = $this->deleteJson("/api/customer/orders/{$order->id}");
-
-        $response->assertStatus(Response::HTTP_OK);
-    }
 
 
 

@@ -23,7 +23,7 @@ class UserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'role_id' => 3,
             'email_verified_at' => now(),
-            'phone' => fake()->phoneNumber(),
+            'phone' => '0912323454',
             'address' => fake()->address(),
 
             'password' => bcrypt('12345678'), // password

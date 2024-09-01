@@ -27,7 +27,7 @@ class ProductAdminController extends Controller
     {
 
         $products = Product::with('category', 'store','images')->
-        paginate();
+        paginate(40);
         Log::info($products);
         return  ProductAdminResource::collection($products);
     }

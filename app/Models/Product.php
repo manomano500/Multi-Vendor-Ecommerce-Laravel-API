@@ -54,7 +54,6 @@ protected $hidden=['created_at','updated_at','deleted_at'];
             }
         });
 
-        // Other filters (status, category, store, etc.)
         $builder->when($options['status'], function ($query, $status) {
             $query->where('status', $status);
         });

@@ -25,7 +25,8 @@ class OrderAdminController extends Controller
     public function index()
     {
 
-        $orders =Order::filter(request()->query())->latest()->get();
+        $orders =Order::filter(request()->query())->with( 'user',)
+            ->latest()->get();
         return $orders;
         }
 
@@ -34,8 +35,9 @@ class OrderAdminController extends Controller
     {
       /*  $loadOrder = Order::findOrFail($id)
             ->load(['products.store','user',]);*/
-        $order = Order::with('orderProducts', 'user','products')->findOrFail($id);
-//        return $order;
+        $order = Order::with(['products' => function($query) {
+            $query->withTrashed();
+        }, 'user','orderProducts.product'])->findOrFail($id);//        return $order;
         return OrderResource::make($order);
     }
 

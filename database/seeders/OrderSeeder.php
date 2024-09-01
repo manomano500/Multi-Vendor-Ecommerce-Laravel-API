@@ -38,7 +38,7 @@ class OrderSeeder extends Seeder
                     $orderProduct = OrderProduct::create([
                         'order_id' => $order->id,
                         'product_id' => $product->id,
-                        'store_id' => $product->store_id,
+//                        'store_id' => $product->store_id,
                         'status' => 'Pending',
                         'quantity' => rand(1, 9),
                         'price' => $product->price,

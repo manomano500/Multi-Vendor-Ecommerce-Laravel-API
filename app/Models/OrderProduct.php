@@ -33,12 +33,21 @@ public $incrementing = true;
         return $this->belongsTo(Product::class);
     }
 
+//    public function store()
+//    {
+//        return $this->belongsTo(Store::class, 'store_id', 'id');
+//    }
+
     public function store()
     {
-        return $this->belongsTo(Store::class, 'store_id', 'id');
+        // Ensure the product relationship is loaded and then return the store relationship
+        return $this->product->store();
     }
 
-
+    public function getProductStoreId()
+    {
+        return $this->product ? $this->product->store_id : null;
+    }
 
 
 public function variations()

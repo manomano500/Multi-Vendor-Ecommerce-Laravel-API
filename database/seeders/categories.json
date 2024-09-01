@@ -1,15 +1,5 @@
 [
-    {
-        "name": {
-            "en": "Electronics",
-            "ar": "الإلكترونيات"
-        },
-        "subcategories": [
-            {"name": {"en": "Mobile Phones", "ar": "الهواتف المحمولة"}},
-            {"name": {"en": "Laptops", "ar": "أجهزة الكمبيوتر المحمولة"}},
-            {"name": {"en": "Cameras", "ar": "الكاميرات"}}
-        ]
-    },
+
     {
         "name": {
             "en": "Fashion",

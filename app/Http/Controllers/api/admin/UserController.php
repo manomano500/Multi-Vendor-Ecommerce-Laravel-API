@@ -27,6 +27,15 @@ class UserController extends Controller
         $users =User::with('role')->get();
         return UsersResource::collection($users);
     }
+
+    public function show($id)
+    {
+        $user = User::findOrFail($id);
+        if (!$user) {
+            return response()->json(['message' => 'User not found!'], 404);
+        }
+        return response()->json( $user, 200);
+    }
     public function store(Request $request)
     {
         $validated = Validator::make($request->all(), [

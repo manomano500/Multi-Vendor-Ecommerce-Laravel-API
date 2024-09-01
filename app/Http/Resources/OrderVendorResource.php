@@ -36,6 +36,7 @@ class OrderVendorResource extends JsonResource
             'products'=>$this->products->map(function($product){
                 return [
                     'product_id'=>$product->id,
+                    'store_id'=>$product->store_id,
                     'name'=>$product->name,
                     'price' => $product->pivot->price,
                     'quantity'=>$product->pivot->quantity,

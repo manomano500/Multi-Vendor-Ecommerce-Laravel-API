@@ -19,11 +19,10 @@ class StoreAdminResource extends JsonResource
 
             'id' => $this->id,
             'name' => $this->name,
-            'description' => $this->description,
             'image' => Store::getImageUrl($this->image),
             'category' => $this->category->name ?? 'No Category', // Safely return the category name or a default value
             'status' => $this->status,
-            'user' => $this->user->name,
+            'user' => $this->user_id            ,
             'address' => $this->address,
             'products' => $this->products->count(),
             'orders' => $this->orders->count(),

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\OrderProduct;
 use App\Models\Product;
 use App\Models\Store;
 use App\Models\User;
@@ -72,15 +73,28 @@ class StatisticsController extends Controller
 
         // Gather statistics
         $totalProducts = Product::where('store_id', $store->id)?->count();
-        $totalOrders = Order::where('store_id', $store->id)?->count();
-        $totalSales = Order::where('store_id', $store->id)?->sum('order_total');
-//        $totalRevenue = Order::where('store_id', $store->id)->sum('total_amount'); // Assuming total_amount includes revenue
+        $lowStockProducts = Product::where('store_id', $store->id)->where('quantity', '<', 10)->count();
+        $orders = Order::withStoreProducts($store->id)->count();
+        $totalSales = Order::withStoreProducts($store->id)
+            ->where('status', '!=', 'completed')
+            ->sum('order_total');
+        $balance = Order::withStoreProducts($store->id)
+            ->where('status', 'completed')
+            ->sum('order_total');
+
+//        $totalOrders = Order::where('store_id', $store->id)?->count();
+
+
 
         // Return statistics
         return response()->json([
             'total_products' => $totalProducts,
-            'total_orders' => $totalOrders,
-            'total_sales' => $totalSales,
+            'low_stock_products' => $lowStockProducts,
+            'orders' => $orders,
+'$totalSales'=>$totalSales,
+'balance'=>$balance
+//            'total_orders' => $totalOrders,
+//            'total_sales' => $totalSales,,
 //            'total_revenue' => $totalRevenue,
         ]);
 

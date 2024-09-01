@@ -31,7 +31,8 @@ class UpdateProfileController extends Controller
         // Validate the incoming request data.
         $validator = Validator::make($request->all(), [
             'name' => ['sometimes', 'required', 'string', 'max:255', 'min:3'],
-            'phone' => ['sometimes', 'required', 'string'],
+            'phone' => ['sometimes', 'required', 'digits:10','regex:/^09\d{8}$/'],
+            'address' => ['sometimes', 'required', 'string','max:255', 'min:3'],
 
         ]);
 

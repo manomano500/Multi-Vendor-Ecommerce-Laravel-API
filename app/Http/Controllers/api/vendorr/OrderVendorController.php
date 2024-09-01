@@ -35,11 +35,11 @@ class OrderVendorController extends Controller
 
 Log::info('e');
         // Get orders with their products using the scope
-//        $orders = Order::withStoreProducts($storeId)->get();
+        $orders = Order::withStoreProducts($storeId)->get();
 
         // Structure the data
 //return $orders;
-//        return  OrderVendorResource::collection($orders) ;
+        return  OrderVendorResource::collection($orders) ;
 //
 
 

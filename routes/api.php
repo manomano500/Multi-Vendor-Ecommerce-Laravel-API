@@ -6,6 +6,7 @@ use App\Http\Controllers\api\public\StoreController;
 use App\Http\Controllers\api\public\VariationController;
 use App\Http\Controllers\api\public\VariationsController;
 use App\Http\Controllers\AttributeController;
+use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 
 
@@ -22,7 +23,8 @@ use Illuminate\Http\Request;
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/user', function (Request $request) {
-        return response()->json($request->user());    });
+        return UserResource::make($request->user());
+    });
 
 
 });
