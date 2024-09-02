@@ -36,7 +36,7 @@ class NewUserRegisteredNotification extends Notification implements ShouldQueue
     public function toDatabase(object $notifiable): array
     {
         return [
-            'body' => 'A new user'.$notifiable->name. 'has registered',
+            'body' => 'A new user '.$notifiable->name. 'has registered',
             'url' => '  `/users/edit/'.$this->user->id,
 
 

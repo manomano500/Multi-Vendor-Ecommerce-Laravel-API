@@ -11,7 +11,14 @@ class CategoryAdminController extends Controller
 {
     public function index()
     {
-        $categories = Category::with('children')->parent()->get();
+        $categories = Category::with('children')->get()
+            ->map(function ($category) {
+                return [
+                    'id' => $category->id,
+                    'name' => $category->getTranslation('name', app()->getLocale())
+                ];
+            });
+        ;
         return response()->json($categories);
     }
 

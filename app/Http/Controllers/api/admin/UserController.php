@@ -41,6 +41,7 @@ class UserController extends Controller
         $validated = Validator::make($request->all(), [
             'name' => 'required|string',
             'email' => 'required|email|unique:users',
+
             'role_id' => 'required|integer|in:1,2,3',
             'store_name' => 'required_if:role,vendor|string|max:255',
             'category' =>'required_if:role,vendor|string|max:255|exists:categories,id',
@@ -58,6 +59,8 @@ class UserController extends Controller
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
+                'phone' => null,
+                'address' => null,
                 'password' => bcrypt($request->email),
                 'role_id' => $request->role_id
             ]);
@@ -67,8 +70,8 @@ class UserController extends Controller
                     'name' => $request->store_name,
                     'category_id' => $request->category,
                     'user_id' => $user->id,
-                  'address' => "request->address",
-                  'description'=>"request->description",
+                  'address' => null,
+                  'description'=>null,
                 ]);
             }
 DB::commit();
