@@ -3,14 +3,14 @@
         {
             "name": "shein",
             "description": "A diverse selection of items including clothing, electronics, and home goods. Find something for everyone at this store.",
-            "image": "store_images/0_ffwavcctxNDNGqQd.jpg",
+            "image": "store_images/Dobbies_Logo.jpg",
             "category": "jewelery"
         },
         {
-            "name": "Altron Grand",
-            "description": "Fashion-forward store offering the latest trends in clothing and accessories for all ages.",
+            "name": "Alreyada Group",
+            "description": "A variety of stylish and functional products for everyday use, from fashion to electronics.",
             "image": "store_images/416053168_763133005856741_7521247943647472847_n.jpg",
-            "category": "women"
+            "category": "electronics"
         },
         {
             "name": "Cat",
@@ -30,12 +30,7 @@
             "image": "store_images/christian-dior-new3874.jpg",
             "category": "beauty"
         },
-        {
-            "name": "Dior House",
-            "description": "Exclusive fashion and beauty products from a world-renowned luxury brand.",
-            "image": "store_images/Dior_Logo.svg.png",
-            "category": "beauty"
-        },
+
         {
             "name": "Gucci Home",
             "description": "Upscale store offering a range of luxury fashion items, including clothing, accessories, and footwear.",
@@ -72,12 +67,7 @@
             "image": "store_images/marca-shein.jpg",
             "category": "women"
         },
-        {
-            "name": "Puma ",
-            "description": "Sportswear and athletic gear store offering a wide range of high-performance clothing and footwear.",
-            "image": "store_images/puma-logo-illustration-free-vector.jpg",
-            "category": "shoes"
-        },
+
         {
             "name": "Shoes House",
             "description": "Renowned brand for sports and casual wear, featuring a wide selection of shoes and apparel.",

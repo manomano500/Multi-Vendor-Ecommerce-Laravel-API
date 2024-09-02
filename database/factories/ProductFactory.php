@@ -25,7 +25,7 @@ class ProductFactory extends Factory
             'updated_at' => Carbon::now(),
             'store_id' => Store::factory()->create()->id,
 
-            'category_id' => Category::factory()->create()->id,
+            'category_id' => Category::get()->random()->id,
 
 
 

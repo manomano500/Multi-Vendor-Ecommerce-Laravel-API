@@ -27,9 +27,9 @@ class StoreController extends Controller
 
 
         // Check if the stores collection is empty
-        if ($stores->isEmpty()) {
-            return response()->json(['message' => 'no stores found'], 200);
-        }
+//        if ($stores->isEmpty()) {
+//            return response()->json(['message' => 'no stores found'], 200);
+//        }
 
         return StoreResource::collection($stores);
     }
