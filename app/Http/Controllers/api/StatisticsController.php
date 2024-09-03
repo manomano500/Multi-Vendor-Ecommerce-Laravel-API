@@ -66,6 +66,7 @@ class StatisticsController extends Controller
 
         $user = Auth::user();
         $store = $user->store;
+        $storeId = $store->id;
 
         if (!$store) {
             return response()->json(['message' => 'No store found for the user'], 404);
@@ -75,9 +76,20 @@ class StatisticsController extends Controller
         $totalProducts = Product::where('store_id', $store->id)?->count();
         $lowStockProducts = Product::where('store_id', $store->id)->where('quantity', '<', 10)->count();
         $orders = Order::withStoreProducts($store->id)->count();
-        $totalSales = Order::withStoreProducts($store->id)
+        $totalSales = Order::whereHas('products', function ($query) use ($storeId) {
+            $query->whereHas('store', function ($query) use ($storeId) {
+                $query->where('id', $storeId);
+            });
+        })
             ->where('status', '!=', 'completed')
-            ->sum('order_total');
+            ->with('products')
+            ->get()
+            ->sum(function ($order) {
+                return $order->products->sum(function ($product) {
+                    return $product->pivot->price * $product->pivot->quantity;
+                });
+            });
+
         $balance = Order::withStoreProducts($store->id)
             ->where('status', 'completed')
             ->sum('order_total');
@@ -91,7 +103,7 @@ class StatisticsController extends Controller
             'total_products' => $totalProducts,
             'low_stock_products' => $lowStockProducts,
             'orders' => $orders,
-'$totalSales'=>$totalSales,
+'totalSales'=>$totalSales,
 'balance'=>$balance
 //            'total_orders' => $totalOrders,
 //            'total_sales' => $totalSales,,

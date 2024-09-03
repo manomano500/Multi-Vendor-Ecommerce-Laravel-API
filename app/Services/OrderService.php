@@ -81,7 +81,6 @@ class OrderService
                         'product_id' => $product->id,
                         'quantity' => $productData['quantity'],
                         'price' => $product->price,
-                        'store_id' => $product->store_id,
                         'variations' => $encodedVariations,
                     ]);
                     ProductHelper::deductProductQuantities($product, $productData['quantity']);

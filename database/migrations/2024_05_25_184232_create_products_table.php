@@ -16,7 +16,7 @@ return new class extends Migration {
 
             $table->foreignId('store_id')->index();
 
-            $table->double('price');
+            $table->decimal('price', 10, 3);
 
             $table->enum('status', ['active', 'out_of_stock'])->default('active')->index();
 

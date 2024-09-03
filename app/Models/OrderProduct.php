@@ -19,6 +19,9 @@ public $incrementing = true;
         'updated' => OrderProductUpdated::class,
     ];
 
+    protected $casts = [
+        'price' => 'decimal:3', // Stored with 2 decimal places
+    ];
 
 
     protected $fillable = ['order_id', 'product_id', 'quantity', 'price', 'store_id', 'status','variations' ];

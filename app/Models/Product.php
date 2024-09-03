@@ -190,4 +190,8 @@ protected $hidden=['created_at','updated_at','deleted_at'];
 // Send notifications to vendor and admins
         Notification::send($notifiables, new LowStockNotification($this));
 
-    }}
+    }
+    protected $casts = [
+        'price' => 'decimal:3', // Stored with 2 decimal places
+    ];
+}

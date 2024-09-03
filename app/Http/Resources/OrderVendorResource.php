@@ -23,16 +23,16 @@ class OrderVendorResource extends JsonResource
 
         return [
             'id' => $this->id,
-            'user_name' => $this->user->name,
-
+            'user_id' => $this->user->id,
+'user_phone'=>$this->user->phone,
 'payment_method' => $this->payment_method,
             'payment_status' => $this->payment_status,
             'status' => $this->status,
             'shipping_address' => $this->shipping_address,
-            'created_at' => $this->created_at->diffForHumans(),
-            'order_total'=> $this->products->sum(function($product){
+            'created_at' => $this->created_at->format('Y-m-d H:i:s'),
+            'order_total' => round($this->products->sum(function($product) {
                 return $product->pivot->price * $product->pivot->quantity;
-            }),
+            }), 3),
             'products'=>$this->products->map(function($product){
                 return [
                     'product_id'=>$product->id,
@@ -40,7 +40,8 @@ class OrderVendorResource extends JsonResource
                     'name'=>$product->name,
                     'price' => $product->pivot->price,
                     'quantity'=>$product->pivot->quantity,
-                    'variant'=>$product->pivot->variations,
+                    'status'=>$product->pivot->status,
+                    'variations'=>json_decode($product->pivot->variations, true),
                 ];
             }),
 

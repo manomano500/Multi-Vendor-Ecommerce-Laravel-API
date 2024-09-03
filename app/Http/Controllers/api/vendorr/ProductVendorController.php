@@ -31,18 +31,16 @@ class ProductVendorController extends Controller
     }
 
     //////////////for the vendor
-    public function index(): ProductVendorAllCollection
+    public function index()
     {
 
-
-        $products = Product::where('store_id', Auth::user()->store->id)
-            ->with('category')
-            ->get();
-
-        return ProductVendorAllCollection::make($products);
-
+        $products = Product::whereStoreId(Auth::user()->store->id)
+            ->
+        with('category', 'store','images')->
+        paginate(50);
+        Log::info($products);
+        return  ProductAdminResource::collection($products);
     }
-
     public function store(Request $request)
     {
         $productRequest = ProductRequest::createFrom($request);
@@ -102,7 +100,7 @@ class ProductVendorController extends Controller
 
         }
         return Response()->json(['message' => 'Product found',
-                'data' => new ProductResource($product)]
+                 new ProductResource($product)]
             , 200);
 
     }
