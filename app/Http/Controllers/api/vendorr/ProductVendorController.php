@@ -99,7 +99,7 @@ class ProductVendorController extends Controller
             return response()->json(['message' => 'Product not found '], 404);
 
         }
-        return Response()->json(['message' => 'Product found',
+        return Response()->json(['message' => 'Product found','data'=>
                  new ProductResource($product)]
             , 200);
 
@@ -121,7 +121,8 @@ class ProductVendorController extends Controller
             'images' => 'sometimes|required|array',
             "images.*" => 'sometimes|required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'deleted_images' => 'sometimes|required|array',
-            'deleted_images.*' => 'sometimes|required|integer|exists:product_images,id',
+            'deleted_images.*' => 'sometimes|required|integer',
+//            'deleted_images.*' => 'sometimes|required|integer|exists:product_images,id',
             'variations' => 'sometimes|required|array',
             'variations.*' => 'sometimes|required|integer|nullable|distinct|exists:variations,id',
             'status' => 'sometimes|required|in:active,out_of_stock',

@@ -18,13 +18,19 @@ class ProductResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'category_id' => $this->category->name,
+            "category_id"=>                $this->category_id,
+
+
             'price' => $this->price,
             'status' => $this->status,
             'quantity' => $this->quantity,
             'images' => $this->images->map(function ($image) {
+
 //                return $image->image;
-                return $image->getImageUrlAttribute() ;
+                return [
+                    "id"=>$image->id,
+                    "image"=>$image->getImageUrlAttribute()
+                ];
                 //TODO:  this line return the user uploaded images
             }),
 //        'images'=>$this->images()->get(['id','image']),

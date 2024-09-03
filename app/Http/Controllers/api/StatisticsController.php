@@ -91,7 +91,7 @@ class StatisticsController extends Controller
             });
 
         $balance = Order::withStoreProducts($store->id)
-            ->where('status', 'completed')
+            ->where('status', 'delivered')
             ->sum('order_total');
 
 //        $totalOrders = Order::where('store_id', $store->id)?->count();

@@ -23,7 +23,7 @@ class OrderFactory extends Factory
             ])->id,
             'status' => 'pending',
             'order_total' => 33,
-            'payment_method' => 'on delivery',
+            'payment_method' => 'pay_on_deliver',
 
 
             'created_at' => Carbon::now(),
