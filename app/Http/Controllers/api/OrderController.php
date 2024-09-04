@@ -63,9 +63,20 @@ class OrderController extends Controller
 
             $order = $this->orderService->createOrder(Auth::id(), $request->all());
 
-            $processingResponse = $this->orderService->processPlutoOrderPayment($order, $request);
+            if($request->payment_method == 'pay_on_deliver'){
+                $order->payment_status = 'unpaid';
+                $order->save();
+                return Response()->json(['message' => 'Order created successfully'], 200);
 
-            return response()->json($processingResponse,201);
+
+                   }else{
+                $processingResponse = $this->orderService->processPlutoOrderPayment($order, $request);
+                return response()->json($processingResponse,201);
+
+
+            }
+
+
         } catch (Exception $e) {
             Log::error($e->getMessage());
             return response()->json(['message' => $e->getMessage()], 500);

@@ -20,6 +20,9 @@ class StoreController extends Controller
 
         $stores = Cache::remember($cacheKey, 5, function () {
             return Store::filter(request()->query())
+                ->whereHas('products', function ($query) {
+                    $query->where('status', 'active');
+                })
 
                 ->with(['category'])
                 ->paginate(20);

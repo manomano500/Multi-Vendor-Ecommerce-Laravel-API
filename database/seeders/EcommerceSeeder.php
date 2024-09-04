@@ -147,8 +147,8 @@ class EcommerceSeeder extends Seeder
                 $product = Product::create([
                     'name' => $productData['title'],
                     'description' => $productData['description'] ?? $productData['title'],
-                    'price' => $productData['price'],
-                    'quantity' => rand(1, 100),
+                    'price' => rand(1,20 ),
+                    'quantity' => rand(1, 5),
                     'category_id' => $category->id,
                     'store_id' => $store->id,
                     'status' => 'active',

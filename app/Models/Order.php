@@ -10,7 +10,7 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'order_total', 'status',  'shipping_address', 'payment_method','payment_status'];
+    protected $fillable = ['user_id', 'status',  'shipping_address', 'payment_method','payment_status'];
 
 protected $hidden = ['created_at', 'updated_at'];
 
@@ -109,9 +109,16 @@ public static function booted()
     {
         return $this->created_at?->format('Y-m-d');
     }
+    public function getOrderTotalAttribute()
+    {
+        return $this->orderProducts->sum(function ($orderProduct) {
+            return $orderProduct->quantity * $orderProduct->price;
+        });
+    }
+
 
     // Specify the attributes that should be appended to the model's array form
-    protected $appends = ['created_att'];
+    protected $appends = ['created_att','order_total'];
 
 
 }

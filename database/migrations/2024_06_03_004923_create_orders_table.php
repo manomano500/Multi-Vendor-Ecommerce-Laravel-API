@@ -11,7 +11,7 @@ return new class extends Migration {
             $table->id()->autoIncrement();
 
 $table->unsignedBigInteger('user_id')->index();
-            $table->decimal('order_total', 10, 2);
+//            $table->decimal('order_total', 10, 2);
             $table->enum('status', ['pending', 'processing', 'ready_for_shipment', 'in_the_way', 'delivered', 'cancelled'])->default('pending');
 
             $table->string('payment_method');

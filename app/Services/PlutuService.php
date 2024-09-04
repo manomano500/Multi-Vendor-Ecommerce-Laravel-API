@@ -57,6 +57,7 @@ class PlutuService
                 $order->save();
 
                 return [
+                    "message" => "OTP sent successfully",
                     'processId' => $response->getProcessId(),
                     'status' => 'success'
                 ];
@@ -68,7 +69,7 @@ class PlutuService
             }
         } catch (Exception $e) {
             return [
-                'exception' => $e->getMessage(),
+                'error' => $e->getMessage(),
                 'status' => 'failed'
             ];
         }
@@ -97,7 +98,7 @@ class PlutuService
             }
         } catch (Exception $e) {
             return [
-                'exception' => $e->getMessage(),
+                'error' => $e->getMessage(),
                 'status' => 'failed'
             ];
         }
@@ -131,7 +132,7 @@ class PlutuService
             }
         } catch (Exception $e) {
             return [
-                'exception' => $e->getMessage(),
+                'error' => $e->getMessage(),
                 'status' => 'failed'
             ];
 
@@ -149,6 +150,7 @@ class PlutuService
             if ($response->getOriginalResponse()->isSuccessful()) {
 
                 return [
+                    "message" => "Payment confirmed successfully",
                     'transactionId' => $response->getTransactionId(),
                     'data' => $response->getOriginalResponse()->getBody(),
                     'status' => 'success'
@@ -161,7 +163,7 @@ class PlutuService
             }
         } catch (Exception $e) {
             return [
-                'exception' => $e->getMessage(),
+                'error' => $e->getMessage(),
                 'status' => 'failed'
             ];
         }
@@ -190,7 +192,7 @@ public function localBankCards(Order $order)
         }
         } catch (Exception $e) {
             return [
-                'exception' => $e->getMessage(),
+                'error' => $e->getMessage(),
                 'status' => 'failed'
             ];
         }
@@ -234,7 +236,7 @@ public function localBankCards(Order $order)
         } catch (Exception $e) {
             // Handle any exceptions
             return [
-                'exception' => $e->getMessage(),
+                'error' => $e->getMessage(),
                 'status' => 'failed'
             ];
         }

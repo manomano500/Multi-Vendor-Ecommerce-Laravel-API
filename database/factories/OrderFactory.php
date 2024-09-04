@@ -22,7 +22,7 @@ class OrderFactory extends Factory
                 'role_id' => 3,
             ])->id,
             'status' => 'pending',
-            'order_total' => 33,
+//            'order_total' => 33,
             'payment_method' => 'pay_on_deliver',
 
 

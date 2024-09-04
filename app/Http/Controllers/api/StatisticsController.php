@@ -10,6 +10,7 @@ use App\Models\Store;
 use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class StatisticsController extends Controller
 {
@@ -29,7 +30,11 @@ class StatisticsController extends Controller
             $totalOrders = Order::count();
 
             // Get total sales amount
-            $totalSales = Order::sum('order_total');
+
+            $totalSales = DB::table('order_product')
+                ->select(DB::raw('SUM(quantity * price) as total_sales'))
+                ->pluck('total_sales')
+                ->first();
 
             // Get the number of new users in the last 30 days
             $newUsersLast30Days = User::where('created_at', '>=', now()->subDays(30))->count();

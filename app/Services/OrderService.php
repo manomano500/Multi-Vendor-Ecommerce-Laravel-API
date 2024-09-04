@@ -42,14 +42,7 @@ class OrderService
 
             DB::beginTransaction();
             // Validate that payment_method is provided
-        Log::info($data);
 
-/*            $order = Order::create([
-                'user_id' => $userId,
-                'status' => 'pending',
-                'payment_method' => $data['payment_method'], // Make sure this is set
-                'order_total' => 0,
-            ]);*/
 
             $orderTotal = 0;
 
@@ -60,6 +53,12 @@ class OrderService
             $productIds = collect($productsData)->pluck('product_id');
             $products = Product::whereIn('id', $productIds)->where('status', 'active')->get();
 
+            $order = Order::create([
+                'user_id' => $userId,
+                'status' => 'pending',
+                'payment_method' => $data['payment_method'], // Make sure this is set
+                'order_total' => 0,
+            ]);
             foreach ($productsData as $productData) {
                 $product = $products->firstWhere('id', $productData['product_id']);
                 $variations = $productData['variations'] ?? [];
@@ -68,15 +67,12 @@ class OrderService
 
                 }
                 $encodedVariations = json_encode($variations);
-                $order = Order::create([
-                    'user_id' => $userId,
-                    'status' => 'pending',
-                    'payment_method' => $data['payment_method'], // Make sure this is set
-                    'order_total' => 0,
-                ]);
+
+
+
 
                 if ($product) {
-                $orderProduct =    OrderProduct::create([
+                  OrderProduct::create([
                         'order_id' => $order->id,
                         'product_id' => $product->id,
                         'quantity' => $productData['quantity'],
@@ -88,8 +84,6 @@ class OrderService
                 }
             }
 
-            $order->update(['order_total' => $orderTotal]);
-            $order->refresh();
 
 
             DB::commit();
@@ -108,17 +102,14 @@ class OrderService
 
     public function processPlutoOrderPayment(Order $order,Request $request )
    {
-       if($request->payment_method == 'pay_on_deliver') {
-           $order->payment_status = 'unpaid';
-              $order->save();
-           return Response()->json(['message' => 'Order created successfully'], 200);
-       }
+
 
        if($request->payment_method == 'Adfali') {
            $otpResponse = $this->plutuService->sendAdfaliOtp($request['mobile_number'], $order);
 
            if($otpResponse["status"]==="success"){
                Transaction::create([
+
                    'order_id' => $order->id,
                    'payment_method' => 'Adfali', // 'Adfali' is added to the fillable array
                    'process_id' => $otpResponse['processId'],

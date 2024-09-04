@@ -145,8 +145,8 @@ class StoreSeeder extends Seeder
             $product = Product::create([
                 'name' => $faker->word,
                 'description' => $productData['description'] ?? $faker->sentence,
-                'price' => $productData['price'] ?? $faker->randomFloat(2, 10, 1000),
-                'quantity' => rand(1, 100),
+                'price' => $faker->randomFloat(1, 1, 80),
+                'quantity' => rand(1, 9),
                 'category_id' => $category->id,
                 'store_id' => $store->id,
                 'status' => 'active',

@@ -95,7 +95,7 @@ class OrderSeeder extends Seeder
                 }
 
                 // Calculate and save the total order price
-                $order->order_total = $order->orderProducts->sum('price');
+//                $order->order_total = $order->orderProducts->sum('price');
                 $order->status = 'pending';
                 Log::info($order);
                 $order->save();
