@@ -25,7 +25,7 @@ class StoreAdminResource extends JsonResource
             'user' => $this->user_id            ,
             'address' => $this->address,
             'products' => $this->products->count(),
-            'orders' => $this->orders->count(),
+            'orders' => $this->orderCount,
         ];
     }
 }

@@ -28,7 +28,7 @@ class PaymentController extends Controller
         Log::info("confirmAdfaliPayment");
         $validated =Validator::make($request->all(), [
             'process_id' => 'required',
-            'code' => 'required',
+            'code' => 'required|numeric|min:4',
             'amount' => 'required',
 //            'order_id' => 'required|exists:orders,id'
         ]);
@@ -50,18 +50,23 @@ if($response['status'] == 'success'){
         'transaction_id' => $response['transactionId'], // 'transaction_id' => '1234567890
         'payment_response' => $response
     ]);
+    $transaction->order->update([
+        'payment_status' => 'completed'
+    ]);
+    $transaction->save();
+return response()->json($response);
 }else{
 
         $transaction->update([
             'status' => 'failed',
             'payment_response' => $response
         ]);
+        return response()->json($response, 400);
 
 
 
 }
-       Log::info( $response);
-        return response()->json($response,200);
+
     }
 
 
@@ -92,7 +97,7 @@ if($transaction ==null){
                 'payment_response' => $response
             ]);
             $transaction->order->update([
-                'payment_status' => 'success'
+                'payment_status' => 'completed'
             ]);
             $transaction->save();
         }else {
@@ -105,6 +110,7 @@ if($transaction ==null){
                 'payment_status' => 'failed'
             ]);
             $transaction->save();
+            return response()->json($response, 400);
 
         }
 

@@ -55,9 +55,7 @@ Route::get('/users',[UserController::class,'index']);
 Route::get('/users/{id}',[UserController::class,'show']);
 Route::post('/users',[UserController::class,'store']);
 Route::delete('/users/{id}',[UserController::class,'destroy']);
-
-
-
+Route::put('/users/{id}',[UserController::class,'update']);
 //???
 Route::get('/stores',[StoreAdminController::class,'index']);
 Route::get('/stores/{id}',[StoreAdminController::class,'show']);
@@ -72,7 +70,7 @@ Route::get('/products',[ProductAdminController::class,'index']);
 Route::get('/products/{id}',[ProductAdminController::class,'show']);
 Route::post('/products/{id}',[ProductAdminController::class,'update']);
 Route::delete('/products/{id}',[ProductAdminController::class,'destroy']);
-
+Route::post('/products',[ProductAdminController::class,'store']);
 
 
 Route::get('/orders',[OrderAdminController::class,'index']);

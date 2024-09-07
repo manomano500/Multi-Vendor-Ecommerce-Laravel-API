@@ -35,7 +35,11 @@ class OrderService
         ;
         return $order;
     }
-
+    /**
+     * Process the Pluto order payment.
+     * @return mixed
+     * @throws \Exception
+     */
     public function createOrder($userId, $data)
     {
         try {
@@ -99,6 +103,14 @@ class OrderService
 
     }
 
+    /**
+     * Process the Pluto order payment.
+     *
+     * @param Order $order
+     * @param Request $request
+     * @return mixed
+     * @throws \Exception
+     */
 
     public function processPlutoOrderPayment(Order $order,Request $request )
    {

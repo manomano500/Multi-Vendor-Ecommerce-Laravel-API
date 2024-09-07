@@ -26,12 +26,32 @@ class ProductAdminController extends Controller
     public function index()
     {
 
-        $products = Product::with('category', 'store','images')->
-        paginate(50);
+        $products = Product::filter(request()->query())->with(['category', 'store','images'])->
+        paginate(request()->query('per_page', 10));
         Log::info($products);
         return  ProductAdminResource::collection($products);
     }
 
+    public function store()
+    {
+        $productRequest = ProductRequest::createFrom(request());
+        $validated = Validator::make($productRequest->all(), [
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'category_id' => 'required|integer|exists:categories,id',
+            'quantity' => 'required|integer',
+            'price' => 'required|numeric',
+            'images' => 'required|array',
+            "images.*" => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'variations' => 'required|array',
+            'variations.*' => 'required|integer|nullable|distinct|exists:variations,id',
+            'status' => 'required|in:active,out_of_stock',
+        ]);
+
+        if ($validated->fails()) {
+            return response()->json(['message' => $validated->errors()], 400);
+        }
+    }
     public function destroy($id)
     {
         $product = Product::find($id);

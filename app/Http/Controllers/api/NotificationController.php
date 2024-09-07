@@ -14,7 +14,7 @@ class NotificationController extends Controller
         // Fetch all notifications for the user
 
         // Mark all unread notifications as read
-        $notifications= auth()->user()->notifications;
+        $notifications= auth()->user()->notifications->take(20);
         return NotificationResource::collection($notifications);
 //        return new NotificationResource($notification);
     }

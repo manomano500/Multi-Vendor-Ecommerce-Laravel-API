@@ -25,9 +25,10 @@ class OrderAdminController extends Controller
     public function index()
     {
 
-        $orders =Order::filter(request()->query())->with( 'user',)
-            ->latest()->get();
-        return $orders;
+        $orders =Order::filter(request()->query())->with( ['user','orderProducts'])
+            ->orderBy('created_at', 'desc')
+            ->paginate(request()->query('per_page', 10));
+        return $orders->toJson();
         }
 
 

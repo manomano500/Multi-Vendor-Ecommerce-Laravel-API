@@ -12,8 +12,6 @@ Route::post('/become-vendor', [BecomeVendor::class, 'becomeVendor']);
 
 
 //Route::get('/categories', [CategoryController::class, 'queryCats']);
-
-
 Route::get('/orders', [OrderController::class, 'index']);
 Route::get('/orders/{id}', [OrderController::class, 'show']);
 Route::post('/orders', [OrderController::class, 'store']);

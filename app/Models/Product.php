@@ -32,17 +32,24 @@ protected $hidden=['created_at','updated_at','deleted_at'];
     public function scopeFilter(Builder $builder, $filters)
     {
         $options = array_merge([
-            'status' => 'active',
+            'id'=>null,
+            'status' => null,
             'category_id' => null,
             'store_id' => null,
+
             'search' => null,
+            'name'=>null,
             'price' => null,
             'sort' => null,
             'limit' => null,
             'page' => null,
             'variations' => null,
+
         ], $filters);
 
+        $builder->when($options['id'], function ($query, $id) {
+            $query->where('id', $id);
+        });
         // Filter by variations
         $builder->when($options['variations'], function ($query, $variations) {
             foreach ($variations as $attributeName => $values) {
@@ -83,6 +90,10 @@ protected $hidden=['created_at','updated_at','deleted_at'];
 
         $builder->when($options['limit'], function ($query, $limit) {
             $query->limit($limit);
+        });
+
+        $builder->when($options['name'], function ($query, $name) {
+            $query->where('name', 'like', "%$name%");
         });
 
         return $builder;

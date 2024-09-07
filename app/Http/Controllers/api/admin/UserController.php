@@ -24,7 +24,7 @@ class UserController extends Controller
         }
 
 //        $users = $query::with('role')->get();
-        $users =User::with('role')->get();
+        $users =User::filter(request()->query())->with('role')->paginate(10);
         return UsersResource::collection($users);
     }
 
@@ -84,6 +84,49 @@ DB::commit();
 
 
 
+
+    }
+
+    public function update(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        if (!$user) {
+            return response()->json(['message' => 'User not found!'], 404);
+        }
+        $validated = Validator::make($request->all(), [
+            'name' => 'sometimes|required|string',
+            'email' => 'sometimes|required|email|unique:users,email,' . $id,
+            'phone' => 'sometimes|required|string',
+            'address' => 'sometimes|required|string',
+            'role_id' => 'sometimes|required|integer|in:1,2,3',
+            'store_name' => 'sometimes|required_if:role,vendor|string|max:255',
+            'category' => 'sometimes|required_if:role,vendor|string|max:255|exists:categories,id',
+        ]);
+        if ($validated->fails()) {
+            return response()->json(['message' => 'Validation failed', 'errors' => $validated->errors()], 422);
+        }
+        try {
+            DB::beginTransaction();
+            $user->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'address' => $request->address,
+                'role_id' => $request->role_id
+            ]);
+            $user->save();
+            if ($request->role_id == 2) {
+                $user->store()->update([
+                    'name' => $request->store_name,
+                    'category_id' => $request->category,
+                ]);
+            }
+            DB::commit();
+            return response()->json(['message' => 'User updated successfully', 'user' => $user], 200);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response()->json(['message' => 'User update failed!', 'error' => $e->getMessage()], 409);
+        }
 
     }
 

@@ -10,12 +10,21 @@ class Store extends Model
 {
     use HasFactory;
 
-
+    public function getOrderCountAttribute()
+    {
+        return OrderProduct::whereHas('product', function ($query) {
+            $query->where('store_id', $this->id);
+        })->distinct('order_id')->count('order_id');
+    }
 
     public function scopeFilter(Builder $builder, $filters)
     {
         $options = array_merge([
-            'status' => 'active',
+            'status' => null,
+            "id"=>null,
+            "name"=>null,
+            "user_id"=>null,
+
             'category_id' => null,
             'search' => null,
             'sort' => null,
@@ -25,6 +34,15 @@ class Store extends Model
 
         $builder->when($options['status'], function ($query, $status) {
             $query->where('status', $status);
+        });
+        $builder->when($options['id'], function ($query, $id) {
+            $query->where('id', $id);
+        });
+        $builder->when($options['name'], function ($query, $name) {
+            $query->where('name', 'like',"%$name%");
+        });
+        $builder->when($options['user_id'], function ($query, $user_id) {
+            $query->where('user_id', $user_id);
         });
 
         $builder->when($options['category_id'], function ($query, $category) {

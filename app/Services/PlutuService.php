@@ -74,8 +74,6 @@ class PlutuService
             ];
         }
     }
-
-
     public function confirmAdfaliPayment($processId, $code, $amount, $orderId)
     {
         try {
@@ -121,6 +119,8 @@ class PlutuService
                 $order->payment_status = 'otp_sent';
                 $order->save();
                 return [
+                    "message" => "OTP sent successfully",
+
                     'processId' => $response->getProcessId(),
                     'status' => 'success'
                 ];
@@ -157,6 +157,7 @@ class PlutuService
                 ];
             } else {
                 return [
+
                     'error' => $response->getOriginalResponse()->getErrorMessage(),
                     'status' => 'failed'
                 ];

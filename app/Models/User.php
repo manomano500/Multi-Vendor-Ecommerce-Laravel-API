@@ -6,6 +6,8 @@ namespace App\Models;
 use App\Notifications\AdminNotification;
 use App\Notifications\NewUserRegisteredNotification;
 use App\Notifications\ResetPasswordNotification;
+use Illuminate\Database\Eloquent\Builder;
+
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -56,6 +58,45 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    public function scopeFilter(Builder $builder, $filters)
+
+    {
+        $options = array_merge([
+            'search' => null,
+            'role' => null,
+            'phone' => null,
+            'email' => null,
+            'name' => null,
+            "role_id" => null,
+            'limit' => null,
+            "id"    => null,
+            'page' => null,
+        ], $filters);
+        $builder->when($options['role_id'], function ($query, $role) {
+            $query->where('role_id', $role);
+        });
+        $builder->when($options['id'], function ($query, $id) {
+            $query->where('id', $id);
+        });
+
+        $builder->when($options['phone'], function ($query, $phone) {
+            $query->where('phone','like', "%$phone%");
+        });
+        $builder->when($options['email'], function ($query, $email) {
+            $query->where('email', $email);
+        });
+        $builder->when($options['name'], function ($query, $name) {
+            $query->where('name', 'like',"%$name%");
+        });
+        $builder->when($options['limit'], function ($query, $limit) {
+            $query->limit($limit);
+        });
+        $builder->when($options['page'], function ($query, $page) {
+            $query->paginate($page);
+        });
+
+
+    }
     public function role()
     {
         return $this->belongsTo(Role::class);

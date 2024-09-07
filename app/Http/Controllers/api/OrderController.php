@@ -60,24 +60,27 @@ class OrderController extends Controller
 
 
         try {
+            DB::beginTransaction();
 
             $order = $this->orderService->createOrder(Auth::id(), $request->all());
 
             if($request->payment_method == 'pay_on_deliver'){
                 $order->payment_status = 'unpaid';
                 $order->save();
+                DB::commit();
                 return Response()->json(['message' => 'Order created successfully'], 200);
 
-
-                   }else{
+            }else{
                 $processingResponse = $this->orderService->processPlutoOrderPayment($order, $request);
-                return response()->json($processingResponse,201);
+              DB::commit();
+                return response()->json( $processingResponse);
 
 
             }
 
 
         } catch (Exception $e) {
+            DB::rollBack();
             Log::error($e->getMessage());
             return response()->json(['message' => $e->getMessage()], 500);
         }
