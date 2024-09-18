@@ -47,6 +47,7 @@ Route::get('/products',[ProductController::class,'index']);
 Route::get('/products/{id}',[ProductController::class,'show']);
 
 
+
 Route::get('/stores',[StoreController::class,'index']);
 Route::get('/stores/{id}/products', [StoreController::class, 'showProducts']);
 
@@ -55,7 +56,4 @@ Route::get('/stores/{store_id}/filtered-products', [AttributeController::class, 
 
 
 
-Route::get('/payment-success', function () {
-    return view('redirect.payment-success');
-});
 
