@@ -160,6 +160,7 @@ class EcommerceSeeder extends Seeder
                         'product_id' => $product->id,
                         'image' => $storedImagePath,
                     ]);
+
                 }
 
                 // Attach variations based on category

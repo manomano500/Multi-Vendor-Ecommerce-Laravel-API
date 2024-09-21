@@ -43,8 +43,7 @@ Route::prefix('/variations')->group(function () {
     Route::get('/{id}', [VariationAdminController::class, 'show']);
 });
 
-Route::post('/categories/{id}',[CategoryAdminController::class,'update']);
-//TODO
+
 
 Route::get('/statistics', [StatisticsController::class, 'adminStatistic']);
 
