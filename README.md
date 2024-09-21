@@ -1,4 +1,4 @@
-# Multi-Vendor Bazaar Backend API
+# Multi-Vendor E-Commerce Laravel API
 
 
 ## Description
