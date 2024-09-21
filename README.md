@@ -44,7 +44,7 @@ For API testing and documentation, you can access the Postman workspace [here](h
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/manomano500/bazar-backend.git
-    cd bazar-backend
+    cd Multi-Vendor-Ecommerce-Laravel-API
     ```
 2. **Install dependencies:** 
     ```bash
