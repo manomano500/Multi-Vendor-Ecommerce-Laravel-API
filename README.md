@@ -23,10 +23,6 @@ This project is a multi-vendor bazaar backend built with Laravel. It provides RE
 - MySQL
 
 
-## Postman Workspace
-
-For API testing and documentation, you can access the Postman workspace [here](https://www.postman.com/workspace/your-workspace-name).
-
 ## Installation
 
 1. **Clone the repository:**
