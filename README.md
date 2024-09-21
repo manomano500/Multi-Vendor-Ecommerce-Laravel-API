@@ -3,17 +3,29 @@
 
 ## Description
 
-This project is a multi-vendor bazaar backend built with Laravel. It provides RESTful API endpoints for managing vendors, products, and orders in a marketplace environment.
+This project is a multi-vendor  E-Commerce API is built with Laravel. It offers RESTful API endpoints for managing vendors, products, and orders making it ideal for developers looking to implement a robust e-commerce solution.
 
 ## Features-
 
-- **Vendor Management:** Vendors can create stores and add products to their stores.
-- **Product Management:** Vendors can add, update, and delete products from their stores.
-- **Order Management:** Customers can view products and make orders.
-- **Payment Integration:** Customers can pay for their orders using Plutu Gateway.
-- **Admin Interface:** Admin can manage vendors, products, and orders.
-- **Authentication:** Users can sign up and log in to the platform.
-- **Authorization:** Users can only access resources they are authorized to access.
+
+### Vendor Management
+Allow vendors to create stores and manage their products.
+
+### Product Management
+Enable vendors to add, update, and delete products effortlessly.
+
+### Order Management
+Customers can browse products and place orders seamlessly.
+
+### Payment Integration
+Securely process payments using the Plutu Payment Gateway.
+
+### Admin Interface
+Admins have full control to manage vendors, products, and orders.
+
+### Authentication & Authorization
+Users can register, log in, and access only their authorized resources.
+
 
 ## Prerequisites
 
